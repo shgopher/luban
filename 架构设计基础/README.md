@@ -41,3 +41,5 @@
 -  https://icyfenix.cn/architect-perspective/general-architecture/system-security/
 -  https://icyfenix.cn/architect-perspective/general-architecture/transaction/
 -  https://mp.weixin.qq.com/s/JJpy1Qj32BWx1AioLJswgA
+- https://mp.weixin.qq.com/s/s6re9MLSbQ0bvC8eaXoj1Q
+- https://mp.weixin.qq.com/s/ypXzVdmg8yFrhE_lDwZl2g
