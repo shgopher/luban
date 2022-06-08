@@ -15,3 +15,5 @@ eBPF 程序通常是通过编写高级语言创建的，然后使用 clang/LLVM 
 - https://ebpf.io/what-is-ebpf/
 - https://isovalent.com/data/liz-rice-what-is-ebpf.pdf?continueFlag=6021d2a27ddea20f1b8750770c4bd9fb
 - https://mp.weixin.qq.com/s/KIsIA2tPzXZwGJSrfxm54g
+- https://mp.weixin.qq.com/s/8bgabA5UdJOUYXqdjiO1Dw
+- https://mp.weixin.qq.com/s/Xr8ECrS_fR3aCT1vKJ9yIg
