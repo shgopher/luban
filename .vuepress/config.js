@@ -122,7 +122,43 @@ module.exports = {
     ], 
     sidebar:[   
       {
-        title: '架构设计',
+        title: '架构设计基础',
+        collapsable: false,
+        children: [
+        ],
+      },
+      {
+        title: '容器',
+        collapsable: false,
+        children: [
+        ],
+      },
+      {
+        title: '网关',
+        collapsable: false,
+        children: [
+        ],
+      },
+      {
+        title: '消息队列',
+        collapsable: false,
+        children: [
+        ],
+      },
+      {
+        title: 'rpc',
+        collapsable: false,
+        children: [
+        ],
+      },
+      {
+        title: '搜索引擎',
+        collapsable: false,
+        children: [
+        ],
+      },
+      {
+        title: '实战',
         collapsable: false,
         children: [
         ],
