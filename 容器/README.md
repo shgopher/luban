@@ -3,7 +3,7 @@
 ## docker
 ## k8s
 ## istio
-## cilium
 ## dapr
+## knative
 ## 参考资料
 - https://mp.weixin.qq.com/s/TNUn0lXyqvaLByX4E5R9WQ
