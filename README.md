@@ -1,3 +1,13 @@
+<!--
+ * @Author: shgopher shgopher@gmail.com
+ * @Date: 2023-02-01 20:02:47
+ * @LastEditors: shgopher shgopher@gmail.com
+ * @LastEditTime: 2023-03-28 03:38:44
+ * @FilePath: /luban/README.md
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by shgopher, All Rights Reserved. 
+-->
 # 鲁班 
 <p align="left">
 hey~，我是科科人神，目前就职于国内一家互联网公司，你们可以加我<a href="#wechat.png">微信</a>，交个朋友吧~
@@ -14,32 +24,27 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 </p>
 添加微信公众号：<a href="#wechat.png">科科人神</a>, 回复：
 
-- `思维导图`, 获取作者总结的超详细的找工作面试秘籍，知识超级全面，并且以思维导图的方式更容易多维立体记忆。
+
 - `面试题`, 获取经典go面试大全。
 
 - `好友`, 可以添加作者的微信好友
-
-
-![](./luban.png)                             
-## 系列教程
-- [GOFamily](https://github.com/shgopher/GOFamily/) 一本为go后端程序员打造的教程
-- [408](https://github.com/shgopher/408/) 一本主要以408知识为主的基础课程
-- [luban](https://github.com/shgopher/luban/) 一本用鲁班的名字命名，主要讲解系统设计的书籍
-- [dingdang](https://github.com/shgopher/dingdang/) 叮当，是一本讲解各种工具的书
-- [god](https://github.com/shgopher/god/) 给程序员写的教程，主要关于学习，副业，买房，面试等内容，程序员才是真神！
-## 推荐项目
-- [hui](https://github.com/shgopher/hui) 一个简洁好用效率高的web框架
-- [key](https://github.com/shgopher/key) 一个服务授权系统
-- [go-short](https://github.com/shgopher/go-short) 一个超级好用的短链接服务
-- [ka](https://github.com/shgopher/ka) 一个效率非常高的秒杀服务                               
+                                                
 ## 架构设计基础
-
 ## 云原生
 ## 网关
 ## 消息队列
 ## rpc
 ## 搜索引擎
 ## 实战
+## 更多内容
+> 👷 正在施工中...
+
+- [GOFamily](https://github.com/shgopher/GOFamily) go 后端程序员宝典：go基础语法，go底层数据结构，go runtime 实现原理，go 并发模式 ，go语言项目经验
+- [408](https://github.com/shgopher/408) 关于408的相关知识，例如算法数据结构，网络，操作系统，数据库等。
+- [luban](https://github.com/shgopher/luban) 系统设计相关内容，例如分布式共识算法，消息队列，容器，RPC 等内容。
+- [dingdang](https://github.com/shgopher/dingdang) 各种工具类的使用，例如 git，正则表达式，ddd，CI/CD 等内容。
+- [god](https://github.com/shgopher/god) 关于程序员自身的一些看法，例如面试经历，赚钱窍门，创业门道，如何向上管理等。
+## 参考资料
 ## 扫一扫添加我的公众号，回复 “加群”，可以加入微信群。
 <p id="wechat.png" align="center">
 <br>
