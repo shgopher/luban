@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2023-05-08 01:27:17
+ * @LastEditTime: 2023-05-19 00:29:26
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -47,7 +47,9 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - [408](https://github.com/shgopher/408) 关于408的相关知识，例如算法数据结构，网络，操作系统，数据库等。
 - [luban](https://github.com/shgopher/luban) 系统设计相关内容，例如分布式共识算法，消息队列，容器，RPC 等内容。
 - [dingdang](https://github.com/shgopher/dingdang) 各种工具类的使用，例如 git，正则表达式，ddd，CI/CD 等内容。
-- [god](https://github.com/shgopher/god) 关于程序员自身的一些看法，例如面试经历，赚钱窍门，创业门道，如何向上管理等。
+- [god](https://github.com/shgopher/god) 关于程序员自身的一些看法，例如面试经历，赚钱窍门，创业门道，如何向上
+管理等。
+- [RustFamily](https://github.com/shgopher/RustFamily) rust 基础知识，rust 并发编程，rust 项目实践，rust底层原理。。
 ## 参考资料
 ## 扫一扫添加我的公众号，回复 “加群”，可以加入微信群。
 <p id="wechat.png" align="center">
