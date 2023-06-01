@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2023-06-02 06:09:44
+ * @LastEditTime: 2023-06-02 06:28:04
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -67,8 +67,8 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 六边形架构
 - 事件驱动架构
 - 微服务架构
-- 领域驱动架构（ddd）
-## ddd
+- 领域驱动架构（DDD）
+## DDD
 ## 云原生
 ### 微服务架构概念
 ### docker
@@ -81,9 +81,24 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 ### dapr
 ## 网关
 ## 消息队列
-## rpc
+## RPC
 ## 搜索引擎
+## 常见系统设计面试题
+- 秒杀系统原理
+- 设计 rpc 框架
+- 排行榜
+- 微信抢红包
+- 设计点赞功能
+- 微博 feed 流/微信朋友圈
+- 分布式定时任务
 ## 实战
+- [hui](./实战/hui/README.md) （web 框架）
+- [zhongli](./实战/zhongli/README.md)（rpc 框架）
+- [short](./实战/short/README.md)（短链接服务）
+- [key](./实战/key/README.md)（鉴权授权服务）
+- [ka](./实战/ka/README.md) （秒杀服务）
+- [retuo](./实战/retuo/README.md) （分布式爬虫）
+- [yelan](./实战/yelan/README.md) （区块链项目）
 ## 更多内容
 > 👷 正在施工中...
 
