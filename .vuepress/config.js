@@ -101,50 +101,6 @@ module.exports = {
         text:'作者',link:'https://shgopher.github.io/',
       },
     ], 
-    sidebar:[   
-      {
-        title: '架构设计基础',
-        collapsable: false,
-        children: [
-        ],
-      },
-      {
-        title: '云原生',
-        collapsable: false,
-        children: [
-        ],
-      },
-      {
-        title: '网关',
-        collapsable: false,
-        children: [
-        ],
-      },
-      {
-        title: '消息队列',
-        collapsable: false,
-        children: [
-        ],
-      },
-      {
-        title: 'rpc',
-        collapsable: false,
-        children: [
-        ],
-      },
-      {
-        title: '搜索引擎',
-        collapsable: false,
-        children: [
-        ],
-      },
-      {
-        title: '实战',
-        collapsable: false,
-        children: [
-        ],
-      },
-
-    ],
+    sidebar:'auto'
   },
 }
