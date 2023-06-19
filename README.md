@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2023-06-02 06:28:04
+ * @LastEditTime: 2023-06-19 22:12:54
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -30,6 +30,8 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - `好友`, 可以添加作者的微信好友
                                                 
 ## 系统设计基础
+### 架构绪论
+- [从宏观角度来谈后端的整体优化](./系统设计基础/架构绪论/从宏观角度来谈后端的整体优化/README.md)
 ### 分布式理论
 - CAP 理论
 - BASE 理论
