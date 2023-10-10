@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2023-06-19 22:12:54
+ * @LastEditTime: 2023-10-10 15:39:03
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -32,6 +32,7 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 ## 系统设计基础
 ### 架构绪论
 - [从宏观角度来谈后端的整体优化](./系统设计基础/架构绪论/从宏观角度来谈后端的整体优化/README.md)
+- [架构风格的物理分类](./系统设计基础/架构绪论/架构风格的物理分类/README.md)
 ### 分布式理论
 - CAP 理论
 - BASE 理论
@@ -62,14 +63,16 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 分布式通信技术
 - 分布式数据存储
 - 分布式高可靠 
-### 常见架构类型
+### 常见架构风格
+- 单体
+- 分布式
 - CS 架构
 - MVC/MVVM 架构
 - 清洁架构
 - 六边形架构
 - 事件驱动架构
 - 微服务架构
-- 领域驱动架构（DDD）
+- 领域驱动设计指导思想（DDD）
 ## DDD
 ## 云原生
 ### 微服务架构概念
@@ -93,9 +96,11 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 设计点赞功能
 - 微博 feed 流/微信朋友圈
 - 分布式定时任务
+- 分布式 id 生成器
 ## 实战
 - [hui](./实战/hui/README.md) （web 框架）
 - [zhongli](./实战/zhongli/README.md)（rpc 框架）
+- [xier](./实战/xier/README.md)（分布式 id 生成器）
 - [short](./实战/short/README.md)（短链接服务）
 - [key](./实战/key/README.md)（鉴权授权服务）
 - [ka](./实战/ka/README.md) （秒杀服务）
