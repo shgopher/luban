@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2023-10-10 15:39:03
+ * @LastEditTime: 2023-12-10 14:20:27
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -68,11 +68,11 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 分布式
 - CS 架构
 - MVC/MVVM 架构
-- 清洁架构
+- [洋葱架构](./系统设计基础/常见的架构风格/洋葱架构/README.md)
 - 六边形架构
-- 事件驱动架构
-- 微服务架构
 - 领域驱动设计指导思想（DDD）
+- 微服务架构
+- 事件驱动架构
 ## DDD
 ## 云原生
 ### 微服务架构概念
