@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2023-12-10 14:20:27
+ * @LastEditTime: 2024-01-16 17:20:33
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -40,6 +40,7 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 拜占庭将军问题
 - 高并发架构理论
 - 高可用架构理论
+- [数据一致性的相关算法](./架构设计基础/分布式理论/一致性算法/README.md)
 ### 分布式协议
 - paxos
 - raft
