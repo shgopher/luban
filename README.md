@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-05-20 10:53:47
+ * @LastEditTime: 2024-05-20 11:02:26
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -33,6 +33,15 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 ### 架构绪论
 - [从宏观角度来谈后端的整体优化](./系统设计基础/架构绪论/从宏观角度来谈后端的整体优化/README.md)
 - [架构风格的物理分类](./系统设计基础/架构绪论/架构风格的物理分类/README.md)
+### 架构设计基础
+- 架构师的定义
+- 架构思维
+- 模块化
+- 现有的架构特征
+- 识别架构特征
+- 度量和治理架构特征
+- 架构特征的范围
+- 组件化思维
 ### 常见架构风格概述
 - CS 架构
 - 分层架构
