@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-05-20 11:02:26
+ * @LastEditTime: 2024-06-17 23:12:47
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -46,7 +46,7 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - CS 架构
 - 分层架构
 - 管道架构
-- 微内核架构
+- [微内核架构](./系统设计基础/常见的架构风格/微内核架构/README.md)
 - MVC/MVVM 架构
 - 事件驱动架构
 - [洋葱架构](./系统设计基础/常见的架构风格/洋葱架构/README.md)
