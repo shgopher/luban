@@ -24,7 +24,7 @@
 - quorum-NWR
 - pbet
 - zookeeper 协议
-- 一致性hash
+- 一致性 hash
 - 分布式计算
 - 分布式存储
 - 分布式资源池化
@@ -42,12 +42,12 @@
 ## 架构设计基础主要参考了以下的资料
 
 - 极客时间-郭东白的架构课：https://time.geekbang.org/column/intro/100099801
-- 极客时间-从0开始学架构：https://time.geekbang.org/column/intro/100006601
+- 极客时间-从 0 开始学架构：https://time.geekbang.org/column/intro/100006601
 - 极客时间-许式伟的架构课：https://time.geekbang.org/column/intro/100025201
 - 极客时间-左耳听风：https://time.geekbang.org/column/intro/100002201
-- 极客时间-从0开始学微服务：https://time.geekbang.org/column/intro/100014401
+- 极客时间-从 0 开始学微服务：https://time.geekbang.org/column/intro/100014401
 - 极客时间-周志明的软件架构课：https://time.geekbang.org/opencourse/intro/100064201
-- 极客时间-高并发系统设计40问： https://time.geekbang.org/column/intro/100035801
+- 极客时间-高并发系统设计 40 问：https://time.geekbang.org/column/intro/100035801
 - 图书：软件架构：架构模式，特征及实践指南
 
 以上资料在单独的文章中不再点出，文章中出现的其它参考资料会单独指出来

@@ -8,7 +8,7 @@
  * 
  * Copyright (c) 2023 by shgopher, All Rights Reserved. 
 -->
-# 鲁班 
+# 鲁班
 <p align="left">
 hey~，我是科科人神，目前就职于国内一家互联网公司，你们可以加我<a href="#wechat.png">微信</a>，交个朋友吧~
 </p>
@@ -25,9 +25,9 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 添加微信公众号：<a href="#wechat.png">科科人神</a>, 回复：
 
 
-- `面试题`, 获取经典go面试大全。
+- `面试题`，获取经典 go 面试大全。
 
-- `好友`, 可以添加作者的微信好友
+- `好友`，可以添加作者的微信好友
                                                 
 ## 系统设计基础
 ### 架构绪论
@@ -51,7 +51,7 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 事件驱动架构
 - [洋葱架构](./系统设计基础/常见的架构风格/洋葱架构/README.md)
 - 六边形架构
-- 领域驱动设计指导思想（DDD）
+- 领域驱动设计指导思想 (DDD)
 - 微服务架构
 ### 分布式理论
 - CAP 理论
@@ -67,7 +67,7 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - raft
 - 一致性哈希
 - gossip
-- quorumNWR 
+- quorumNWR
 - poW
 - ZAB
 ### 分布式架构特征
@@ -75,16 +75,16 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 高可用架构
 - 可扩展架构
 ### 分布式系统设计模式
-- 弹力设计模式（高可用架构）
-- 性能设计模式（高性能架构）
-- 管理设计模式（可扩展架构）
+- 弹力设计模式 (高可用架构)
+- 性能设计模式 (高性能架构)
+- 管理设计模式 (可扩展架构)
 ### 分布式实践
 - 分布式协调与同步
 - 分布式资源管理与负载调度
 - 分布式计算技术
 - 分布式通信技术
 - 分布式数据存储
-- 分布式高可靠 
+- 分布式高可靠
 ## 微服务
 ## DDD 领域驱动设计
 ## 云原生
@@ -110,24 +110,24 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - 分布式定时任务
 - 分布式 id 生成器
 ## 实战
-- [hui](./实战/hui/README.md) （web 框架）
-- [zhongli](./实战/zhongli/README.md)（rpc 框架）
-- [xier](./实战/xier/README.md)（分布式 id 生成器）
-- [short](./实战/short/README.md)（短链接服务）
-- [key](./实战/key/README.md)（鉴权授权服务）
-- [ka](./实战/ka/README.md) （秒杀服务）
-- [retuo](./实战/retuo/README.md) （分布式爬虫）
-- [yelan](./实战/yelan/README.md) （区块链项目）
+- [hui](./实战/hui/README.md) (web 框架)
+- [zhongli](./实战/zhongli/README.md) (rpc 框架)
+- [xier](./实战/xier/README.md) (分布式 id 生成器)
+- [short](./实战/short/README.md) (短链接服务)
+- [key](./实战/key/README.md) (鉴权授权服务)
+- [ka](./实战/ka/README.md) (秒杀服务)
+- [retuo](./实战/retuo/README.md) (分布式爬虫)
+- [yelan](./实战/yelan/README.md) (区块链项目)
 ## 更多内容
 > 👷 正在施工中...
 
-- [GOFamily](https://github.com/shgopher/GOFamily) go 后端程序员宝典：go基础语法，go底层数据结构，go runtime 实现原理，go 并发模式 ，go语言项目经验
-- [408](https://github.com/shgopher/408) 关于408的相关知识，例如算法数据结构，网络，操作系统，数据库等。
+- [GOFamily](https://github.com/shgopher/GOFamily) go 后端程序员宝典：go 基础语法，go 底层数据结构，go runtime 实现原理，go 并发模式，go 语言项目经验
+- [408](https://github.com/shgopher/408) 关于 408 的相关知识，例如算法数据结构，网络，操作系统，数据库等。
 - [luban](https://github.com/shgopher/luban) 系统设计相关内容，例如分布式共识算法，消息队列，容器，RPC 等内容。
 - [dingdang](https://github.com/shgopher/dingdang) 各种工具类的使用，例如 git，正则表达式，ddd，CI/CD 等内容。
 - [god](https://github.com/shgopher/god) 关于程序员自身的一些看法，例如面试经历，赚钱窍门，创业门道，如何向上
 管理等。
-- [RustFamily](https://github.com/shgopher/RustFamily) rust 基础知识，rust 并发编程，rust 项目实践，rust底层原理。。
+- [RustFamily](https://github.com/shgopher/RustFamily) rust 基础知识，rust 并发编程，rust 项目实践，rust 底层原理。。
 ## 参考资料
 ## 扫一扫添加我的公众号，回复 “加群”，可以加入微信群。
 <p id="wechat.png" align="center">
