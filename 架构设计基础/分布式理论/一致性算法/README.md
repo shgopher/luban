@@ -9,7 +9,7 @@
  * Copyright (c) 2024 by shgopher, All Rights Reserved. 
 -->
 # 数据一致性的相关算法
-- Leader选举制度
+- Leader 选举制度
 - 分布式互斥锁
 - 分布式读写锁
 - 分布式队列
