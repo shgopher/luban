@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-14 16:41:08
+ * @LastEditTime: 2024-09-15 16:37:16
  * @FilePath: /luban/系统设计基础/分布式理论/README.md
  * @Description: 
  * 
@@ -22,10 +22,6 @@
 - pbet
 - pow
 - zab
-## 分布式关键技术
-- 全栈监控
-- 服务调度
-- 流量与数据调度
 ## 分布式组件
 - 分布式锁
 - 分布式缓存
@@ -56,6 +52,10 @@
 - 服务网格
 - 网关
 - 部署升级策略
+## 分布式关键技术
+- 全栈监控
+- 服务调度
+- 流量与数据调度
 ## 分布式实践
 - 分布式协调与同步
 - 分布式资源管理与负载调度
