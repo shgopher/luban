@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-15 16:51:31
+ * @LastEditTime: 2024-09-19 18:38:05
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -91,6 +91,15 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 管理等。
 - [RustFamily](https://github.com/shgopher/RustFamily) rust 基础知识，rust 并发编程，rust 项目实践，rust 底层原理。。
 ## 参考资料
+- [软件架构架构模式，特征及实践指南](https://book.douban.com/subject/35487561/)
+- [高并发的哲学原理](https://pphc.lvwenhan.com)
+- [凤凰架构](https://icyfenix.cn/)
+- [亿级流量系统架构设计与实战](https://book.douban.com/subject/36864478/)
+- [从 0 开始学架构](https://time.geekbang.org/column/intro/100006601)
+- [微服务设计](https://book.douban.com/subject/36855388/)
+- [左耳听风](https://time.geekbang.org/column/intro/100002201)
+- [许式伟的架构课](https://time.geekbang.org/column/intro/100025201)
+- [郭东白的架构课](https://time.geekbang.org/column/article/457122)
 ## 扫一扫添加我的公众号，回复 “加群”，可以加入微信群。
 <p id="wechat.png" align="center">
 <br>
