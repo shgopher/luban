@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 16:49:18
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-19 17:32:31
+ * @LastEditTime: 2024-09-19 18:06:00
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/DNS/README.md
  * @Description: 
  * 
@@ -11,9 +11,10 @@
 # DNS 域名协议服务
 dns 是域名解析协议，它负责将域名解析为具体的 ip 地址，例如 www.example.com 解析为 11.32.33.433
 ## DNS 的多级寻找机制
-dns 系统拥有本地缓存，所以它会优先查询本地缓存，这也是我们所谓的 “更改 hosts 就能访问 xx” 的实现原理，因为 hosts 中保存的就是域名对应的 ip 地址，当本地缓存中存在，所以不会去请求 dns 服务器，直接返回具体的 ip，当本地缓存失效之后，系统就会按照域名的层级来查询
+dns 系统拥有本地缓存，所以它会优先查询本地缓存，这也是我们所谓的 “更改 hosts 就能访问 xx” 的实现原理，因为 `hosts` 中保存的就是域名对应的 ip 地址，当本地缓存中存在，所以不会去请求 dns 服务器，直接返回具体的 ip，当本地缓存失效之后，系统就会按照域名的层级来查询
+> hosts 不是本地缓存，系统会查询 hosts 然后再去查询本地缓存，不过 hosts 的优先级大于本地缓存，hosts 存在于 Linux 的 /etc/hosts Windows 的 C:\Windows\System32\drivers\etc\hosts 中 macOS 的 /etc/hosts 中
 
-例如：www.example.com，当本地缓存中有 www.example.com 对应的 ip 地址时，直接返回 ip，当本地缓存中没有 www.example.com 对应的 ip 地址时，就会查询是否有 examole.com 对应的 ip 地址，如果有，那么就去这个 ip 去查询 www.example.com 对应的 ip，以此类推
+例如：`www.example.com`，当本地缓存中有 `www.example.com` 对应的 ip 地址时，直接返回 ip，当本地缓存中没有 `www.example.com` 对应的 ip 地址时，就会查询是否有 examole.com 对应的 ip 地址，如果有，那么就去这个 ip 去查询 www.example.com 对应的 ip，以此类推
 
 那么假设本地毫无缓存，也就是说，不得不去查询。com 这个服务，这个时候就要引出来 “根域名服务器” 和 “权威域名服务器” 了，只有像 `.cn` `.com` 这种顶级域名才会存在于根域名服务器中，而且根域名服务器的地址无需查询，操作系统会内置在系统中
 
