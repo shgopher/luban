@@ -33,9 +33,9 @@ DNS 缓存存在于浏览器和操作系统中，hosts 也会存在一定的记�
 
 ## DNS 预留技术
 ```html
-<link rel="dns-prefetch" href="//www.example.com">
+<link rel="dns-prefetch" href="//mail.example.com">
 ```
-dns 预留技术，通过在前端设置标签的方法，让浏览器提前对该域名进行预解析，从而减少请求时间
+dns 预留技术，通过在前端设置标签的方法，让浏览器提前对**其他**所需的域名进行预解析，从而减少请求时间
 ## DNS 的作用
 dns 其实就是用户和真实 ip 之间的桥梁，用户使用域名通过 dns 来访问网站。
 
