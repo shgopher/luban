@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 16:49:18
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-20 18:06:41
+ * @LastEditTime: 2024-09-20 18:10:10
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/DNS/README.md
  * @Description: 
  * 
@@ -19,7 +19,7 @@ DNS 缓存存在于浏览器和操作系统中，hosts 也会存在一定的记�
 在上述的描述中，当本地无缓存目标 URL 对应的 ip 时，通常会去使用本地域名服务商去查询，比如谷歌的 8.8.8.8，如果本地域名服务商有 URL 的缓存，返回数据即可，那么，如果本地域名服务商也没有数据，它会替代用户去不断的去请求更高一级的域名服务器，从 com 这个根域名服务器为开始，就开始查询不同层级域名的 ip 地址
 
 **这是一个域名解析的步骤图**
-![dns](./dns.svg)
+![dns](./DNS.svg)
 
 需要说明的是，权威服务器返回的不一定就是 ip 地址，也可以有很多[类型](https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8)
 
