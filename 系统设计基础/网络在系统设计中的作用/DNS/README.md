@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 16:49:18
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-20 17:19:43
+ * @LastEditTime: 2024-09-20 17:58:34
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/DNS/README.md
  * @Description: 
  * 
@@ -20,9 +20,18 @@ DNS 缓存存在于浏览器和操作系统中，hosts 也会存在一定的记�
 
 那么，如果本地域名服务商也没有数据，它会替代用户去不断的去请求更高一级的域名服务器，从 com 这个根域名服务器为开始，本地域名服务器就开始缓存代表了不同层级域名的 ip 查询地址
 
-比如 `www.example.com`，向根域名请求 `.com` 的 IP，根域名请求返回了 1.1.1.1 然后系统自动记录到了本地域名服务商的缓存中，哦，原来代表了 `com` 的 ip 地址就是 1.1.1.1 啊，以后就不用问根目标服务器了，然后继续请求 `com` 的服务器要查询 `example.com` 的 ip，假设是 2.2.2.2，那么就记录到缓存中，这样下次再请求 `example.com` 就不用再请求 `.com` 了，直接返回 2.2.2.2，最后本地域名服务商成功将 `www.example.com` 对应的 ip 地址记录到本地缓存中
+**这是一个域名解析的步骤图**
+![dns](./dns.svg)
 
 需要说明的是，权威服务器返回的不一定就是 ip 地址，也可以有很多[类型](https://zh.wikipedia.org/wiki/DNS%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8)
+
+**这是一个 dns 记录的例子**
+
+|Domin（域名）|TTL（生存周期）|Class（协议类型）|Type（记录类型）|Rdata（记录数据）|
+|----|----|----|----|----|
+|www.example.com|86400|IN|A|2.2.2.2|
+
+
 ## DNS 预留技术
 ```html
 <link rel="dns-prefetch" href="//www.example.com">
