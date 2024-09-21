@@ -7,7 +7,7 @@
 - [CDN](./CDN/README.md)
 - [web 服务器](./Nginx/README.md)
 - [负载均衡](./负载均衡/README.md)
-- [应用网关](./应用网关/README.md)
+- [API 网关 (应用网关)](./应用网关/README.md)
 - [SDN](./SDN/README.md)
 - [服务端缓存](./服务端缓存/README.md)
 - [面试题：当你点击访问一个网站时，到底经历什么什么步骤](./clickAWebSite/README.md)

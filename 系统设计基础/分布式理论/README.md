@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-15 16:37:16
+ * @LastEditTime: 2024-09-21 23:54:45
  * @FilePath: /luban/系统设计基础/分布式理论/README.md
  * @Description: 
  * 
@@ -27,6 +27,10 @@
 - 分布式缓存
 - 分布式事务
 - 分布式数据库
+## 分布式关键技术
+- 全栈监控
+- 服务调度
+- 流量与数据调度
 ## 分布式三大设计倾向
 ### 高性能
 - 缓存设计
@@ -52,10 +56,6 @@
 - 服务网格
 - 网关
 - 部署升级策略
-## 分布式关键技术
-- 全栈监控
-- 服务调度
-- 流量与数据调度
 ## 分布式实践
 - 分布式协调与同步
 - 分布式资源管理与负载调度
