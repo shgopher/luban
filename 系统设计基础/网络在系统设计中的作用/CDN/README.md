@@ -15,6 +15,7 @@
 3。网站到用户延迟太长的问题
 
 当我们的网站将源地址发送给 CDN 的时候，CDN 服务商就会给你一个 CNAME 网址，例如 shgopher.cdn.github.io
+> CNAME :域名别名
 
 **你得到的 CNAME 会在你的 DNS 服务商注册一条 CNAME 记录**
 
