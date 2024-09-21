@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-21 23:54:45
+ * @LastEditTime: 2024-09-22 00:15:12
  * @FilePath: /luban/系统设计基础/分布式理论/README.md
  * @Description: 
  * 
@@ -27,11 +27,11 @@
 - 分布式缓存
 - 分布式事务
 - 分布式数据库
-## 分布式关键技术
+## 分布式关键技术 (来自于左耳听风)
 - 全栈监控
 - 服务调度
 - 流量与数据调度
-## 分布式三大设计倾向
+## 分布式系统设计模式 (来自于左耳听风)
 ### 高性能
 - 缓存设计
 - 异步处理
