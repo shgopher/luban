@@ -5,7 +5,7 @@
 - [HTTP DNS](./HTTPDNS/README.md)
 - [传输链路](./传输链路/README.md)
 - [CDN](./CDN/README.md)
-- [web 服务器 Nginx](./Nginx/README.md)
+- [web 服务器](./Nginx/README.md)
 - [负载均衡](./负载均衡/README.md)
 - [应用网关](./应用网关/README.md)
 - [SDN](./SDN/README.md)
