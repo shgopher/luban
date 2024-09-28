@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:03
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-21 23:35:58
+ * @LastEditTime: 2024-09-28 18:45:55
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/负载均衡/README.md
  * @Description: 
  * 
@@ -65,5 +65,54 @@ NAT 模式：也可以直接替换 header 中的目标 ip，不过这样的话�
 - 响应速度均衡，根据服务器响应时间，将请求分配到响应时间快的服务器上
 - 最少连接，将请求分配到连接数最少的服务器上
 ### nginx 实现七层负载均衡器
+nginx 的配置文件 nginx.conf
+
+我们配置假设一台负载均衡器 nginx 后面有三个服务：/get0 /get1 /get2
+
+```bash
+# nginx 配置 /get0 /get1 /get2
+worker_process 3; # 标识服务器进程数
+
+events {
+
+worker_connections 1024; # 标识单个worker进程能同时处理的最大连接数
+
+}
+
+http { # 标识http块
+
+keepalive_timeout 60;# 标识服务器和客户蹲连接超过60秒没有行为就会断掉
+
+upstream get0{ # 标识upstream块
+        server 192.168.1.209:8080; # 标识upstream块中的server
+        server 192.168.1.209:8081;
+        }
+
+upstream get1{
+        server 192.168.1.209:8082;
+        server 192.168.1.209:8083;
+
+        }
+upstream get2{
+        server 192.168.1.209:8084;
+        server 192.168.1.209:8085;
+
+        }
+        server { # 标识server块
+          listen 80; # 标识监听端口
+          server_name 192.168.1.209; # 标识服务器名
+        }
+        
+        location /get0 { # 标识location块
+                proxy_pass http://get0; # 标识代理目标
+                }
+
+        location /get1 {
+                porxy_pass http://get1; 
+                }
+        location /get2 {
+                proxy_pass http://get2;
+        }
+```
 
 
