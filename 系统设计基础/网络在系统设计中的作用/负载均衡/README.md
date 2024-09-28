@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:03
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-28 18:45:55
+ * @LastEditTime: 2024-09-29 00:38:54
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/负载均衡/README.md
  * @Description: 
  * 
@@ -71,7 +71,7 @@ nginx 的配置文件 nginx.conf
 
 ```bash
 # nginx 配置 /get0 /get1 /get2
-worker_process 3; # 标识服务器进程数
+worker_processes 3; # 标识服务器进程数
 
 events {
 
@@ -85,7 +85,7 @@ keepalive_timeout 60;# 标识服务器和客户蹲连接超过60秒没有行为�
 
 upstream get0{ # 标识upstream块
         server 192.168.1.209:8080; # 标识upstream块中的server
-        server 192.168.1.209:8081;
+        server 192.168.1.209:8081; # 192.168.1.209:8081/get0 提供服务，就是nginx的路由要跟提供服务的服务路由一致才可以
         }
 
 upstream get1{
@@ -94,14 +94,15 @@ upstream get1{
 
         }
 upstream get2{
-        server 192.168.1.209:8084;
-        server 192.168.1.209:8085;
+        server 192.168.1.209:8084 weight=1; # 配置权重，权重越大被访问的几率越高
+        server 192.168.1.209:8085 weight=3;
 
         }
-        server { # 标识server块
+        
+server { # 标识server块
           listen 80; # 标识监听端口
           server_name 192.168.1.209; # 标识服务器名
-        }
+        
         
         location /get0 { # 标识location块
                 proxy_pass http://get0; # 标识代理目标
@@ -112,7 +113,20 @@ upstream get2{
                 }
         location /get2 {
                 proxy_pass http://get2;
+              }
         }
+}
 ```
+nginx 配置中，nginx 的路由要跟提供服务的服务器路由保持一致，不过也有不一致的方法，比如：
 
+```bash
+   location /get0 {
+       proxy_pass http://get0/api/get0;
+   }
+```
+这种方法中，如果访问 nginx 的路由 /get0 那么它就会默认去寻找 192.168.1.209:8080/api/get0 或者 192.168.1.209:8081/api/get1
+
+不过，为了保持简洁性，减少复杂度以及潜在的 bug，为了保证运维的逻辑更加清晰，请保持路由的一致：
+
+![nginx-proxy](./nginx-proxy.svg)
 
