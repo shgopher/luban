@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:03
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-29 00:38:54
+ * @LastEditTime: 2024-10-01 00:02:41
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/负载均衡/README.md
  * @Description: 
  * 
@@ -64,7 +64,7 @@ NAT 模式：也可以直接替换 header 中的目标 ip，不过这样的话�
 - 一致性哈希，其实就是权重轮询，但是环形结构，只有在环形结构上与该节点相邻的部分数据需要进行重新分配，而不是像传统哈希算法那样需要对所有数据进行重新计算和分配。
 - 响应速度均衡，根据服务器响应时间，将请求分配到响应时间快的服务器上
 - 最少连接，将请求分配到连接数最少的服务器上
-### nginx 实现七层负载均衡器
+## nginx 实现七层负载均衡器
 nginx 的配置文件 nginx.conf
 
 我们配置假设一台负载均衡器 nginx 后面有三个服务：/get0 /get1 /get2
@@ -129,4 +129,87 @@ nginx 配置中，nginx 的路由要跟提供服务的服务器路由保持一�
 不过，为了保持简洁性，减少复杂度以及潜在的 bug，为了保证运维的逻辑更加清晰，请保持路由的一致：
 
 ![nginx-proxy](./nginx-proxy.svg)
+
+### Nginx 常用负载均衡策略
+- 轮询，就是你啥都不设置，就是这个策略
+
+- 加权轮询，设置 weight=3，权重越大就越被优先访问，优先级按照权重去配比
+  ```nginx
+  upstream get0{
+        server 192.168.1.209:8080 weight=3;
+        server 192.168.1.209:8081 weight=1;
+        }
+  
+  ```
+- ip_hash，为每一个用户的 ip 地址的哈希值结果分配服务器，让来自同一个 ip 的请求一直访问同一个服务器，注意这里的策略不能很好的践行负载均衡的理论，而且这里的哈希映射不是一致性哈希
+  ```nginx
+  upstream get1{
+        ip_hash;
+        server 192.168.1.209:8082 max_fails=3 fail_timeout=30s;# 设置服务器的故障检测，当连续3次请求失败后，nginx会认为服务器已经挂了，并在30秒内不再访问该服务器
+        server 192.168.1.209:8083;
+        server 192.168.1.210:8084 backup; # 当所有的主服务器（通过ip_hash分配的正常服务器）都无法处理请求时，备份服务器就会启用
+  }
+  ```
+- least_conn，将请求分配到连接数最少的服务器上
+  ```nginx
+   # 当有两个策略的时候，通常会一起使用     
+  
+  # 当有新请求到来时，Nginx 首先会考虑least_conn策略，即找出当前连接数最少的服务器。但在这些连接数最少的服务器中，weight会影响请求分配的概率。
+   upstream get2{
+         least_conn;
+         server 192.168.1.209:8084 weight=1 max_fails=3 fail_timeout=30s;
+         server 192.168.1.209:8085 weight=3 max_fails=3 fail_timeout=30s;
+     }
+  ```
+- url_hash，三方库 uginx-upstream-hash，类似于 ip_hash 策略，但是它是对请求的 URL 做哈希运算 (一个是对 ip 地址做哈希，一个是对 URL 做哈希)
+- fair，三方库 nginx-upstream-fair，根据每个服务器事例的请求响应时间，失败数，当前请求总量，综合选择一个最轻松的服务器
+
+### Nginx 如何加载三方库
+- 确定所需第三方模块
+   - 首先要明确你需要使用的第三方 Nginx 模块。例如，如果你需要对请求进行更高级的访问控制，可以考虑使用 ngx_http_auth_request_module；如果想增强缓存功能，可能会用到 ngx_cache_purge 模块。这些模块通常是为了满足特定的功能需求，如安全性、性能优化等。
+
+- 检查模块兼容性
+   - 确认模块与你的 Nginx 版本兼容。不同的 Nginx 版本对模块的支持有所不同。你可以查看模块的官方文档或者在相关的开发者社区、论坛中查找模块与 Nginx 版本的兼容性信息。例如，一些新开发的模块可能只支持较新的 Nginx 版本，而旧版本的 Nginx 可能无法正确加载这些模块。
+- 下载模块源代码
+   - 从可靠的来源获取模块的源代码。通常，模块的官方代码仓库 (如在 GitHub 等平台上) 是最好的选择。例如，如果要下载 ngx_http_auth_request_module，可以访问 Nginx 官方网站或者对应的代码托管平台，找到该模块的源代码下载链接或者仓库地址，然后使用版本控制系统工具 (如 git) 或者直接下载压缩包的方式获取源代码。
+- 编译安装 Nginx (包含第三方模块)
+  - 方法一：重新编译 Nginx
+   如果是自己手动编译 Nginx，需要将第三方模块的源代码放置在合适的位置，通常是在 Nginx 源代码目录的 modules 目录下 (如果没有这个目录，可以创建一个)。然后在配置 Nginx 编译选项时，需要指定包含这个第三方模块。例如，使用 `./configure` 命令配置 Nginx 编译选项时，需要添加类似于 `--add - module = path/to/third - party/module` 的选项，其中 `path/to/third - party/module` 是第三方模块源代码的实际路径。
+   配置完成后，使用 make 命令编译 Nginx，再使用 make install 命令安装编译好的 Nginx。这样，新安装的 Nginx 就包含了这个第三方模块。
+   
+   - 方法二：使用动态模块 (适用于支持动态模块加载的 Nginx 版本)
+   对于支持动态模块加载的 Nginx 版本 (如 Nginx 1.9.11 及以上)，首先按照上述步骤下载模块源代码。然后在编译模块时，使用 `ngx_build_module` 工具 (这个工具通常随 Nginx 一起提供) 或者按照模块文档中的特殊编译步骤进行编译。
+   编译完成后，得到一个动态模块文件 (通常是以。so 结尾的文件)。将这个动态模块文件放置在 Nginx 的模块目录下 (例如 `/usr/lib/nginx/modules/`)，然后在 Nginx 的主配置文件 (nginx.conf) 中，使用 load_module 指令加载这个模块。例如，`load_module modules/ngx_http_auth_request_module.so`；，这样就可以在 Nginx 中使用这个第三方模块了。
+- 配置和使用第三方模块
+  - 在 Nginx 的配置文件 (nginx.conf) 或相关的虚拟主机配置文件中，根据模块的功能进行配置。例如，对于 ngx_http_auth_request_module，可以配置如下：
+  ```nginx
+     server {
+         listen       80;
+         server_name  example.com;
+         location / {
+             auth_request /auth;
+             proxy_pass http://backend;
+         }
+         location = /auth {
+             internal;
+             proxy_pass http://auth - server;
+         }
+     }
+  ```     
+  这里通过 `auth_request` 指令使用了 `ngx_http_auth_request_module` 来进行请求的身份验证。不同的第三方模块有不同的配置方法和指令，需要根据模块的文档进行具体的配置和使用。
+### Nginx 热更新
+- 使用 `ngx_lua` 将 lua 脚本嵌入到 nginx 中，允许编写的 lua 脚本运行在 nginx 中
+- `ngx_http_dyups_module`，使用这个模块，去不断的主动访问一个服务注册中心，里面是服务的具体内容，然后生成新的配置
+
+![nginx-hot-update](./nginx-hot-update.svg)
+### Ngix 优势
+- DNS 服务指向 Nginx，具体服务 IP 跟 DNS 解耦
+- 使用 Nginx 做了负载均衡
+- 对外只暴漏一个公网 ip，节约 ip 资源，nginx 和具体服务内部通信即可
+- 防止业务 ip 暴漏
+- 增加了业务服务器的可扩展性
+- 提高了整体服务的可用性
+- 提高了系统的整体性能
+
+
 
