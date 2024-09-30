@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:03
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-01 00:02:41
+ * @LastEditTime: 2024-10-01 00:04:41
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/负载均衡/README.md
  * @Description: 
  * 
@@ -69,7 +69,7 @@ nginx 的配置文件 nginx.conf
 
 我们配置假设一台负载均衡器 nginx 后面有三个服务：/get0 /get1 /get2
 
-```bash
+```nginx
 # nginx 配置 /get0 /get1 /get2
 worker_processes 3; # 标识服务器进程数
 
