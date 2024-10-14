@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:57
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-09 00:59:10
+ * @LastEditTime: 2024-10-14 13:35:07
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/SDN/README.md
  * @Description: 
  * 
@@ -36,6 +36,13 @@ lvs 有四种模式
 ### DR 模式
 ![dr](./dr.svg)
 由于需要更改目标 mac 地址，这就意味着该负载均衡器必须与真实的服务在 mac 层能建立通信，所以这就意味着它只能运行在内网中
+### 四种模式对比
+|模式|优势|劣势|
+|:---:|:---:|:---:|
+|NAT|不需要配置虚拟 ip，可以跨网|流量必须双向流经 lvs，性能较差|
+|FULL-NAT|不需要配置虚拟 ip，可以跨网|丢失客户端 ip，流量必须双向流经 lvs，性能较差|
+|TUN|性能高|必须支持 ip 隧穿的功能，必须配置和 lvs 公网一致的虚拟 ip|
+|DAR|性能最高|仅支持内网通信，并且必须配置和 lvs 公网一致的虚拟 ip|
 ## keepalived
 Keepalived 是一款基于 VRRP (Virtual Router Redundancy Protocol，虚拟路由器冗余协议) 实现的高可用性 (HA) 软件。它主要用于服务器的负载均衡和高可用性场景，能够确保在服务器出现故障或网络异常时，服务仍能持续、稳定地提供。
 
@@ -47,4 +54,5 @@ Keepalived 是一款基于 VRRP (Virtual Router Redundancy Protocol，虚拟路�
 > 作为最前面的网关，防火墙作为网关，其公网接口同样具有真实 IP 地址
 ## 更多优化方法
 - dpdk，因为 lvs 基于 Linux 内核的 netilter，需要内核态和用户态切换，因此 dpdk，通过申请大内存，以及轮询替代中断，完成更高性能的表现，[dpvs](https://github.com/iqiyi/dpvs) 是 dpdk 技术的开源项目
-- 
+## 使用 lvs +  nginx (或者 kong) 的实战部署
+
