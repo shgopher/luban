@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:57
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-15 13:48:05
+ * @LastEditTime: 2024-10-15 14:41:28
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/SDN/README.md
  * @Description: 
  * 
@@ -69,9 +69,12 @@ Keepalived 是一款基于 VRRP (Virtual Router Redundancy Protocol，虚拟路�
 ## 更多优化方法
 - dpdk，因为 lvs 基于 Linux 内核的 netilter，需要内核态和用户态切换，因此 dpdk，通过申请大内存，以及轮询替代中断，完成更高性能的表现，[dpvs](https://github.com/iqiyi/dpvs) 是 dpdk 技术的开源项目
 ## 使用 lvs +  nginx (或者 kong) 的实战部署
-首先，为了提高可用性，我们都会采用集群的方式去部署 lvs 和 nginx，我们通常使用主-从的方式去部署高可用的 lvs 集群的方案。
-
+首先，为了提高可用性，我们都会采用集群的方式去部署 lvs 和 nginx，我们通常使用主-从的方式去部署高可用的 lvs 集群的方案，并且通过部署多个该集群来提供性能：、
+![lvs-cluster](./lvs-cluster.svg)
 
 ## 一个更加高性能的物理路由 + 物理交换机 + lvs + nginx(kong) 的实战部署
 这种更加高性能的场景也遵循上文提到的高可用主从备份的方案。
+
+由于从 lvs 开始，整个架构一致，所以我们仅画出前面的架构图
+![sdn](./sdn.svg)
 
