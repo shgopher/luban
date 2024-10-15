@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 16:49:22
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-21 00:42:31
+ * @LastEditTime: 2024-10-15 23:28:59
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/HTTPDNS/README.md
  * @Description: 
  * 
@@ -79,6 +79,10 @@ def send_dns_query(domain_name, query_type):
     sock.close()
 ```
 ## 在浏览器中使用 HTTP DNS
+
+HTTP DNS 通常是为客户端应用程序设计的，而浏览器本身并不直接支持 HTTP DNS
+因此如果要实现 http DNS 通常要使用插件
+
 使用支持 HTTP DNS 的浏览器插件：
 
 一些专门的插件可以在浏览器环境下实现 HTTP DNS 功能。这些插件通常会拦截浏览器的 DNS 请求，然后通过 HTTP 协议将请求发送到特定的 HTTP DNS 服务器进行解析。安装并启用这类插件后，插件会在后台自动处理域名解析，用户无需进行复杂的设置。例如，某些网络优化插件就具备这样的功能，它们可以改善网络访问速度和稳定性，同时防止 DNS 劫持。
@@ -103,3 +107,17 @@ OkHttpClient client = new OkHttpClient.Builder()
 ```java
 HttpDnsManager.getInstance().init("your_http_dns_server_url");
 ```
+## 在 HTTP DNS 中的本地缓存优先级
+
+HTTP DNS 请求是由应用层直接发起的，而不是通过操作系统的 DNS 解析器。这意味着 HTTP DNS 请求不会经过传统的 DNS 解析路径，包括不会检查 hosts 文件或操作系统的 DNS 缓存
+
+HTTP DNS 场景下的缓存优先级：
+
+1. HTTP DNS 服务端返回的数据：应用程序直接从 HTTP DNS 服务端获取域名解析结果，并根据返回的信息进行后续操作。
+2. 应用程序内部缓存：应用程序可能会在内部缓存 HTTP DNS 返回的结果，以便在一定时间内重复使用这些信息。
+
+所以 HTTP DNS 系统的本地客户端缓存：
+
+- 不会检查 /etc/hosts 文件。
+- 不会查询操作系统的 DNS 缓存。
+- 不会依赖浏览器的 DNS 缓存。
