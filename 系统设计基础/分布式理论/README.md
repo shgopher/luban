@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-22 00:15:12
+ * @LastEditTime: 2024-10-15 15:37:40
  * @FilePath: /luban/系统设计基础/分布式理论/README.md
  * @Description: 
  * 
@@ -24,9 +24,11 @@
 - zab
 ## 分布式组件
 - 分布式锁
-- 分布式缓存
 - 分布式事务
-- 分布式数据库
+- 分布式关系数据库
+- 分布式缓存
+- 分布式 nosql
+- 分布式消息队列
 ## 分布式关键技术 (来自于左耳听风)
 - 全栈监控
 - 服务调度

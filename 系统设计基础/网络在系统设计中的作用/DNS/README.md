@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 16:49:18
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-20 18:11:39
+ * @LastEditTime: 2024-10-15 23:24:05
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/DNS/README.md
  * @Description: 
  * 
@@ -30,7 +30,18 @@ DNS 缓存存在于浏览器和操作系统中，hosts 也会存在一定的记�
 |----|----|----|----|----|
 |www.example.com|86400|IN|A|2.2.2.2|
 
+## DNS 本地缓存及其优先级
+在 DNS 缓存系统中，一般的查询的优先级顺序一般如下：
 
+1. Hosts 文件：这是最优先的，任何在/etc/hosts 文件中定义的条目都会被直接使用，而不会发送 DNS 请求。
+
+2. 操作系统 DNS 缓存：如果 hosts 文件中没有相应的条目，操作系统会检查其自身的 DNS 缓存。在 macOS 中，这个缓存是由系统服务管理的，对于所有应用程序都是透明的。
+
+3. 浏览器 DNS 缓存：如果操作系统缓存中没有找到相应的记录，浏览器才会检查其自身的 DNS 缓存。浏览器缓存是特定于该浏览器进程的，并且在浏览器关闭后可能会被清除
+
+为什么请求发生在浏览器，但是浏览器的缓存优先级不是最高的呢？：
+
+浏览器缓存的优先级通常不会高于操作系统的 DNS 缓存或 hosts 文件中的条目。这是因为 DNS 解析是一个系统层面的操作，它发生在浏览器向 DNS 服务器发起请求之前。
 ## DNS 预留技术
 ```html
 <link rel="dns-prefetch" href="//mail.example.com">
