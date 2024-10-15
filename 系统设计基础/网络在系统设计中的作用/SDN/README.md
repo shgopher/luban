@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 17:04:57
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-15 13:40:25
+ * @LastEditTime: 2024-10-15 13:48:05
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/SDN/README.md
  * @Description: 
  * 
@@ -53,7 +53,7 @@ Keepalived 是一款基于 VRRP (Virtual Router Redundancy Protocol，虚拟路�
 从网络外部看来，VIP 就像是一个独立的、可供访问的 IP 地址，但实际上这个 VIP 可以在多个 LVS 服务器之间灵活切换。在正常情况下，这个 VIP 可能被 “绑定” 在主 LVS 服务器的网卡上，对外提供服务。但这并不是传统意义上的网卡自身的固定 IP，因为当主服务器出现故障时，通过 VRRP 机制，这个 VIP 会迅速地被绑定到备用 LVS 服务器的网卡上。
 
 它的基本原理是：
-1。两台机器配置同一个 vip (虚拟 ip)，比如真实 ip 是 1.1.1.1 和 1.1.1.2 但是虚拟出来的 ip 是 7.7.7.7
+1。两台机器配置同一个 vip (虚拟 ip)
 2。两台 lvs 系统通过 keepalived 频繁通信，评估哪个机器分数高，高的那个作为 master，另一台作为备份，得分高的通过 vrrp 组播报文宣称 vip 在这里
 3。如果 master 宕机了，备份机器会立刻宣称 vip 在自己这里
 
