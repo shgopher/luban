@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-15 16:34:49
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-09-30 23:08:33
+ * @LastEditTime: 2024-10-27 22:33:31
  * @FilePath: /luban/系统设计基础/网络在系统设计中的作用/README.md
  * @Description: 
  * 
@@ -19,5 +19,4 @@
 - [负载均衡](./负载均衡/README.md)
 - [API 网关 (应用网关)](./API网关/README.md)
 - [SDN](./SDN/README.md)
-- [服务端缓存](./服务端缓存/README.md)
 - [面试题：当你点击访问一个网站时，到底经历什么什么步骤](./clickAWebSite/README.md)
