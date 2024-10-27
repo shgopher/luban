@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-27 23:23:48
+ * @LastEditTime: 2024-10-27 23:52:37
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -11,7 +11,7 @@
 # 分布式
 ## 分布式理论
 - [CAP](./分布式理论/CAP/README.md)
-- [BASE](./分布式理论/BASE/README)
+- [BASE](./分布式理论/BASE/README.md)
 - [ACID](./分布式理论/ACID/README.md)
 ## 分布式算法
 - [paxos](./分布式算法/paxos/README.md)
