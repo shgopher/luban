@@ -8,6 +8,6 @@
  * 
  * Copyright (c) 2024 by shgopher, All Rights Reserved. 
 -->
-# BASE 
+# BASE
 
-BASE：basically available eventually consistent ，基本可用，最终一致 主要追求的是 AP 即：高可用性
+BASE：basically available eventually consistent，基本可用，最终一致主要追求的是 AP 即：高可用性
