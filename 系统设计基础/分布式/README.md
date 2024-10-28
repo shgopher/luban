@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-28 10:22:54
+ * @LastEditTime: 2024-10-28 12:42:12
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -12,8 +12,8 @@
 ## 分布式理论
 - [拜占庭将军问题](./分布式理论/拜占庭将军问题/README.md)
 - [CAP](./分布式理论/CAP/README.md)
-- [BASE](./分布式理论/BASE/README.md)
 - [ACID](./分布式理论/ACID/README.md)
+- [BASE](./分布式理论/BASE/README.md)
 ## 分布式算法
 - [paxos](./分布式算法/paxos/README.md)
 - [raft](./分布式算法/raft/README.md)
