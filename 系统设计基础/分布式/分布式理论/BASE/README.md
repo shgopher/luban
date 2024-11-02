@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-10-27 23:44:39
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-28 13:06:39
+ * @LastEditTime: 2024-11-01 23:57:12
  * @FilePath: /luban/系统设计基础/分布式/分布式理论/BASE/README.md
  * @Description: 
  * 
@@ -45,5 +45,6 @@ BASE：basically available eventually consistent，基本可用，最终一致�
 (All、Quorum、One、Any)，让用户可以自主选择相应的一致性级别，比如可以通过
 设置一致性级别为 All，来实现强一致性
 ## BASE 的实践
+
 
 
