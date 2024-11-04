@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-11-03 09:54:49
+ * @LastEditTime: 2024-11-04 22:54:12
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -10,19 +10,19 @@
 -->
 # 分布式
 ## 分布式理论
-- [拜占庭将军问题](./分布式理论/拜占庭将军问题/README.md)
-- [CAP](./分布式理论/CAP/README.md)
-- [ACID](./分布式理论/ACID/README.md)
-- [BASE](./分布式理论/BASE/README.md)
+- [拜占庭将军问题（大体上分析了一下分布式共识算法的种类）](./分布式理论/拜占庭将军问题/README.md)
+- [CAP（一致性和可用性的酸碱测试剂）](./分布式理论/CAP/README.md)
+- [ACID（强一致性）](./分布式理论/ACID/README.md)
+- [BASE（强可用性）](./分布式理论/BASE/README.md)
 ## 分布式算法
-- [paxos](./分布式算法/paxos/README.md)
-- [raft](./分布式算法/raft/README.md)
-- [一致性哈希](./分布式算法/一致性哈希/README.md)
-- [gossip](./分布式算法/gossip/README.md)
-- [quorumNWR](./分布式算法/quorumNWR/README.md)
-- [pbet](./分布式算法/pbet/README.md)
-- [pow](./分布式算法/pow/README.md)
-- [zab](./分布式算法/zab/README.md)
+- [paxos（共识算法鼻祖，但是不能直接用）](./分布式算法/paxos/README.md)
+- [raft（强一致性共识算法的典范，主备方案）](./分布式算法/raft/README.md)
+- [一致性哈希（从主备方案升级到多主方案就需要这个）](./分布式算法/一致性哈希/README.md)
+- [gossip（无主方案就需要这个）](./分布式算法/gossip/README.md)
+- [quorumNWR（自动调节一致性的强弱）](./分布式算法/quorumNWR/README.md)
+- [pbet（拜占庭将军问题共识算法的鼻祖）](./分布式算法/pbet/README.md)
+- [pow（也是解决拜占庭将军问题的算法，但是解决思路跟PBET 不同）](./分布式算法/pow/README.md)
+- [zab（这是zookeeper自创的共识算法，这个算法我们主要学习如何进行自我设计共识算法）](./分布式算法/zab/README.md)
 ## 分布式组件 (来自极客时间，分布式技术原理与算法解析)
 - 分布式锁
 - 分布式事务
