@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-28 12:42:12
+ * @LastEditTime: 2024-11-03 09:54:49
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -34,6 +34,10 @@
 - 分布式远程通信 --- RPC
 - 分布式消息队列
 ## 分布式关键技术 (来自于左耳听风 + 书亿级流量)
+- 服务发现 (凤凰架构)
+- 流量治理 (凤凰架构)
+- 可靠通信 (凤凰架构)
+- 链路追踪 (凤凰架构)
 - 服务调度
 - 流量与数据调度
 - [多机房]
