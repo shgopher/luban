@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-11-08 16:23:38
+ * @LastEditTime: 2024-11-24 00:41:57
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -20,7 +20,7 @@
 - [一致性哈希 (从主备方案升级到多主方案就需要这个)](./分布式算法/一致性哈希/README.md)
 - [gossip (无主方案就需要这个)](./分布式算法/gossip/README.md)
 - [quorumNWR (自动调节一致性的强弱)](./分布式算法/quorumNWR/README.md)
-- [pbet (拜占庭将军问题共识算法的鼻祖)](./分布式算法/pbet/README.md)
+- [pbft (拜占庭将军问题共识算法的鼻祖)](./分布式算法/pbft/README.md)
 - [pow (也是解决拜占庭将军问题的算法，但是解决思路跟 PBET 不同)](./分布式算法/pow/README.md)
 - [zab (这是 zookeeper 自创的共识算法，这个算法我们主要学习如何进行自我设计共识算法)](./分布式算法/zab/README.md)
 ## 分布式关键技术 (来自于左耳听风 + 书亿级流量)
