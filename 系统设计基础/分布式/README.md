@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-11-24 00:41:57
+ * @LastEditTime: 2024-11-27 16:19:55
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -24,10 +24,10 @@
 - [pow (也是解决拜占庭将军问题的算法，但是解决思路跟 PBET 不同)](./分布式算法/pow/README.md)
 - [zab (这是 zookeeper 自创的共识算法，这个算法我们主要学习如何进行自我设计共识算法)](./分布式算法/zab/README.md)
 ## 分布式关键技术 (来自于左耳听风 + 书亿级流量)
-- 服务发现 (凤凰架构)
-- 流量治理 (凤凰架构)
-- 可靠通信 (凤凰架构)
-- 链路追踪 (凤凰架构)
+- [服务发现](./分布式关键技术/服务发现/README.md)
+- [流量治理](./分布式关键技术/流量治理/README.md)
+- [可靠通信](./分布式关键技术/可靠通信/README.md)
+- [链路追踪](./分布式关键技术/链路追踪/README.md) (凤凰架构)
 - 服务调度
 - 流量与数据调度
 - [多机房]
