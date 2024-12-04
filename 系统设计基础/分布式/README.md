@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-11-27 16:19:55
+ * @LastEditTime: 2024-12-05 00:34:30
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -26,7 +26,7 @@
 ## 分布式关键技术 (来自于左耳听风 + 书亿级流量)
 - [服务发现](./分布式关键技术/服务发现/README.md)
 - [客户端负载均衡器](./分布式关键技术/客户端负载均衡器/README.md)
-- [流量治理](./分布式关键技术/流量治理/README.md)
+- [服务治理](./分布式关键技术/服务治理/README.md)
 - [可靠通信](./分布式关键技术/可靠通信/README.md)
 - [链路追踪](./分布式关键技术/链路追踪/README.md) 
 - [日志处理](./分布式关键技术/日志处理/README.md) (凤凰架构)
