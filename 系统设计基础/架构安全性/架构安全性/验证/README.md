@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-12-07 14:31:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-02-11 15:55:59
+ * @LastEditTime: 2025-02-11 16:06:38
  * @FilePath: /luban/系统设计基础/架构安全性/架构安全性/验证/README.md
  * @Description: 
  * 
@@ -207,6 +207,10 @@ MVC 架构将应用程序划分为三个主要部分：
 在早期的 Web 开发中，MVC 架构经常与 HTML 紧密结合。Controller 接收 HTTP 请求，调用 Model 获取数据，然后将数据传递给 HTML 模板 (View) 进行渲染，最终返回给客户端
 
 随着 Web 技术的发展，前后端分离的开发模式越来越流行。在这种模式下，Controller 不再负责渲染 HTML 页面，而是作为 API 接口的提供者，返回 JSON 或 XML 等数据格式给前端
+
+
+
+
 
 
 
