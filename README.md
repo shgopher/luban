@@ -29,7 +29,7 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 
 - `好友`，可以添加作者的微信好友
 ## 赞助作者
-- [亚洲云 服务器](https://www.asiayun.com/aff/FKNDBNWA)主打一个性价比高，每月 500G 流量，首月免费使用！每月30块，可支付宝微信支付。
+- [亚洲云服务器](https://www.asiayun.com/aff/FKNDBNWA)主打一个性价比高，每月 500G 流量，首月免费使用！每月 30 块，可支付宝微信支付。
 - [just-my-socks 机场](https://justmysocks.net/members/aff.php?aff=29885
 )不怕 ip 被 ban，每月 500GB 流量，2.5 Gbps 带宽，支持 5 台设备，价格 5 刀/月。可支付宝付款！
 ## 系统设计基础 (100%)
