@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2024-10-27 22:57:22
+ * @LastEditTime: 2025-03-17 21:30:03
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -35,8 +35,8 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 ## 系统设计基础 (100%)
 - [系统设计理论基础](./系统设计基础/系统设计理论基础/README.md)
 - [网络在系统设计中的作用](./系统设计基础/网络在系统设计中的作用/README.md)
-- [分布式](./系统设计基础/分布式/README.md)
 - [架构安全性](./系统设计基础/架构安全性/README.md)
+- [分布式](./系统设计基础/分布式/README.md)
 ## 云原生
 - [容器](./云原生/容器/README.md)
 - [容器编排](./云原生/容器编排/README.md)

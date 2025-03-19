@@ -1,13 +1,3 @@
-<!--
- * @Author: shgopher shgopher@gmail.com
- * @Date: 2024-09-14 13:02:10
- * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-02-19 11:38:19
- * @FilePath: /luban/系统设计基础/分布式/README.md
- * @Description: 
- * 
- * Copyright (c) 2024 by shgopher, All Rights Reserved. 
--->
 # 分布式
 ## 分布式理论
 - [拜占庭将军问题 (大体上分析了一下分布式共识算法的种类)](./分布式理论/拜占庭将军问题/README.md)
@@ -26,7 +16,7 @@
 ## 分布式关键技术 (来自于左耳听风 + 书亿级流量 + 凤凰)
 - [服务发现](./分布式关键技术/服务发现/README.md)
 - [客户端负载均衡器](./分布式关键技术/客户端负载均衡器/README.md)
-- [流量治理](./分布式关键技术/流量治理/README.md)
+- [服务治理](./分布式关键技术/流量治理/README.md)
 - [服务编排](./分布式关键技术/服务编排/README.md)
 - [RPC 通信协议](./分布式关键技术/RPC通信协议/README.md)
 - [可靠通信](./分布式关键技术/可靠通信/README.md)
@@ -34,7 +24,7 @@
 - [链路追踪](./分布式关键技术/链路追踪/README.md) 
 - [监控预警](./分布式关键技术/监控预警/README.md) (凤凰架构)
 - 服务调度
-- 流量与数据调度
+- 流量与数据调度 (左耳)
 - [多机房]
 - [全栈监控](./分布式关键技术/全栈监控/README.md)
 ## 分布式组件 (来自极客时间分布式技术原理与算法解析 + 书)
