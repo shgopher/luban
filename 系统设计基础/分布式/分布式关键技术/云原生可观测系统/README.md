@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2025-03-30 15:25:55
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-03-30 15:26:02
+ * @LastEditTime: 2025-05-18 16:02:16
  * @FilePath: /luban/系统设计基础/分布式/分布式关键技术/云原生可观测系统/README.md
  * @Description: 
  * 
@@ -25,7 +25,7 @@ ELK (日志收集)、Jaeger (链路追踪)、Prometheus (聚合度量) 是云原
 
 ### 二、功能重叠与互补性
 1. **日志与链路追踪的关联**  
-   • ELK 通过日志中的 `Trace ID` (需手动注入) 与 Jaeger 的追踪数据关联，实现日志与链路上下文的结合 (如网页 5、6 提到的 ELK 缺少 Trace ID 的问题可通过集成解决)。
+   • ELK 通过日志中的 `Trace ID` (需手动注入) 与 Jaeger 的追踪数据关联，实现日志与链路上下文的结合 (ELK 缺少 Trace ID 的问题可通过集成解决)。
    • **示例场景**：当某个微服务报错时，通过 Kibana 检索日志中的 `Trace ID`，跳转到 Jaeger UI 查看完整调用链路。
 
 2. **指标与链路追踪的协同**  
@@ -33,7 +33,7 @@ ELK (日志收集)、Jaeger (链路追踪)、Prometheus (聚合度量) 是云原
    • **集成方案**：通过 OpenTelemetry 将 Jaeger 的追踪数据转化为 Prometheus 可识别的指标 (如请求成功率)。
 
 3. **数据存储的交叉性**  
-   • Jaeger 和 ELK 均可选择 Elasticsearch 作为存储后端，实现数据统一管理 (如网页 3 提到的 Jaeger+ES 部署方案)。
+   • Jaeger 和 ELK 均可选择 Elasticsearch 作为存储后端，实现数据统一管理 (Jaeger+ES 部署方案)。
    • Prometheus 的长期存储可接入 Elasticsearch 或 Thanos，与 ELK 形成互补。
 
 ---
