@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2023-02-01 20:02:47
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-04-23 23:56:02
+ * @LastEditTime: 2025-05-20 15:31:35
  * @FilePath: /luban/README.md
  * @Description: 
  * 
@@ -41,12 +41,11 @@ hey~，我是科科人神，目前就职于国内一家互联网公司，你们�
 - [容器](./云原生/容器/README.md)
 - [容器编排](./云原生/容器编排/README.md)
 - [服务网格](./云原生/服务网格/README.md)
+- [API 网关](./云原生/API网关/README.md)
+- [消息队列框架](./云原生/消息队列/README.md)
+- [RPC 框架](./云原生/rpc/README.md)
 - [ebpf](./云原生/ebpf/README.md)
 - [serverless](./云原生/serverless/README.md)
-- [API 网关](./云原生/API网关/README.md)
-- [MQ](./云原生/消息队列/README.md)
-- [RPC](./云原生/rpc/README.md)
-- [服务发现治理](./云原生/服务发现治理/README.md)
 - [搜索引擎](./云原生/搜索引擎/README.md)
 ## 架构分类
 - [单体架构](./架构分类/单体架构/README.md)
