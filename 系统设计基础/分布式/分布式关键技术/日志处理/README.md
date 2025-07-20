@@ -44,7 +44,7 @@ Beats 与 Go 语言的 ​slog 日志库属于不同层次的数据采集工具�
 两者协作可兼顾开发灵活性与运维标准化，是云原生场景下的推荐方案。
 
 
-除了 beats 之外，该项目中还有其他的日志采集工具，比如：
+beats 包含的所有 beat 日志采集工具：
 
 - Auditbeat 用户收集 Linux 审计日志
 - Funcbeat 适用于 serverless
