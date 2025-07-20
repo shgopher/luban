@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2025-03-30 15:25:55
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-05-18 16:02:16
+ * @LastEditTime: 2025-06-25 11:46:10
  * @FilePath: /luban/系统设计基础/分布式/分布式关键技术/云原生可观测系统/README.md
  * @Description: 
  * 
@@ -43,7 +43,7 @@ ELK (日志收集)、Jaeger (链路追踪)、Prometheus (聚合度量) 是云原
    Prometheus (资源指标) + Grafana (可视化) + Alertmanager (告警)，覆盖系统健康度监控。
 
 2. **全链路可观测性方案**  
-   ELK (日志) + Jaeger (追踪) + Prometheus (指标)，通过 `Trace ID` 和 `Service Name` 实现三类数据关联 (如网页 5、6 提到的 SkyWalking 与 ELK 集成思路类似)。
+   ELK (日志) + Jaeger (追踪) + Prometheus (指标)，通过 `Trace ID` 和 `Service Name` 实现三类数据关联 (SkyWalking 与 ELK 集成思路类似)。
 
 3. **云原生扩展方案**  
    引入 OpenTelemetry 标准化数据采集，将日志、指标、追踪统一接入后端存储 (如 Elasticsearch)，通过同一平台 (如 Kibana 或 Grafana) 展示。
