@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2025-05-20 23:25:27
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-07-21 12:57:32
+ * @LastEditTime: 2025-07-21 23:12:37
  * @FilePath: /luban/系统设计基础/分布式/分布式组件/分布式锁/README.md
  * @Description: 
  * 
@@ -124,6 +124,61 @@ func main() {
 
 示例代码：
 ```go
+package main
+
+import (
+    "fmt"
+    "sort"
+    "time"
+
+    "github.com/samuel/go-zookeeper/zk"
+)
+
+func acquireLock(conn *zk.Conn, path string) (string, error) {
+    node, err := conn.Create(path+"/lock-", nil, zk.FlagEphemeral|zk.FlagSequence)
+    
+    if err != nil {
+        return"", err
+    }
+
+    for {
+        kids, _, err := conn.Children(path)
+        if err != nil {
+            return"", err
+        }
+        sort.Strings(kids)
+        if path+"/"+kids[0] == node {
+            return node, nil// You’re up!
+        }
+        prev := kids[0] // Watch the guy in front
+        for i, k := range kids {
+            if path+"/"+k == node {
+                prev = kids[i-1]
+                break
+            }
+        }
+        _, _, ch, _ := conn.Get(path + "/" + prev)
+        <-ch // Wait for them to leave
+    }
+}
+
+func main() {
+    conn, _, err := zk.Connect([]string{"localhost:2181"}, 5*time.Second)
+    if err != nil {
+        panic(err)
+    }
+    defer conn.Close()
+
+    path := "/locks"
+    if node, err := acquireLock(conn, path); err == nil {
+        fmt.Println("Locked:", node)
+        time.Sleep(2 * time.Second)
+        conn.Delete(node, -1)
+        fmt.Println("Unlocked!")
+    } else {
+        fmt.Println("Oops:", err)
+    }
+}
 ```
 ### etcd
 etcd 采用**租约 (lease) 与键竞争机制**，客户端只要持有租约且键未被他人占用，即可获取锁。
@@ -132,6 +187,55 @@ etcd 采用**租约 (lease) 与键竞争机制**，客户端只要持有租约�
 
 示例代码：
 ```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "time"
+
+    "go.etcd.io/etcd/client/v3"
+)
+
+func acquireLock(cli *clientv3.Client, key string, ttl int64) (*clientv3.LeaseGrantResponse, error) {
+    
+    lease, err := cli.Grant(context.Background(), ttl)
+    
+    if err != nil {
+        returnnil, err
+    }
+
+    txn := cli.Txn(context.Background()).
+        If(clientv3.Compare(clientv3.CreateRevision(key), "=", 0)).
+        Then(clientv3.OpPut(key, "locked", clientv3.WithLease(lease.ID)))
+    
+    resp, err := txn.Commit()
+    
+    if err != nil || !resp.Succeeded {
+        returnnil, fmt.Errorf("lock failed")
+    }
+
+    return lease, nil
+}
+
+func main() {
+    cli, _ := clientv3.New(clientv3.Config{
+        Endpoints:   []string{"localhost:2379"},
+        DialTimeout: 5 * time.Second,
+    })
+    defer cli.Close()
+
+    key := "/desk_lock"
+    
+    if lease, err := acquireLock(cli, key, 10); err == nil {
+        fmt.Println("Desk’s mine!")
+        time.Sleep(2 * time.Second)
+        cli.Revoke(context.Background(), lease.ID)
+        fmt.Println("Desk’s free!")
+    } else {
+        fmt.Println("No desk:", err)
+    }
+}
 ```
 ### 三者对比
 
@@ -142,13 +246,162 @@ etcd 采用**租约 (lease) 与键竞争机制**，客户端只要持有租约�
 |etcd|Go 原生、云原生契合|高压下有延迟风险|K8s 周边|
 ## 工程实践
 ### 常见优化方法
+**细颗粒度分布式锁**
 
+细分锁，不能全局一把锁，一把锁的性能很差
+
+**控制超时以及重试**
+
+```go
+// 一定要设置锁的存活时间 ttl ，防止死锁
+func tryLock(client *redis.Client, key string, ttl time.Duration, retries int) (bool, error) {
+    ctx, cancel := context.WithTimeout(context.Background(), ttl)
+    defer cancel()
+    backoff := 100 * time.Millisecond
+    for i := 0; i < retries; i++ {
+        if ok, err := acquireLock(client, key, "client-123", ttl); ok && err == nil {
+            return true, nil
+        }
+        time.Sleep(backoff)
+        backoff *= 2
+    }
+    return false, fmt.Errorf("gave up after %d tries", retries)
+}
+```
+
+**监控锁的使用情况**
+
+用 Prometheus 等埋点的方法去追踪锁请求/释放延时，发现瓶颈。
 ### 常见错误
+- 使用 redis 锁时，锁被误删的情况，解决方案就是使用 lua 脚本去限制只能设置者才能删除锁
+- ZooKeeper 网络波动时锁丢失，解决方案是，增加断线重连和**状态二次确认机制**
+    ```go
+    func lockWithRetry(conn *zk.Conn, path string) (string, error) {
+        for {
+          node, err := acquireLock(conn, path)
+          // 状态二次确认
+          if err == nil && conn.State() == zk.StateConnected {
+              return node, nil
+          }
+          time.Sleep(time.Second)
+          // 重连
+          conn, _, _ = zk.Connect([]string{"localhost:2181"}, 5*time.Second)
+        }
+      }
+    ```
+- etcd 高并发下租约阻塞：提前分配租约，缓存复用。
+  ```go
+      type LeasePool struct {
+      leases []clientv3.LeaseID
+        sync.Mutex
+      }
 
+    func (p *LeasePool) Get(cli *clientv3.Client, ttl int64) (clientv3.LeaseID, error) {
+        p.Lock()
+        defer p.Unlock()
+        if len(p.leases) > 0 {
+            id := p.leases[0]
+            p.leases = p.leases[1:]
+            return id, nil
+        }
+        lease, err := cli.Grant(context.Background(), ttl)
+        return lease.ID, err
+    }
+  ```
 ### 电商秒杀防超卖
+```go
+package main
 
+import (
+    "fmt"
+    "time"
+
+    "github.com/go-redis/redis/v8"
+)
+
+type Shop struct {
+    client *redis.Client
+}
+
+func (s *Shop) Buy(itemID, userID string) (bool, error) {
+    lockKey := fmt.Sprintf("lock:%s", itemID)
+    uuid := userID + "-" + fmt.Sprint(time.Now().UnixNano())
+    ttl := 5 * time.Second
+
+    // 获取锁
+    if ok, err := acquireLock(s.client, lockKey, uuid, ttl); !ok || err != nil {
+        returnfalse, err
+    }
+    // 最后释放锁
+    defer releaseLock(s.client, lockKey, uuid)
+
+    stockKey := fmt.Sprintf("stock:%s", itemID)
+    stock, _ := s.client.Get(context.Background(), stockKey).Int()
+    if stock <= 0 {
+        returnfalse, nil
+    }
+    s.client.Decr(context.Background(), stockKey)
+    returntrue, nil
+}
+
+func main() {
+    client := redis.NewClient(&redis.Options{Addr: "localhost:6379"})
+    shop := &Shop{client}
+    client.Set(context.Background(), "stock:item1", 5, 0) // 5 units
+    for i := 0; i < 10; i++ {
+        gofunc(id int) {
+            if ok, _ := shop.Buy("item1", fmt.Sprintf("user%d", id)); ok {
+                fmt.Printf("User %d scored!\n", id)
+            } else {
+                fmt.Printf("User %d out of luck\n", id)
+            }
+        }(i)
+    }
+    time.Sleep(2 * time.Second)
+}
+```
 ### 分布式任务调度唯一执行
+基于 etcd，为定时任务 (如日志清理) 提供 “全局唯一运行” 保障，防止重复执行
+```go
+package main
 
+import (
+    "fmt"
+    "time"
+
+    "go.etcd.io/etcd/client/v3"
+)
+
+type Scheduler struct {
+    client *clientv3.Client
+}
+
+func (s *Scheduler) Run(taskID string) error {
+    key := fmt.Sprintf("/lock/%s", taskID)
+    lease, err := acquireLock(s.client, key, 10)
+    if err != nil {
+        return err
+    }
+    defer s.client.Revoke(context.Background(), lease.ID)
+
+    fmt.Printf("Running %s\n", taskID)
+    time.Sleep(2 * time.Second) // Fake work
+    fmt.Printf("%s done\n", taskID)
+    returnnil
+}
+
+func main() {
+    cli, _ := clientv3.New(clientv3.Config{Endpoints: []string{"localhost:2379"}})
+    defer cli.Close()
+    s := &Scheduler{cli}
+    for i := 0; i < 3; i++ {
+        gofunc() {
+            s.Run("cleanup")
+        }()
+    }
+    time.Sleep(5 * time.Second)
+}
+```
 ## 参考资料
 
 - https://mp.weixin.qq.com/s/FsOkz265kFMh_fuQZYDlvA
