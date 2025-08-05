@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2025-04-16 16:26:32
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-07-22 10:29:30
+ * @LastEditTime: 2025-08-05 17:59:58
  * @FilePath: /luban/系统设计基础/分布式/分布式组件/分布式事务/README.md
  * @Description: 
  * 
@@ -25,9 +25,81 @@
 不过，分布式事务中，一致性并不能完全实现，我们使用 BASE 理论之后强一致性就会转化为最终一致性或者弱一致性。这是因为在分布式的环境中，数据众多，要想实现强一致性势必影响整体的性能。
 
 ## 使用 go 语言的中间件 gorm 去实现一个事务
+### gorm 的手动事务
+```go
+  type user struct {}
+      ID   int64
+      Name string
+  }
+  // 开始事务
+  tx := db.Begin()
+  //事务执行
+  tx.Create(&user)
 
+  //
+  ///
+  // 如果失败，事务的回滚
+  tx.Rollback()
+  // 成功就提交事务
+  tx.Commit()
+```
+### gorm 的自动事务
+```go
+  db.Transaction(func(tx *gorm.DB) error {
+    if err := tx.Create(&user{ID:12,Name:"liming"}).Error; err != nil {
+      return err // 如果有错误，事务会自动回滚
+    }
+    return nil // 如果没有错误，事务会自动提交
+  })
+```
+### gorm 的事务嵌套
+```go
+  db.Transaction(func(tx *gorm.DB) error { 
+    if err := tx.Create(&user{ID:12,Name:"liming"}).Error; err != nil {
+      return err // 如果有错误，事务会自动回滚
+    }
+    // 嵌套事务
+     tx.Transaction(func(tx2 *gorm.DB) error {
+      if err := tx2.Create(&user{ID:13,Name:"zhangsan"}).Error; err != nil {
+        return err // 如果有错误，事务会自动回滚
+      }
+      return nil // 如果没有错误，事务会自动提交
+    })
+    return nil // 如果没有错误，事务会自动提交
+  })
+```
+### gorm 的事务保存点
+```go
+  db.Transaction(func(tx *gorm.DB) error {
+    if err := tx.Create(&user{ID:12,Name:"liming"}).Error; err != nil {
+      return err // 如果有错误，事务会自动回滚
+    }
+    // 设置保存点
+    tx.SavePoint("savepoint1")
+    if err := tx.Create(&user{ID:13,Name:"zhangsan"}).Error; err != nil {
+      tx.RollbackTo("savepoint1") // 回滚到保存点
+      return err // 如果有错误，事务会自动回滚
+    }
+    return nil // 如果没有错误，事务会自动提交
+  })
+```
 ## 在 clean 架构中去使用事务
 
+
+## 分布式事务的具体实践
+分布式事务的主要分类是下面三种
+
+- ​​ 强一致性协议 paxos，raft​​：(代价：牺牲可用性 A 保留一致性 C；CAP 定理中的 C 与 A 冲突)
+  - 两阶段提交 (2PC) ​​：通过协调者与参与者协作，分 “准备-提交” 两阶段实现原子性。
+  - 三阶段提交 (3PC) ​​：在 2PC 基础上增加超时机制，降低阻塞风险。
+
+- ​ 最终一致性模型 ​​：(优势：提升系统可用性，但需容忍短暂不一致)
+  - ​ 补偿事务 (Saga) ​​：通过逆向操作回滚已完成的子事务，例如订单取消后自动退款。
+  - ​ 异步消息队列 ​​：利用消息中间件 (如 Kafka) 保证操作最终执行，适用于高吞吐场景。
+  
+- 混合方案 ​​：
+  - TCC 模式 (Try-Confirm-Cancel) ​​：通过预留资源、确认执行、取消补偿三个阶段平衡一致性与性能。
+  - 分布式锁 ​​：在并发场景下通过锁机制保证隔离性，如 Redis 分布式锁
 ## 在分布式事务中分布式锁的运用
 在基于 TCC (Try-Confirm-Cancel) 模式的分布式事务中，Try 阶段可能需要预留资源。在执行 Try 操作 (如冻结库存、预扣款) 时，为了防止同一个资源被多个并发事务同时预留 (导致超卖或超扣)，就需要在操作具体的库存记录或账户余额记录之前，获取一个针对该特定资源项 (如特定商品 ID 的库存行、特定用户 ID 的账户行) 的分布式锁。
 
@@ -44,20 +116,6 @@
 分布式锁和分布式事务是解决分布式系统中不同层面问题的两种工具。它们本质不同，但在构建复杂分布式应用时经常结合使用。分布式事务的参与者内部在操作共享资源时，常常需要依赖分布式锁来保证该资源操作的互斥性
 
 通常，**分布式锁是更底层、更细粒度的同步原语**，而**分布式事务则是在更高层面协调多个操作** (其中可能包含需要锁保护的子操作) 的原子性。
-## 分布式事务的具体实践
-分布式事务的主要分类是下面三种
-
-- ​​ 强一致性协议 paxos，raft​​：(代价：牺牲可用性 A 保留一致性 C；CAP 定理中的 C 与 A 冲突)
-  - 两阶段提交 (2PC) ​​：通过协调者与参与者协作，分 “准备-提交” 两阶段实现原子性。
-  - 三阶段提交 (3PC) ​​：在 2PC 基础上增加超时机制，降低阻塞风险。
-
-- ​ 最终一致性模型 ​​：(优势：提升系统可用性，但需容忍短暂不一致)
-  - ​ 补偿事务 (Saga) ​​：通过逆向操作回滚已完成的子事务，例如订单取消后自动退款。
-  - ​ 异步消息队列 ​​：利用消息中间件 (如 Kafka) 保证操作最终执行，适用于高吞吐场景。
-  
-- 混合方案 ​​：
-  - TCC 模式 (Try-Confirm-Cancel) ​​：通过预留资源、确认执行、取消补偿三个阶段平衡一致性与性能。
-  - 分布式锁 ​​：在并发场景下通过锁机制保证隔离性，如 Redis 分布式锁
 ## 参考资料
 - https://xqey620khg.feishu.cn/docx/RAPmde56Pojc4QxgLrtc1Ga7noe?from=from_copylink
 - https://mp.weixin.qq.com/s/0Io-X0S9AY-s0HeRb_jbag

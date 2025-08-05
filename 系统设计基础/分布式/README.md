@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-06-26 16:47:02
+ * @LastEditTime: 2025-07-22 16:58:58
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -46,7 +46,7 @@
 - [分布式缓存 Redis](./分布式组件/分布式缓存/README.md)
 - 分布式 nosql
 - 分布式消息队列
-## 分布式系统设计模式 (来自于左耳听风+亿级书 + 从零 + 微服务设计 + 许)
+## 分布式系统设计模式 (来自于左耳听风+ 从零 + 亿级书  + 微服务设计 + 许)
 ### 高性能
 - [缓存设计](./分布式系统设计模式/高性能/缓存设计/README.md)
 - CORS
