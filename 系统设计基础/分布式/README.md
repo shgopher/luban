@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-07-22 16:58:58
+ * @LastEditTime: 2025-08-12 17:52:22
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -39,9 +39,10 @@
 - [全栈监控](./分布式关键技术/全栈监控/README.md)
 - [多机房](./分布式关键技术/多机房/README.md)
 ## 分布式组件 (来自极客时间分布式技术原理与算法解析 + 书)
+- [分布式结构体系](./分布式组件/分布式结构体系/README.md)
 - [分布式锁](./分布式组件/分布式锁/README.md)
 - [分布式事务 (🌟)](./分布式组件/分布式事务/README.md)
-- 分布式计算模式
+- [分布式计算模式](./分布式组件/分布式计算模式/README.md)
 - 分布式关系数据库 MySQL
 - [分布式缓存 Redis](./分布式组件/分布式缓存/README.md)
 - 分布式 nosql
