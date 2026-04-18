@@ -2,7 +2,7 @@
  * @Author: shgopher shgopher@gmail.com
  * @Date: 2024-09-14 13:02:10
  * @LastEditors: shgopher shgopher@gmail.com
- * @LastEditTime: 2025-08-12 17:52:22
+ * @LastEditTime: 2026-03-29 14:43:23
  * @FilePath: /luban/系统设计基础/分布式/README.md
  * @Description: 
  * 
@@ -43,10 +43,12 @@
 - [分布式锁](./分布式组件/分布式锁/README.md)
 - [分布式事务 (🌟)](./分布式组件/分布式事务/README.md)
 - [分布式计算模式](./分布式组件/分布式计算模式/README.md)
-- 分布式关系数据库 MySQL
-- [分布式缓存 Redis](./分布式组件/分布式缓存/README.md)
-- 分布式 nosql
-- 分布式消息队列
+- [关系数据库](./分布式组件/分布式关系数据库/README.md)
+- [缓存 -- redis](./分布式组件/分布式缓存/README.md)
+- [文档数据库--MongoDB](./分布式组件/文档数据库/README.md)
+- [列式数据库--hbase](./分布式组件/列式数据库/README.md)
+- [全文搜索引擎-- elasticsearch](./分布式组件/全文搜索引擎/README.md)
+- [消息队列](./分布式组件/分布式消息队列/README.md)
 ## 分布式系统设计模式 (来自于左耳听风+ 从零 + 亿级书  + 微服务设计 + 许)
 ### 高性能
 - [缓存设计](./分布式系统设计模式/高性能/缓存设计/README.md)
