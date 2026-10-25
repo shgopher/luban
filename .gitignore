@@ -7,3 +7,5 @@ go.sum
 .temp
 .cache
 dist
+# 鲁班写作法索引产物（make-index.py 生成，可随时重建）
+_luban/
