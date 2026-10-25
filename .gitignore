@@ -9,3 +9,7 @@ go.sum
 dist
 # 鲁班写作法索引产物（make-index.py 生成，可随时重建）
 _luban/
+
+# Python 缓存（脚本产物）
+__pycache__/
+*.pyc
