@@ -13,3 +13,6 @@ _luban/
 # Python 缓存（脚本产物）
 __pycache__/
 *.pyc
+
+# linkify-refs.py 的备份（不是书稿正文）
+.linkify-bak/
