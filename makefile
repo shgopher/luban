@@ -12,3 +12,10 @@ refs-write:
 
 refs-check:
 	python3 tools/linkify-refs.py v2 --check
+
+# 深度门禁：一句话 / 自检数 / 反模式行数 / 代码或实测 / 数字表
+SKILL_SCRIPTS ?= $(HOME)/.dsh/skills/luban-writing/scripts
+depth:
+	python3 $(SKILL_SCRIPTS)/check-depth.py v2 --top 20
+depth-strict:
+	python3 $(SKILL_SCRIPTS)/check-depth.py v2 --strict --top 20
