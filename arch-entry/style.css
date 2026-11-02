@@ -1,0 +1,405 @@
+/* ===== 页面设置 ===== */
+@page {
+  size: A4;
+  margin: 20mm 17mm 18mm 17mm;
+  @top-left {
+    content: "入门架构师实战手册";
+    font-family: "HarmonyOS Sans SC", sans-serif;
+    font-size: 8pt;
+    color: #8a97a5;
+    padding-bottom: 2mm;
+  }
+  @top-right {
+    content: string(chapter);
+    font-family: "HarmonyOS Sans SC", sans-serif;
+    font-size: 8pt;
+    color: #8a97a5;
+    padding-bottom: 2mm;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-family: "HarmonyOS Sans SC", sans-serif;
+    font-size: 8.5pt;
+    color: #8a97a5;
+  }
+}
+
+@page cover {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+@page toc {
+  @top-left { content: none; }
+  @top-right { content: none; }
+}
+
+/* ===== 基础排版 ===== */
+html {
+  font-family: "HarmonyOS Sans SC", "PingFang SC", "Heiti SC", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.72;
+  color: #1f2a37;
+}
+
+body { margin: 0; }
+
+p { margin: 0 0 6pt 0; text-align: justify; }
+
+strong { color: #10263a; font-weight: 700; }
+
+a { color: #1f5f8b; text-decoration: none; }
+
+/* ===== 封面 ===== */
+.cover {
+  page: cover;
+  height: 297mm;
+  width: 210mm;
+  box-sizing: border-box;
+  background: #0e2233;
+  color: #ffffff;
+  padding: 30mm 22mm 22mm 22mm;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover .rule {
+  width: 26mm;
+  height: 1.6mm;
+  background: #e07b39;
+  margin-bottom: 10mm;
+}
+
+.cover .kicker {
+  font-size: 9.5pt;
+  letter-spacing: 0.28em;
+  color: #9fb4c6;
+  margin-bottom: 6mm;
+}
+
+.cover h1 {
+  color: #ffffff;
+  font-size: 40pt;
+  line-height: 1.22;
+  margin: 0 0 6mm 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  break-before: avoid;
+  border: none;
+  padding: 0;
+  string-set: none;
+}
+
+.cover .sub {
+  font-size: 14pt;
+  color: #cfe0ee;
+  line-height: 1.6;
+  margin-bottom: 18mm;
+  max-width: 130mm;
+}
+
+.cover .tags {
+  font-size: 9.5pt;
+  color: #9fb4c6;
+  line-height: 2;
+}
+
+.cover .tags span {
+  display: inline-block;
+  border: 0.4pt solid #3b566e;
+  border-radius: 1mm;
+  padding: 0.6mm 2.4mm;
+  margin: 0 2mm 2mm 0;
+}
+
+.cover .bottom {
+  position: absolute;
+  left: 22mm;
+  right: 22mm;
+  bottom: 22mm;
+  border-top: 0.4pt solid #2c4356;
+  padding-top: 5mm;
+  font-size: 9pt;
+  color: #8fa6ba;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cover .watermark {
+  position: absolute;
+  right: -30mm;
+  bottom: -16mm;
+  font-size: 120pt;
+  font-weight: 700;
+  color: rgba(255,255,255,0.028);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* ===== 目录 ===== */
+.toc {
+  page: toc;
+  break-before: page;
+}
+
+.toc h1 {
+  font-size: 22pt;
+  margin: 0 0 8mm 0;
+  padding-bottom: 3mm;
+  border-bottom: 1.2pt solid #0e2233;
+  break-before: avoid;
+  string-set: none;
+}
+
+#TOC ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#TOC > ul > li {
+  margin-top: 6pt;
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #10263a;
+  break-inside: avoid;
+}
+
+#TOC > ul > li > a { color: #10263a; }
+
+#TOC ul ul {
+  margin: 1.2pt 0 3pt 0;
+  padding-left: 5mm;
+  column-count: 2;
+  column-gap: 7mm;
+}
+
+#TOC ul ul li {
+  font-size: 8.6pt;
+  font-weight: 400;
+  color: #5b6b7c;
+  margin: 0.8pt 0;
+  break-inside: avoid;
+}
+
+#TOC ul ul li a { color: #5b6b7c; }
+
+#TOC a {
+  display: block;
+}
+
+#TOC a::after {
+  content: leader('.') target-counter(attr(href), page);
+  color: #8a97a5;
+  font-weight: 400;
+}
+
+/* ===== 标题 ===== */
+h1 {
+  break-before: page;
+  string-set: chapter content();
+  font-size: 24pt;
+  line-height: 1.3;
+  color: #0e2233;
+  margin: 0 0 5mm 0;
+  padding: 0 0 4mm 0;
+  border-bottom: 2.2pt solid #e07b39;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-size: 13.2pt;
+  color: #14486e;
+  margin: 8mm 0 3.2mm 0;
+  padding-left: 3.2mm;
+  border-left: 3.2pt solid #2f6f9f;
+  line-height: 1.45;
+  break-after: avoid;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 11pt;
+  color: #26384a;
+  margin: 5mm 0 2.2mm 0;
+  break-after: avoid;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 10.2pt;
+  margin: 4mm 0 2mm 0;
+  color: #26384a;
+  break-after: avoid;
+}
+
+/* ===== 引用块（本章一句话 / 提示） ===== */
+blockquote {
+  margin: 3mm 0 6mm 0;
+  padding: 3.4mm 4.5mm;
+  background: #f1f6fa;
+  border-left: 3pt solid #2f6f9f;
+  color: #16344b;
+  font-size: 10.2pt;
+  break-inside: avoid;
+}
+
+blockquote p { margin: 0 0 2pt 0; }
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ===== 表格 ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.5mm 0 5.5mm 0;
+  font-size: 8.8pt;
+  line-height: 1.5;
+  break-inside: auto;
+}
+
+thead { display: table-header-group; }
+
+th {
+  background: #eaf1f7;
+  color: #10263a;
+  font-weight: 700;
+  text-align: left;
+  padding: 1.9mm 2.2mm;
+  border: 0.4pt solid #cdd8e3;
+  border-bottom: 0.8pt solid #9fb4c6;
+}
+
+td {
+  padding: 1.7mm 2.2mm;
+  border: 0.4pt solid #dbe3ec;
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) td { background: #f8fafc; }
+
+tr { break-inside: avoid; }
+
+/* ===== 代码 ===== */
+pre {
+  max-width: 100%;
+  box-sizing: border-box;
+  break-inside: avoid;
+  font-family: Menlo, "SF Mono", monospace;
+  font-size: 7.9pt;
+  line-height: 1.5;
+  background: #f6f8fa;
+  border: 0.4pt solid #e1e7ee;
+  border-left: 2.6pt solid #2f6f9f;
+  border-radius: 1.2mm;
+  padding: 2.8mm 3.4mm;
+  margin: 2.5mm 0 5mm 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: #1c2b3a;
+}
+
+code {
+  font-family: Menlo, "SF Mono", monospace;
+  font-size: 8.6pt;
+  background: #eef2f6;
+  border-radius: 0.8mm;
+  padding: 0.2mm 1.1mm;
+  color: #14486e;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ===== 列表 ===== */
+ul, ol { margin: 0 0 5mm 0; padding-left: 6mm; }
+li { margin: 1.2mm 0; }
+
+/* ===== 分隔线 ===== */
+hr {
+  border: none;
+  border-top: 0.4pt solid #dfe6ee;
+  margin: 6mm 0;
+}
+
+/* ===== 工具类 ===== */
+.small { font-size: 9pt; color: #6b7b8c; }
+
+/* ===== 代码高亮（pandoc token classes） ===== */
+pre.sourceCode { background: #f6f8fa; }
+code span.kw { color: #0b5394; font-weight: 600; }
+code span.dt { color: #8a4b08; }
+code span.dv, code span.bn, code span.fl { color: #098658; }
+code span.ch, code span.st { color: #a31515; }
+code span.co { color: #6a737d; font-style: italic; }
+code span.fu { color: #6f42c1; }
+code span.at { color: #0b5394; }
+code span.op { color: #444; }
+code span.va { color: #1f2a37; }
+code span.er { color: #b00020; }
+
+.cover .note {
+  position: absolute;
+  left: 22mm;
+  bottom: 46mm;
+  font-size: 9.5pt;
+  line-height: 1.9;
+  color: #7f97ab;
+}
+
+/* ===== 封底 ===== */
+.backcover {
+  page: cover;
+  height: 297mm;
+  width: 210mm;
+  box-sizing: border-box;
+  background: #0e2233;
+  color: #ffffff;
+  position: relative;
+}
+
+.backcover .bc-inner {
+  position: absolute;
+  left: 30mm;
+  right: 30mm;
+  top: 95mm;
+}
+
+.backcover .bc-rule {
+  width: 18mm;
+  height: 1.2mm;
+  background: #e07b39;
+  margin-bottom: 9mm;
+}
+
+.backcover .bc-big {
+  font-size: 30pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 10mm 0;
+  color: #ffffff;
+  text-align: left;
+}
+
+.backcover .bc-text {
+  font-size: 11pt;
+  line-height: 2;
+  color: #b9cada;
+  text-align: left;
+}
+
+.backcover .bc-foot {
+  position: absolute;
+  left: 30mm;
+  bottom: 30mm;
+  font-size: 8.5pt;
+  color: #6f879b;
+  letter-spacing: 0.1em;
+}
