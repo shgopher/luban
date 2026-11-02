@@ -69,6 +69,9 @@ WORKDIR /src
 COPY go.mod go.sum ./
 RUN --mount=type=cache,target=/go/pkg/mod go mod download
 
+# Alpine 默认没有时区数据；需要本地时区就必须装
+RUN apk add --no-cache tzdata
+
 COPY . .
 # 静态编译：不依赖 libc，才能放进 distroless/scratch
 RUN --mount=type=cache,target=/go/pkg/mod \

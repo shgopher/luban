@@ -154,46 +154,23 @@ kubectl -n prod rollout undo deploy/order-api
 **结论先行**：优雅停机 = 从负载均衡摘除 → 停止接新请求 → 等在途请求完成 → 关连接池 → 退出；四步顺序错一步就会 502。
 
 ```go
-package main
-
-import (
-	"context"
-	"errors"
-	"log/slog"
-	"net/http"
-	"os"
-	"os/signal"
-	"syscall"
-	"time"
-)
-
-func main() {
-	srv := &http.Server{Addr: ":8080", Handler: newRouter()}
-
-	// 收到 SIGTERM 后，ctx 被取消
+func waitAndShutdown(srv *http.Server) {
+	// 1. 收到 SIGTERM / Ctrl-C
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGTERM, os.Interrupt)
 	defer stop()
-
-	go func() {
-		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
-			slog.Error("listen failed", "err", err)
-			os.Exit(1)
-		}
-	}()
-	slog.Info("server started")
-
 	<-ctx.Done()
-	// 给在途请求 20 秒；必须小于 K8s 的 terminationGracePeriodSeconds
+
+	// 2. 停止接新请求，等在途请求处理完（必须小于 K8s 的 grace period）
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 	defer cancel()
 	if err := srv.Shutdown(shutdownCtx); err != nil {
-		slog.Error("graceful shutdown failed", "err", err)
+		slog.Error("graceful shutdown", "err", err)
 	}
-	slog.Info("server stopped")
+	// 3. Shutdown 返回后关闭 DB/Redis 连接池，再退出
 }
 ```
 
-K8s 侧配套：
+完整的 HTTP 服务模板（含超时、中间件、优雅停机）见第 16 章。K8s 侧配套：
 
 ```yaml
 spec:

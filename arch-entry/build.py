@@ -22,7 +22,7 @@ for name in ORDER:
     if not p.exists():
         sys.exit(f"missing {name}")
     parts.append(p.read_text(encoding="utf-8").strip())
-combined = "\n\n\n".join(parts).replace("\n## 本章自检", "\n### 本章自检").replace("\n▸ 答案：", "\n\n**答：**")
+combined = "\n\n\n".join(parts).replace("\n## 本章自检", "\n### 本章自检").replace("\n▸ 答案：", "\n\n**答：** ")
 (OUT / "combined.md").write_text(combined, encoding="utf-8")
 
 subprocess.run([
