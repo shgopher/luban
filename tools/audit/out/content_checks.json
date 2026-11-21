@@ -1,0 +1,3342 @@
+{
+ "dup_paragraphs": [],
+ "dup_ones": [],
+ "dup_codes": [],
+ "todo": [
+  {
+   "section": "43.6",
+   "line": 147,
+   "target": null,
+   "target_exists": null,
+   "text": "| 生产 | 异步发送不检查回调；重试放弃 | `acks=all` + 客户端重试 + 失败落库补偿 | 检查返回值/回调，失败重发或记待补偿表 |"
+  },
+  {
+   "section": "17.3",
+   "line": 84,
+   "target": "8.0",
+   "target_exists": false,
+   "text": "fmt.Printf(\"  分区 %4.0fs × %4.0f QPS = %8.0f 条待合并/待补偿\\n\", sec, qps, sec*qps)"
+  },
+  {
+   "section": "17.3",
+   "line": 102,
+   "target": null,
+   "target_exists": null,
+   "text": "分区   10s ×  200 QPS =     2000 条待合并/待补偿"
+  },
+  {
+   "section": "17.3",
+   "line": 103,
+   "target": null,
+   "target_exists": null,
+   "text": "分区   10s × 1000 QPS =    10000 条待合并/待补偿"
+  },
+  {
+   "section": "17.3",
+   "line": 104,
+   "target": null,
+   "target_exists": null,
+   "text": "分区   30s ×  200 QPS =     6000 条待合并/待补偿"
+  },
+  {
+   "section": "17.3",
+   "line": 105,
+   "target": null,
+   "target_exists": null,
+   "text": "分区   30s × 1000 QPS =    30000 条待合并/待补偿"
+  },
+  {
+   "section": "17.3",
+   "line": 106,
+   "target": null,
+   "target_exists": null,
+   "text": "分区  300s ×  200 QPS =    60000 条待合并/待补偿"
+  },
+  {
+   "section": "17.3",
+   "line": 107,
+   "target": null,
+   "target_exists": null,
+   "text": "分区  300s × 1000 QPS =   300000 条待合并/待补偿"
+  },
+  {
+   "section": "83.1",
+   "line": 378,
+   "target": null,
+   "target_exists": null,
+   "text": "print(f\"\\n共 {len(hits)} 处待补限定词\")"
+  },
+  {
+   "section": "83.1",
+   "line": 390,
+   "target": null,
+   "target_exists": null,
+   "text": "共 5 处待补限定词"
+  }
+ ],
+ "todo_stale": [],
+ "versions": {
+  "Go 1.25": [
+   "15.6",
+   "53.9"
+  ],
+  "Go 1.27.1": [
+   "15.6",
+   "36.1",
+   "36.5",
+   "36.6",
+   "36.7",
+   "37.3",
+   "37.5",
+   "38.1",
+   "38.10",
+   "38.11",
+   "38.12",
+   "38.9",
+   "39.1",
+   "39.2",
+   "39.4",
+   "39.5",
+   "39.6",
+   "40.3",
+   "40.4",
+   "40.5",
+   "40.7",
+   "43.10",
+   "43.11",
+   "43.9",
+   "52.2",
+   "54.1",
+   "55.8",
+   "62.1",
+   "62.2",
+   "62.3",
+   "62.4",
+   "62.5",
+   "62.6",
+   "64.1",
+   "64.2",
+   "64.3",
+   "64.4",
+   "64.5",
+   "64.6",
+   "64.7",
+   "64.8",
+   "64.9",
+   "66.1",
+   "66.2",
+   "66.3",
+   "66.4",
+   "66.5",
+   "69.3",
+   "70.1",
+   "70.2",
+   "70.3",
+   "70.4",
+   "71.1",
+   "71.2",
+   "71.3",
+   "72.1",
+   "72.2",
+   "72.3",
+   "72.5",
+   "73.4"
+  ],
+  "go1.27.1": [
+   "0.1",
+   "0.10",
+   "0.11",
+   "0.12",
+   "0.13",
+   "0.14",
+   "0.2",
+   "0.3",
+   "0.4",
+   "0.5",
+   "0.6",
+   "0.7",
+   "0.8",
+   "0.9",
+   "11.13",
+   "26.3",
+   "26.6",
+   "34.4",
+   "40.6",
+   "52.6",
+   "58.8",
+   "65.1",
+   "65.2",
+   "65.3",
+   "65.4",
+   "65.5",
+   "67.1",
+   "67.2",
+   "67.3",
+   "67.4",
+   "67.5",
+   "68.1",
+   "68.2",
+   "68.3",
+   "68.4",
+   "68.5",
+   "68.6",
+   "69.2",
+   "69.4",
+   "70.1",
+   "71.4",
+   "74.2",
+   "74.3",
+   "74.4",
+   "75.1",
+   "75.2",
+   "76.1",
+   "76.3",
+   "76.4",
+   "76.5",
+   "77.1",
+   "77.2",
+   "77.3",
+   "77.4",
+   "78.3",
+   "79.1",
+   "79.2",
+   "79.3",
+   "79.4",
+   "80.4",
+   "80.6",
+   "81.1",
+   "81.2",
+   "81.3",
+   "81.4",
+   "81.5",
+   "81.6",
+   "82.1",
+   "82.2",
+   "82.3",
+   "82.4",
+   "82.5",
+   "82.6"
+  ],
+  "Go 1.16": [
+   "51.5"
+  ],
+  "go 1.22": [
+   "52.3"
+  ],
+  "Go 1.27": [
+   "11.4",
+   "15.5",
+   "15.6",
+   "15.7",
+   "16.5",
+   "17.3",
+   "17.5",
+   "18.1",
+   "18.2",
+   "19.2",
+   "19.5",
+   "20.1",
+   "22.1",
+   "23.6",
+   "27.1",
+   "29.1",
+   "29.2",
+   "29.3",
+   "29.4",
+   "29.5",
+   "29.6",
+   "29.7",
+   "30.1",
+   "30.2",
+   "30.3",
+   "30.4",
+   "30.5",
+   "30.6",
+   "30.7",
+   "33.1",
+   "33.2",
+   "33.3",
+   "33.4",
+   "33.5",
+   "33.6",
+   "38.2",
+   "38.3",
+   "38.4",
+   "38.5",
+   "40.4",
+   "41.1",
+   "41.4",
+   "41.5",
+   "41.6",
+   "41.9",
+   "42.2",
+   "42.3",
+   "42.4",
+   "42.5",
+   "42.6",
+   "43.2",
+   "43.3",
+   "43.4",
+   "43.5",
+   "43.6",
+   "43.7",
+   "43.8",
+   "44.10",
+   "44.11",
+   "44.12",
+   "44.15",
+   "44.17",
+   "44.18",
+   "44.19",
+   "44.20",
+   "44.21",
+   "44.8",
+   "44.9",
+   "45.1",
+   "45.2",
+   "45.3",
+   "45.4",
+   "46.1",
+   "46.2",
+   "46.3",
+   "46.4",
+   "46.5",
+   "46.6",
+   "47.6",
+   "47.7",
+   "57.1",
+   "57.2",
+   "57.3",
+   "57.4",
+   "6.1",
+   "63.1",
+   "63.2",
+   "63.3",
+   "63.4",
+   "63.5",
+   "63.6",
+   "67.6",
+   "72.2",
+   "8.1",
+   "8.10",
+   "8.2",
+   "8.3",
+   "8.5"
+  ],
+  "Go 1.20": [
+   "15.6",
+   "8.10"
+  ],
+  "Linux 5.6": [
+   "6.3"
+  ],
+  "Go 1.19": [
+   "0.4",
+   "15.4",
+   "15.6",
+   "15.7",
+   "23.6"
+  ],
+  "Go 1.23": [
+   "0.7",
+   "15.6"
+  ],
+  "Go 1.18": [
+   "0.14",
+   "15.6"
+  ],
+  "Go 1.21": [
+   "15.6",
+   "24.4",
+   "24.5",
+   "24.6",
+   "24.7",
+   "24.9"
+  ],
+  "Go 1.24": [
+   "15.6"
+  ],
+  "Go 1.13": [
+   "0.9",
+   "15.6",
+   "40.6",
+   "40.7"
+  ],
+  "Go 1.14": [
+   "15.1"
+  ],
+  "Linux 2.6": [
+   "11.8"
+  ],
+  "Linux 2.2": [
+   "11.11"
+  ],
+  "Linux 4.5": [
+   "11.4"
+  ],
+  "Linux 5.1": [
+   "11.4"
+  ],
+  "kernel 5.4": [
+   "11.14"
+  ],
+  "go1.20": [
+   "40.4"
+  ],
+  "Go 1.22": [
+   "34.4"
+  ]
+ },
+ "measured": [
+  {
+   "section": "55.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "55.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "55.7",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "58.8",
+   "hits": 1,
+   "env": [
+    "go1.27.1 darwin/arm64`，仓库 `.cache/archjudge`）："
+   ]
+  },
+  {
+   "section": "58.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "58.6",
+   "hits": 1,
+   "env": [
+    "32 核",
+    "16 核"
+   ]
+  },
+  {
+   "section": "54.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "54.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "54.1",
+   "hits": 3,
+   "env": [
+    "linux/amd64",
+    "linux/arm64"
+   ]
+  },
+  {
+   "section": "54.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "51.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "51.1",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "51.4",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "51.3",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "51.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "56.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "56.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "52.6",
+   "hits": 2,
+   "env": [
+    "go1.27.1 darwin/arm64）："
+   ]
+  },
+  {
+   "section": "52.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "52.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "59.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "59.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "57.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "57.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "57.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "57.4",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "14.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "7.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "7.13",
+   "hits": 1,
+   "env": [
+    "2 核"
+   ]
+  },
+  {
+   "section": "8.1",
+   "hits": 1,
+   "env": [
+    "Apple M1)："
+   ]
+  },
+  {
+   "section": "8.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "8.10",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27；`Rewrite` 需要 Go 1.20+"
+   ]
+  },
+  {
+   "section": "8.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "8.5",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27；跑三次，字节数稳定，新建连接数 98–10"
+   ]
+  },
+  {
+   "section": "6.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "6.6",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "6.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "6.3",
+   "hits": 2,
+   "env": [
+    "5 核",
+    "8 核",
+    "1 核",
+    "16 核"
+   ]
+  },
+  {
+   "section": "6.1",
+   "hits": 1,
+   "env": [
+    "内核 0day 就是整台宿主。"
+   ]
+  },
+  {
+   "section": "15.7",
+   "hits": 3,
+   "env": [
+    "Apple M1）：",
+    "Apple M1，8 核；`go test -bench . -bencht"
+   ]
+  },
+  {
+   "section": "15.6",
+   "hits": 10,
+   "env": [
+    "8 核",
+    "Apple M1（8 核）、macOS 15.6；`go test -ben"
+   ]
+  },
+  {
+   "section": "15.5",
+   "hits": 1,
+   "env": [
+    "Apple M1；本机 Go 安装缺少 pprof 工具，以下输出由同版本源"
+   ]
+  },
+  {
+   "section": "13.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "10.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "10.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "10.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "12.5",
+   "hits": 1,
+   "env": [
+    "1 核",
+    "8 核",
+    "16 核",
+    "1核"
+   ]
+  },
+  {
+   "section": "12.2",
+   "hits": 1,
+   "env": [
+    "8 核",
+    "1 核"
+   ]
+  },
+  {
+   "section": "12.4",
+   "hits": 1,
+   "env": [
+    "8 核",
+    "1 核"
+   ]
+  },
+  {
+   "section": "12.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "12.3",
+   "hits": 1,
+   "env": [
+    "8 核",
+    "1 核",
+    "800 核"
+   ]
+  },
+  {
+   "section": "11.9",
+   "hits": 4,
+   "env": [
+    "2 核",
+    "4 核",
+    "1 核"
+   ]
+  },
+  {
+   "section": "11.1",
+   "hits": 1,
+   "env": [
+    "2 核",
+    "1 核"
+   ]
+  },
+  {
+   "section": "11.7",
+   "hits": 2,
+   "env": [
+    "内核 5.13 的 `bpf_prog_type",
+    "内核 5.2+ 且开了 CONFIG_DEBUG",
+    "linux/skbuff",
+    "linux/ip"
+   ]
+  },
+  {
+   "section": "11.12",
+   "hits": 3,
+   "env": [
+    "4 核",
+    "8 核",
+    "1 核",
+    "16 核"
+   ]
+  },
+  {
+   "section": "11.8",
+   "hits": 5,
+   "env": [
+    "48 核"
+   ]
+  },
+  {
+   "section": "11.10",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "11.13",
+   "hits": 2,
+   "env": [
+    "go1.27.1`），用 `GOOS=linux GOARCH=arm64 CGO_ENABLE"
+   ]
+  },
+  {
+   "section": "11.11",
+   "hits": 3,
+   "env": [
+    "内核 4.x）上 `ip addr` 显示 `q"
+   ]
+  },
+  {
+   "section": "11.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，单进程内同时做客户端与服务端）："
+   ]
+  },
+  {
+   "section": "11.14",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "73.5",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "73.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "73.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "73.2",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "73.3",
+   "hits": 10,
+   "env": []
+  },
+  {
+   "section": "49.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "49.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "49.1",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "49.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "49.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "49.3",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "44.4",
+   "hits": 1,
+   "env": [
+    "Apple M1 / Python 3.14.8 标准库（`zlib.com"
+   ]
+  },
+  {
+   "section": "44.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.23",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "44.21",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.16",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.20",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.24",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "44.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "44.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.12",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.9",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.11",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.22",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.10",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.17",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.15",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.19",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.18",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "44.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "48.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "48.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "48.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "69.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "69.3",
+   "hits": 5,
+   "env": []
+  },
+  {
+   "section": "69.1",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "69.2",
+   "hits": 1,
+   "env": [
+    "Apple M1 / go1.27.1，单文件版 `go run main."
+   ]
+  },
+  {
+   "section": "69.4",
+   "hits": 1,
+   "env": [
+    "Apple M1 / APFS / go1.27.1，`go test -r"
+   ]
+  },
+  {
+   "section": "64.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.8",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.9",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "64.7",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "45.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "45.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "45.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "45.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "45.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "62.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "62.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "62.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "62.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "62.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "62.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "70.2",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "70.1",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64 / 2026-11-21；同机 4 个写作任务并行，",
+    "go1.27.1 darwin/arm64 | 内容 800 条，回调 5000 次（每条 6~"
+   ]
+  },
+  {
+   "section": "70.3",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "70.4",
+   "hits": 7,
+   "env": []
+  },
+  {
+   "section": "71.3",
+   "hits": 2,
+   "env": [
+    "Apple M1 / Go 1.27.1 / 2026-11-21，纯计算。",
+    "Apple M1 / Go 1.27.1 / Redis 8.10.2 @ ",
+    "Apple M1 / Go 1.27.1 / 2026-11-21，纯计算；"
+   ]
+  },
+  {
+   "section": "71.4",
+   "hits": 1,
+   "env": [
+    "go1.27.1 / 2026-11-21；1,000,000 点合成轨迹（seed=42，路网",
+    "go1.27.1 / MySQL **26.7.0 @ `127.0.0.1:16306`**（",
+    "go1.27.1 / 2026-11-21；模拟「手机放桌上」1 小时，1 Hz 共 3,600"
+   ]
+  },
+  {
+   "section": "71.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "71.2",
+   "hits": 5,
+   "env": [
+    "Apple M1 / Go 1.27.1 / Redis 8.10.2 @1",
+    "5 核"
+   ]
+  },
+  {
+   "section": "47.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "47.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "47.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "47.7",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.7",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.9",
+   "hits": 7,
+   "env": [
+    "Apple M1，Go 1.27.1，索引全在内存）："
+   ]
+  },
+  {
+   "section": "43.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.8",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "43.10",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27.1，纯逻辑推演，无真实集群）："
+   ]
+  },
+  {
+   "section": "43.11",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27.1，回环网络）："
+   ]
+  },
+  {
+   "section": "43.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "46.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "46.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "46.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "46.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "46.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "46.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "60.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Python 3.14.8）："
+   ]
+  },
+  {
+   "section": "60.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Python 3.14.8）："
+   ]
+  },
+  {
+   "section": "60.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Python 3.14.8）："
+   ]
+  },
+  {
+   "section": "60.3",
+   "hits": 2,
+   "env": [
+    "Apple M1，Python 3.14.8）：",
+    "Apple M1，Python 3.14.8；同一台机器多次运行有 ±10%"
+   ]
+  },
+  {
+   "section": "60.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Python 3.14.8）："
+   ]
+  },
+  {
+   "section": "60.6",
+   "hits": 2,
+   "env": [
+    "Apple M1，Python 3.14.8）："
+   ]
+  },
+  {
+   "section": "66.4",
+   "hits": 5,
+   "env": [
+    "Apple M1, 8 核) / Go 1.27.1 / Pion webr"
+   ]
+  },
+  {
+   "section": "66.1",
+   "hits": 4,
+   "env": [
+    "8 核"
+   ]
+  },
+  {
+   "section": "66.3",
+   "hits": 4,
+   "env": [
+    "Apple M1 / Go 1.27.1 / 2026-11-21，纯内存无"
+   ]
+  },
+  {
+   "section": "66.2",
+   "hits": 2,
+   "env": [
+    "Apple M1 / Python 3.14.8，原始输出 `.cache/",
+    "Apple M1 ×8）、Go 1.27.1 darwin/arm64、Re",
+    "8 核"
+   ]
+  },
+  {
+   "section": "66.6",
+   "hits": 8,
+   "env": [
+    "8 核",
+    "12 核",
+    "55 核",
+    "34 核"
+   ]
+  },
+  {
+   "section": "66.5",
+   "hits": 4,
+   "env": [
+    "8 核"
+   ]
+  },
+  {
+   "section": "50.8",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "50.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "72.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "72.2",
+   "hits": 2,
+   "env": [
+    "linux/man"
+   ]
+  },
+  {
+   "section": "72.4",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "72.5",
+   "hits": 7,
+   "env": []
+  },
+  {
+   "section": "72.3",
+   "hits": 5,
+   "env": []
+  },
+  {
+   "section": "63.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "63.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "63.7",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "63.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "63.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "63.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "63.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "63.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）：",
+    "Apple M1 / Python 3.14.8，原始输出 `.cache/"
+   ]
+  },
+  {
+   "section": "42.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "42.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "42.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "42.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "42.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "41.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "41.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "41.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "41.9",
+   "hits": 6,
+   "env": [
+    "Apple M1，loopback）",
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "41.11",
+   "hits": 5,
+   "env": []
+  },
+  {
+   "section": "41.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "41.12",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "41.10",
+   "hits": 7,
+   "env": []
+  },
+  {
+   "section": "65.4",
+   "hits": 2,
+   "env": [
+    "go1.27.1 darwin/arm64`，原始输出在 `.cache/t65/65.4/co",
+    "go1.27.1 darwin/arm64`，原始输出在 `.cache/t65/65.4/ma"
+   ]
+  },
+  {
+   "section": "65.3",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64`，9 条事件含 2 条重复、1 条迟到、乱序）：",
+    "go1.27.1 darwin/arm64`，GOMAXPROCS=8）："
+   ]
+  },
+  {
+   "section": "65.2",
+   "hits": 1,
+   "env": [
+    "go1.27.1 darwin/arm64`，纯标准库；程序与原始输出在 `.cache/t65",
+    "go1.27.1 darwin/arm64`，AES-256-GCM）："
+   ]
+  },
+  {
+   "section": "65.5",
+   "hits": 2,
+   "env": [
+    "go1.27.1 darwin/arm64`，两组实验各跑一遍）：",
+    "go1.27.1 darwin/arm64`，`go run plan.go`；* 工单数假设受"
+   ]
+  },
+  {
+   "section": "65.1",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64`，纯标准库 `go run` 直跑）：",
+    "35 核"
+   ]
+  },
+  {
+   "section": "67.6",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "61.5",
+   "hits": 7,
+   "env": [
+    "Apple M1，Python 3.14.8；同一台机器多次运行有 ±10%"
+   ]
+  },
+  {
+   "section": "61.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，darwin/arm64）、Python 3.14.8、纯"
+   ]
+  },
+  {
+   "section": "19.6",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "19.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "19.5",
+   "hits": 2,
+   "env": [
+    "Apple M1）："
+   ]
+  },
+  {
+   "section": "22.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "22.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "22.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "17.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "17.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "17.5",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "17.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "24.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.11",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.12",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "25.6",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "25.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "25.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "25.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "20.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "20.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "20.1",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "23.6",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "23.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "23.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "23.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "18.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "18.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "18.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "18.2",
+   "hits": 2,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "18.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "0.6",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64`，Apple M1。",
+    "go1.27.1 darwin/arm64 · Apple M1\\n\")",
+    "go1.27.1 darwin/arm64 · Apple M1"
+   ]
+  },
+  {
+   "section": "0.10",
+   "hits": 4,
+   "env": [
+    "go1.27.1 darwin/arm64`（Apple M1），命令 `go test ./b",
+    "go1.27.1 darwin/arm64`（Apple M1），命令 `go run ./fi"
+   ]
+  },
+  {
+   "section": "0.15",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "0.1",
+   "hits": 4,
+   "env": [
+    "go1.27.1 darwin/arm64，Apple M1）：",
+    "39 核",
+    "0012 核",
+    "01 核"
+   ]
+  },
+  {
+   "section": "0.3",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64，Apple M1，macOS。代码在 `/tmp/l",
+    "go1.27.1 darwin/arm64 / Apple M1\")",
+    "go1.27.1 darwin/arm64 / Apple M1"
+   ]
+  },
+  {
+   "section": "0.13",
+   "hits": 1,
+   "env": [
+    "go1.27.1 darwin/arm64`）："
+   ]
+  },
+  {
+   "section": "0.12",
+   "hits": 2,
+   "env": [
+    "go1.27.1 darwin/arm64`（Apple M1），命令 `go test ./b"
+   ]
+  },
+  {
+   "section": "0.4",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64`，Apple M1、8 核。**耗时取 7 次最快值",
+    "go1.27.1 darwin/arm64 · Apple M1 · GOMAXPROCS=%d",
+    "go1.27.1 darwin/arm64 · Apple M1 · GOMAXPROCS=8"
+   ]
+  },
+  {
+   "section": "0.5",
+   "hits": 2,
+   "env": [
+    "8 核",
+    "go1.27.1 darwin/arm64 · Apple M1\\n\")",
+    "go1.27.1 darwin/arm64`，Apple M1）：",
+    "go1.27.1 darwin/arm64 · Apple M1"
+   ]
+  },
+  {
+   "section": "0.11",
+   "hits": 2,
+   "env": [
+    "go1.27.1 darwin/arm64`，命令 `go run .`，跳过 `testdat"
+   ]
+  },
+  {
+   "section": "32.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "32.4",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "32.1",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "33.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "33.1",
+   "hits": 1,
+   "env": [
+    "5 核",
+    "4 核",
+    "2 核",
+    "7 核"
+   ]
+  },
+  {
+   "section": "33.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "33.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "33.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "33.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "33.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.8",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "30.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.7",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "30.9",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "30.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "29.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "29.7",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "26.3",
+   "hits": 2,
+   "env": [
+    "go1.27.1）："
+   ]
+  },
+  {
+   "section": "31.3",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "31.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "31.5",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "31.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "31.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "27.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "27.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "27.1",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "27.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "27.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "1.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "2.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "2.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "2.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "37.7",
+   "hits": 1,
+   "env": [
+    "4 核"
+   ]
+  },
+  {
+   "section": "37.5",
+   "hits": 1,
+   "env": [
+    "16 核",
+    "Apple M1 / 8 核 / Go 1.27.1）："
+   ]
+  },
+  {
+   "section": "37.9",
+   "hits": 1,
+   "env": [
+    "1 核",
+    "Apple M1 / Python 3.9.6，参数即上面这些假设）：",
+    "4 核"
+   ]
+  },
+  {
+   "section": "39.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1，`GO111MODULE=off go"
+   ]
+  },
+  {
+   "section": "39.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1，`GO111MODULE=off go"
+   ]
+  },
+  {
+   "section": "39.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1，`GO111MODULE=off go"
+   ]
+  },
+  {
+   "section": "39.6",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27.1，`GO111MODULE=off go"
+   ]
+  },
+  {
+   "section": "38.3",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "38.4",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "38.2",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "38.10",
+   "hits": 1,
+   "env": [
+    "darwin/arm64"
+   ]
+  },
+  {
+   "section": "38.5",
+   "hits": 1,
+   "env": [
+    "Apple M1，Go 1.27）："
+   ]
+  },
+  {
+   "section": "40.6",
+   "hits": 3,
+   "env": [
+    "go1.27.1 darwin/arm64`）三种\"传播一次错误\"的写法："
+   ]
+  },
+  {
+   "section": "40.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "40.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "36.7",
+   "hits": 1,
+   "env": [
+    "darwin/arm64"
+   ]
+  },
+  {
+   "section": "36.1",
+   "hits": 1,
+   "env": [
+    "darwin/arm64"
+   ]
+  },
+  {
+   "section": "34.7",
+   "hits": 1,
+   "env": [
+    "Apple M1 / Python 3.9.6，参数就是上面这四行假设，改参"
+   ]
+  },
+  {
+   "section": "35.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.9",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.8",
+   "hits": 1,
+   "env": [
+    "8 核"
+   ]
+  },
+  {
+   "section": "35.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.10",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "83.3",
+   "hits": 2,
+   "env": [
+    "10 核"
+   ]
+  },
+  {
+   "section": "79.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "79.3",
+   "hits": 1,
+   "env": [
+    "go1.27.1 darwin/arm64`）："
+   ]
+  },
+  {
+   "section": "81.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "80.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "76.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "76.3",
+   "hits": 1,
+   "env": [
+    "go1.27.1 darwin/arm64`）："
+   ]
+  },
+  {
+   "section": "78.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "75.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "75.4",
+   "hits": 1,
+   "env": []
+  }
+ ],
+ "measured_no_env": [
+  {
+   "section": "55.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "55.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "55.7",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "58.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "54.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "54.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "54.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "51.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "51.1",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "51.4",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "51.3",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "51.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "56.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "56.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "52.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "52.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "59.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "59.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "59.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "14.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "7.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "8.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "8.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "6.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "6.6",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "6.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "13.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "10.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "10.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "10.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "12.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "11.10",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "11.14",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "73.5",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "73.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "73.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "73.2",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "73.3",
+   "hits": 10,
+   "env": []
+  },
+  {
+   "section": "49.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "49.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "49.1",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "49.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "49.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "49.3",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "44.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.23",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "44.16",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.24",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "44.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "44.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.22",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "44.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "48.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "48.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "48.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "69.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "69.3",
+   "hits": 5,
+   "env": []
+  },
+  {
+   "section": "69.1",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "45.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "70.2",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "70.3",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "70.4",
+   "hits": 7,
+   "env": []
+  },
+  {
+   "section": "71.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "47.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "47.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.8",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "50.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "50.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "72.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "72.4",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "72.5",
+   "hits": 7,
+   "env": []
+  },
+  {
+   "section": "72.3",
+   "hits": 5,
+   "env": []
+  },
+  {
+   "section": "63.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "63.7",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "41.11",
+   "hits": 5,
+   "env": []
+  },
+  {
+   "section": "41.12",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "41.10",
+   "hits": 7,
+   "env": []
+  },
+  {
+   "section": "19.6",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "19.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "22.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "22.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "17.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "17.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "24.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.11",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.12",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "21.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "25.6",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "25.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "25.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "25.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "20.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "20.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "23.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "23.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "23.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "18.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "18.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "18.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "0.15",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "32.4",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "32.1",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.2",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "32.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "33.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "30.8",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "30.9",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "29.8",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "31.3",
+   "hits": 3,
+   "env": []
+  },
+  {
+   "section": "31.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "31.5",
+   "hits": 4,
+   "env": []
+  },
+  {
+   "section": "31.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "31.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "27.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "27.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "27.4",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "27.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "28.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "1.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "2.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "2.4",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "2.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "40.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "40.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.1",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.9",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.2",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.10",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "35.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "79.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "81.7",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "80.3",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "76.6",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "78.5",
+   "hits": 2,
+   "env": []
+  },
+  {
+   "section": "75.5",
+   "hits": 1,
+   "env": []
+  },
+  {
+   "section": "75.4",
+   "hits": 1,
+   "env": []
+  }
+ ],
+ "empty_talk": {
+  "显然": [
+   [
+    "46.2",
+    1
+   ],
+   [
+    "0.5",
+    1
+   ],
+   [
+    "38.11",
+    1
+   ]
+  ],
+  "非常重要": [
+   [
+    "79.2",
+    1
+   ],
+   [
+    "80.3",
+    1
+   ]
+  ]
+ },
+ "no_code": [
+  "6.2"
+ ],
+ "lang_dist": {
+  "": 3079,
+  "go": 549,
+  "text": 431,
+  "bash": 363,
+  "sql": 95,
+  "yaml": 83,
+  "python": 82,
+  "console": 71,
+  "json": 21,
+  "ini": 12,
+  "c": 11,
+  "make": 9,
+  "markdown": 9,
+  "java": 7,
+  "nginx": 7,
+  "js": 7,
+  "properties": 6,
+  "plantuml": 6,
+  "lua": 5,
+  "ts": 2,
+  "hcl": 2,
+  "http": 2,
+  "mermaid": 2,
+  "xml": 2,
+  "groovy": 1,
+  "dockerfile": 1,
+  "protobuf": 1,
+  "proto": 1,
+  "conf": 1,
+  "scala": 1,
+  "javascript": 1,
+  "gherkin": 1,
+  "toml": 1
+ }
+}
