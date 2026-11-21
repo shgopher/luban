@@ -1,0 +1,10 @@
+timeout waiting connected/datachannel; timeline:
+[+   12.70ms] A ice-gathering -> gathering
+[+   15.25ms] B ice-gathering -> gathering
+[+   15.32ms] B peer-conn -> connecting
+[+   17.03ms] A ice-conn -> checking
+[+   17.04ms] A peer-conn -> connecting
+[+ 7820.30ms] A ice-gathering -> complete
+[+ 7820.34ms] A ICE gathering complete
+[+ 7820.35ms] B ice-gathering -> complete
+[+ 7820.38ms] B ICE gathering complete

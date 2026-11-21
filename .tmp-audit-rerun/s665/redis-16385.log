@@ -1,0 +1,13 @@
+94307:C 21 Nov 2026 16:02:57.704 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+94307:C 21 Nov 2026 16:02:57.704 * Redis version=8.10.2, bits=64, commit=00000000, modified=1, pid=94307, just started
+94307:C 21 Nov 2026 16:02:57.705 * Configuration loaded
+94307:M 21 Nov 2026 16:02:57.705 * monotonic clock: ARM CNTVCT @ 24 ticks/us
+94307:M 21 Nov 2026 16:02:57.706 # Failed to write PID file: Operation not permitted
+94307:M 21 Nov 2026 16:02:57.707 * Running mode=standalone, port=16385.
+94307:M 21 Nov 2026 16:02:57.708 # WARNING: The TCP backlog setting of 511 cannot be enforced because kern.ipc.somaxconn is set to the lower value of 128.
+94307:M 21 Nov 2026 16:02:57.709 * Server initialized
+94307:M 21 Nov 2026 16:02:57.709 * Ready to accept connections tcp
+94307:M 21 Nov 2026 16:02:57.709 # WARNING: Redis does not require authentication. Redis will accept connections from any local client.
+94307:M 21 Nov 2026 16:05:23.894 * User requested shutdown...
+94307:M 21 Nov 2026 16:05:23.894 * Removing the pid file.
+94307:M 21 Nov 2026 16:05:23.894 # Redis is now ready to exit, bye bye...

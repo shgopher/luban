@@ -1,0 +1,40 @@
+########## s661 ##########
+module im-gw
+
+go 1.27
+--- go build ./... ---
+  [build exit 0]
+--- go vet ./... ---
+  [vet exit 0]
+########## s662 ##########
+module ch662
+
+go 1.27.1
+--- go build ./... ---
+  [build exit 0]
+--- go vet ./... ---
+  [vet exit 0]
+########## s663 ##########
+module s663
+
+go 1.27
+--- go build ./... ---
+  [build exit 0]
+--- go vet ./... ---
+  [vet exit 0]
+########## s664 ##########
+module luban.ch66/s664
+
+go 1.26.0
+--- go build ./... ---
+  [build exit 0]
+--- go vet ./... ---
+  [vet exit 0]
+########## s665 ##########
+module s665
+
+go 1.26.0
+--- go build ./... ---
+  [build exit 0]
+--- go vet ./... ---
+  [vet exit 0]

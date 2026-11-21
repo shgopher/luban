@@ -1,0 +1,5 @@
+strategy=w n=1000 p=0.50 m=1000 devices=1 online=500
+  redis_cmds=1002000 (per_msg=1002.0) wall=2.246s throughput_msgs_per_s=445.1
+  latency_p50=1.942875ms latency_p99=4.235042ms latency_max=26.138917ms
+  mem_base=985856 mem_after=69284288 mem_delta=68298432 entries=1001000 bytes_per_entry=68.2
+# wall=2.552s

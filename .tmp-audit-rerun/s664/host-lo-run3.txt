@@ -1,0 +1,32 @@
+=== expA mode=host pings=1000 ===
+create_offer               0.64 ms
+set_local_offer            0.67 ms
+b_set_remote_offer         0.71 ms
+b_set_local_answer         0.86 ms
+a_set_remote_answer        0.90 ms
+ice_connected_a            1.13 ms
+connected_a                1.95 ms
+datachannel_open           2.15 ms
+candidates A=map[host:1] B=map[host:1]
+selected  local=host/udp 127.0.0.1:13504 remote=host/udp 127.0.0.1:13503
+RTT seq   count=1000 fail=0 p50=0.058ms p99=0.215ms max=0.374ms avg=0.066ms
+RTT burst count=1000 fail=0 p50=2.362ms p99=3.151ms max=3.154ms avg=2.377ms
+--- timeline ---
+[+    0.66ms] A ice-gathering -> gathering
+[+    0.80ms] A candidate host 127.0.0.1:13504
+[+    0.82ms] B peer-conn -> connecting
+[+    0.84ms] A ice-gathering -> complete
+[+    0.84ms] A ICE gathering complete
+[+    0.86ms] B ice-gathering -> gathering
+[+    0.92ms] B candidate host 127.0.0.1:13503
+[+    0.92ms] B ice-gathering -> complete
+[+    0.92ms] B ICE gathering complete
+[+    0.93ms] A ice-conn -> checking
+[+    0.94ms] A peer-conn -> connecting
+[+    1.12ms] A ice-conn -> connected
+[+    1.94ms] A peer-conn -> connected
+[+    1.95ms] B peer-conn -> connected
+[+    2.09ms] B got datachannel "ping"
+[+    2.14ms] A datachannel open
+[+  102.34ms] selected pair: host/udp 127.0.0.1:13504 -> host/udp 127.0.0.1:13503
+json written: /Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s664/host-lo-run3.json

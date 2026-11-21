@@ -1,0 +1,12 @@
+TURN listening udp/tcp 127.0.0.1:13478 realm=luban.local user=luban relay-ports=13510-13520
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+[status] active allocations=0
+shutting down

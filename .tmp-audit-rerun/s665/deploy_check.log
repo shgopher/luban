@@ -1,0 +1,56 @@
+## 0) 连通性
+PONG
+
+## 1) 群元数据：成员数决定扩散策略，群 ID 就是后续分片键
+3
+name
+产品评审群
+member_count
+500
+strategy
+write
+
+## 2) 群时间线：单群单 key，score = 群内单调 seq（消息只存一份）
+3
+msg:1001|hello
+1001
+msg:1002|world
+1002
+msg:1003|again
+1003
+
+## 3) 收件箱（写扩散区）：只存 msg id 指针，裁剪到最近 100 条，7 天 TTL
+3
+0
+1
+zcard=3
+ttl=604800
+
+## 4) join_seq：新成员 u9 入群时记水位，只能看到 1003 之后的消息
+1
+1003
+
+## 5) 已读聚合：Lua 去重 + 计数；先算一次 zrange 拿到待读消息
+u1 首次已读 -> 1
+u1 重复已读 -> -1
+u2 首次已读 -> 2
+发送者看到已读人数 -> 2
+
+## 6) 可退：大群阈值开关（扇出 P99 > 200ms 或成员数 > 阈值 → 切读扩散）
+OK
+当前策略 -> read
+
+## 7) 失败形态：对 string 类型 key 做 ZADD 必须报 WRONGTYPE（不是静默失败）
+OK
+WRONGTYPE Operation against a key holding the wrong kind of value
+
+
+## 8) 抽样核对：写扩散区里 u1 的收件箱与群时间线尾部
+m0000001001
+1001
+m0000001002
+1002
+m0000001003
+1003
+msg:1003|again
+1003

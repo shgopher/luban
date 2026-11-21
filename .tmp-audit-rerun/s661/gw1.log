@@ -1,0 +1,3 @@
+2026/11/21 16:07:16 gw1: listening 127.0.0.1:18081 redis=127.0.0.1:16381 readbuf=4096 writebuf=4096 route-cache=true limit=0/s
+2026/11/21 16:07:28 gw1: SIGTERM -> drain
+2026/11/21 16:07:28 http: Server closed

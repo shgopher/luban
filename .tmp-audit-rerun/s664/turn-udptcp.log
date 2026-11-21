@@ -1,0 +1,39 @@
+TURN listening udp/tcp 127.0.0.1:13478 realm=luban.local user=luban relay-ports=13510-13520
+[auth] user="luban" realm="luban.local" src=127.0.0.1:55832 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:55832 relay=127.0.0.1:13519 requestedPort=0 active=1
+[auth] user="luban" realm="luban.local" src=127.0.0.1:59495 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:59495 relay=127.0.0.1:13511 requestedPort=0 active=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:59495 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:59495 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:55832 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:55832 ok=true
+[status] active allocations=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:59495 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:59495 active=1
+[auth] user="luban" realm="luban.local" src=127.0.0.1:54411 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:54411 relay=127.0.0.1:13518 requestedPort=0 active=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:57661 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:57661 relay=127.0.0.1:13513 requestedPort=0 active=3
+[auth] user="luban" realm="luban.local" src=127.0.0.1:57661 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:54411 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:57661 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:54411 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:57661 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:57661 active=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:54411 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:54411 active=1
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51267 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:51267 relay=127.0.0.1:13511 requestedPort=0 active=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51268 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:51268 relay=127.0.0.1:13516 requestedPort=0 active=3
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51268 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51267 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51268 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51267 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51268 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:51268 active=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:51267 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:51267 active=1
+turn ERROR: 2026/11/21 16:04:45 Failed to send ChannelData from allocation 127.0.0.1:13516 write tcp4 127.0.0.1:13478->127.0.0.1:51267: write: broken pipe
+shutting down
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:55832 active=0

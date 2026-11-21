@@ -1,0 +1,12 @@
+=== E1. 默认参数（x264 默认 rc-lookahead=40 帧 ≈ 1.3s 预读）===
+[default] 起播→第 1 个切片可播: 2.71s
+[default] 之后每个切片的出现间隔: [2.02, 2.0, 1.98, 1.18]
+
+=== E2. -tune zerolatency（关预读/B 帧重排，直播必开）===
+[zerolatency] 起播→第 1 个切片可播: 1.83s
+[zerolatency] 之后每个切片的出现间隔: [1.99, 2.01, 2.04, 2.0]
+
+=== E3. 两组的切片时长（-re 实时产出，所以是 2s 一片）===
+default/index.m3u8       切片数=  5 min=2.000s max=2.000s 均值=2.000s 标准差=0.000 总时长=10.0s TARGETDURATION=2
+zerolatency/index.m3u8   切片数=  5 min=2.000s max=2.000s 均值=2.000s 标准差=0.000 总时长=10.0s TARGETDURATION=2
+SCRIPT_EXIT=0

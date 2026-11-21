@@ -1,0 +1,12 @@
+--- 第 1 次发送（EVAL 同一脚本）
+m-1
+--- 第 2 次发送（同一 client_msg_id 重发）
+m-1
+--- 断言：重复发送后 消息条数不变、seq 只分配一次
+hlen msgs = 1
+zcard inbox = 1
+seq 计数器 = 1
+去重键剩余 TTL = 86400 秒
+--- 取回邮件箱一条消息（收件人视角）
+zrange inbox 0 0 = m-1
+hget msgs 1 = {"sender":1001,"body":"hello"}

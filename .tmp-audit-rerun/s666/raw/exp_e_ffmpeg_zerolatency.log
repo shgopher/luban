@@ -1,0 +1,55 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/source_1080p30.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Duration: 00:01:00.00, start: 0.000000, bitrate: 8870 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 8733 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.102 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0x12ae06750] using SAR=1/1
+[libx264 @ 0x12ae06750] using cpu capabilities: ARMv8 NEON DotProd
+[libx264 @ 0x12ae06750] profile Main, level 3.1, 4:2:0, 8-bit
+[libx264 @ 0x12ae06750] 264 - core 165 r3222 b35605a - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x1:0x111 me=hex subme=2 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=0 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=8 lookahead_threads=8 sliced_threads=1 slices=8 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=1 keyint=60 keyint_min=31 scenecut=0 intra_refresh=0 rc_lookahead=0 rc=cbr mbtree=0 bitrate=2500 ratetol=1.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 vbv_maxrate=2500 vbv_bufsize=5000 nal_hrd=none filler=0 ip_ratio=1.40 aq=1:1.00
+Output #0, hls, to '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/index.m3u8':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Stream #0:0(und): Video: h264, yuv420p(tv, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 2500 kb/s, 30 fps, 90k tbn (default)
+    Metadata:
+      encoder         : Lavc63.1.102 libx264
+      handler_name    : VideoHandler
+    Side data:
+      CPB properties: bitrate max/min/avg: 2500000/0/2500000 buffer size: 5000000 vbv_delay: N/A
+frame=   22 fps=0.0 q=22.0 size=N/A time=00:00:00.73 bitrate=N/A speed=1.46x elapsed=0:00:00.50    frame=   37 fps= 37 q=22.0 size=N/A time=00:00:01.23 bitrate=N/A speed=1.23x elapsed=0:00:01.00    frame=   53 fps= 35 q=22.0 size=N/A time=00:00:01.76 bitrate=N/A speed=1.17x elapsed=0:00:01.51    [hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/seg_000.ts' for writing
+[hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/index.m3u8.tmp' for writing
+frame=   68 fps= 34 q=22.0 size=N/A time=00:00:02.26 bitrate=N/A speed=1.13x elapsed=0:00:02.01    frame=   83 fps= 33 q=22.0 size=N/A time=00:00:02.76 bitrate=N/A speed= 1.1x elapsed=0:00:02.51    frame=   98 fps= 32 q=22.0 size=N/A time=00:00:03.26 bitrate=N/A speed=1.08x elapsed=0:00:03.02    frame=  113 fps= 32 q=23.0 size=N/A time=00:00:03.76 bitrate=N/A speed=1.07x elapsed=0:00:03.52    [hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/seg_001.ts' for writing
+[hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/index.m3u8.tmp' for writing
+frame=  128 fps= 32 q=23.0 size=N/A time=00:00:04.26 bitrate=N/A speed=1.06x elapsed=0:00:04.02    frame=  143 fps= 32 q=22.0 size=N/A time=00:00:04.76 bitrate=N/A speed=1.05x elapsed=0:00:04.53    frame=  158 fps= 31 q=22.0 size=N/A time=00:00:05.26 bitrate=N/A speed=1.05x elapsed=0:00:05.03    frame=  173 fps= 31 q=22.0 size=N/A time=00:00:05.76 bitrate=N/A speed=1.04x elapsed=0:00:05.53    [hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/seg_002.ts' for writing
+[hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/index.m3u8.tmp' for writing
+frame=  188 fps= 31 q=23.0 size=N/A time=00:00:06.26 bitrate=N/A speed=1.04x elapsed=0:00:06.04    frame=  204 fps= 31 q=23.0 size=N/A time=00:00:06.80 bitrate=N/A speed=1.04x elapsed=0:00:06.54    frame=  219 fps= 31 q=22.0 size=N/A time=00:00:07.30 bitrate=N/A speed=1.04x elapsed=0:00:07.05    frame=  234 fps= 31 q=23.0 size=N/A time=00:00:07.80 bitrate=N/A speed=1.03x elapsed=0:00:07.55    [hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/seg_003.ts' for writing
+[hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/index.m3u8.tmp' for writing
+frame=  249 fps= 31 q=23.0 size=N/A time=00:00:08.30 bitrate=N/A speed=1.03x elapsed=0:00:08.05    frame=  264 fps= 31 q=22.0 size=N/A time=00:00:08.80 bitrate=N/A speed=1.03x elapsed=0:00:08.56    frame=  279 fps= 31 q=22.0 size=N/A time=00:00:09.30 bitrate=N/A speed=1.03x elapsed=0:00:09.06    frame=  294 fps= 31 q=23.0 size=N/A time=00:00:09.80 bitrate=N/A speed=1.02x elapsed=0:00:09.57    [hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/seg_004.ts' for writing
+[hls @ 0x12ae056e0] Opening '/Users/shgopher/Desktop/family/luban/.tmp-audit-rerun/s666/out/live_hls/zerolatency/index.m3u8.tmp' for writing
+[out#0/hls @ 0x12ae05400] video:3087KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=  300 fps= 31 q=23.0 Lsize=N/A time=00:00:10.00 bitrate=N/A speed=1.02x elapsed=0:00:09.80    
+[libx264 @ 0x12ae06750] frame I:5     Avg QP: 8.71  size: 29997
+[libx264 @ 0x12ae06750] frame P:295   Avg QP:14.71  size: 10204
+[libx264 @ 0x12ae06750] mb I  I16..4: 86.8%  0.0% 13.2%
+[libx264 @ 0x12ae06750] mb P  I16..4:  6.3%  0.0%  0.2%  P16..4:  8.8%  2.5%  1.9%  0.0%  0.0%    skip:80.3%
+[libx264 @ 0x12ae06750] coded y,uvDC,uvAC intra: 5.1% 17.3% 14.0% inter: 5.0% 10.1% 8.8%
+[libx264 @ 0x12ae06750] i16 v,h,dc,p: 88%  4%  8%  0%
+[libx264 @ 0x12ae06750] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 28% 24% 31%  1%  3%  2%  4%  2%  4%
+[libx264 @ 0x12ae06750] i8c dc,h,v,p: 79%  7% 14%  0%
+[libx264 @ 0x12ae06750] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x12ae06750] kb/s:2528.12
