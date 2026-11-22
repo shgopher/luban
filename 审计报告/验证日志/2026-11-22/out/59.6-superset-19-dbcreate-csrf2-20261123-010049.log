@@ -1,0 +1,7 @@
+csrf_len= 91
+csrf_prefix=ImFlZGZhNWEz...
+--- POST database with X-CSRFToken ---
+http_code=400
+{"errors": [{"message": "400 Bad Request: The CSRF session token is missing.", "error_type": "GENERIC_BACKEND_ERROR", "level": "error", "extra": {"issue_codes": [{"code": 1011, "message": "Issue 1011 - Superset encountered an unexpected error."}]}}]}
+keys=['errors']
+id=None

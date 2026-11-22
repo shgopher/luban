@@ -1,0 +1,5 @@
+PUT_code=200
+--- GET chart/1/data/ ---
+http_code=400 size=155
+{"message":"Request is incorrect: {'result_type': ['Must be one of: columns, full, query, results, samples, timegrains, post_processed, drill_detail.']}"}
+

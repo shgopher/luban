@@ -1,0 +1,29 @@
+=== 提交改动 1（pkg-b），再制造改动 2（pkg-a）===
+ M packages/pkg-a/src/index.js
+
+--- A) 全量 pnpm -r test ---
+Scope: 3 of 4 workspace projects
+packages/pkg-a test: pkg-a: 4 assertions passed
+packages/pkg-c test: pkg-c: 2 assertions passed
+packages/pkg-c test: Done
+packages/pkg-a test: Done
+packages/pkg-b test: pkg-b: 3 assertions passed
+packages/pkg-b test: Done
+EXIT_A=0
+
+--- B) 改动 pkg-a 后：pnpm --filter "...[HEAD]" test ---
+Scope: 2 of 4 workspace projects
+packages/pkg-a test$ node test.js
+packages/pkg-a test: pkg-a: 4 assertions passed
+packages/pkg-a test: Done
+packages/pkg-b test$ node test.js
+packages/pkg-b test: pkg-b: 3 assertions passed
+packages/pkg-b test: Done
+EXIT_B=0
+
+--- C) 受影响包列表（选择器核对）---
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+
+--- D) 对照：只选 pkg-a 本身 ---
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a

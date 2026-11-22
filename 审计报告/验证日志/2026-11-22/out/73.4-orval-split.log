@@ -1,0 +1,23 @@
+=== 多文件模式（split）两跑 + diff -r，验证 diff -r 比较的是目录树 ===
+Sun Nov 22 16:33:36 CST 2026
+🍻 orval v8.48.0 - A swagger client generator for typescript
+refund - Cleaning output folder
+refund - 🎉 Refund API - Your OpenAPI spec has been converted into ready to use orval!
+EXIT1=0
+src/api/split/refund.schemas.ts
+src/api/split/refund.ts
+🍻 orval v8.48.0 - A swagger client generator for typescript
+refund - Cleaning output folder
+refund - 🎉 Refund API - Your OpenAPI spec has been converted into ready to use orval!
+EXIT2=0
+=== diff -r split-run1 split-run2 ===
+DIFF_EXIT=0
+=== sha256 ===
+781fc0907f6012abf0a037fc69091a52e917c562f75cf28837cdd2b9d17b9064  refund.schemas.ts
+247f5fe1ede19f75ebbbf4ec45bfad3826314c8e4bacf32dd7c41e78e3b93d09  refund.ts
+781fc0907f6012abf0a037fc69091a52e917c562f75cf28837cdd2b9d17b9064  refund.schemas.ts
+247f5fe1ede19f75ebbbf4ec45bfad3826314c8e4bacf32dd7c41e78e3b93d09  refund.ts
+=== 行数 ===
+      40 src/api/split/refund.schemas.ts
+      75 src/api/split/refund.ts
+     115 total

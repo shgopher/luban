@@ -1,0 +1,43 @@
++ which jq
++ echo '--- login ---'
++ curl -s -X POST http://localhost:8088/api/v1/security/login -H 'Content-Type: application/json' -d '{"provider":"db","username":"admin","password":"admin","refresh":false}' -o /tmp/login.json -w 'login_api_code=%{http_code}\n'
++ python3 -
++ cp /tmp/login.json /tmp/login.json.bak
++ python3 -c '
+import json;d=json.load(open("/tmp/login.json"));open("/tmp/token.txt","w").write(d.get("access_token",""))
+'
++ echo '--- dashboards ---'
+++ cat /tmp/token.txt
++ curl -s -H 'Authorization: Bearer <REDACTED_JWT>' http://localhost:8088/api/v1/dashboard/ -o /tmp/dash.json -w 'dashboard_code=%{http_code}\n'
++ python3 -c 'import json;d=json.load(open("/tmp/dash.json"));print("count=",d.get("count"),"keys=",list(d.keys())[:8])'
++ echo '--- charts ---'
+++ cat /tmp/token.txt
++ curl -s -H 'Authorization: Bearer <REDACTED_JWT>' http://localhost:8088/api/v1/chart/ -o /tmp/chart.json -w 'chart_code=%{http_code}\n'
++ python3 -c 'import json;d=json.load(open("/tmp/chart.json"));print("count=",d.get("count"),"keys=",list(d.keys())[:8])'
++ echo '--- datasets ---'
+++ cat /tmp/token.txt
++ curl -s -H 'Authorization: Bearer <REDACTED_JWT>' http://localhost:8088/api/v1/dataset/ -o /tmp/ds.json -w 'dataset_code=%{http_code}\n'
++ python3 -c 'import json;d=json.load(open("/tmp/ds.json"));print("count=",d.get("count"),"keys=",list(d.keys())[:8])'
++ echo '--- databases ---'
+++ cat /tmp/token.txt
++ curl -s -H 'Authorization: Bearer <REDACTED_JWT>' http://localhost:8088/api/v1/database/ -o /tmp/db.json -w 'database_code=%{http_code}\n'
++ python3 -c 'import json;d=json.load(open("/tmp/db.json"));print("count=",d.get("count"),"keys=",list(d.keys())[:8])'
+/usr/bin/jq
+--- login ---
+login_api_code=200
+keys: ['access_token']
+access_token_len: 324
+token_masked: eyJhbG...iOGQ
+refresh_token_len: 0
+--- dashboards ---
+dashboard_code=200
+count= 0 keys= ['count', 'description_columns', 'ids', 'label_columns', 'list_columns', 'list_title', 'order_columns', 'result']
+--- charts ---
+chart_code=200
+count= 0 keys= ['count', 'description_columns', 'ids', 'label_columns', 'list_columns', 'list_title', 'order_columns', 'result']
+--- datasets ---
+dataset_code=200
+count= 0 keys= ['count', 'description_columns', 'ids', 'label_columns', 'list_columns', 'list_title', 'order_columns', 'result']
+--- databases ---
+database_code=200
+count= 0 keys= ['count', 'description_columns', 'ids', 'label_columns', 'list_columns', 'list_title', 'order_columns', 'result']

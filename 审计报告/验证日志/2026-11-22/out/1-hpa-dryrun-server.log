@@ -1,0 +1,19 @@
+deployment.apps/order-api created
+=== 1) kubectl apply --dry-run=client -f hpa-order-api.yaml (book command) ===
+horizontalpodautoscaler.autoscaling/order-api created (dry run)
+=== 2) kubectl apply -f hpa-order-api.yaml (really create) ===
+horizontalpodautoscaler.autoscaling/order-api created
+=== 3) kubectl apply --dry-run=server -f hpa-order-api.yaml ===
+horizontalpodautoscaler.autoscaling/order-api unchanged (server dry run)
+=== get hpa ===
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+order-api   Deployment/order-api   cpu: <unknown>/60%   4         40        1          9s
+=== get deploy ===
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+order-api   1/4     4            1           14s
+=== 4) kubectl apply --dry-run=server with a real diff (maxReplicas 40->30) ===
+horizontalpodautoscaler.autoscaling/order-api configured (server dry run)
+=== cleanup order-api hpa/deploy ===
+horizontalpodautoscaler.autoscaling "order-api" deleted from lab namespace
+Error from server (NotFound): horizontalpodautoscalers.autoscaling "deploy" not found
+Error from server (NotFound): horizontalpodautoscalers.autoscaling "order-api" not found

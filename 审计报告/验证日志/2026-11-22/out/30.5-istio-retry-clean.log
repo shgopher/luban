@@ -1,0 +1,9 @@
+virtualservice.networking.istio.io/httpbin configured
+retries=2: 一次调用 -> 上游请求 3 次
+time=2026-11-22T16:27:18.999Z
+time=2026-11-22T16:27:19.000Z
+time=2026-11-22T16:27:19.024Z
+virtualservice.networking.istio.io/httpbin configured
+retries=0: 一次调用 -> 上游请求 1 次
+time=2026-11-22T16:27:19.024Z
+time=2026-11-22T16:27:37.014Z

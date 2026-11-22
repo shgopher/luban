@@ -1,0 +1,36 @@
++ echo '--- login page markers ---'
++ grep -o '<title>[^<]*</title>' /tmp/login.html
++ wc -l
++ grep -o Superset /tmp/login.html
++ python3 -c '
+h=open("/tmp/login.html").read()
+i=h.find("Superset")
+print(repr(h[max(0,i-80):i+120]))
+'
++ echo '--- superset version (plain) ---'
++ docker exec superset superset version
++ echo '--- digest ---'
++ docker inspect --format '{{index .RepoDigests 0}}' apache/superset:latest
++ docker inspect --format '{{index .RepoDigests 0}}' postgres:16-alpine
++ echo '--- image id/created ---'
++ docker image inspect apache/superset:latest --format 'Id={{.Id}} Created={{.Created}}'
++ echo '--- db tables count in metadata ---'
++ docker exec superset-pg psql -U superset -d superset -tAc 'select count(*) from information_schema.tables where table_schema='\''public'\'';'
++ docker exec superset-pg psql -U superset -d superset -tAc 'select username,email from ab_user;'
+--- login page markers ---
+6
+'OCTYPE html>\n<html>\n  \n  \n  \n  \n\n  <head>\n    <title>\n      \n        \n          Superset\n        \n      \n    </title>\n\n    \n      <link rel="manifest" href="/static/assets/pwa-manifest.json?v=4">\n    '
+--- superset version (plain) ---
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+[34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[33mSuperset [36m6.1.0
+[34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[0m
+--- digest ---
+apache/superset@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88
+postgres@sha256:f2f98726820d0342055351c6e9d36e705f5bfffb3dd53ff556325114b08afb6d
+--- image id/created ---
+Id=sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88 Created=2026-09-07T06:11:10.008989694Z
+--- db tables count in metadata ---
+53
+admin|a@b.c

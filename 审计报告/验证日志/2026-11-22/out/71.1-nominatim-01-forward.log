@@ -1,0 +1,8 @@
+=== A forward: q=北京市海淀区中关村, jsonv2, addressdetails=1, limit=1 ===
+http=200 total=0.252395s connect=0.009510s size=764
+--- body ---
+[{"place_id":222044519,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"node","osm_id":7861046851,"lat":"39.9826574","lon":"116.3103787","category":"railway","type":"station","place_rank":30,"importance":0.3411720307708333,"addresstype":"railway","name":"中关村","display_name":"中关村, 中关村大街, 中关村核心区, 海淀路社区, 海淀街道, 海淀区, 北京市, 100086, 中国","address":{"railway":"中关村","road":"中关村大街","commercial":"中关村核心区","quarter":"海淀路社区","suburb":"海淀街道","city":"海淀区","ISO3166-2-lvl4":"CN-BJ","postcode":"100086","country":"中国","country_code":"cn"},"boundingbox":["39.9776574","39.9876574","116.3053787","116.3153787"]}]
+=== B forward English: q=Zhongguancun, Beijing, accept-language=en ===
+http=200 total=0.143600s size=791
+--- body ---
+[{"place_id":221045651,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"node","osm_id":7861046851,"lat":"39.9826574","lon":"116.3103787","category":"railway","type":"station","place_rank":30,"importance":0.3411720307708333,"addresstype":"railway","name":"Zhongguancun","display_name":"Zhongguancun, Zhongguancun Main Street, 中关村核心区, 海淀路社区, Haidian, Haidian District, Beijing, 100080, China","address":{"railway":"Zhongguancun","road":"Zhongguancun Main Street","commercial":"中关村核心区","quarter":"海淀路社区","suburb":"Haidian","city":"Haidian District","ISO3166-2-lvl4":"CN-BJ","postcode":"100080","country":"China","country_code":"cn"},"boundingbox":["39.9776574","39.9876574","116.3053787","116.3153787"]}]

@@ -1,0 +1,30 @@
+96:ENCRYPTION_SECRET=<128-char-generated>
+=== OVERRIDE WRITTEN ===
+# Low-memory override for 1 vCPU / 1.9GB RAM validation host
+services:
+  mysql:
+    mem_limit: 448m
+    memswap_limit: 896m
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --skip-log-bin --innodb-buffer-pool-size=128M
+  grafana:
+    mem_limit: 256m
+    memswap_limit: 512m
+  devlake:
+    mem_limit: 512m
+    memswap_limit: 1024m
+  config-ui:
+    mem_limit: 128m
+    memswap_limit: 256m
+=== CONFIG VALIDATE ===
+    image: devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19
+    mem_limit: "134217728"
+        published: "4000"
+    image: devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19
+    mem_limit: "536870912"
+        published: "8080"
+    image: devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19
+    mem_limit: "268435456"
+        published: "3002"
+    image: mysql:8
+    mem_limit: "469762048"
+        published: "3306"

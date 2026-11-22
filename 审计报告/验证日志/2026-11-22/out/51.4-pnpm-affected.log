@@ -1,0 +1,55 @@
+=== git init + baseline commit ===
+Sun Nov 22 16:27:19 CST 2026
+a266296 baseline: pkg-a/b/c
+
+=== 改动 1：修改 pkg-b/src/index.js ===
+ M packages/pkg-b/src/index.js
+
+--- A) pnpm -r test（对照组：全量 3 包）---
+Scope: 3 of 4 workspace projects
+packages/pkg-c test: pkg-c: 2 assertions passed
+packages/pkg-a test: pkg-a: 4 assertions passed
+packages/pkg-c test: Done
+packages/pkg-a test: Done
+packages/pkg-b test: pkg-b: 3 assertions passed
+packages/pkg-b test: Done
+EXIT_A=0
+
+--- B) pnpm --filter "...[HEAD]" test（只跑改动 + 依赖它的包）---
+
+> pkg-b@1.0.0 test /private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+> node test.js
+
+pkg-b: 3 assertions passed
+EXIT_B=0
+
+--- C) pnpm --filter "...pkg-b" test（语义：pkg-b 及其依赖）---
+
+> pkg-b@1.0.0 test /private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+> node test.js
+
+pkg-b: 3 assertions passed
+EXIT_C=0
+
+--- D) pnpm --filter "pkg-b..." test（语义：pkg-b 及依赖它的包）---
+Scope: 2 of 4 workspace projects
+packages/pkg-a test$ node test.js
+packages/pkg-a test: pkg-a: 4 assertions passed
+packages/pkg-a test: Done
+packages/pkg-b test$ node test.js
+packages/pkg-b test: pkg-b: 3 assertions passed
+packages/pkg-b test: Done
+EXIT_D=0
+=== 选择器语义核对：exec pwd ===
+--- selector: --filter "...pkg-b" ---
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+--- selector: --filter "pkg-b..." ---
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+--- selector: --filter "...[HEAD]" ---
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+--- selector: --filter "pkg-b^..." ---
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a
+
+=== pnpm --version 再确认 === 
+8.5.1

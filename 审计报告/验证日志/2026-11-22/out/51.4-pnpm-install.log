@@ -1,0 +1,19 @@
+=== pnpm -v ===
+8.5.1
+=== pnpm install (store 放 /tmp) ===
+Scope: all 4 workspace projects
+Already up to date
+
+Done in 369ms
+
+   ╭───────────────────────────────────────────────────────────────────╮
+   │                                                                   │
+   │                Update available! 8.5.1 → 12.21.0.                 │
+   │   Changelog: https://github.com/pnpm/pnpm/releases/tag/v12.21.0   │
+   │                 Run "pnpm add -g pnpm" to update.                 │
+   │                                                                   │
+   │      Follow @pnpmjs for updates: https://twitter.com/pnpmjs       │
+   │                                                                   │
+   ╰───────────────────────────────────────────────────────────────────╯
+
+INSTALL_EXIT=0

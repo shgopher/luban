@@ -1,0 +1,165 @@
+× docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Sun 2026-11-22 16:50:35 UTC; 1s ago
+TriggeredBy: × docker.socket
+       Docs: https://docs.docker.com
+    Process: 233435 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock (code=exited, status=1/FAILURE)
+   Main PID: 233435 (code=exited, status=1/FAILURE)
+        CPU: 31ms
+
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: docker.service: Failed with result 'exit-code'.
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.service: Scheduled restart job, restart counter is at 3.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.service: Start request repeated too quickly.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.service: Failed with result 'exit-code'.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+=== JOURNAL ===
+Nov 22 16:30:42 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:30:42.064231333Z" level=info msg="sbJoin: gwep4 ''->'2b8f3820972f', gwep6 ''->''" eid=2b8f3820972f ep=dapr_placement net=bridge nid=28d0451903aa
+Nov 22 16:30:42 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:30:42.264623043Z" level=info msg="sbJoin: gwep4 ''->'9ccb5752cef4', gwep6 ''->''" eid=9ccb5752cef4 ep=dapr_scheduler net=bridge nid=28d0451903aa
+Nov 22 16:31:57 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:31:57.281348606Z" level=info msg="ignoring event" container=82f11a90bc6282a60833f88859a58c66cb26823666217ff9eb9720d020001338 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 22 16:31:57 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:31:57.296164394Z" level=warning msg="ShouldRestart failed, container will not be restarted" container=82f11a90bc6282a60833f88859a58c66cb26823666217ff9eb9720d020001338 daemonShuttingDown=false error="restart canceled" execDuration=1m15.988915916s exitStatus="{137 2026-11-22 16:31:57.22284841 +0000 UTC}" hasBeenManuallyStopped=true restartCount=0
+Nov 22 16:31:57 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:31:57.614774314Z" level=info msg="ignoring event" container=4a631814d36ce1eecfe2e04d670e2edb7796cc8af7468a5fbcad7a129e08d615 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 22 16:31:57 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:31:57.629500553Z" level=warning msg="ShouldRestart failed, container will not be restarted" container=4a631814d36ce1eecfe2e04d670e2edb7796cc8af7468a5fbcad7a129e08d615 daemonShuttingDown=false error="restart canceled" execDuration=1m16.231802062s exitStatus="{137 2026-11-22 16:31:57.60160309 +0000 UTC}" hasBeenManuallyStopped=true restartCount=0
+Nov 22 16:32:09 decn2JoL49VcE systemd[1]: Stopping docker.service - Docker Application Container Engine...
+Nov 22 16:32:09 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:32:09.763305253Z" level=info msg="Processing signal 'terminated'"
+Nov 22 16:32:09 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:32:09.906173259Z" level=info msg="ignoring event" container=591e6a501caf20a19f31dbcc8e908d5cf0a8bea3fb6ea2bf96ca941c4281375c module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 22 16:32:09 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:32:09.975745848Z" level=warning msg="ShouldRestart failed, container will not be restarted" container=591e6a501caf20a19f31dbcc8e908d5cf0a8bea3fb6ea2bf96ca941c4281375c daemonShuttingDown=true error="restart canceled" execDuration=1m58.472311053s exitStatus="{0 2026-11-22 16:32:09.885211041 +0000 UTC}" hasBeenManuallyStopped=false restartCount=0
+Nov 22 16:32:12 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:32:12.217432514Z" level=info msg="ignoring event" container=349d4efa253622e9cae6fb802341e1223a1f491bfdb8250f939097fa00a92473 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Nov 22 16:32:12 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:32:12.231835226Z" level=warning msg="ShouldRestart failed, container will not be restarted" container=349d4efa253622e9cae6fb802341e1223a1f491bfdb8250f939097fa00a92473 daemonShuttingDown=true error="restart canceled" execDuration=1m54.053435667s exitStatus="{143 2026-11-22 16:32:12.194541288 +0000 UTC}" hasBeenManuallyStopped=false restartCount=0
+Nov 22 16:32:12 decn2JoL49VcE dockerd[229336]: time="2026-11-22T16:32:12.376450570Z" level=info msg="Daemon shutdown complete"
+Nov 22 16:32:12 decn2JoL49VcE systemd[1]: docker.service: Deactivated successfully.
+Nov 22 16:32:12 decn2JoL49VcE systemd[1]: Stopped docker.service - Docker Application Container Engine.
+Nov 22 16:32:12 decn2JoL49VcE systemd[1]: docker.service: Consumed 5.514s CPU time, 150.3M memory peak, 0B memory swap peak.
+Nov 22 16:50:28 decn2JoL49VcE systemd[1]: Starting docker.service - Docker Application Container Engine...
+Nov 22 16:50:28 decn2JoL49VcE dockerd[233319]: time="2026-11-22T16:50:28.817946666Z" level=info msg="Starting up"
+Nov 22 16:50:28 decn2JoL49VcE dockerd[233319]: failed to load listeners: no sockets found via socket activation: make sure the service was started by systemd
+Nov 22 16:50:28 decn2JoL49VcE systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
+Nov 22 16:50:28 decn2JoL49VcE systemd[1]: docker.service: Failed with result 'exit-code'.
+Nov 22 16:50:28 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+Nov 22 16:50:30 decn2JoL49VcE systemd[1]: docker.service: Scheduled restart job, restart counter is at 1.
+Nov 22 16:50:30 decn2JoL49VcE systemd[1]: Starting docker.service - Docker Application Container Engine...
+Nov 22 16:50:30 decn2JoL49VcE dockerd[233377]: time="2026-11-22T16:50:30.988284984Z" level=info msg="Starting up"
+Nov 22 16:50:30 decn2JoL49VcE dockerd[233377]: failed to load listeners: no sockets found via socket activation: make sure the service was started by systemd
+Nov 22 16:50:30 decn2JoL49VcE systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
+Nov 22 16:50:30 decn2JoL49VcE systemd[1]: docker.service: Failed with result 'exit-code'.
+Nov 22 16:50:30 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: docker.service: Scheduled restart job, restart counter is at 2.
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: Starting docker.service - Docker Application Container Engine...
+Nov 22 16:50:33 decn2JoL49VcE dockerd[233435]: time="2026-11-22T16:50:33.251527691Z" level=info msg="Starting up"
+Nov 22 16:50:33 decn2JoL49VcE dockerd[233435]: failed to load listeners: no sockets found via socket activation: make sure the service was started by systemd
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: docker.service: Failed with result 'exit-code'.
+Nov 22 16:50:33 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.service: Scheduled restart job, restart counter is at 3.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.service: Start request repeated too quickly.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.service: Failed with result 'exit-code'.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+=== DOCKERD MANUAL ===
+time="2026-11-22T16:50:37.781051474Z" level=debug msg="Registering route" method=POST path="/plugins/{name:.*}/upgrade"
+time="2026-11-22T16:50:37.781098953Z" level=debug msg="Registering route" method=POST path="/plugins/{name:.*}/set"
+time="2026-11-22T16:50:37.781138919Z" level=debug msg="Registering route" method=POST path=/plugins/create
+time="2026-11-22T16:50:37.781170007Z" level=debug msg="Registering route" method=GET path="/distribution/{name:.*}/json"
+time="2026-11-22T16:50:37.781216785Z" level=debug msg="Registering route" method=GET path=/networks
+time="2026-11-22T16:50:37.781242002Z" level=debug msg="Registering route" method=GET path=/networks/
+time="2026-11-22T16:50:37.781271778Z" level=debug msg="Registering route" method=GET path="/networks/{id:.+}"
+time="2026-11-22T16:50:37.781309720Z" level=debug msg="Registering route" method=POST path=/networks/create
+time="2026-11-22T16:50:37.781363411Z" level=debug msg="Registering route" method=POST path="/networks/{id:.*}/connect"
+time="2026-11-22T16:50:37.781491132Z" level=debug msg="Registering route" method=POST path="/networks/{id:.*}/disconnect"
+time="2026-11-22T16:50:37.781555062Z" level=debug msg="Registering route" method=POST path=/networks/prune
+time="2026-11-22T16:50:37.781617429Z" level=debug msg="Registering route" method=DELETE path="/networks/{id:.*}"
+time="2026-11-22T16:50:37.781708951Z" level=debug msg="Registering route" method=GET path=/debug/vars
+time="2026-11-22T16:50:37.781758053Z" level=debug msg="Registering route" method=GET path=/debug/pprof/
+time="2026-11-22T16:50:37.781798800Z" level=debug msg="Registering route" method=GET path=/debug/pprof/cmdline
+time="2026-11-22T16:50:37.781846851Z" level=debug msg="Registering route" method=GET path=/debug/pprof/profile
+time="2026-11-22T16:50:37.781901914Z" level=debug msg="Registering route" method=GET path=/debug/pprof/symbol
+time="2026-11-22T16:50:37.781945656Z" level=debug msg="Registering route" method=GET path=/debug/pprof/trace
+time="2026-11-22T16:50:37.782010589Z" level=debug msg="Registering route" method=GET path="/debug/pprof/{name}"
+time="2026-11-22T16:50:37.782060342Z" level=debug msg="Registering route" method=POST path=/grpc
+time="2026-11-22T16:50:37.782210525Z" level=info msg="Daemon has completed initialization"
+time="2026-11-22T16:50:37.782249187Z" level=info msg="API listen on /var/run/docker.sock"
+time="2026-11-22T16:50:52.343031046Z" level=info msg="Processing signal 'terminated'"
+time="2026-11-22T16:50:52.343396854Z" level=debug msg="daemon configured with a 15 seconds minimum shutdown timeout"
+time="2026-11-22T16:50:52.343488897Z" level=debug msg="start clean shutdown of all containers with a 15 seconds timeout..."
+time="2026-11-22T16:50:52.344274485Z" level=debug msg="Unix socket /var/run/docker/libnetwork/eb57ec664217.sock was closed. The external key listener will stop."
+time="2026-11-22T16:50:52.345129363Z" level=debug msg="Cleaning up old mountid : start."
+time="2026-11-22T16:50:52.345602193Z" level=debug msg="Cleaning up old mountid : done."
+time="2026-11-22T16:50:52.345887949Z" level=debug msg="Clean shutdown succeeded"
+time="2026-11-22T16:50:52.346164099Z" level=info msg="Daemon shutdown complete"
+× docker.socket - Docker Socket for the API
+     Loaded: loaded (/usr/lib/systemd/system/docker.socket; enabled; preset: enabled)
+     Active: failed (Result: service-start-limit-hit) since Sun 2026-11-22 16:50:35 UTC; 22s ago
+   Duration: 21min 8.168s
+   Triggers: ● docker.service
+     Listen: /run/docker.sock (Stream)
+        CPU: 467us
+
+Nov 22 16:29:27 decn2JoL49VcE systemd[1]: Starting docker.socket - Docker Socket for the API...
+Nov 22 16:29:27 decn2JoL49VcE systemd[1]: Listening on docker.socket - Docker Socket for the API.
+Nov 22 16:32:14 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:32:15 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:32:15 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:32:19 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:32:20 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:32:31 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:50:28 decn2JoL49VcE systemd[1]: docker.socket: Socket unit configuration has changed while unit has been running, no open socket file descriptor left. The socket unit is not functional until restarted.
+Nov 22 16:50:35 decn2JoL49VcE systemd[1]: docker.socket: Failed with result 'service-start-limit-hit'.
+=== SOCKET FILES ===
+ls: cannot access '/run/docker.sock': No such file or directory
+ls: cannot access '/var/run/docker.sock': No such file or directory
+/run/docker/:
+total 0
+drwx------  7 root root  140 Nov 22 16:50 .
+drwxr-xr-x 35 root root 1100 Nov 22 16:50 ..
+drwxr-xr-x  2 root root   40 Nov 22 16:32 containerd
+drw-------  2 root root   40 Nov 22 16:50 libnetwork
+drwxr-xr-x  2 root root   40 Nov 22 16:32 netns
+drwx------  2 root root   40 Nov 22 16:29 plugins
+drwx------  3 root root   60 Nov 22 16:30 runtime-runc
+=== UNIT ===
+# /usr/lib/systemd/system/docker.socket
+[Unit]
+Description=Docker Socket for the API
+
+[Socket]
+ListenStream=/run/docker.sock
+SocketMode=0660
+SocketUser=root
+SocketGroup=docker
+
+[Install]
+WantedBy=sockets.target
+=== DOCKER SERVICE EXEC ===
+After=network-online.target firewalld.service containerd.service
+Requires=docker.socket
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+=== STATUS ===
+active
+=== DOCKER INFO ===
+Client:
+ Version:           29.1.3
+ API version:       1.52
+ Go version:        go1.24.4
+ Git commit:        29.1.3-0ubuntu3~24.04.2
+ Built:             Wed Apr 29 16:41:06 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server:
+ Engine:
+  Version:          29.1.3
+  API version:      1.52 (minimum version 1.44)
+  Go version:       go1.24.4
+  Git commit:       29.1.3-0ubuntu3~24.04.2
+  Built:            Wed Apr 29 16:41:06 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          2.2.1
+=== INFO ===
+ Server Version: 29.1.3
+ Storage Driver: overlayfs
+ Cgroup Driver: systemd
+ Cgroup Version: 2
+ Total Memory: 1.922GiB
+ Docker Root Dir: /var/lib/docker

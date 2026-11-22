@@ -1,0 +1,30 @@
+===== go-arch-lint v1.19.2 =====
+===== 违规版（domain/leak.go，预期 FAIL）=====
+module: [32mexample.com/layered[0m
+linters:
+[32m   On[0m[90m | [0mBase: component imports[90m # always on[0m
+[32m   On[0m[90m | [0mAdvanced: vendor imports[90m # switch 'allow.depOnAnyVendor = false' (or delete) to on[0m
+[32m   On[0m[90m | [0mAdvanced: method calls and dependency injections[90m # switch 'allow.deepScan = true' (or delete) to on[0m
+
+Component [35mdomain[0m shouldn't depend on [34mexample.com/layered/infra[0m in [90m/tmp/luban-verify/work-arch/go-depguard/domain/leak.go:3[0m
+
+
+--
+total notices: [33m1[0m
+
+
+[violating exit=1]
+
+===== 删除违规后（预期 OK）=====
+failed to check project deps: checker failed '*checker.DeepScan': component 'app' check failed: failed scan '/tmp/luban-verify/work-arch/go-depguard/app': find usages failed: scan failed: failed get package at '/tmp/luban-verify/work-arch/go-depguard/app': package 'example.com/layered/app' loaded with errors (deep scan requires fully type-checked code):
+  -: open /Users/shgopher/Library/Caches/go-build/00/00c93ca36f5715608c02698673c8db26a30738c28d8d6002c076aedcdf6b00ee-d: operation not permitted
+[clean exit=1]
+===== 干净版（GOCACHE 指向 /tmp，预期 OK）=====
+module: [32mexample.com/layered[0m
+linters:
+[32m   On[0m[90m | [0mBase: component imports[90m # always on[0m
+[32m   On[0m[90m | [0mAdvanced: vendor imports[90m # switch 'allow.depOnAnyVendor = false' (or delete) to on[0m
+[32m   On[0m[90m | [0mAdvanced: method calls and dependency injections[90m # switch 'allow.deepScan = true' (or delete) to on[0m
+
+[32mOK - No warnings found[0m
+[clean exit=0]

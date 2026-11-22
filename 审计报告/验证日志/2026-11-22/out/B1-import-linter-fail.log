@@ -1,0 +1,37 @@
+import-linter 2.17
+DeprecationWarning: The option 'config' is deprecated. Pass the config file as a positional argument instead.
+
+╔══╗─────────▶╔╗ ╔╗      ╔╗◀───┐
+╚╣╠╝◀─────┐  ╔╝╚╗║║────▶╔╝╚╗   │
+ ║║   ╔══╦══╦╩╗╔╝║║  ╔╦═╩╗╔╝╔═╦══╗
+ ║║╔══╣╔╗║╔╗║╔╣║ ║║ ╔╬╣╔╗║║ ║│║╔═╝
+╔╣╠╣║║║╚╝║╚╝║║║╚╗║╚═╝║║║║║╚╗║═╣║
+╚══╩╩╩╣╔═╩══╩╝╚═╝╚═══╩╩╝╚╩═╩╩═╩╝
+  └──▶║║                    ▲ 
+      ╚╝────────────────────┘
+
+
+---------
+Contracts
+---------
+
+Analyzed 8 files, 4 dependencies.
+---------------------------------
+
+分层架构：domain 在最底层，app 在最上层 BROKEN
+
+Contracts: 0 kept, 1 broken.
+
+
+----------------
+Broken contracts
+----------------
+
+分层架构：domain 在最底层，app 在最上层
+-------------------------
+
+shop.domain is not allowed to import shop.infra:
+
+- shop.domain.pricing -> shop.infra.repo (l.2)
+
+

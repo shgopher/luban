@@ -1,0 +1,11 @@
+=== fribidi levels: (مرحبا) ===
+(ﺎﺒﺣﺮﻣ)
+6 5 4 3 2 1 0 
+6 5 4 3 2 1 0 
+1 1 1 1 1 1 1 === hebrew default ===
+ 28 d7 92 d7 91 d7 90 29
+=== hebrew nomirror ===
+ 28 d7 92 d7 91 d7 90 29
+=== bracket: [אבג] default vs nomirror ===
+ 5b d7 92 d7 91 d7 90 5d
+ 5b d7 92 d7 91 d7 90 5d

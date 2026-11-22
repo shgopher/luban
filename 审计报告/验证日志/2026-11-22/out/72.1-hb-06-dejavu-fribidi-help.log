@@ -1,0 +1,50 @@
+rc=0
+DejaVuSans-Bold.ttf
+DejaVuSans.ttf
+DejaVuSansMono-Bold.ttf
+DejaVuSansMono-BoldOblique.ttf
+DejaVuSansMono-Oblique.ttf
+DejaVuSansMono.ttf
+DejaVuSerif-Bold.ttf
+DejaVuSerif.ttf
+=== fribidi help ===
+Usage: fribidi [OPTION]... [FILE]...
+A command line interface for the GNU FriBidi library.
+Convert a logical string to visual.
+
+  -h, --help            Display this information and exit
+  -V, --version         Display version information and exit
+  -v, --verbose         Verbose mode, same as --basedir --ltov --vtol
+                        --levels
+  -d, --debug           Output debug information
+  -t, --test            Test GNU FriBidi, same as --clean --nobreak
+                        --showinput --reordernsm --width 80
+  -c, --charset CS      Specify character set, default is UTF-8
+      --charsetdesc CS  Show descriptions for character set CS and exit
+      --caprtl          Old style: set character set to CapRTL
+      --showinput       Output the input string too
+      --nopad           Do not right justify RTL lines
+      --nobreak         Do not break long lines
+  -w, --width W         Screen width for padding, default is 80, but if
+                        environment variable COLUMNS is defined, its value
+                        will be used, --width overrides both of them.
+  -B, --bol BOL         Output string BOL before the visual string
+  -E, --eol EOL         Output string EOL after the visual string
+      --rtl             Force base direction to RTL
+      --ltr             Force base direction to LTR
+      --wrtl            Set base direction to RTL if no strong character found
+      --wltr            Set base direction to LTR if no strong character found
+                        (default)
+      --nomirror        Turn mirroring off, to do it later
+      --reordernsm      Reorder NSM sequences to follow their base character
+      --clean           Remove explicit format codes in visual string
+                        output, currently does not affect other outputs
+      --basedir         Output Base Direction
+      --ltov            Output Logical to Visual position map
+      --vtol            Output Visual to Logical position map
+      --levels          Output Embedding Levels
+      --novisual        Do not output the visual string, to be used with
+                        --basedir, --ltov, --vtol, --levels
+  All string indexes are zero based
+
+Output:

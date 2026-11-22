@@ -1,0 +1,10 @@
+=== fribidi Arabic RTL with mirror (default) ===
+ 28 ef ba 8e ef ba 92 ef ba a3 ef ba ae ef bb a3
+ 29
+(ﺎﺒﺣﺮﻣ)
+=== fribidi Arabic RTL --nomirror ===
+ 28 ef ba 8e ef ba 92 ef ba a3 ef ba ae ef bb a3
+ 29
+(ﺎﺒﺣﺮﻣ)
+=== does fribidi shape? codepoints of output (default) ===
+['0x28', '0xfe8e', '0xfe92', '0xfea3', '0xfeae', '0xfee3', '0x29']

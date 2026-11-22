@@ -1,0 +1,12 @@
+-rw-r--r-- 1 root root 244072 Dec 26  2020 /usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf
+=== mirror full-width test: ltr vs rtl on NotoSans ===
+[parenleft=0+300|a=1+561|parenright=2+300|bracketleft=3+329|b=4+615|bracketright=5+329|braceleft=6+380|c=7+480|braceright=8+380|less=9+572|d=10+615|greater=11+572]
+[less=11+572|d=10+615|greater=9+572|braceleft=8+380|c=7+480|braceright=6+380|bracketleft=5+329|b=4+615|bracketright=3+329|parenleft=2+300|a=1+561|parenright=0+300]
+=== arabic font: (مرحبا) rtl ===
+[.notdef=6+600|uniFE8E=5+291|uniFE92=4+343|uniFEA3=3+549|uniFEAE=2+396|uniFEE3=1+525|.notdef=0+600]
+=== arabic font: [مرحبا] rtl ===
+[.notdef=6+600|uniFE8E=5+291|uniFE92=4+343|uniFEA3=3+549|uniFEAE=2+396|uniFEE3=1+525|.notdef=0+600]
+=== glyph IDs (no names) for ب / بيت / بببب ===
+ب -> [35=0+772]
+بيت -> [54=2+817|576=1+360|38=0+275]
+بببب -> [36=3+817|37=2+292|37=1+292|38=0+275]

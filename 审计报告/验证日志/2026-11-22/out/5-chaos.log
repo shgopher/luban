@@ -1,0 +1,43 @@
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+=== supplementary: 100 curl (2 stable pods : 1 canary pod) ===
+     34 canary-v2
+     66 stable-v1
+
+########## (a) self-heal: delete one pod ##########
+NAME                             READY   STATUS    RESTARTS   AGE    IP           NODE            NOMINATED NODE   READINESS GATES
+rollback-demo-64dd44bc89-bcf5p   1/1     Running   0          104s   10.42.0.14   decn2jol49vce   <none>           <none>
+rollback-demo-64dd44bc89-wphhw   1/1     Running   0          104s   10.42.0.13   decn2jol49vce   <none>           <none>
+victim=rollback-demo-64dd44bc89-bcf5p
+DELETE_T0=2026-11-22T08:41:06+00:00 epoch=1795336866.728047865
+pod "rollback-demo-64dd44bc89-bcf5p" deleted from lab namespace
+SELF_HEAL_DONE after 4.291413987s (ready=2 total=2)
+NAME                             READY   STATUS    RESTARTS   AGE    IP           NODE            NOMINATED NODE   READINESS GATES
+rollback-demo-64dd44bc89-mbpfg   1/1     Running   0          4s     10.42.0.19   decn2jol49vce   <none>           <none>
+rollback-demo-64dd44bc89-wphhw   1/1     Running   0          109s   10.42.0.13   decn2jol49vce   <none>           <none>
+28s         Normal    Started                        pod/web-stable-66cd86cc9c-bwmnb       Container started
+28s         Normal    Created                        pod/web-stable-66cd86cc9c-bwmnb       Container created
+28s         Normal    Pulled                         pod/web-stable-66cd86cc9c-bwmnb       Container image "busybox:1.36" already present on machine and can be accessed by the pod
+4s          Normal    Killing                        pod/rollback-demo-64dd44bc89-bcf5p    Stopping container nginx
+4s          Normal    SuccessfulCreate               replicaset/rollback-demo-64dd44bc89   Created pod: rollback-demo-64dd44bc89-mbpfg
+2s          Normal    Pulled                         pod/rollback-demo-64dd44bc89-mbpfg    Container image "nginx:alpine" already present on machine and can be accessed by the pod
+2s          Normal    Created                        pod/rollback-demo-64dd44bc89-mbpfg    Container created
+1s          Normal    Started                        pod/rollback-demo-64dd44bc89-mbpfg    Container started
+
+########## (b) break Service selector ##########
+NAME          ENDPOINTS                                         AGE
+canary-demo   10.42.0.16:8080,10.42.0.17:8080,10.42.0.18:8080   30s
+BREAK_T0=2026-11-22T08:41:11+00:00 epoch=1795336871.709011661
+service/canary-demo patched
+patch returned at +.218458030s
+t+.267436138s curl_exit=7 http_code=000
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+NAME          ENDPOINTS   AGE
+canary-demo   <none>      31s
+NAME                ADDRESSTYPE   PORTS     ENDPOINTS   AGE
+canary-demo-8hfqz   IPv4          <unset>   <unset>     31s
+RESTORE_T0=2026-11-22T08:41:12+00:00 epoch=1795336872.403218548
+service/canary-demo patched
+RECOVERED after .750652773s http_code=200
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+NAME          ENDPOINTS                                         AGE
+canary-demo   10.42.0.16:8080,10.42.0.17:8080,10.42.0.18:8080   32s

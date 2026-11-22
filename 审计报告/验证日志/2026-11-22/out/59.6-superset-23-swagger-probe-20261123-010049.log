@@ -1,0 +1,12 @@
+/swagger/v1 -> 302 size=277
+/swagger/ -> 404 size=1947
+/api/v1/swagger/v1 -> 404 size=1947
+/swagger/v1/swagger.yaml -> 404 size=1947
+/api/v1/_openapi -> 401 size=39
+/openapi.json -> 404 size=1947
+--- 404 body ---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=q,initial-scale=1"/><link rel="icon" type="image/png" href="/static/assets/e3bafb62eb2592c0bb0e.png"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"/><style>html {
+        height: 100%;
+      }
+      body {
+        color: #1985a0;

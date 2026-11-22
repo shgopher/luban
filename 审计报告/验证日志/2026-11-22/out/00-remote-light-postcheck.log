@@ -1,0 +1,8 @@
+               total        used        free      shared  buff/cache   available
+Mem:            1968         945          85           3        1129        1022
+/dev/vda1        39G   12G   27G  31% /
+  RSS COMMAND
+400600 java
+71552 systemd-journal
+61268 AliYunDunMonito
+51064 AliYunDun

@@ -1,0 +1,29 @@
+=== 从 maven-metadata.xml 里筛稳定版（排除 -RC/-Beta/-Alpha/-M/-dev）===
+--- meta-kotlin-gradle-plugin.xml ---
+2.4.10
+2.4.20
+2.4.21
+--- meta-compose-gradle-plugin.xml ---
+1.12.1
+1.12.2
+1.13.0-rc01
+--- meta-kmp-marker.xml ---
+2.4.10
+2.4.20
+2.4.21
+
+=== kotlin-gradle-plugin 2.4.21 / compose 1.12.2 的 jar 是否可下载（HEAD）===
+HTTP/2 200 
+content-length: 30714368
+last-modified: Thu, 08 Oct 2026 07:57:53 GMT
+HTTP/2 200 
+content-length: 3922215
+last-modified: Thu, 15 Oct 2026 10:16:25 GMT
+=== compose 稳定版（同时排除 -rc 小写）===
+1.12.0
+1.12.1
+1.12.2
+=== 对照：全部版本里 rc/beta 的最大值 ===
+1.13.0-beta01
+1.13.0-beta02
+1.13.0-rc01

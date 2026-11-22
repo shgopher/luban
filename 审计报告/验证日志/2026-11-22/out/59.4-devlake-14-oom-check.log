@@ -1,0 +1,22 @@
+--- /devlake-config-ui-1 ---
+restartcount=0 started=2026-11-22T16:55:09.98879124Z
+memory.max=134217728 swap.max=134217728
+memory.peak=17752064
+events: low 0 high 0 max 0 oom 0 oom_kill 0 oom_group_kill 0 
+--- /devlake-grafana-1 ---
+restartcount=0 started=2026-11-22T16:55:08.982636228Z
+memory.max=268435456 swap.max=268435456
+memory.peak=269438976
+events: low 0 high 0 max 20565 oom 0 oom_kill 0 oom_group_kill 0 
+--- /devlake-devlake-1 ---
+restartcount=8 started=2026-11-22T16:55:45.408533249Z
+memory.max=536870912 swap.max=536870912
+memory.peak=203722752
+events: low 0 high 0 max 0 oom 0 oom_kill 0 oom_group_kill 0 
+--- /devlake-mysql-1 ---
+restartcount=0 started=2026-11-22T16:55:08.596740801Z
+memory.max=469762048 swap.max=469762048
+memory.peak=469766144
+events: low 0 high 0 max 1504 oom 0 oom_kill 0 oom_group_kill 0 
+=== docker events oom (last) ===
+=== dmesg oom ===

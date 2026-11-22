@@ -1,0 +1,21 @@
+== 1) 四个动作之注入：Pod 内容器名
+web-v1-67b9cbc799-tmdg6: whoami
+web-v1-67b9cbc799-vlpp4: whoami
+web-v2-964d54c94-s7xzl: whoami
+== istioctl analyze
+
+✔ No validation issues found when analyzing namespace: shop.
+== proxy-status
+NAME                             CLUSTER        ISTIOD                     VERSION     SUBSCRIBED TYPES
+web-v1-67b9cbc799-tmdg6.shop     Kubernetes     istiod-959657555-7mwl6     1.32.0      4 (CDS,LDS,EDS,RDS)
+web-v1-67b9cbc799-vlpp4.shop     Kubernetes     istiod-959657555-7mwl6     1.32.0      4 (CDS,LDS,EDS,RDS)
+web-v2-964d54c94-s7xzl.shop      Kubernetes     istiod-959657555-7mwl6     1.32.0      4 (CDS,LDS,EDS,RDS)
+== 2) 起客户端
+pod/client condition met
+== 3) 100 次请求（无 header，按 95/5 权重）
+     96 web-v1
+      4 web-v2
+== 4) 10 次带 x-canary: true（应全落 v2）
+     10 web-v2
+== 5) 10 次带 x-canary: false（应落 v1/v2 权重）
+     10 web-v1

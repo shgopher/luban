@@ -1,0 +1,42 @@
+deployment.apps "order-api" deleted from lab namespace
+Error from server (NotFound): horizontalpodautoscalers.autoscaling "order-api" not found
+configmap/app-config created
+pod/cm-demo created
+pod/cm-demo condition met
+initial normal=version=1|
+initial subpath=version=1|
+T0=1795336583.280506777 2026-11-22T08:36:23+00:00
+configmap/app-config configured
+apply-returned at +1.042232206s
+t+  3.15s normal=version=1  subpath=version=1
+t+  6.30s normal=version=1  subpath=version=1
+t+  9.34s normal=version=1  subpath=version=1
+t+ 12.24s normal=version=1  subpath=version=1
+t+ 15.51s normal=version=1  subpath=version=1
+t+ 18.81s normal=version=1  subpath=version=1
+t+ 22.84s normal=version=1  subpath=version=1
+t+ 26.71s normal=version=1  subpath=version=1
+t+ 29.50s normal=version=1  subpath=version=1
+t+ 32.54s normal=version=1  subpath=version=1
+t+ 35.92s normal=version=1  subpath=version=1
+t+ 39.50s normal=version=1  subpath=version=1
+t+ 42.62s normal=version=1  subpath=version=1
+t+ 46.23s normal=version=1  subpath=version=1
+t+ 48.92s normal=version=1  subpath=version=1
+t+ 51.54s normal=version=1  subpath=version=1
+t+ 54.80s normal=version=1  subpath=version=1
+t+ 58.42s normal=version=1  subpath=version=1
+t+ 61.91s normal=version=2  subpath=version=1
+NORMAL_UPDATED_AT=61.914738298s
+--- now watch subPath for another 90s (expect: unchanged) ---
+subpath t+1s after normal-update: version=1
+subpath t+12s after normal-update: version=1
+subpath t+22s after normal-update: version=1
+subpath t+33s after normal-update: version=1
+subpath t+44s after normal-update: version=1
+subpath t+55s after normal-update: version=1
+subpath t+66s after normal-update: version=1
+subpath t+77s after normal-update: version=1
+subpath t+88s after normal-update: version=1
+final normal=version=2|
+final subpath=version=1|

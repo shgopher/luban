@@ -1,0 +1,143 @@
+=== date ===
+Sun Nov 22 16:30:59 CST 2026
+=== 用例文件 ===
+-rw-r--r--@ 1 shgopher  wheel  637 Nov 22 16:30 promptfooconfig-mustfail.yaml
+-rw-r--r--@ 1 shgopher  wheel  744 Nov 22 16:30 promptfooconfig.yaml
+-rw-r--r--@ 1 shgopher  wheel  535 Nov 22 16:30 provider.js
+
+=== promptfoo eval -c promptfooconfig.yaml --no-cache --no-progress-bar ===
+Cache is disabled.
+Starting evaluation eval-JY7-2026-11-22T08:31:01
+Running 2 test cases (up to 4 at a time)...
+
+┌────────────────────────────────────────┬────────────────────────────────────────┬────────────────────────────────────────┐
+│ context                                │ question                               │ [fixed-refund-provider] Answer the     │
+│                                        │                                        │ question using only the provided       │
+│                                        │                                        │ context. Context: {{context}}          │
+│                                        │                                        │ Question: {{question}}                 │
+├────────────────────────────────────────┼────────────────────────────────────────┼────────────────────────────────────────┤
+│ Refunds are allowed within 7 days.     │ Can I refund after 10 days?            │ [PASS] no — refunds are only allowed   │
+│                                        │                                        │ within 7 days.                         │
+├────────────────────────────────────────┼────────────────────────────────────────┼────────────────────────────────────────┤
+│ Refunds are allowed within 7 days.     │ Can I refund after 30 days?            │ [PASS] no — refunds are only allowed   │
+│                                        │                                        │ within 7 days.                         │
+└────────────────────────────────────────┴────────────────────────────────────────┴────────────────────────────────────────┘
+✓ Eval complete (ID: eval-JY7-2026-11-22T08:31:01)
+
+» View results: promptfoo view
+» Share with your team: https://promptfoo.app
+» Feedback: https://promptfoo.dev/feedback
+
+
+Results:
+  ✓ 2 passed (100%)
+  0 failed (0%)
+  0 errors (0%)
+Duration: 0s (concurrency: 4)
+
+Writing output to /tmp/luban-verify/out/64.9-promptfoo-eval.json
+EVAL_EXIT=0
+=== must-fail 用例：promptfoo eval -c promptfooconfig-mustfail.yaml ===
+Cache is disabled.
+Starting evaluation eval-Scm-2026-11-22T08:31:18
+Running 2 test cases (up to 4 at a time)...
+
+┌────────────────────────────────────────┬────────────────────────────────────────┬────────────────────────────────────────┐
+│ context                                │ question                               │ [fixed-refund-provider] Answer the     │
+│                                        │                                        │ question using only the provided       │
+│                                        │                                        │ context. Context: {{context}}          │
+│                                        │                                        │ Question: {{question}}                 │
+├────────────────────────────────────────┼────────────────────────────────────────┼────────────────────────────────────────┤
+│ Refunds are allowed within 7 days.     │ Can I refund after 10 days?            │ [PASS] no — refunds are only allowed   │
+│                                        │                                        │ within 7 days.                         │
+├────────────────────────────────────────┼────────────────────────────────────────┼────────────────────────────────────────┤
+│ Refunds are allowed within 7 days.     │ Can I refund after 3 days?             │ [FAIL] no — refunds are only allowed   │
+│                                        │                                        │ within 7 days.                         │
+└────────────────────────────────────────┴────────────────────────────────────────┴────────────────────────────────────────┘
+✓ Eval complete (ID: eval-Scm-2026-11-22T08:31:18)
+
+» View results: promptfoo view
+» Share with your team: https://promptfoo.app
+» Feedback: https://promptfoo.dev/feedback
+
+
+Results:
+  ✓ 1 passed (50.00%)
+  ✗ 1 failed (50.00%)
+  0 errors (0%)
+Duration: 0s (concurrency: 4)
+
+Writing output to /tmp/luban-verify/out/64.9-promptfoo-mustfail.json
+MUSTFAIL_EXIT=100
+
+=== 两次 eval 的 JSON stats ===
+/tmp/luban-verify/out/64.9-promptfoo-eval.json
+ version: 0.126.0
+ results: {"successes":2,"failures":0,"errors":0,"tokenUsage":{"prompt":0,"completion":0,"cached":0,"total":0,"numRequests":2,"completionDetails":{"reasoning":0,"acceptedPrediction":0,"rejectedPrediction":0,"cacheReadInputTokens":0,"cacheCreationInputTokens":0},"assertions":{"total":0,"prompt":0,"completion":0,"cached":0,"numRequests":0,"completionDetails":{"reasoning":0,"acceptedPrediction":0,"rejectedPrediction":0,"cacheReadInputTokens":0,"cacheCreationInputTokens":0}}},"durationMs":20,"evaluationDurationMs":20}
+ cases: [
+  {
+    desc: '10 天后能否退款：必须明确说 no',
+    pass: true,
+    score: 1,
+    failureReason: 'All assertions passed'
+  },
+  {
+    desc: '7 天边界：回答仍需包含护栏关键词 no',
+    pass: true,
+    score: 1,
+    failureReason: 'All assertions passed'
+  }
+]
+/tmp/luban-verify/out/64.9-promptfoo-mustfail.json
+ version: 0.126.0
+ results: {"successes":1,"failures":1,"errors":0,"tokenUsage":{"prompt":0,"completion":0,"cached":0,"total":0,"numRequests":2,"completionDetails":{"reasoning":0,"acceptedPrediction":0,"rejectedPrediction":0,"cacheReadInputTokens":0,"cacheCreationInputTokens":0},"assertions":{"total":0,"prompt":0,"completion":0,"cached":0,"numRequests":0,"completionDetails":{"reasoning":0,"acceptedPrediction":0,"rejectedPrediction":0,"cacheReadInputTokens":0,"cacheCreationInputTokens":0}}},"durationMs":155,"evaluationDurationMs":155}
+ cases: [
+  {
+    desc: 'PASS：输出含 no',
+    pass: true,
+    score: 1,
+    failureReason: 'All assertions passed'
+  },
+  {
+    desc: 'FAIL(故意)：要求输出含 yes，但 provider 固定说 no',
+    pass: false,
+    score: 0,
+    failureReason: 'Expected output to contain "yes"'
+  }
+]
+=== date ===
+Sun Nov 22 16:32:32 CST 2026
+=== 后台起 promptfoo view -n -p 15555，然后 curl 探活 ===
+server pid=87220
+ready after 13s
+--- curl -sS -D- http://127.0.0.1:15555/ (前 15 行) ---
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sun, 22 Nov 2026 08:30:19 GMT
+ETag: W/"6de-1a20260ab90"
+Content-Type: text/html; charset=utf-8
+Content-Length: 1758
+Vary: Accept-Encoding
+Date: Sun, 22 Nov 2026 08:32:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+--- HTML 标题 ---
+<title>promptfoo</title>
+--- /api/eval 探活 ---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promptfoo</title>
+    <meta name="description" content="LLM testing and evaluati
+view killed, exit=0
+--- server log ---
+Server running at http://localhost:15555 and monitoring for new evals.
+Shutting down server...
+Server closed

@@ -1,0 +1,30 @@
++ docker exec -u root superset sh -c 'timeout 20 curl -sI https://pypi.org/simple/ | head -3'
++ docker exec -u root superset sh -c 'uv pip install --python /app/.venv/bin/python psycopg2-binary 2>&1 | tail -20; echo UV_RC=$?'
++ docker exec superset python -c 'import psycopg2; print("psycopg2", psycopg2.__version__)'
++ docker exec superset superset version
+2026-11-22 17:03:38,300:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+2026-11-22 17:03:38,312:WARNING:py.warnings:/app/.venv/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+
+2026-11-22 17:03:39,400:INFO:alembic.runtime.migration:Context impl PostgresqlImpl.
+2026-11-22 17:03:39,400:INFO:alembic.runtime.migration:Will assume transactional DDL.
+2026-11-22 17:03:40,010:INFO:superset.app:Pending database migrations: run 'superset db upgrade'
+2026-11-22 17:03:41,108:INFO:superset.core.mcp.core_mcp_injection:fastmcp is not installed, skipping MCP initialization. Install it with: pip install 'apache-superset[fastmcp]'
++ echo VERSION_RC=0
+HTTP/2 200 
+access-control-allow-headers: Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since
+x-pypi-last-serial: 44001849
+Resolved 1 package in 204ms
+Downloading psycopg2-binary (4.1MiB)
+ Downloaded psycopg2-binary
+Prepared 1 package in 217ms
+Installed 1 package in 2ms
+ + psycopg2-binary==2.9.13
+UV_RC=0
+psycopg2 2.9.13 (dt dec pq3 ext lo64)
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+[34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[33mSuperset [36m6.1.0
+[34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[0m
+VERSION_RC=0

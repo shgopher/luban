@@ -1,0 +1,81 @@
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+devlake-1  | 	Wraps: (5) connection refused
+devlake-1  | 	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+devlake-1  | 	Wraps: (5) connection refused
+devlake-1  | 	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+devlake-1  | 	Wraps: (5) connection refused
+devlake-1  | 	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+devlake-1  | 	Wraps: (5) connection refused
+devlake-1  | 	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+devlake-1  | 	Wraps: (5) connection refused
+devlake-1  | 	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+devlake-1  | 	Wraps: (5) connection refused
+devlake-1  | 	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+devlake-1  | panic: attached stack trace
+devlake-1  | 	  | runtime.goexit
+devlake-1  | 	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+devlake-1  | 	Wraps: (4) connect
+=== first 40 lines ===
+time="2026-11-22T16:59:12Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+Version:  v1.0.3-beta19@210dcd4
+time="2026-11-22T16:55:10Z" level=info msg="no [.env] file, devlake will read configuration from environment, please make sure you have set correct environment variable."
+panic: attached stack trace
+	  -- stack trace:
+	  | github.com/apache/devlake/core/runner.NewGormDbEx
+	  | 	github.com/apache/devlake/core/runner/db.go:90
+	  | github.com/apache/devlake/core/runner.NewGormDb
+	  | 	github.com/apache/devlake/core/runner/db.go:44
+	  | github.com/apache/devlake/core/runner.CreateAppBasicRes
+	  | 	github.com/apache/devlake/core/runner/basic_res.go:48
+	  | github.com/apache/devlake/server/services.InitResources
+	  | 	github.com/apache/devlake/server/services/init.go:63
+	  | github.com/apache/devlake/server/services.Init
+	  | 	github.com/apache/devlake/server/services/init.go:117
+	  | github.com/apache/devlake/server/api.Init
+	  | 	github.com/apache/devlake/server/api/api.go:57
+	  | github.com/apache/devlake/server/api.CreateAndRunApiServer
+	  | 	github.com/apache/devlake/server/api/api.go:74
+	  | main.main
+	  | 	github.com/apache/devlake/server/main.go:36
+	  | runtime.main
+	  | 	runtime/proc.go:302
+	  | runtime.goexit
+	  | 	runtime/asm_amd64.s:1264
+	Wraps: (2) dial tcp 172.18.0.2:3306: connect: connection refused
+	Wraps: (3) dial tcp 172.18.0.2:3306
+	Wraps: (4) connect
+	Wraps: (5) connection refused
+	Error types: (1) *withstack.withStack (2) *errutil.withPrefix (3) *net.OpError (4) *os.SyscallError (5) syscall.Errno
+
+goroutine 1 [running]:
+github.com/apache/devlake/core/runner.CreateAppBasicRes()
+	github.com/apache/devlake/core/runner/basic_res.go:50 +0x20b
+github.com/apache/devlake/server/services.InitResources()
+	github.com/apache/devlake/server/services/init.go:63 +0x78
+github.com/apache/devlake/server/services.Init()
+	github.com/apache/devlake/server/services/init.go:117 +0x17
+github.com/apache/devlake/server/api.Init()
+	github.com/apache/devlake/server/api/api.go:57 +0x13

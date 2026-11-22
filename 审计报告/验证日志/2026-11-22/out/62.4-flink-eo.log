@@ -1,0 +1,27 @@
+== Flink 版本
+{"taskmanagers":1,"slots-total":2,"slots-available":2,"jobs-running":0,"jobs-finished":4,"jobs-cancelled":0,"jobs-failed":0,"flink-version":"1.18.1","flink-commit":"a8c8b1c"}
+== job1 checkpoint counts
+{"restored":0,"total":7,"in_progress":0,"completed":7,"failed":0}
+== job1 state
+{"name":"gmv-tumble","state":"FINISHED"}
+{"name":"eo-visibility-lag","state":"FINISHED"}
+{"name":"gmv-tumble","state":"FINISHED"}
+{"name":"eo-kafka-sink-test","state":"FINISHED"}
+== kafka transactions
+TransactionalId  	Coordinator	ProducerId	TransactionState	
+flink-eo-test-0-2	1          	2         	CompleteCommit  	
+flink-eo-test-0-1	1          	0         	CompleteCommit  	
+flink-eo-vis-0-1 	1          	9         	CompleteCommit  	
+flink-eo-vis-0-2 	1          	11        	CompleteCommit  	
+flink-eo-vis-0-3 	1          	12        	CompleteCommit  	
+flink-eo-vis-0-4 	1          	13        	Empty           	
+flink-eo-test-0-8	1          	8         	Empty           	
+flink-eo-test-0-7	1          	7         	CompleteCommit  	
+flink-eo-test-0-6	1          	6         	CompleteCommit  	
+flink-eo-test-0-5	1          	5         	CompleteCommit  	
+flink-eo-test-0-4	1          	4         	CompleteCommit  	
+flink-eo-test-0-3	1          	3         	CompleteCommit  	
+== 消息数
+     400
+Topic: eo-out	TopicId: Hwd8IycnQnSKI_3lymUa8Q	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+	Topic: eo-out	Partition: 0	Leader: 1	Replicas: 1	Isr: 1

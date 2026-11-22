@@ -1,0 +1,25 @@
+=== --offline (vulnerable npm lock) ===
+rc=127 elapsed_ms=144
+Starting filesystem walk for root: /
+Scanned /tmp/osvvuln/package-lock.json file and found 6 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 600.61µs elapsed, 600.69µs wall time
+could not load db for npm ecosystem: unable to fetch OSV database: no offline version of the OSV database is available
+
+Total 0 packages affected by 0 known vulnerabilities (0 Critical, 0 High, 0 Medium, 0 Low, 0 Unknown) from 0 ecosystems.
+0 vulnerabilities can be fixed.
+
+--stderr--
+Error during extraction: (extracting as vulnmatch/osvlocal) could not load db for npm ecosystem: unable to fetch OSV database: no offline version of the OSV database is available
+
+=== --offline-vulnerabilities (vulnerable npm lock) ===
+rc=127 elapsed_ms=155
+Starting filesystem walk for root: /
+Scanned /tmp/osvvuln/package-lock.json file and found 6 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 375.045µs elapsed, 375.126µs wall time
+could not load db for npm ecosystem: unable to fetch OSV database: no offline version of the OSV database is available
+
+Total 0 packages affected by 0 known vulnerabilities (0 Critical, 0 High, 0 Medium, 0 Low, 0 Unknown) from 0 ecosystems.
+0 vulnerabilities can be fixed.
+
+--stderr--
+Error during extraction: (extracting as vulnmatch/osvlocal) could not load db for npm ecosystem: unable to fetch OSV database: no offline version of the OSV database is available

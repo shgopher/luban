@@ -1,0 +1,36 @@
+########## 13 通过 Proxy 13307 写入并按 order_id 分片 ##########
+客户端说明：本机 mysql 26.7.0 已移除 mysql_native_password 插件，连 Proxy 报 ERROR 2059；
+改用 mysql:8.0 镜像内自带的 8.0.46 客户端（docker exec luban-mysql1）连接 Proxy。
+
+$ docker exec -i luban-mysql1 mysql -hhost.docker.internal -P13307 -uroot -proot < task2-sharding.sql
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Tables_in_sharding_db
+t_order
+order_id	user_id	amount	status	created_at
+1	101	10.00	INIT	2026-11-22 00:30:55
+2	102	20.00	INIT	2026-11-22 00:30:55
+3	103	30.00	INIT	2026-11-22 00:30:55
+4	104	40.00	INIT	2026-11-22 00:30:55
+proxy_rows	proxy_sum
+4	100.00
+order_id	user_id
+1	101
+2	102
+3	103
+4	104
+proxy_insert_exit=0
+
+$ 直连 MySQL 13306 查两个物理分表
+mysql> SELECT ... FROM t_order_0 / t_order_1 / t_order;
+mysql: [Warning] Using a password on the command line interface can be insecure.
+physical_table	rows_cnt	amount_sum
+t_order_0	2	60.00
+t_order_1	2	40.00
+t_order	0	NULL
+physical_table	order_id	user_id	amount
+t_order_0	2	102	20.00
+t_order_0	4	104	40.00
+physical_table	order_id	user_id	amount
+t_order_1	1	101	10.00
+t_order_1	3	103	30.00
+direct_query_exit=0

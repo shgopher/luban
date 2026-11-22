@@ -1,0 +1,12 @@
+{"window_start":"2026-11-22 10:00:00","window_end":"2026-11-22 10:01:00","region":"cn-north","gmv":235}
+{"window_start":"2026-11-22 10:00:00","window_end":"2026-11-22 10:01:00","region":"cn-south","gmv":245}
+{"window_start":"2026-11-22 10:00:00","window_end":"2026-11-22 10:01:00","region":"us-west","gmv":255}
+{"window_start":"2026-11-22 10:01:00","window_end":"2026-11-22 10:02:00","region":"cn-north","gmv":218}
+{"window_start":"2026-11-22 10:01:00","window_end":"2026-11-22 10:02:00","region":"cn-south","gmv":162}
+{"window_start":"2026-11-22 10:01:00","window_end":"2026-11-22 10:02:00","region":"us-west","gmv":165}
+{"window_start":"2026-11-22 10:00:00","window_end":"2026-11-22 10:01:00","region":"cn-north","gmv":235}
+{"window_start":"2026-11-22 10:00:00","window_end":"2026-11-22 10:01:00","region":"cn-south","gmv":245}
+{"window_start":"2026-11-22 10:00:00","window_end":"2026-11-22 10:01:00","region":"us-west","gmv":255}
+{"window_start":"2026-11-22 10:01:00","window_end":"2026-11-22 10:02:00","region":"cn-north","gmv":218}
+{"window_start":"2026-11-22 10:01:00","window_end":"2026-11-22 10:02:00","region":"cn-south","gmv":162}
+{"window_start":"2026-11-22 10:01:00","window_end":"2026-11-22 10:02:00","region":"us-west","gmv":165}

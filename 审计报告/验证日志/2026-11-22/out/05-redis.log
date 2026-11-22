@@ -1,0 +1,32 @@
+476e87e13c68ab7dc637aba357235363e0496d17fd15072c0377add82ee42b41
+--- redis-server --version ---
+Redis server v=7.4.12 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=6d565d4e3893fa59
+--- redis-cli --version ---
+redis-cli 7.4.12
+--- INFO server ---
+# Server
+redis_version:7.4.12
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:6d565d4e3893fa59
+redis_mode:standalone
+os:Linux 7.0.14-linuxkit aarch64
+arch_bits:64
+monotonic_clock:POSIX clock_gettime
+multiplexing_api:epoll
+atomicvar_api:c11-builtin
+gcc_version:14.2.0
+process_id:1
+process_supervised:no
+run_id:669bc1d1edcd102776d63559bb5b6da7bf0d8715
+tcp_port:6379
+server_time_usec:1795336009690412
+uptime_in_seconds:1
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:173897
+executable:/data/redis-server
+config_file:
+io_threads_active:0
+listener0:name=tcp,bind=*,bind=-::*,port=6379

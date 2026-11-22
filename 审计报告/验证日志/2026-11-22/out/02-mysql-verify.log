@@ -1,0 +1,50 @@
+########## 02 MySQL 8 建表 / 版本 ##########
+$ mysql < task1-ddl.sql
+mysql: [Warning] Using a password on the command line interface can be insecure.
+step
+DDL_OK
+ERROR at line 19: Unknown command '\G'.
+exit=1
+
+########## 03 首次插入 + 重复插入（预期唯一键报错） ##########
+$ mysql < task1-dml.sql
+mysql: [Warning] Using a password on the command line interface can be insecure.
+first_insert_rowcount
+1
+cnt_after_first
+1
+ERROR 1062 (23000) at line 9: Duplicate entry '1001-2002' for key 'follow.uk_follower_followee'
+exit=1
+
+########## 04 INSERT IGNORE 影响行数 / 软删复活 / 造数 ##########
+$ mysql < task1-ignore.sql
+mysql: [Warning] Using a password on the command line interface can be insecure.
+insert_ignore_rowcount
+0
+cnt_after_ignore
+1
+upsert_rowcount
+2
+follower_id	followee_id	state	seq	deleted_at
+1001	2002	0	4	NULL
+followee_id	followers	min_follower	max_follower
+2002	1	1001	1001
+9001	2000	1	2000
+9002	500	10001	10500
+total_live_rows	seq_snapshot
+2501	200500
+exit=0
+########## 02b MySQL 版本与建表结构（修正客户端 \G 不支持） ##########
+注：上一条 \G 报错是本机 mysql 客户端 26.7.0 的解析 quirk，DDL 本身已执行成功。
+mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql_version	version_comment	port
+8.0.46	MySQL Community Server - GPL	3306
+Table	Create Table
+follow	CREATE TABLE `follow` (\n  `id` bigint unsigned NOT NULL AUTO_INCREMENT,\n  `follower_id` bigint unsigned NOT NULL COMMENT '关注者，分片键',\n  `followee_id` bigint unsigned NOT NULL COMMENT '被关注者',\n  `state` tinyint NOT NULL DEFAULT '0' COMMENT '0=关注 1=取关',\n  `seq` bigint unsigned NOT NULL COMMENT '关系变更序列号',\n  `created_at` bigint NOT NULL COMMENT '毫秒时间戳',\n  `deleted_at` datetime DEFAULT NULL COMMENT '软删时间',\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `uk_follower_followee` (`follower_id`,`followee_id`),\n  KEY `idx_follower_seq` (`follower_id`,`seq`)\n) ENGINE=InnoDB AUTO_INCREMENT=2563 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='关注关系（唯一键幂等+软删）'
+Table	Non_unique	Key_name	Seq_in_index	Column_name	Collation	Cardinality	Sub_part	Packed	Null	Index_type	Comment	Index_comment	Visible	Expression
+follow	0	PRIMARY	1	id	A	1	NULL	NULL		BTREE			YES	NULL
+follow	0	uk_follower_followee	1	follower_id	A	1	NULL	NULL		BTREE			YES	NULL
+follow	0	uk_follower_followee	2	followee_id	A	1	NULL	NULL		BTREE			YES	NULL
+follow	1	idx_follower_seq	1	follower_id	A	1	NULL	NULL		BTREE			YES	NULL
+follow	1	idx_follower_seq	2	seq	A	1	NULL	NULL		BTREE			YES	NULL
+exit=0

@@ -1,0 +1,2 @@
+query_context: {"datasource": {"id": 1, "type": "table"}, "force": false, "queries": [{"columns": ["day", "deploys", "lead_time_hours"], "metrics": [], "orderby": [["day", true]], "row_limit": 100, "is_timeseries": false, "filters": [], "extras": {"having": "", "where": ""}}], "result_format": "json", "result_type": "full"}
+params: {"datasource":"1__table","viz_type":"table","query_mode":"raw","all_columns":["day","deploys","lead_time_hours"],"order_by_cols":["[\"day\", true]"]}

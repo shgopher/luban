@@ -1,0 +1,26 @@
+W1122 08:58:55.975000 243 site-packages/torch/distributed/run.py:982] 
+W1122 08:58:55.975000 243 site-packages/torch/distributed/run.py:982] *****************************************
+W1122 08:58:55.975000 243 site-packages/torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1122 08:58:55.975000 243 site-packages/torch/distributed/run.py:982] *****************************************
+[rank0] pid=252 mode=noddp backend=none WORLD_SIZE=2 RANK=0 LOCAL_RANK=0 torch=2.15.0+cpu cuda_available=False cpu_threads=1
+[rank0] dataset_total=64 samples_on_this_rank=32 steps=8 batch_size=4 steps_per_epoch=8
+[rank0] step=0 loss=18.773777 loss_allreduce_mean=18.773777 grad_l2_layer0=9.962852 grad_head=[-0.012109, -0.013243, -0.001836] step_time_ms=1.8
+[rank0] step=1 loss=16.718304 loss_allreduce_mean=16.718304 grad_l2_layer0=17.680334 grad_head=[-0.002358, -0.018565, 0.011425] step_time_ms=0.4
+[rank0] step=2 loss=39.290123 loss_allreduce_mean=39.290123 grad_l2_layer0=39.521965 grad_head=[0.020805, 0.023391, -0.004526] step_time_ms=0.3
+[rank0] step=3 loss=60.969681 loss_allreduce_mean=60.969681 grad_l2_layer0=47.728287 grad_head=[0.19401, 0.534517, 0.168728] step_time_ms=0.2
+[rank0] step=4 loss=36.447929 loss_allreduce_mean=36.447929 grad_l2_layer0=57.601147 grad_head=[0.081819, 0.002707, -0.116058] step_time_ms=0.4
+[rank0] step=5 loss=71.145599 loss_allreduce_mean=71.145599 grad_l2_layer0=128.259445 grad_head=[1.324, 0.828837, 0.608744] step_time_ms=0.3
+[rank0] step=6 loss=44.691895 loss_allreduce_mean=44.691895 grad_l2_layer0=69.391380 grad_head=[0.0, 0.0, 0.0] step_time_ms=0.2
+[rank0] step=7 loss=58.677650 loss_allreduce_mean=58.677650 grad_l2_layer0=117.822525 grad_head=[0.251831, -0.154585, -0.886857] step_time_ms=0.3
+[rank0] SUMMARY mode=noddp rank=0 world=2 samples_on_this_rank=32 steps=8 grad_l2_layer0_last=117.822525 grad_head_last=[0.251831, -0.154585, -0.886857] param_l2_after=10.799152 train_seconds=0.012 mean_step_ms=0.5
+[rank1] pid=253 mode=noddp backend=none WORLD_SIZE=2 RANK=1 LOCAL_RANK=1 torch=2.15.0+cpu cuda_available=False cpu_threads=1
+[rank1] dataset_total=64 samples_on_this_rank=32 steps=8 batch_size=4 steps_per_epoch=8
+[rank1] step=0 loss=61.728031 loss_allreduce_mean=61.728031 grad_l2_layer0=20.334749 grad_head=[-0.01392, 0.0199, -0.001129] step_time_ms=2.2
+[rank1] step=1 loss=57.894508 loss_allreduce_mean=57.894508 grad_l2_layer0=53.488323 grad_head=[0.386763, 0.360901, 0.050977] step_time_ms=0.5
+[rank1] step=2 loss=36.689735 loss_allreduce_mean=36.689735 grad_l2_layer0=44.258995 grad_head=[0.806553, 0.256103, -0.51082] step_time_ms=0.3
+[rank1] step=3 loss=12.329268 loss_allreduce_mean=12.329268 grad_l2_layer0=26.358608 grad_head=[0.019999, 0.028886, 0.015039] step_time_ms=0.3
+[rank1] step=4 loss=36.661682 loss_allreduce_mean=36.661682 grad_l2_layer0=66.405853 grad_head=[0.167855, -0.062375, -0.369892] step_time_ms=0.3
+[rank1] step=5 loss=40.311974 loss_allreduce_mean=40.311974 grad_l2_layer0=80.065117 grad_head=[0.238253, -0.198834, 0.016324] step_time_ms=0.2
+[rank1] step=6 loss=26.556038 loss_allreduce_mean=26.556038 grad_l2_layer0=40.984005 grad_head=[-0.263328, -0.417024, -0.116913] step_time_ms=0.2
+[rank1] step=7 loss=39.154331 loss_allreduce_mean=39.154331 grad_l2_layer0=68.393433 grad_head=[-0.11239, -0.069516, -0.203628] step_time_ms=0.3
+[rank1] SUMMARY mode=noddp rank=1 world=2 samples_on_this_rank=32 steps=8 grad_l2_layer0_last=68.393433 grad_head_last=[-0.11239, -0.069516, -0.203628] param_l2_after=8.654775 train_seconds=0.006 mean_step_ms=0.5

@@ -1,0 +1,15 @@
+--- payload ---
+{
+  "slice_name": "DORA 每日部署次数与交付周期",
+  "datasource_id": 1,
+  "datasource_type": "table",
+  "viz_type": "table",
+  "params": "{\"datasource\":\"1__table\",\"viz_type\":\"table\",\"query_mode\":\"raw\",\"all_columns\":[\"day\",\"deploys\",\"lead_time_hours\"],\"order_by_cols\":[\"[\\\"day\\\", true]\"]}"
+}
+
+--- POST /api/v1/chart/ ---
+http_code=201
+{"id":1,"result":{"datasource_id":1,"datasource_type":"table","params":"{\"datasource\":\"1__table\",\"viz_type\":\"table\",\"query_mode\":\"raw\",\"all_columns\":[\"day\",\"deploys\",\"lead_time_hours\"],\"order_by_cols\":[\"[\\\"day\\\", true]\"]}","slice_name":"DORA \u6bcf\u65e5\u90e8\u7f72\u6b21\u6570\u4e0e\u4ea4\u4ed8\u5468\u671f","viz_type":"table"}}
+
+keys=['id', 'result']
+id=1

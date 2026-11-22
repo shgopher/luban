@@ -1,0 +1,159 @@
+total 24
+drwxr-xr-x 2 root root 4096 Nov 22 16:51 .
+drwxr-xr-x 5 root root 4096 Nov 22 16:51 ..
+-rw-r--r-- 1 root root 2319 Nov 22 16:51 docker-compose.yml
+-rw-r--r-- 1 root root 8899 Nov 22 16:51 env.example
+=== COMPOSE ===
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+version: "3"
+services:
+  mysql:
+    image: mysql:8
+    volumes:
+      - mysql-storage:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: lake
+      MYSQL_USER: merico
+      MYSQL_PASSWORD: merico
+      TZ: UTC
+    command: --character-set-server=utf8mb4
+      --collation-server=utf8mb4_bin
+      --skip-log-bin
+
+  grafana:
+    image: devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19
+    ports:
+      - 3002:3000
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    environment:
+      GF_SERVER_ROOT_URL: "http://localhost:4000/grafana"
+      GF_USERS_DEFAULT_THEME: "light"
+      MYSQL_URL: mysql:3306
+      MYSQL_DATABASE: lake
+      MYSQL_USER: merico
+      MYSQL_PASSWORD: merico
+      TZ: UTC
+    restart: always
+    depends_on:
+      - mysql
+
+  devlake:
+    image: devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19
+    ports:
+      - 8080:8080
+    restart: always
+    volumes:
+      - devlake-log:/app/logs
+    env_file:
+      - ./.env
+    environment:
+      LOGGING_DIR: /app/logs
+      TZ: UTC
+    depends_on:
+      - mysql
+
+  config-ui:
+    image: devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19
+    ports:
+      - 4000:4000
+    env_file:
+      - ./.env
+    environment:
+      DEVLAKE_ENDPOINT: devlake:8080
+      GRAFANA_ENDPOINT: grafana:3000
+      TZ: UTC
+      #ADMIN_USER: devlake
+      #ADMIN_PASS: merico
+    depends_on:
+      - devlake
+
+volumes:
+  mysql-storage:
+  grafana-storage:
+  devlake-log:
+1:# Licensed to the Apache Software Foundation (ASF) under one or more
+2:# contributor license agreements.  See the NOTICE file distributed with
+3:# this work for additional information regarding copyright ownership.
+4:# The ASF licenses this file to You under the Apache License, Version 2.0
+5:# (the "License"); you may not use this file except in compliance with
+6:# the License.  You may obtain a copy of the License at
+7:#
+8:#     http://www.apache.org/licenses/LICENSE-2.0
+9:#
+10:# Unless required by applicable law or agreed to in writing, software
+11:# distributed under the License is distributed on an "AS IS" BASIS,
+12:# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+13:# See the License for the specific language governing permissions and
+14:# limitations under the License.
+15:#
+17:#############
+18:# Lake core #
+19:#############
+21:# Container image registry/prefix for the pre-built devlake-dashboard and
+22:# devlake-config-ui images used by the docker-compose-dev-*.yml files.
+23:# The default is the Scarf gateway (download analytics for the Apache project)
+24:# and is defined in the compose files themselves, so this entry stays commented
+25:# out: the compose services read this file via `env_file`, and an active
+26:# assignment would also inject the variable into the running containers.
+27:# Uncomment and set it (e.g. docker.io) to pull directly from Docker Hub.
+28:# DEVLAKE_IMAGE_REGISTRY=devlake.docker.scarf.sh
+30:# Grafana overrides for the docker-compose-dev-*.yml files. Same pattern as
+31:# above: the defaults live in the compose files, keep these commented out
+32:# unless you need them. The GRAFANA_DATABASE_* values point the dashboards at
+33:# a different database than the bundled one. Values shown are the MySQL
+34:# defaults (PostgreSQL: port 3002/4000, type postgresql, host postgres, 5432).
+35:# GRAFANA_HOST_PORT=3001
+36:# GRAFANA_ROOT_URL=http://localhost:4001/grafana
+37:# GRAFANA_DATABASE_TYPE=mysql
+38:# GRAFANA_DATABASE_HOST=mysql
+39:# GRAFANA_DATABASE_PORT=3306
+40:# GRAFANA_DATABASE_NAME=lake
+41:# GRAFANA_DATABASE_USER=merico
+42:# GRAFANA_DATABASE_PASSWORD=merico
+43:# PostgreSQL only: sslmode of the Grafana datasource (disable, require,
+44:# verify-ca, verify-full). For verify-ca/verify-full against a private CA, set
+45:# DATABASE_SSL_ROOT_CERT (and DATABASE_SSL_CERT/DATABASE_SSL_KEY for client
+46:# certificates) on the dashboard container to file paths mounted into it.
+47:# GRAFANA_DATABASE_SSL_MODE=disable
+49:# Lake plugin dir, absolute path or relative path.
+50:# The release binary already contains every official plugin. This directory is
+51:# scanned at startup for sideloaded .so plugins, which are registered on top of
+52:# the compiled-in set.
+53:PLUGIN_DIR=bin/plugins
+54:REMOTE_PLUGIN_DIR=python/plugins
+56:# Lake Database Connection String
+57:DB_URL=mysql://merico:merico@mysql:3306/lake?charset=utf8mb4&parseTime=True&loc=UTC
+58:E2E_DB_URL=mysql://merico:merico@mysql:3306/lake_test?charset=utf8mb4&parseTime=True&loc=UTC
+59:# Silent Error Warn Info
+60:DB_LOGGING_LEVEL=Error
+61:# Skip to update progress of subtasks, default is false (#8142)
+62:SKIP_SUBTASK_PROGRESS=false
+64:# Lake REST API
+65:PORT=8080
+66:MODE=release
+72:NOTIFICATION_SECRET=
+96:ENCRYPTION_SECRET=
+149:FORWARDED_USER_SECRET=
+162:OIDC_ENTRA_CLIENT_SECRET=
+173:# webhook) instead of OIDC_ENTRA_CLIENT_SECRET. Requires the pod label
+183:OIDC_GOOGLE_CLIENT_SECRET=
+195:SESSION_SECRET=

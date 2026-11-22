@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-api
+  namespace: lab
+  labels: {app: order-api}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: order-api}
+  template:
+    metadata:
+      labels: {app: order-api}
+    spec:
+      containers:
+      - name: order-api
+        image: nginx:alpine
+        ports: [{containerPort: 80}]
+        resources:
+          requests: {cpu: 50m, memory: 64Mi}
+          limits: {cpu: 200m, memory: 128Mi}

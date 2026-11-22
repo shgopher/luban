@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'get'
+--- GET csrf_token ---
+http_code=200
+{"result":"IjIyNWM5MWYzNjExMzQwM2RiODFkZGQ3N2E2MmIwM2Y1MDI5ZWNlNjIi.awMhAA.R2ZWg1jGpWgBVziRTwjigsylmdk"}
+
+--- POST database with X-CSRFToken ---
+http_code=400
+{"errors": [{"message": "400 Bad Request: The CSRF token is missing.", "error_type": "GENERIC_BACKEND_ERROR", "level": "error", "extra": {"issue_codes": [{"code": 1011, "message": "Issue 1011 - Superset encountered an unexpected error."}]}}]}
+id=None result_keys=['errors']

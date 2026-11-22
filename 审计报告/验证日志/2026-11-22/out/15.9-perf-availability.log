@@ -1,0 +1,34 @@
+=== before ===
+4
+kernel.perf_event_paranoid = 1
+rc=0
+=== after ===
+1
+=== kptr ===
+1
+=== lockdown ===
+[none] integrity confidentiality
+=== perf test smoke ===
+
+ Performance counter stats for 'true':
+
+              0.63 msec task-clock                       #    0.400 CPUs utilized             
+
+       0.001578398 seconds time elapsed
+
+       0.001276000 seconds user
+       0.000000000 seconds sys
+
+
+rc=0
+=== perf record smoke 2s ===
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.021 MB /tmp/perf-smoke.data (6 samples) ]
+rc=0
+-rw------- 1 root root 743769 Nov 22 08:28 /tmp/perf-smoke.data
+perf-exec  106320 84291.094826:          1 cycles:P: 
+	ffffffff92b97775 put_ctx+0x5 ([kernel.kallsyms])
+	ffffffff92cf18a4 begin_new_exec+0x344 ([kernel.kallsyms])
+	ffffffff92d81412 load_elf_binary+0x322 ([kernel.kallsyms])
+	ffffffff92cee36a search_binary_handler+0xda ([kernel.kallsyms])
+script_lines=110

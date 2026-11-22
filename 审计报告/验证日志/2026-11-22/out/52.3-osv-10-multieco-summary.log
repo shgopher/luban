@@ -1,0 +1,3 @@
+total vuln entries: 144 unique IDs: 144
+by ecosystem: {'npm': 38, 'PyPI': 106}
+by source: {'/tmp/osvvuln/package-lock.json|lockfile': 38, '/tmp/osvvuln/requirements.txt|lockfile': 80, '/tmp/osvvuln/requirements.txt|unknown': 26}

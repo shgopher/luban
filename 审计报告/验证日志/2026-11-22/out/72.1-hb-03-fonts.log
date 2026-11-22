@@ -1,0 +1,25 @@
+bash: line 1: fc-list: command not found
+bash: line 1: fc-list: command not found
+=== arabic/hebrew fonts ===
+---
+---
+NotoKufiArabic-Bold.ttf
+NotoKufiArabic-Regular.ttf
+NotoLoopedLao-Bold.ttf
+NotoLoopedLao-Regular.ttf
+NotoLoopedThai-Bold.ttf
+NotoLoopedThai-Regular.ttf
+NotoMono-Regular.ttf
+NotoMusic-Regular.ttf
+NotoNaskhArabic-Bold.ttf
+NotoNaskhArabic-Regular.ttf
+NotoNastaliqUrdu-Bold.ttf
+NotoNastaliqUrdu-Regular.ttf
+NotoRashiHebrew-Bold.ttf
+NotoRashiHebrew-Regular.ttf
+NotoSans-Bold.ttf
+NotoSans-BoldItalic.ttf
+NotoSans-Italic.ttf
+NotoSans-Regular.ttf
+NotoSansAdlam-Bold.ttf
+NotoSansAdlam-Regular.ttf

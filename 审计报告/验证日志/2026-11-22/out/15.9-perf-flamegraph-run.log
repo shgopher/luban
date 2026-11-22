@@ -1,0 +1,62 @@
+=== 0) 环境 ===
+perf version 6.8.12
+6.8.0-48-generic
+1
+perf_event_paranoid=1
+=== 1) 编译 CPU 消耗进程（不内联，保留栈深度） ===
+build rc=0
+=== 2) 启动消耗进程 ===
+burn pid=107069
+    PID COMMAND         %CPU
+ 107069 cpu-burn        95.0
+=== 3) perf record -F 99 -g -p 107069 -- sleep 10 ===
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.098 MB /root/perf-verify/perf.data (656 samples) ]
+record rc=0
+=== 4) perf script -> 栈样本 ===
+perf_script_lines=6939
+=== 5) stackcollapse-perf.pl -> flamegraph.pl ===
+folded_unique_stacks=18
+svg rc=0
+-rw-r--r-- 1 root root 23018 Nov 22 08:30 /root/perf-verify/flamegraph.svg
+svg_bytes=23018
+svg_rect_frames=51
+=== 6) perf report --header-only ===
+# ========
+# captured on    : Sun Nov 22 08:30:50 2026
+# header version : 1
+# data offset    : 264
+# data size      : 102040
+# feat offset    : 102304
+# hostname : decn2JoL49VcE
+# os release : 6.8.0-48-generic
+# perf version : 6.8.12
+# arch : x86_64
+# nrcpus online : 1
+# nrcpus avail : 1
+=== 7) 真实 top 函数（perf report --stdio | head -20） ===
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 656  of event 'cycles:P'
+# Event count (approx.): 20316100092
+#
+# Children      Self  Command   Shared Object      Symbol                             
+# ........  ........  ........  .................  ...................................
+#
+   100.00%     0.00%  cpu-burn  cpu-burn           [.] _start
+            |
+            ---_start
+               __libc_start_main
+               0x73b75da2a1ca
+               main
+               stage
+               |          
+               |--95.13%--stage
+               |          |          
+               |          |--84.53%--stage
+=== 8) 自顶向下：采样主要落在哪个函数（perf script 首字段统计） ===
+    656 cpu-burn
+=== done ===

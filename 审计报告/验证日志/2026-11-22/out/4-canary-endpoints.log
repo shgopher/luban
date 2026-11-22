@@ -1,0 +1,49 @@
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+deployment.apps/web-stable created
+deployment.apps/web-canary created
+service/canary-demo created
+Waiting for deployment "web-stable" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "web-stable" rollout to finish: 1 of 2 updated replicas are available...
+deployment "web-stable" successfully rolled out
+deployment "web-canary" successfully rolled out
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES         SELECTOR
+deployment.apps/rollback-demo   2/2     2            2           85s   nginx        nginx:alpine   app=rollback-demo
+deployment.apps/web-canary      1/1     1            1           8s    web          busybox:1.36   app=canary-demo,track=canary
+deployment.apps/web-stable      2/2     2            2           9s    web          busybox:1.36   app=canary-demo,track=stable
+
+NAME                  TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/canary-demo   NodePort   10.43.130.147   <none>        80:30080/TCP   8s    app=canary-demo
+=== endpoints ===
+NAME          ENDPOINTS                                         AGE
+canary-demo   10.42.0.16:8080,10.42.0.17:8080,10.42.0.18:8080   6s
+=== endpoints yaml addresses ===
+10.42.0.16 pod=web-canary-5d5c5bb54b-x74nz
+10.42.0.17 pod=web-stable-66cd86cc9c-w2q88
+10.42.0.18 pod=web-stable-66cd86cc9c-bwmnb
+=== ingressclass ===
+No resources found
+=== 20 curl via NodePort 30080 ===
+req1: stable-v1 pod=web-stable-66cd86cc9c-w2q88
+req2: stable-v1 pod=web-stable-66cd86cc9c-bwmnb
+req3: stable-v1 pod=web-stable-66cd86cc9c-bwmnb
+req4: stable-v1 pod=web-stable-66cd86cc9c-w2q88
+req5: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req6: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req7: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req8: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req9: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req10: stable-v1 pod=web-stable-66cd86cc9c-w2q88
+req11: stable-v1 pod=web-stable-66cd86cc9c-bwmnb
+req12: stable-v1 pod=web-stable-66cd86cc9c-bwmnb
+req13: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req14: stable-v1 pod=web-stable-66cd86cc9c-bwmnb
+req15: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req16: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+req17: stable-v1 pod=web-stable-66cd86cc9c-w2q88
+req18: stable-v1 pod=web-stable-66cd86cc9c-bwmnb
+req19: stable-v1 pod=web-stable-66cd86cc9c-w2q88
+req20: canary-v2 pod=web-canary-5d5c5bb54b-x74nz
+=== tally ===
+      9 canary-v2
+     11 stable-v1

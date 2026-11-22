@@ -1,0 +1,18 @@
+required: ['datasource_id', 'datasource_type', 'slice_name']
+- cache_timeout type=integer ref= default=
+- certification_details type=string ref= default=
+- certified_by type=string ref= default=
+- dashboards type=array ref= default=
+- datasource_id type=integer ref= default=
+- datasource_name type=string ref= default=
+- datasource_type type=string ref= default=
+- description type=string ref= default=
+- external_url type=string ref= default=
+- is_managed_externally type=boolean ref= default=
+- owners type=array ref= default=
+- params type=string ref= default=
+- query_context type=string ref= default=
+- query_context_generation type=boolean ref= default=
+- slice_name type=string ref= default=
+- uuid type=string ref= default=
+- viz_type type=string ref= default=

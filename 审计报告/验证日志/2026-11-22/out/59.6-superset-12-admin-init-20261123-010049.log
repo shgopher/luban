@@ -1,0 +1,51 @@
+++ date +%s
++ S=1795367062
++ docker exec superset superset fab create-admin --username admin --firstname A --lastname B --email a@b.c --password admin
++ RC=0
+++ date +%s
++ E=1795367073
++ echo 'CREATE_ADMIN_RC=0 DURATION_S=11'
++ tail -25 /tmp/createadmin.out
++ echo '=========== INIT ==========='
+++ date +%s
++ S=1795367073
++ docker exec superset superset init
++ RC=0
+++ date +%s
++ E=1795367092
++ echo 'INIT_RC=0 DURATION_S=19'
++ tail -30 /tmp/init.out
+CREATE_ADMIN_RC=0 DURATION_S=11
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-11-22 17:04:29,919:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+2026-11-22 17:04:29,929:WARNING:py.warnings:/app/.venv/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+
+2026-11-22 17:04:30,801:INFO:alembic.runtime.migration:Context impl PostgresqlImpl.
+2026-11-22 17:04:30,802:INFO:alembic.runtime.migration:Will assume transactional DDL.
+2026-11-22 17:04:31,226:INFO:superset.app:Syncing configuration to database...
+2026-11-22 17:04:31,474:INFO:superset.app:Configuration sync to database completed successfully
+2026-11-22 17:04:32,508:INFO:superset.core.mcp.core_mcp_injection:fastmcp is not installed, skipping MCP initialization. Install it with: pip install 'apache-superset[fastmcp]'
+Recognized Database Authentications.
+Admin User admin created.
+=========== INIT ===========
+INIT_RC=0 DURATION_S=19
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-11-22 17:04:41,511:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+2026-11-22 17:04:41,521:WARNING:py.warnings:/app/.venv/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+
+2026-11-22 17:04:42,488:INFO:alembic.runtime.migration:Context impl PostgresqlImpl.
+2026-11-22 17:04:42,488:INFO:alembic.runtime.migration:Will assume transactional DDL.
+2026-11-22 17:04:42,909:INFO:superset.app:Syncing configuration to database...
+2026-11-22 17:04:43,117:INFO:superset.app:Configuration sync to database completed successfully
+2026-11-22 17:04:44,171:INFO:superset.core.mcp.core_mcp_injection:fastmcp is not installed, skipping MCP initialization. Install it with: pip install 'apache-superset[fastmcp]'
+2026-11-22 17:04:50,174:INFO:superset.security.manager:Syncing role definition
+2026-11-22 17:04:50,302:INFO:superset.security.manager:Syncing Admin perms
+2026-11-22 17:04:50,307:INFO:superset.security.manager:Syncing Alpha perms
+2026-11-22 17:04:50,611:INFO:superset.security.manager:Syncing Gamma perms
+2026-11-22 17:04:50,921:INFO:superset.security.manager:Syncing sql_lab perms
+2026-11-22 17:04:51,229:INFO:superset.security.manager:Fetching a set of all perms to lookup which ones are missing
+2026-11-22 17:04:51,267:INFO:superset.security.manager:Creating missing datasource permissions.
+2026-11-22 17:04:51,273:INFO:superset.security.manager:Creating missing database permissions.
+2026-11-22 17:04:51,281:INFO:superset.security.manager:Cleaning faulty perms

@@ -1,0 +1,16 @@
+=== multi-ecosystem dir scan (npm + python) ===
+rc=1 elapsed_ms=2764
+--- stderr ---
+Scanning dir /tmp/osvvuln
+Starting filesystem walk for root: /
+Scanned /tmp/osvvuln/package-lock.json file and found 6 packages
+Scanned /tmp/osvvuln/requirements.txt file and found 4 packages
+End status: 1 dirs visited, 3 inodes visited, 2 Extract calls, 747.195µs elapsed, 747.295µs wall time
+--- summary ---
+results: 3
+source: {'path': '/tmp/osvvuln/package-lock.json', 'type': 'lockfile'} packages: 6 vulns: 0
+  ecosystems: {'npm': 6}
+source: {'path': '/tmp/osvvuln/requirements.txt', 'type': 'lockfile'} packages: 4 vulns: 0
+  ecosystems: {'PyPI': 4}
+source: {'path': '/tmp/osvvuln/requirements.txt', 'type': 'unknown'} packages: 3 vulns: 0
+  ecosystems: {'PyPI': 3}

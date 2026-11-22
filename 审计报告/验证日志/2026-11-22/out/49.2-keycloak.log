@@ -1,0 +1,27 @@
+== 0) 版本
+JVM: 21.0.4 (Red Hat, Inc. OpenJDK 64-Bit Server VM 21.0.4+7-LTS)
+OS: Linux 7.0.14-linuxkit aarch64
+== 1) admin token
+admin_token_len=901
+== 2) 建 realm prod / client billing / user alice
+delete_realm=204
+create_realm=201
+create_client=201
+create_user=201
+== 3) discovery（prod realm）
+{"issuer":"http://localhost:18080/realms/prod","authorization_endpoint":"http://localhost:18080/realms/prod/protocol/openid-connect/auth","token_endpoint":"http://localhost:18080/realms/prod/protocol/openid-connect/token","jwks_uri":"http://localhost:18080/realms/prod/protocol/openid-connect/certs","code_challenge_methods_supported":["plain","S256"]}
+== 4) 生成 PKCE verifier/challenge
+verifier_len=61 challenge=7zjLwxtUWdp-MBwL...
+== 5) GET /auth 取登录页表单
+action=http://localhost:18080/realms/prod/login-actions/authenticate?session_code=Z0UXmHOZ3AsvCorfEncwbJY43frzNMTCyNLw7DbZ1wM&execution=94adeef2-c860-440f-b2ee-716dbbda5433&client_id=billing&tab_id=3qCnd1TknSk&client_data=eyJydSI6Imh0dHBzOi8vYmlsbGluZy5leGFtcGxlLmNvbS9jYWxsYmFjayIsInJ0IjoiY29kZSIsInN0Ijoic3QtNDIifQ
+== 6) POST 用户名密码
+Location: https://billing.example.com/callback?state=st-42&session_state=4b79cd81-0969-4686-b909-54ab56825ad8&iss=http%3A%2F%2Flocalhost%3A18080%2Frealms%2Fprod&code=7aced868-fa31-4f3b-8d58-652ba432cf28.4b79cd81-0969-4686-b909-54ab56825ad8.e1dcc673-8739-45dc-9654-90acf23e79dd
+code_len=110
+== 7) 用 code 换 token（带 code_verifier）
+{"token_type":"Bearer","expires_in":300,"has_id_token":true,"has_access_token":true}
+== 8) id_token 头/载荷
+{"alg": "RS256", "typ": "JWT", "kid": "inSwcqX6BRrIEjKsfZ2tje_c095FkvzvyG03YpT73eM"}
+{"exp": 1795336212, "iat": 1795335912, "auth_time": 1795335912, "jti": "5c019adb-e1dc-4f7d-b9d8-daa24375bfc5", "iss": "http://localhost:18080/realms/prod", "aud": "billing", "sub": "62c79a5a-9396-487d-ad3d-d50ca7e3ec59", "typ": "ID", "azp": "billing", "sid": "4b79cd81-0969-4686-b909-54ab56825ad8", "at_hash": "u3mnXizjVXp-61-R1e2fWA", "acr": "1", "email_verified": true, "name": "Alice Liddell", "preferred_username": "alice", "given_name": "Alice", "family_name": "Liddell", "email": "alice@example.com"}
+== 9) 重复用同一 code（应失败）
+{"error":"invalid_grant","error_description":"Code not valid"}
+http=400

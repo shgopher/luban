@@ -1,0 +1,30 @@
+=== install ===
+Found linux image: /boot/vmlinuz-6.8.0-149-generic
+Found initrd image: /boot/initrd.img-6.8.0-149-generic
+Found linux image: /boot/vmlinuz-6.8.0-48-generic
+Found initrd image: /boot/initrd.img-6.8.0-48-generic
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart cloud-final.service
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+=== rc=0 ===
+=== perf version ===
+perf version 6.8.12
+/usr/bin/perf

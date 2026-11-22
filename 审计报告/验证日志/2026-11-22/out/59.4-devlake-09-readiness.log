@@ -1,0 +1,84 @@
+time="2026-11-22T16:55:33Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:55:49Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:56:05Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:56:20Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:56:36Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:56:51Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:57:07Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:57:23Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:57:39Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:57:54Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:58:10Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-11-22T16:58:25Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+--- t=15s 16:55:33 ---
+config-ui Up 23 seconds
+devlake Restarting (2) 1 second ago
+grafana Up 25 seconds
+mysql Up 25 seconds
+root8080: 000
+--- t=30s 16:55:49 ---
+config-ui Up 39 seconds
+devlake Up 4 seconds
+grafana Up 40 seconds
+mysql Up 41 seconds
+root8080: 000
+--- t=45s 16:56:04 ---
+config-ui Up 55 seconds
+devlake Up 19 seconds
+grafana Up 56 seconds
+mysql Up 56 seconds
+root8080: 000
+--- t=60s 16:56:20 ---
+config-ui Up About a minute
+devlake Up 35 seconds
+grafana Up About a minute
+mysql Up About a minute
+root8080: 000
+--- t=75s 16:56:36 ---
+config-ui Up About a minute
+devlake Up 50 seconds
+grafana Up About a minute
+mysql Up About a minute
+root8080: 000
+--- t=90s 16:56:51 ---
+config-ui Up About a minute
+devlake Up About a minute
+grafana Up About a minute
+mysql Up About a minute
+root8080: 000
+--- t=105s 16:57:07 ---
+config-ui Up About a minute
+devlake Up About a minute
+grafana Up About a minute
+mysql Up About a minute
+root8080: 000
+--- t=120s 16:57:23 ---
+config-ui Up 2 minutes
+devlake Up About a minute
+grafana Up 2 minutes
+mysql Up 2 minutes
+root8080: 000
+--- t=135s 16:57:38 ---
+config-ui Up 2 minutes
+devlake Up About a minute
+grafana Up 2 minutes
+mysql Up 2 minutes
+root8080: 000
+--- t=150s 16:57:54 ---
+config-ui Up 2 minutes
+devlake Up 2 minutes
+grafana Up 2 minutes
+mysql Up 2 minutes
+root8080: 000
+--- t=165s 16:58:09 ---
+config-ui Up 3 minutes
+devlake Up 2 minutes
+grafana Up 3 minutes
+mysql Up 3 minutes
+root8080: 000
+--- t=180s 16:58:25 ---
+config-ui Up 3 minutes
+devlake Up 2 minutes
+grafana Up 3 minutes
+mysql Up 3 minutes
+root8080: 404

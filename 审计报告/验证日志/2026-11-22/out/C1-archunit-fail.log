@@ -1,0 +1,46 @@
+===== java -version =====
+openjdk version "21.0.11" 2026-04-21
+OpenJDK Runtime Environment JBR-21.0.11+10-1163.125-nomod (build 21.0.11+10-b1163.125)
+OpenJDK 64-Bit Server VM JBR-21.0.11+10-1163.125-nomod (build 21.0.11+10-b1163.125, mixed mode, sharing)
+===== ConsoleLauncher（预期失败）=====
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+[main] INFO com.tngtech.archunit.core.PluginLoader - Detected Java version 21.0.11
+╷
+├─ JUnit Platform Suite ✔
+├─ JUnit Jupiter ✔
+│  └─ LayerTest ✔
+│     └─ domain_must_not_depend_on_infra_or_app() ✘ Architecture Violation [Priority: MEDIUM] - Rule 'no classes that reside in a package '..domain..' should depend on classes that reside in any package ['..infra..', '..app..'], because 领域层必须保持纯净，不得依赖基础设施或应用层' was violated (2 times):
+│              Field <example.domain.Leak.REPO> has type <example.infra.Repo> in (Leak.java:0)
+│              Static Initializer <example.domain.Leak.<clinit>()> calls constructor <example.infra.Repo.<init>()> in (Leak.java:6)
+└─ JUnit Vintage ✔
+
+Failures (1):
+  JUnit Jupiter:LayerTest:domain_must_not_depend_on_infra_or_app()
+    MethodSource [className = 'LayerTest', methodName = 'domain_must_not_depend_on_infra_or_app', methodParameterTypes = '']
+    => java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'no classes that reside in a package '..domain..' should depend on classes that reside in any package ['..infra..', '..app..'], because 领域层必须保持纯净，不得依赖基础设施或应用层' was violated (2 times):
+Field <example.domain.Leak.REPO> has type <example.infra.Repo> in (Leak.java:0)
+Static Initializer <example.domain.Leak.<clinit>()> calls constructor <example.infra.Repo.<init>()> in (Leak.java:6)
+       com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+       com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+       com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+       LayerTest.domain_must_not_depend_on_infra_or_app(LayerTest.java:18)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+Test run finished after 437 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         1 tests found           ]
+[         0 tests skipped         ]
+[         1 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         1 tests failed          ]
+

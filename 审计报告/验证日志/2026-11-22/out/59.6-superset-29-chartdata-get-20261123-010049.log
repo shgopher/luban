@@ -1,0 +1,8 @@
+--- GET /api/v1/chart/1/data/?format=json ---
+http_code=400 size=77
+{"message":"Chart has no query context saved. Please save the chart again."}
+
+--- GET /api/v1/chart/1/data/?format=json&type=table ---
+http_code=400 size=77
+{"message":"Chart has no query context saved. Please save the chart again."}
+

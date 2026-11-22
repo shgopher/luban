@@ -1,0 +1,283 @@
+=== 环境 ===
+Linux 6.8.0-48-generic x86_64
+Ubuntu 24.04.1 LTS
+uptime=up 23 hours, 32 minutes
+
+=== 顺序1 内存取证 ===
+
+########## CMD: which avml
+--- stdout (head -8) ---
+--- stdout_lines=0 ---
+--- RC=1 ---
+
+########## CMD: which winpmem
+--- stdout (head -8) ---
+--- stdout_lines=0 ---
+--- RC=1 ---
+
+########## CMD: apt-cache policy avml
+--- stdout (head -8) ---
+--- stdout_lines=0 ---
+--- RC=0 ---
+
+########## CMD: ls /proc/kcore (内存可读性)
+--- stdout (head -8) ---
+-r-------- 1 root root 140737471594496 Nov 22 08:27 /proc/kcore
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+=== 顺序2 网络连接 ===
+
+########## CMD: ss -antp
+--- stdout (head -8) ---
+State     Recv-Q Send-Q          Local Address:Port             Peer Address:Port Process                                                   
+LISTEN    0      4096                127.0.0.1:10010                 0.0.0.0:*     users:(("containerd",pid=98275,fd=15))                   
+LISTEN    0      4096                127.0.0.1:6444                  0.0.0.0:*     users:(("k3s-server",pid=98254,fd=19))                   
+LISTEN    0      4096                127.0.0.1:54735                 0.0.0.0:*     users:(("v2ray",pid=2003,fd=4))                          
+LISTEN    0      128                   0.0.0.0:22                    0.0.0.0:*     users:(("sshd",pid=54625,fd=3))                          
+LISTEN    0      4096               127.0.0.54:53                    0.0.0.0:*     users:(("systemd-resolve",pid=54010,fd=17))              
+LISTEN    0      4096            127.0.0.53%lo:53                    0.0.0.0:*     users:(("systemd-resolve",pid=54010,fd=15))              
+LISTEN    0      4096                127.0.0.1:10249                 0.0.0.0:*     users:(("k3s-server",pid=98254,fd=215))                  
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+########## CMD: ss -antp (总条数)
+--- stdout (head -8) ---
+125
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: ss -tnp
+--- stdout (head -8) ---
+State Recv-Q Send-Q          Local Address:Port             Peer Address:Port Process                                                   
+ESTAB 0      0                   127.0.0.1:35688               127.0.0.1:6444  users:(("k3s-server",pid=98254,fd=223))                  
+ESTAB 0      0                   127.0.0.1:37808               127.0.0.1:6443  users:(("k3s-server",pid=98254,fd=275))                  
+ESTAB 0      0                189.24.91.75:47640          74.151.238.129:443   users:(("v2ray",pid=2003,fd=27))                         
+ESTAB 0      0                189.24.91.75:22             42.228.230.230:5959  users:(("sshd",pid=126617,fd=4))                         
+ESTAB 0      0                189.24.91.75:51896             13.69.68.64:443   users:(("v2ray",pid=2003,fd=25))                         
+ESTAB 0      0                189.24.91.75:49290          184.193.229.96:443   users:(("containerd",pid=98275,fd=111))                  
+ESTAB 0      334              189.24.91.75:51608          106.11.248.209:80    users:(("AliYunDun",pid=1377,fd=10))                     
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+########## CMD: lsof -i
+--- stdout (head -8) ---
+COMMAND      PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+AliYunDun   1377            root   10u  IPv4  11605      0t0  TCP decn2JoL49VcE:51608->106.11.248.209:http (ESTABLISHED)
+v2ray       2003            root    4u  IPv4  19630      0t0  TCP localhost:54735 (LISTEN)
+v2ray       2003            root    7u  IPv6  19633      0t0  TCP *:56090 (LISTEN)
+v2ray       2003            root    8u  IPv6 894430      0t0  TCP decn2JoL49VcE:56090->hn.kd.ny.adsl:5956 (ESTABLISHED)
+v2ray       2003            root    9u  IPv4 894452      0t0  TCP decn2JoL49VcE:43292->142.251.154.119:https (ESTABLISHED)
+v2ray       2003            root   10u  IPv6 830550      0t0  TCP decn2JoL49VcE:56090->hn.kd.ny.adsl:5302 (ESTABLISHED)
+v2ray       2003            root   11u  IPv4 830619      0t0  TCP decn2JoL49VcE:37592->bx-in-f102.1e100.net:https (ESTABLISHED)
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+=== 顺序3 进程与定时任务 ===
+
+########## CMD: ps auxf
+--- stdout (head -8) ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           2  0.0  0.0      0     0 ?        S    Nov21   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    Nov21   0:00  \_ [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   Nov21   0:00  \_ [kworker/R-rcu_g]
+root           5  0.0  0.0      0     0 ?        I<   Nov21   0:00  \_ [kworker/R-rcu_p]
+root           6  0.0  0.0      0     0 ?        I<   Nov21   0:00  \_ [kworker/R-slub_]
+root           7  0.0  0.0      0     0 ?        I<   Nov21   0:00  \_ [kworker/R-netns]
+root          12  0.0  0.0      0     0 ?        I<   Nov21   0:00  \_ [kworker/R-mm_pe]
+--- stdout_lines=12 ---
+--- RC=0 ---
+
+########## CMD: ps auxf (总行数)
+--- stdout (head -8) ---
+146
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: crontab -l
+--- stdout (head -8) ---
+--- stdout_lines=0 ---
+--- stderr (head -4) ---
+no crontab for root
+--- RC=1 ---
+
+########## CMD: systemctl list-timers --all
+--- stdout (head -8) ---
+NEXT                                 LEFT LAST                              PASSED UNIT                           ACTIVATES
+Sun 2026-11-22 09:08:05 UTC         32min Sat 2026-11-21 09:08:05 UTC      23h ago update-notifier-download.timer update-notifier-download.service
+Sun 2026-11-22 09:17:55 UTC         42min Sat 2026-11-21 09:17:55 UTC      23h ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Sun 2026-11-22 14:41:02 UTC            6h Sun 2026-11-22 01:25:37 UTC       7h ago apt-daily.timer                apt-daily.service
+Sun 2026-11-22 20:10:15 UTC           11h Sun 2026-11-22 02:47:45 UTC 5h 48min ago motd-news.timer                motd-news.service
+Mon 2026-11-23 00:00:00 UTC           15h Sun 2026-11-22 00:00:05 UTC       8h ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-11-23 00:00:00 UTC           15h Sun 2026-11-22 00:00:05 UTC       8h ago logrotate.timer                logrotate.service
+Mon 2026-11-23 00:06:38 UTC           15h Sun 2026-11-22 06:38:35 UTC 1h 57min ago man-db.timer                   man-db.service
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+########## CMD: ls /etc/cron.d
+--- stdout (head -8) ---
+total 8
+-rw-r--r-- 1 root root 201 Jan  8  2022 e2scrub_all
+-rw-r--r-- 1 root root 396 Jan  9  2024 sysstat
+--- stdout_lines=3 ---
+--- RC=0 ---
+
+########## CMD: atq
+--- stdout (head -8) ---
+--- stdout_lines=0 ---
+--- stderr (head -4) ---
+bash: line 1: atq: command not found
+--- RC=127 ---
+
+=== 顺序4 磁盘镜像（只读验证，不覆盖 /dev/vda） ===
+
+########## CMD: dd --version
+--- stdout (head -8) ---
+dd (coreutils) 9.4
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: dd if=/dev/vda of=/tmp/vda-head.img bs=1M count=1
+--- stdout (head -8) ---
+1+0 records in
+1+0 records out
+1048576 bytes (1.0 MB, 1.0 MiB) copied, 0.00285268 s, 368 MB/s
+-rw-r--r-- 1 root root 1048576 Nov 22 08:35 /root/sec-verify/vda-head.img
+--- stdout_lines=4 ---
+--- RC=0 ---
+
+=== 顺序5 日志（先备份再分析） ===
+
+########## CMD: journalctl --disk-usage
+--- stdout (head -8) ---
+Archived and active journals take up 78.4M in the file system.
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: journalctl (总行数)
+--- stdout (head -8) ---
+63725
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: journalctl -n 5
+--- stdout (head -8) ---
+Nov 22 08:35:43 decn2JoL49VcE systemd-logind[770]: New session 225 of user root.
+Nov 22 08:35:43 decn2JoL49VcE systemd[1]: Started session-225.scope - Session 225 of User root.
+Nov 22 08:35:45 decn2JoL49VcE crontab[126797]: (root) LIST (root)
+Nov 22 08:35:49 decn2JoL49VcE sshd[126775]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=77.239.124.43  user=root
+Nov 22 08:35:49 decn2JoL49VcE sshd[126232]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=154.18.197.29  user=root
+--- stdout_lines=5 ---
+--- RC=0 ---
+
+########## CMD: journalctl -u k3s --since '1 hour ago' (行数)
+--- stdout (head -8) ---
+1004
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: ls -l /var/log
+--- stdout (head -8) ---
+total 16384
+lrwxrwxrwx   1 root      root                 39 Nov 13  2024 README -> ../../usr/share/doc/systemd/README.logs
+-rw-r--r--   1 root      root              40227 Nov 22 08:27 alternatives.log
+-rw-r-----   1 root      adm                   0 Nov 22 00:00 apport.log
+-rw-r-----   1 root      adm                 105 Nov 13  2024 apport.log.1
+drwxr-xr-x   2 root      root               4096 Nov 22 08:35 apt
+-rw-r-----   1 syslog    adm             4133273 Nov 22 08:35 auth.log
+-rw-r-----   1 syslog    adm             2234640 Nov 22 00:00 auth.log.1
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+=== 补充：登录/文件时间线 ===
+
+########## CMD: last | head
+--- stdout (head -8) ---
+root     pts/0        42.228.231.174   Sat Nov 21 09:11 - 11:26  (02:14)
+reboot   system boot  6.8.0-48-generic Sat Nov 21 09:02   still running
+reboot   system boot  6.8.0-48-generic Wed Nov 13 10:37   still running
+root     pts/0        192.168.3.165    Wed Nov 13 10:15 - crash  (00:21)
+reboot   system boot  6.8.0-48-generic Wed Nov 13 10:14   still running
+root     pts/0        192.168.3.165    Wed Nov 13 10:06 - crash  (00:07)
+--- stdout_lines=6 ---
+--- RC=0 ---
+
+########## CMD: lastb (失败登录)
+--- stdout (head -8) ---
+www      ssh:notty    77.239.124.43    Sun Nov 22 08:35 - 08:35  (00:00)
+www      ssh:notty    77.239.124.43    Sun Nov 22 08:35 - 08:35  (00:00)
+nagios   ssh:notty    77.239.124.43    Sun Nov 22 08:35 - 08:35  (00:00)
+nagios   ssh:notty    77.239.124.43    Sun Nov 22 08:35 - 08:35  (00:00)
+--- stdout_lines=4 ---
+--- RC=0 ---
+
+########## CMD: who
+--- stdout (head -8) ---
+--- stdout_lines=0 ---
+--- RC=0 ---
+
+########## CMD: stat /etc/passwd
+--- stdout (head -8) ---
+  File: /etc/passwd
+  Size: 1907      	Blocks: 8          IO Block: 4096   regular file
+Device: 253,1	Inode: 31705       Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2026-11-21 09:03:02.076000000 +0000
+Modify: 2024-11-13 10:05:12.140855326 +0000
+Change: 2024-11-13 10:05:12.156853463 +0000
+ Birth: 2024-11-13 10:05:12.140855326 +0000
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+########## CMD: date (当前时间基准)
+--- stdout (head -8) ---
+2026-11-22T08:35:50+00:00
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: find /etc -newer /etc/hostname -type f
+--- stdout (head -8) ---
+/etc/ld.so.cache
+/etc/pam.d/common-auth
+/etc/pam.d/common-session-noninteractive
+/etc/pam.d/common-account
+/etc/pam.d/common-session
+/etc/pam.d/common-password
+/etc/xml/catalog.old
+/etc/xml/catalog
+--- stdout_lines=8 ---
+--- RC=0 ---
+
+########## CMD: find /etc /root /var/spool -mmin -10 -type f (10分钟内改动)
+--- stdout (head -8) ---
+/etc/ld.so.cache
+/root/sec-verify/_e
+/root/sec-verify/sec-forensics.sh
+/root/sec-verify/_o
+/root/sec-verify/vda-head.img
+/root/.debug/[async_tx]/a2b6de6a566c207acf7eeca58311c5be5e9f6050/kallsyms
+/root/.debug/[floppy]/a577203747c5bb6cfe98fca58e2c57f3b83a9e39/kallsyms
+/root/.debug/[nft_compat]/2f0e882f0a2d6cd7960a20fc99b5697f902e8a48/kallsyms
+--- stdout_lines=10 ---
+--- RC=0 ---
+
+=== 顺序6 备份与配置 ===
+
+########## CMD: git --version
+--- stdout (head -8) ---
+git version 2.43.0
+--- stdout_lines=1 ---
+--- RC=0 ---
+
+########## CMD: ls /etc/ssh (配置基线)
+--- stdout (head -8) ---
+total 660
+-rw-r--r-- 1 root root 620042 Aug  9  2024 moduli
+-rw-r--r-- 1 root root   1649 Aug  9  2024 ssh_config
+drwxr-xr-x 2 root root   4096 Feb 25  2022 ssh_config.d
+-rw------- 1 root root    513 Nov 21 09:03 ssh_host_ecdsa_key
+-rw-r--r-- 1 root root    180 Nov 21 09:03 ssh_host_ecdsa_key.pub
+--- stdout_lines=6 ---
+--- RC=0 ---
+
+=== END ===

@@ -1,0 +1,33 @@
+MEMLIMIT_superset=734003200
+MEMLIMIT_pg=314572800
+--- sampling during 15 chart-data requests ---
+superset|266.8MiB / 700MiB|38.12%|0.02%
+superset-pg|180.9MiB / 300MiB|60.31%|0.15%
+superset|266.9MiB / 700MiB|38.13%|0.03%
+superset-pg|180.9MiB / 300MiB|60.31%|0.16%
+superset|266.9MiB / 700MiB|38.14%|0.03%
+superset-pg|180.9MiB / 300MiB|60.32%|0.14%
+superset|266.9MiB / 700MiB|38.13%|0.03%
+superset-pg|180.9MiB / 300MiB|60.32%|0.14%
+superset|266.9MiB / 700MiB|38.13%|0.02%
+superset-pg|181MiB / 300MiB|60.32%|0.13%
+superset|267MiB / 700MiB|38.14%|0.02%
+superset-pg|181MiB / 300MiB|60.32%|1.02%
+superset|266.9MiB / 700MiB|38.13%|0.02%
+superset-pg|181MiB / 300MiB|60.32%|0.18%
+superset|266.9MiB / 700MiB|38.13%|0.03%
+superset-pg|181MiB / 300MiB|60.33%|0.18%
+superset|266.9MiB / 700MiB|38.13%|0.02%
+superset-pg|181MiB / 300MiB|60.33%|0.15%
+superset|266.9MiB / 700MiB|38.13%|0.03%
+superset-pg|181MiB / 300MiB|60.33%|0.20%
+superset|266.9MiB / 700MiB|38.13%|0.02%
+superset-pg|181MiB / 300MiB|60.33%|1.13%
+superset|266.9MiB / 700MiB|38.13%|0.03%
+superset-pg|181MiB / 300MiB|60.34%|0.16%
+superset|266.9MiB / 700MiB|38.13%|0.02%
+superset-pg|181MiB / 300MiB|60.34%|0.19%
+superset|266.9MiB / 700MiB|38.14%|0.02%
+superset-pg|181MiB / 300MiB|60.34%|0.21%
+superset|266.9MiB / 700MiB|38.14%|0.02%
+superset-pg|181MiB / 300MiB|60.35%|0.18%

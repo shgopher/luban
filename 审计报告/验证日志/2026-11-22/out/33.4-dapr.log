@@ -1,0 +1,40 @@
+== 1) dapr list
+APP ID     HTTP PORT  GRPC PORT  APP PORT  COMMAND               AGE  CREATED              DAPRD PID  CLI PID  APP PID  
+inventory  3501       50002      8081      python3 /tmp/svc....  23s  2026-11-22 16:31.11  230839     230817   230840   
+order      3500       50001      8080      python3 /tmp/svc....  23s  2026-11-22 16:31.11  230845     230818   230846   
+== 2) 组件（默认 statestore 指向 localhost:6379）
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"
+== 3) state API: 写读删
+save_http=204
+get: {"n":1,"s":"bar"}
+delete_http=204
+get_after_delete_http=204
+== 4) service invocation: order -> inventory（经 sidecar）
+{"service": "inventory", "path": "/reserve"}
+invoke_http=200
+== 5) metadata
+app_id: order | runtime: 1.19.2 | components: ['pubsub', 'statestore']
+== 6) 可退：停 order sidecar
+✅  app stopped successfully: order
+order sidecar 端口状态: 000
+connection refused
+== 7) inventory 仍在
+inventory_metadata_http=200
+== 8) 运行中的容器
+dapr_placement daprio/dapr:1.19.2
+dapr_scheduler daprio/dapr:1.19.2
+dapr_zipkin openzipkin/zipkin
+dapr_redis redis:6

@@ -1,0 +1,36 @@
+=== ENV ===
+NAME            STATUS   ROLES           AGE   VERSION        INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION             CONTAINER-RUNTIME
+decn2jol49vce   Ready    control-plane   22m   v1.37.2+k3s1   189.24.91.75   <none>        Ubuntu 24.04.1 LTS   6.8.0-48-generic (amd64)   containerd://2.3.7-k3s1
+Client Version: v1.37.2+k3s1
+Kustomize Version: v5.8.1
+Server Version: v1.37.2+k3s1
+coredns-577d995dff-tsqsb             1/1     Running     0          22m   10.42.0.3   decn2jol49vce   <none>           <none>
+metrics-server-778c4649b4-cqkmf      1/1     Running     0          22m   10.42.0.4   decn2jol49vce   <none>           <none>
+               total        used        free      shared  buff/cache   available
+Mem:            1968        1115         147           4         896         852
+Swap:              0           0           0
+1
+=== lab snapshot ===
+NAME                                 READY   STATUS    RESTARTS   AGE
+pod/cm-demo                          1/1     Running   0          5m17s
+pod/rollback-demo-64dd44bc89-mbpfg   1/1     Running   0          20s
+pod/rollback-demo-64dd44bc89-wphhw   1/1     Running   0          2m5s
+pod/web-canary-5d5c5bb54b-x74nz      1/1     Running   0          48s
+pod/web-stable-66cd86cc9c-bwmnb      1/1     Running   0          48s
+pod/web-stable-66cd86cc9c-w2q88      1/1     Running   0          48s
+
+NAME                  TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/canary-demo   NodePort   10.43.130.147   <none>        80:30080/TCP   48s
+
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/rollback-demo   2/2     2            2           2m5s
+deployment.apps/web-canary      1/1     1            1           48s
+deployment.apps/web-stable      2/2     2            2           49s
+
+NAME                                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/rollback-demo-5cbb6fbc46   0         0         0       116s
+replicaset.apps/rollback-demo-64dd44bc89   2         2         2       2m5s
+replicaset.apps/web-canary-5d5c5bb54b      1         1         1       48s
+replicaset.apps/web-stable-66cd86cc9c      2         2         2       49s
+=== cleanup ===
+namespace "lab" deleted

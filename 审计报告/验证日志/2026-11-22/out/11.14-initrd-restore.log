@@ -1,0 +1,23 @@
+ systemctl restart cloud-final.service
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+APT_RC=0
+-rwxr-xr-x 1 root root 6908 Feb  4  2026 /usr/sbin/update-initramfs
+update-initramfs: Generating /boot/initrd.img-6.8.0-151-generic
+update-initramfs: Generating /boot/initrd.img-6.8.0-149-generic
+update-initramfs: Generating /boot/initrd.img-6.8.0-48-generic
+REGEN_RC=0
+lrwxrwxrwx 1 root root       28 Nov 22 08:27 /boot/initrd.img -> initrd.img-6.8.0-151-generic
+-rw-r--r-- 1 root root 76325843 Nov 22 08:37 /boot/initrd.img-6.8.0-149-generic
+-rw-r--r-- 1 root root 76342339 Nov 22 08:36 /boot/initrd.img-6.8.0-151-generic
+-rw-r--r-- 1 root root 76171356 Nov 22 08:37 /boot/initrd.img-6.8.0-48-generic
+lrwxrwxrwx 1 root root       28 Nov 22 08:27 /boot/initrd.img.old -> initrd.img-6.8.0-149-generic

@@ -1,0 +1,29 @@
++ docker network inspect superset-net
++ docker network create superset-net
++ docker rm -f superset superset-pg
++ docker run -d --name superset-pg --memory 300m --memory-swap 900m --network superset-net -e POSTGRES_USER=superset -e POSTGRES_PASSWORD=SupersetPg2024 -e POSTGRES_DB=superset postgres:16-alpine
++ echo PG_RUN_RC=0
+++ seq 1 30
++ for i in $(seq 1 30)
++ docker exec superset-pg pg_isready -U superset -d superset
++ sleep 2
++ for i in $(seq 1 30)
++ docker exec superset-pg pg_isready -U superset -d superset
++ sleep 2
++ for i in $(seq 1 30)
++ docker exec superset-pg pg_isready -U superset -d superset
++ break
++ docker exec superset-pg psql -U superset -d superset -c 'select version();'
++ docker stats --no-stream --format '{{.Name}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.CPUPerc}}'
+a4beabcc52f04140069bee5da37ba83f6c75f6797f41cf9518c2c813e538b0a4
+28089353b1b353bcd41701c47004857bfba55462c82f14f1e363cad704aee21a
+PG_RUN_RC=0
+/run/postgresql:5432 - no response
+/run/postgresql:5432 - no response
+/run/postgresql:5432 - accepting connections
+                                         version                                          
+------------------------------------------------------------------------------------------
+ PostgreSQL 16.16 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+(1 row)
+
+superset-pg	56.09MiB / 300MiB	18.70%	0.04%

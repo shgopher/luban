@@ -1,0 +1,375 @@
+{
+  "evalId": "eval-Scm-2026-11-22T08:31:18",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-11-22T08:31:18.067Z",
+    "prompts": [
+      {
+        "id": "9239341210ca3ea5e5a500664a5b09f45cbd740acab4f03800cbf1d014d63d26",
+        "raw": "Answer the question using only the provided context. Context: {{context}} Question: {{question}}",
+        "label": "Answer the question using only the provided context. Context: {{context}} Question: {{question}}",
+        "provider": "fixed-refund-provider",
+        "metrics": {
+          "score": 1,
+          "testPassCount": 1,
+          "testFailCount": 1,
+          "testErrorCount": 0,
+          "testCacheHitCount": 0,
+          "assertPassCount": 1,
+          "assertFailCount": 1,
+          "totalLatencyMs": 5,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 2,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "Assertion passed",
+              "assertion": {
+                "type": "contains",
+                "value": "no"
+              }
+            }
+          ]
+        },
+        "id": "51317014-71d4-4cbb-bfe3-68a7ca472a1b",
+        "latencyMs": 3,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Answer the question using only the provided context. Context: Refunds are allowed within 7 days. Question: Can I refund after 10 days?",
+          "label": "Answer the question using only the provided context. Context: {{context}} Question: {{question}}",
+          "config": {}
+        },
+        "promptId": "9239341210ca3ea5e5a500664a5b09f45cbd740acab4f03800cbf1d014d63d26",
+        "promptIdx": 0,
+        "provider": {
+          "id": "fixed-refund-provider",
+          "label": "fixed-refund-provider"
+        },
+        "response": {
+          "output": "no — refunds are only allowed within 7 days.",
+          "metadata": {
+            "provider": "fixed-refund-provider",
+            "promptChars": 134,
+            "question": "Can I refund after 10 days?"
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "PASS：输出含 no",
+          "vars": {
+            "context": "Refunds are allowed within 7 days.",
+            "question": "Can I refund after 10 days?"
+          },
+          "assert": [
+            {
+              "type": "contains",
+              "value": "no"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "context": "Refunds are allowed within 7 days.",
+          "question": "Can I refund after 10 days?"
+        },
+        "metadata": {
+          "provider": "fixed-refund-provider",
+          "promptChars": 134,
+          "question": "Can I refund after 10 days?",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "Expected output to contain \"yes\"",
+        "gradingResult": {
+          "pass": false,
+          "score": 0,
+          "reason": "Expected output to contain \"yes\"",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "Expected output to contain \"yes\"",
+              "assertion": {
+                "type": "contains",
+                "value": "yes"
+              }
+            }
+          ]
+        },
+        "id": "0bea9912-2ccf-42f8-bc0a-5a3711f2d82c",
+        "latencyMs": 2,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Answer the question using only the provided context. Context: Refunds are allowed within 7 days. Question: Can I refund after 3 days?",
+          "label": "Answer the question using only the provided context. Context: {{context}} Question: {{question}}",
+          "config": {}
+        },
+        "promptId": "9239341210ca3ea5e5a500664a5b09f45cbd740acab4f03800cbf1d014d63d26",
+        "promptIdx": 0,
+        "provider": {
+          "id": "fixed-refund-provider",
+          "label": "fixed-refund-provider"
+        },
+        "response": {
+          "output": "no — refunds are only allowed within 7 days.",
+          "metadata": {
+            "provider": "fixed-refund-provider",
+            "promptChars": 133,
+            "question": "Can I refund after 3 days?"
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "FAIL(故意)：要求输出含 yes，但 provider 固定说 no",
+          "vars": {
+            "context": "Refunds are allowed within 7 days.",
+            "question": "Can I refund after 3 days?"
+          },
+          "assert": [
+            {
+              "type": "contains",
+              "value": "yes"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "context": "Refunds are allowed within 7 days.",
+          "question": "Can I refund after 3 days?"
+        },
+        "metadata": {
+          "provider": "fixed-refund-provider",
+          "promptChars": 133,
+          "question": "Can I refund after 3 days?",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      }
+    ],
+    "stats": {
+      "successes": 1,
+      "failures": 1,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 2,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 155,
+      "evaluationDurationMs": 155
+    }
+  },
+  "config": {
+    "tags": {},
+    "prompts": [
+      "Answer the question using only the provided context. Context: {{context}} Question: {{question}}"
+    ],
+    "providers": [
+      {
+        "id": "file://provider.js",
+        "label": "fixed-refund-provider"
+      }
+    ],
+    "tests": [
+      {
+        "description": "PASS：输出含 no",
+        "vars": {
+          "context": "Refunds are allowed within 7 days.",
+          "question": "Can I refund after 10 days?"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "no"
+          }
+        ]
+      },
+      {
+        "description": "FAIL(故意)：要求输出含 yes，但 provider 固定说 no",
+        "vars": {
+          "context": "Refunds are allowed within 7 days.",
+          "question": "Can I refund after 3 days?"
+        },
+        "assert": [
+          {
+            "type": "contains",
+            "value": "yes"
+          }
+        ]
+      }
+    ],
+    "env": {},
+    "outputPath": [
+      "/tmp/luban-verify/out/64.9-promptfoo-mustfail.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {},
+    "basePath": "/private/tmp/luban-verify/work-npm/promptfoo-demo"
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.126.0",
+    "nodeVersion": "v26.10.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "exportedAt": "2026-11-22T08:31:18.395Z",
+    "evaluationCreatedAt": "2026-11-22T08:31:18.067Z"
+  },
+  "vars": [
+    "context",
+    "question"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "showProgressBar": false,
+    "repeat": 1,
+    "maxConcurrency": 4,
+    "cache": false
+  }
+}

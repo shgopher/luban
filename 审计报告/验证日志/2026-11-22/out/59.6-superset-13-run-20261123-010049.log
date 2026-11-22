@@ -1,0 +1,38 @@
++ docker exec -d superset sh -c 'superset run -h 0.0.0.0 -p 8088 --with-threads > /tmp/superset-run.log 2>&1'
++ echo EXEC_D_RC=0
++ sleep 8
++ docker exec superset sh -c 'ps aux | grep -E "superset|gunicorn" | grep -v grep | head -10'
+sh: 1: ps: not found
++ echo '--- log head ---'
++ docker exec superset sh -c 'head -40 /tmp/superset-run.log 2>&1'
++ echo '--- run help check ---'
++ docker exec superset superset run --help
++ head -20
+EXEC_D_RC=0
+--- log head ---
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-11-22 17:05:06,462:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+2026-11-22 17:05:06,472:WARNING:py.warnings:/app/.venv/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+
+--- run help check ---
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-11-22 17:05:16,895:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+2026-11-22 17:05:16,906:WARNING:py.warnings:/app/.venv/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+
+2026-11-22 17:05:17,771:INFO:alembic.runtime.migration:Context impl PostgresqlImpl.
+2026-11-22 17:05:17,772:INFO:alembic.runtime.migration:Will assume transactional DDL.
+2026-11-22 17:05:18,189:INFO:superset.app:Syncing configuration to database...
+2026-11-22 17:05:18,394:INFO:superset.app:Configuration sync to database completed successfully
+2026-11-22 17:05:19,421:INFO:superset.core.mcp.core_mcp_injection:fastmcp is not installed, skipping MCP initialization. Install it with: pip install 'apache-superset[fastmcp]'
+Usage: superset run [OPTIONS]
+
+  Run a local development server.
+
+  This server is for development purposes only. It does not provide the
+  stability, security, or performance of production WSGI servers.
+
+  The reloader and debugger are enabled by default with the '--debug' option.
+
+Options:

@@ -1,0 +1,33 @@
+time="2026-11-22T16:58:36Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+=== A. compose ps ===
+NAME                  IMAGE                                                            COMMAND                  SERVICE     CREATED         STATUS         PORTS
+devlake-config-ui-1   devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19   "/docker-entrypoint.…"   config-ui   3 minutes ago   Up 3 minutes   4443/tcp, 0.0.0.0:4000->4000/tcp, [::]:4000->4000/tcp, 8080/tcp
+devlake-devlake-1     devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19             "/usr/bin/tini -- la…"   devlake     3 minutes ago   Up 2 minutes   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+devlake-grafana-1     devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19   "/entrypoint.sh"         grafana     3 minutes ago   Up 3 minutes   0.0.0.0:3002->3000/tcp, [::]:3002->3000/tcp
+devlake-mysql-1       mysql:8                                                          "docker-entrypoint.s…"   mysql       3 minutes ago   Up 3 minutes   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp
+
+=== B. DevLake API ===
+/ping              200  
+/ready             200  {"code":0,"success":true,"message":"ready","causes":null,"data":null}
+/health            200  {"code":0,"success":true,"message":"good","causes":null,"data":null}
+/version           200  {"version":"v1.0.3-beta19@210dcd4"}
+/api/version       404  404 page not found
+/api/blueprints    404  404 page not found
+/api/plugins       404  404 page not found
+
+=== C. Config UI 4000 ===
+HTTP 200 size=1506
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright o
+=== D. Grafana 3000 / 3002 ===
+3000: 000
+3002: HTTP 301
+grafana /api/health: {
+  "database": "ok",
+  "version": "13.2.4",
+  "commit": "0e79aef9d91abf3bdadae9af15763029072fb45b"
+}
+=== DORA search ===
+[{"id":3352069355319296,"uid":"qNo8_0M4z","orgId":1,"title":"DORA","uri":"db/dora","url":"/grafana/d/qNo8_0M4z/dora","slug":"","type":"dash-db","tags":["DORA","Engineering Leads Dashboard","Highlights"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352115614298112,"uid":"66YkL8y4z","orgId":1,"title":"DORA (by Team)","uri":"db/dora-by-team","url":"/grafana/d/66YkL8y4z/dora-by-team","slug":"","type":"dash-db","tags":["Engineering Leads Dashboard"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352139379224576,"uid":"Change-failure-rate","orgId":1,"title":"DORA Details - Change Failure Rate","uri":"db/dora-details-change-failure-rate","url":"/grafana/d/Change-failure-rate/dora-details-change-failure-rate","slug":"","type":"dash-db","tags":["DORA"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352089517338624,"uid":"Deployment-frequency","orgId":1,"title":"DORA Details - Deployment Frequency","uri":"db/dora-details-deployment-frequency","url":"/grafana/d/Deployment-frequency/dora-details-deployment-frequency","slug":"","type":"dash-db","tags":["DORA"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352206177710080,"uid":"Failed-deployment-recovery-time","orgId":1,"title":"DORA Details - Failed Deployment Recovery Time","uri":"db/dora-details-failed-deployment-recovery-time","url":"/grafana/d/Failed-deployment-recovery-time/dora-details-failed-deployment-recovery-time","slug":"","type":"dash-db","tags":["DORA"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352217468776448,"uid":"Lead-time-for-changes","orgId":1,"title":"DORA Details - Lead Time for Changes","uri":"db/dora-details-lead-time-for-changes","url":"/grafana/d/Lead-time-for-changes/dora-details-lead-time-for-changes","slug":"","type":"dash-db","tags":["DORA"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352056856293376,"uid":"Time-to-restore-service","orgId":1,"title":"DORA Details - Time to Restore Service","uri":"db/dora-details-time-to-restore-service","url":"/grafana/d/Time-to-restore-service/dora-details-time-to-restore-service","slug":"","type":"dash-db","tags":["DORA"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3351991429345280,"uid":"KGkUnV-Vz","orgId":1,"title":"DORA Validation","uri":"db/dora-validation","url":"/grafana/d/KGkUnV-Vz/dora-validation","slug":"","type":"dash-db","tags":["Engineering Leads Dashboard"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352073125998592,"uid":"copilot_impact","orgId":1,"title":"GitHub Copilot + DORA Correlation","uri":"db/github-copilot-2b-dora-correlation","url":"/grafana/d/copilot_impact/github-copilot-2b-dora-correlation","slug":"","type":"dash-db","tags":["copilot","devlake","dora","impact"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352127626784768,"uid":"kiro_dora_correlation","orgId":1,"title":"Kiro + DORA Correlation","uri":"db/kiro-2b-dora-correlation","url":"/grafana/d/kiro_dora_correlation/kiro-2b-dora-correlation","slug":"","type":"dash-db","tags":["AI","DORA","correlation","kiro"],"isStarred":false,"sortMeta":0,"isDeleted":false},{"id":3352140704624640,"uid":"kiro_credits_dora","orgId":1,"title":"Kiro Credits + DORA Correlation","uri":"db/kiro-credits-2b-dora-correlation","url":"/grafana/d/kiro_credits_dora/kiro-credits-2b-dora-correlation","slug":"","type":"dash-db","tags":["correlation","dora","kiro"],"isStarred":false,"sortMeta":0,"isDeleted":false}]

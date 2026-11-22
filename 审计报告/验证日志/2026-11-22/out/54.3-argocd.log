@@ -1,0 +1,71 @@
+== argocd 版本
+argocd: v2.13.3+a25c8a0
+== 取 admin 初始密码
+pw_len=16
+== 登录
+'admin:login' logged in successfully
+Context '127.0.0.1:8080' updated
+== 创建 application（public git 仓库）
+application 'guestbook' created
+== app list
+argocd/guestbook
+== 同步前状态
+sync: OutOfSync health: Missing
+== app diff（前 20 行）
+
+===== /Service default/guestbook-ui ======
+0a1,13
+> apiVersion: v1
+> kind: Service
+> metadata:
+>   labels:
+>     app.kubernetes.io/instance: guestbook
+>   name: guestbook-ui
+>   namespace: default
+> spec:
+>   ports:
+>   - port: 80
+>     targetPort: 80
+>   selector:
+>     app: guestbook-ui
+
+===== apps/Deployment default/guestbook-ui ======
+0a1,23
+> apiVersion: apps/v1
+== sync
+
+Operation:          Sync
+Sync Revision:      8088f4c0d970abb09e250248cc97e35623447cb5
+Phase:              Succeeded
+Start:              2026-11-22 16:03:58 +0000 UTC
+Finished:           2026-11-22 16:03:59 +0000 UTC
+Duration:           1s
+Message:            successfully synced (all tasks run)
+
+GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH       HOOK  MESSAGE
+       Service     default    guestbook-ui  Synced  Healthy            service/guestbook-ui created
+apps   Deployment  default    guestbook-ui  Synced  Progressing        deployment.apps/guestbook-ui created
+
+real	0m2.879s
+user	0m0.078s
+sys	0m0.035s
+== 同步后状态
+sync: Synced health: Progressing
+== 资源
+NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/guestbook-ui   0/1     1            0           12s
+
+NAME                   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/guestbook-ui   ClusterIP   10.43.240.111   <none>        80/TCP    12s
+service/kubernetes     ClusterIP   10.43.0.1       <none>        443/TCP   7h45m
+
+NAME                                READY   STATUS              RESTARTS   AGE
+pod/guestbook-ui-6d476cf4df-jjd55   0/1     ContainerCreating   0          12s
+== 历史
+SOURCE  https://github.com/argoproj/argocd-example-apps.git
+ID      DATE                           REVISION
+0       2026-11-22 16:03:59 +0000 UTC   (8088f4c)
+== 回滚到 1
+time="2026-11-22T16:04:14Z" level=fatal msg="Application 'guestbook' does not have deployment id '1' in history\n"
+== 回滚后状态
+sync: Synced health: Progressing

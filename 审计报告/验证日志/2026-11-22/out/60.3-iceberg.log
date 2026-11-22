@@ -1,0 +1,27 @@
+grep: (standard input): binary file matches
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Spark master: local[1], Application Id: local-1795363166728
+4
+Time taken: 8.012 seconds, Fetched 1 row(s)
+3
+Time taken: 0.538 seconds, Fetched 1 row(s)
+2
+Time taken: 1.204 seconds, Fetched 1 row(s)
+1	10.5	NULL
+2	20.0	NULL
+3	30.25	NULL
+4	40.0	late
+Time taken: 3.274 seconds, Fetched 4 row(s)
+== warehouse 布局
+db/orders/data/ts_day=2026-11-01/00000-1-855ff866-e7f4-4d9f-b536-94f69522928c-0-00001.parquet
+db/orders/data/ts_day=2026-11-02/00000-1-855ff866-e7f4-4d9f-b536-94f69522928c-0-00002.parquet
+db/orders/data/ts_day=2026-11-03/00000-1-8567be91-a04d-4605-8a2b-ec5c1f0eff9d-0-00001.parquet
+== metadata 版本文件
+v1.metadata.json
+v2.metadata.json
+v3.metadata.json
+v4.metadata.json
+== Spark 版本
+   /___/ .__/\_,_/_/ /_/\_\   version 3.5.3
+Using Scala version 2.12.18, OpenJDK 64-Bit Server VM, 17.0.21.1

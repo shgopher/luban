@@ -1,0 +1,25 @@
+== parquet 文件数(改前)
+3
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Spark master: local[1], Application Id: local-1795363309609
+Time taken: 33.129 seconds
+Time taken: 1.387 seconds
+4
+Time taken: 4.395 seconds, Fetched 1 row(s)
+2	1	2340	0
+Time taken: 6.403 seconds, Fetched 1 row(s)
+98428223037163218	append
+7348495842828723289	append
+6650984017596700149	append
+7066314011841159797	append
+2941787175095993229	replace
+Time taken: 1.63 seconds, Fetched 5 row(s)
+2	0	0	2	4	0
+Time taken: 15.204 seconds, Fetched 1 row(s)
+1
+Time taken: 0.508 seconds, Fetched 1 row(s)
+6
+Time taken: 0.546 seconds, Fetched 1 row(s)
+== parquet 文件数(改后)
+4

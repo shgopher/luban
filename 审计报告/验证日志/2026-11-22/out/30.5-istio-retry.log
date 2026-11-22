@@ -1,0 +1,13 @@
+deployment.apps/httpbin created
+Error from server (NotFound): pods "httpbin-86f67bcb4c-vq2t6" not found
+== 一次客户端调用 /status/503（VirtualService: attempts 2, retryOn 5xx）
+  HTTP/1.1 503 Service Unavailable
+wget: server returned error: HTTP/1.1 503 Service Unavailable
+wget_done
+== httpbin 入站 sidecar 收到的 /status/503 次数（= 1 次初始 + 2 次重试 应为 3）
+0
+== 明细
+== 对照：改 attempts=0（关闭重试）再调一次
+wget_done
+== 关闭重试后新增次数（应为 1）
+0

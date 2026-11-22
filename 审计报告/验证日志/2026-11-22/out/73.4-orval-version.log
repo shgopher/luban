@@ -1,0 +1,20 @@
+=== date ===
+Sun Nov 22 16:26:29 CST 2026
+=== node_modules/.bin ===
+acorn
+esbuild
+jiti
+js-yaml
+jsesc
+json5
+nanoid
+node-which
+orval
+tsc
+tsserver
+yaml
+=== orval version (package.json) ===
+8.48.0
+=== npx orval --version ===
+8.48.0
+EXIT=0

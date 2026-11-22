@@ -1,0 +1,6 @@
++ docker inspect apache/superset:latest --format 'ENTRYPOINT={{json .Config.Entrypoint}} CMD={{json .Config.Cmd}} USER={{.Config.User}} WORKDIR={{.Config.WorkingDir}}'
++ docker inspect --format '{{index .RepoDigests 0}}' apache/superset:latest
++ docker image inspect apache/superset:latest --format '{{json .RepoDigests}}'
+ENTRYPOINT=null CMD=["/app/docker/entrypoints/run-server.sh"] USER=superset WORKDIR=/app
+apache/superset@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88
+["apache/superset@sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88"]

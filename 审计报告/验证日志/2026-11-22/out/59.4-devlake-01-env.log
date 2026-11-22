@@ -1,0 +1,21 @@
+CONNECT_OK
+Linux decn2JoL49VcE 6.8.0-48-generic #48-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 27 14:04:52 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+1
+               total        used        free      shared  buff/cache   available
+Mem:            1968         404        1356           1         369        1563
+Swap:           4095         124        3971
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        39G  9.4G   30G  25% /
+bash: line 1: docker: command not found
+---
+docker.io:
+  Installed: (none)
+  Candidate: 29.1.3-0ubuntu3~24.04.2
+  Version table:
+     29.1.3-0ubuntu3~24.04.2 500
+---
+---
+ls: cannot access '/usr/bin/docker*': No such file or directory

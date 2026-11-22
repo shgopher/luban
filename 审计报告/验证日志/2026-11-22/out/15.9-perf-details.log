@@ -1,0 +1,69 @@
+=== perf report -g none（自耗时 top） ===
+# Children      Self  Command   Shared Object      Symbol                             
+# ........  ........  ........  .................  ...................................
+#
+   100.00%     0.00%  cpu-burn  cpu-burn           [.] _start
+   100.00%     0.00%  cpu-burn  cpu-burn           [.] main
+   100.00%     0.00%  cpu-burn  cpu-burn           [.] stage
+   100.00%     0.00%  cpu-burn  libc.so.6          [.] __libc_start_main
+   100.00%     0.00%  cpu-burn  libc.so.6          [.] 0x000073b75da2a1ca
+    68.34%    67.59%  cpu-burn  cpu-burn           [.] work_math
+    22.13%    22.13%  cpu-burn  cpu-burn           [.] work_sort
+     5.96%     5.96%  cpu-burn  cpu-burn           [.] hash_bytes
+     2.49%     2.49%  cpu-burn  cpu-burn           [.] rnd
+     1.08%     1.08%  cpu-burn  cpu-burn           [.] work_hash
+     0.75%     0.00%  cpu-burn  [kernel.kallsyms]  [k] asm_sysvec_apic_timer_interrupt
+     0.75%     0.00%  cpu-burn  [kernel.kallsyms]  [k] sysvec_apic_timer_interrupt
+
+=== perf script 原始栈（前 25 行） ===
+cpu-burn  107069 84465.014435:          1 cycles:P: 
+	ffffffff9286a9db switch_fpu_return+0x3b ([kernel.kallsyms])
+	ffffffff93a2dfa2 irqentry_exit_to_user_mode+0x1a2 ([kernel.kallsyms])
+	ffffffff93a2e0b3 irqentry_exit+0x43 ([kernel.kallsyms])
+	ffffffff93a2c83b sysvec_apic_timer_interrupt+0x4b ([kernel.kallsyms])
+	ffffffff93c00f4b asm_sysvec_apic_timer_interrupt+0x1b ([kernel.kallsyms])
+	    62bbf9e3e240 work_math+0x28 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e412 stage+0x74 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e3de stage+0x40 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e3de stage+0x40 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e3de stage+0x40 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e459 main+0x45 (/root/perf-verify/cpu-burn)
+	    73b75da2a1ca [unknown] (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    73b75da2a28b __libc_start_main+0x8b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    62bbf9e3e0e5 _start+0x25 (/root/perf-verify/cpu-burn)
+
+cpu-burn  107069 84465.014467:          1 cycles:P: 
+	ffffffff9286a9db switch_fpu_return+0x3b ([kernel.kallsyms])
+	ffffffff93a2dfa2 irqentry_exit_to_user_mode+0x1a2 ([kernel.kallsyms])
+	ffffffff93a2e0b3 irqentry_exit+0x43 ([kernel.kallsyms])
+	ffffffff93a2c83b sysvec_apic_timer_interrupt+0x4b ([kernel.kallsyms])
+	ffffffff93c00f4b asm_sysvec_apic_timer_interrupt+0x1b ([kernel.kallsyms])
+	    62bbf9e3e240 work_math+0x28 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e412 stage+0x74 (/root/perf-verify/cpu-burn)
+	    62bbf9e3e3de stage+0x40 (/root/perf-verify/cpu-burn)
+
+=== folded（全部 18 条，截断显示） ===
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;hash_bytes 173495563
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;rnd 60956314
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;hash_bytes 350288708
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;rnd 283955683
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;hash_bytes 686539413
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;rnd 161483219
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;stage;work_math 13731662679
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;stage;work_math;asm_sysvec_apic_timer_interrupt;sysvec_apic_timer_interrupt;__sys
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;stage;work_math;asm_sysvec_apic_timer_interrupt;sysvec_apic_timer_interrupt;__sys
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;stage;work_math;asm_sysvec_apic_timer_interrupt;sysvec_apic_timer_interrupt;__sys
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;stage;work_math;asm_sysvec_apic_timer_interrupt;sysvec_apic_timer_interrupt;irqen
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;stage;work_math;asm_sysvec_apic_timer_interrupt;sysvec_apic_timer_interrupt;irqen
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;work_hash 95465906
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;stage;work_sort 2345360350
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;work_hash 91824853
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;stage;work_sort 1427221833
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;work_hash 31306060
+cpu-burn;_start;__libc_start_main;[libc.so.6];main;stage;work_sort 723233308
+
+=== SVG 标题 ===
+=== SVG 合法性 ===
+xml_ok root= {http://www.w3.org/2000/svg}svg
+=== 最大栈深度 ===
+24

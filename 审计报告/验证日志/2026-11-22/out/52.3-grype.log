@@ -1,0 +1,25 @@
+libcrypto3     3.5.9-r0    3.5.9-r1   apk   CVE-2026-107496  High      0.4% (34th)  0.3   
+libssl3        3.5.9-r0    3.5.9-r1   apk   CVE-2026-107496  High      0.4% (34th)  0.3   
+libcrypto3     3.5.9-r0               apk   CVE-2026-107494  High      0.4% (33rd)  0.3   
+libssl3        3.5.9-r0               apk   CVE-2026-107494  High      0.4% (33rd)  0.3   
+zlib           1.3.2-r1    1.4-r0     apk   CVE-2026-4738    Critical  0.3% (22nd)  0.3   
+libcrypto3     3.5.9-r0               apk   CVE-2026-121482  High      0.4% (30th)  0.3   
+libssl3        3.5.9-r0               apk   CVE-2026-121482  High      0.4% (30th)  0.3   
+libcrypto3     3.5.9-r0    3.5.9-r1   apk   CVE-2026-95691   High      0.3% (21st)  0.2   
+libssl3        3.5.9-r0    3.5.9-r1   apk   CVE-2026-95691   High      0.3% (21st)  0.2   
+libcrypto3     3.5.9-r0    3.5.9-r1   apk   CVE-2026-88823   High      0.3% (19th)  0.2   
+libssl3        3.5.9-r0    3.5.9-r1   apk   CVE-2026-88823   High      0.3% (19th)  0.2   
+busybox        1.37.0-r31             apk   CVE-2025-60876   Medium    0.3% (24th)  0.2   
+busybox-binsh  1.37.0-r31             apk   CVE-2025-60876   Medium    0.3% (24th)  0.2   
+ssl_client     1.37.0-r31             apk   CVE-2025-60876   Medium    0.3% (24th)  0.2   
+libcrypto3     3.5.9-r0               apk   CVE-2026-84786   High      0.2% (13th)  0.2   
+libssl3        3.5.9-r0               apk   CVE-2026-84786   High      0.2% (13th)  0.2   
+libcrypto3     3.5.9-r0    3.5.9-r1   apk   CVE-2026-88822   Medium    0.3% (17th)  0.1   
+libssl3        3.5.9-r0    3.5.9-r1   apk   CVE-2026-88822   Medium    0.3% (17th)  0.1   
+libxml2        2.13.9-r2   2.13.9-r3  apk   CVE-2026-86144   High      0.2% (8th)   0.1   
+libcrypto3     3.5.9-r0               apk   CVE-2026-95690   Medium    0.3% (19th)  0.1   
+libssl3        3.5.9-r0               apk   CVE-2026-95690   Medium    0.3% (19th)  0.1   
+libcrypto3     3.5.9-r0               apk   CVE-2026-35190   Medium    0.2% (14th)  0.1   
+libssl3        3.5.9-r0               apk   CVE-2026-35190   Medium    0.2% (14th)  0.1   
+libcrypto3     3.5.9-r0               apk   CVE-2026-107493  High      0.1% (4th)   0.1   
+libssl3        3.5.9-r0               apk   CVE-2026-107493  High      0.1% (4th)   0.1

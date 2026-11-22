@@ -1,0 +1,12 @@
++ docker exec superset-pg psql -U superset -d postgres -c 'DROP DATABASE IF EXISTS analytics;' -c 'CREATE DATABASE analytics OWNER superset;'
+NOTICE:  database "analytics" does not exist, skipping
++ docker exec superset-pg psql -U superset -d analytics
++ docker exec superset-pg psql -U superset -d analytics -c 'SELECT count(*) AS rows, round(avg(lead_time_hours)::numeric,2) AS avg_lead_h, sum(deploys) AS total_deploys FROM dora_metrics;' -c 'SELECT * FROM dora_metrics ORDER BY day;'
+ERROR:  relation "dora_metrics" does not exist
+LINE 1: ...AS avg_lead_h, sum(deploys) AS total_deploys FROM dora_metri...
+                                                             ^
+ERROR:  relation "dora_metrics" does not exist
+LINE 1: SELECT * FROM dora_metrics ORDER BY day;
+                      ^
+DROP DATABASE
+CREATE DATABASE

@@ -1,0 +1,33 @@
+install_rc=0
+elapsed_s=11
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+=== versions ===
+hb-shape (HarfBuzz) 8.3.0
+Available shapers: graphite2,ot,fallback
+---
+fribidi (GNU FriBidi) 1.0.13
+interface version 4,
+Unicode Character Database version 14.0.0,
+Configure options.
+
+Copyright (C) 2004  Sharif FarsiWeb, Inc.
+Copyright (C) 2001, 2002, 2004, 2005  Behdad Esfahbod
+Copyright (C) 1999, 2000, 2017, 2018, 2019  Dov Grobgeld
+GNU FriBidi comes with NO WARRANTY, to the extent permitted by law.
+You may redistribute copies of GNU FriBidi under
+the terms of the GNU Lesser General Public License.
+For more information about these matters, see the file named COPYING.
+
+Written by Behdad Esfahbod and Dov Grobgeld.
+---
++++-===============-==============-============-===========================================================
+ii  fonts-noto-core 20201225-2     all          "No Tofu" font families with large Unicode coverage (core)
+ii  libfribidi-bin  1.0.13-3build1 amd64        Free Implementation of the Unicode BiDi algorithm (utility)
+ii  libharfbuzz-bin 8.3.0-2build2  amd64        OpenType text shaping engine (utility)

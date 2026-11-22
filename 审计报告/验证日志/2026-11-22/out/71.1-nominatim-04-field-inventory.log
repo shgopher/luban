@@ -1,0 +1,21 @@
+/tmp/nom_a.json
+  keys: ['address', 'addresstype', 'boundingbox', 'category', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: railway type: station addresstype: railway place_rank: 30
+/tmp/nom_b.json
+  keys: ['address', 'addresstype', 'boundingbox', 'category', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: railway type: station addresstype: railway place_rank: 30
+/tmp/nom_c.json
+  keys: ['address', 'addresstype', 'boundingbox', 'category', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: highway type: residential addresstype: residential place_rank: 26
+/tmp/nom_d.json
+  keys: ['address', 'addresstype', 'boundingbox', 'category', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: highway type: residential addresstype: residential place_rank: 26
+/tmp/nom_f.json
+  keys: ['address', 'addresstype', 'boundingbox', 'class', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: railway type: station addresstype: railway place_rank: 30
+/tmp/nom_g.json
+  keys: ['address', 'addresstype', 'boundingbox', 'category', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: boundary type: administrative addresstype: city place_rank: 7
+/tmp/nom_h.json
+  keys: ['address', 'addresstype', 'boundingbox', 'category', 'display_name', 'importance', 'lat', 'licence', 'lon', 'name', 'osm_id', 'osm_type', 'place_id', 'place_rank', 'type']
+  category/class: boundary type: administrative addresstype: suburb place_rank: 16

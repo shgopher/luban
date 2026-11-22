@@ -1,0 +1,27 @@
+=== dracut --version ===
+dracut 060+5-1ubuntu3.4
+
+=== 干跑：dracut --no-hostonly --force /tmp/initramfs-test.img ===
+dracut[I]: *** Including module: base ***
+dracut[I]: *** Including module: fs-lib ***
+dracut[I]: *** Including module: shutdown ***
+dracut[I]: *** Including modules done ***
+dracut[I]: *** Installing kernel module dependencies ***
+dracut[I]: *** Installing kernel module dependencies done ***
+dracut[I]: *** Resolving executable dependencies ***
+dracut[I]: *** Resolving executable dependencies done ***
+dracut[I]: *** Hardlinking files ***
+dracut[I]: *** Hardlinking files done ***
+dracut[I]: *** Generating early-microcode cpio image ***
+dracut[I]: *** Constructing AuthenticAMD.bin ***
+dracut[I]: *** Constructing GenuineIntel.bin ***
+dracut[I]: *** Store current command line parameters ***
+dracut[I]: *** Stripping files ***
+dracut[I]: *** Stripping files done ***
+dracut[I]: *** Creating image file '/tmp/initramfs-test.img' ***
+dracut[I]: Using auto-determined compression method 'pigz'
+dracut[I]: *** Creating initramfs image file '/tmp/initramfs-test.img' done ***
+WALL=41.60 s MAXRSS=55648 KB
+DRACUT_RC=0
+-rw------- 1 root root 69529344 Nov 22 08:34 /tmp/initramfs-test.img
+67M	/tmp/initramfs-test.img

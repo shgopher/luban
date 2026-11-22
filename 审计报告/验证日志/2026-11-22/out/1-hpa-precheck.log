@@ -1,0 +1,3 @@
+error: metrics not available yet
+NAME                        READY   STATUS    RESTARTS   AGE   IP          NODE            NOMINATED NODE   READINESS GATES
+cpu-burn-5558cf94df-zbtvm   1/1     Running   0          6s    10.42.0.5   decn2jol49vce   <none>           <none>

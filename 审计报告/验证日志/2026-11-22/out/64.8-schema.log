@@ -1,0 +1,10 @@
+✓ input_schema 通过 JSON Schema 2020-12 元校验
+{"path": "notes.md"}                           -> OK
+{"path": "notes.md", "limit": 2000}            -> OK
+{"path": 123}                                  -> INVALID: 123 is not of type 'string'
+{"path": "a", "limit": 0}                      -> INVALID: 0 is less than the minimum of 1
+{"path": "a", "limit": 2001}                   -> INVALID: 2001 is greater than the maximum of 2000
+{}                                             -> INVALID: 'path' is a required property
+MCP Tool required = ['inputSchema', 'name']
+✓ 改成 inputSchema 后，通过 MCP 官方 Tool schema 校验
+✗ 原样的 input_schema 不是合法 MCP Tool： 'inputSchema' is a required property

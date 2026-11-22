@@ -1,0 +1,9 @@
+=== exact requested cmd, proper filename ===
+rc=0 elapsed_ms=566
+--- stdout(head 80) ---
+Starting filesystem walk for root: /
+Scanned /tmp/osvtest/package-lock.json file and found 111 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 32.928401ms elapsed, 32.928501ms wall time
+
+No issues found
+--- stderr(head 40) ---

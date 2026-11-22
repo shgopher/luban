@@ -1,0 +1,66 @@
+--- ext-lib ---
+total 8
+drwxr-xr-x 2 root root 4096 Apr 30  2024 .
+drwxr-xr-x 8 root root 4096 Apr 30  2024 ..
+--- find mysql connector ---
+--- start.sh tail ---
+fi
+
+if [ -z "$CONF_PATH" ]; then
+    CONF_PATH=${DEPLOY_DIR}/conf
+fi
+
+if [ -z "$PORT" ]; then
+    PORT=-1
+fi
+
+if [ -z "$ADDRESSES" ]; then
+    ADDRESSES="0.0.0.0"
+fi
+
+if [ -z "$FORCE" ]; then
+    FORCE=false
+fi
+
+if [ "$SOCKET_FILE" ]; then
+    ADDRESSES="${ADDRESSES},${SOCKET_FILE}"
+fi
+
+CLASS_PATH=${CONF_PATH}:${CLASS_PATH}
+MAIN_CLASS="${MAIN_CLASS} ${PORT} ${CONF_PATH} ${ADDRESSES} ${FORCE}"
+
+echo "The classpath is ${CLASS_PATH}"
+echo "main class ${MAIN_CLASS}"
+
+if [ -n "${IS_DOCKER}" ]; then
+  exec $JAVA ${JAVA_OPTS} ${JAVA_MEM_OPTS} -classpath ${CLASS_PATH} ${AGENT_PARAM} ${MAIN_CLASS}
+  exit 0
+fi
+
+echo -e "Starting the $SERVER_NAME ...\c"
+
+nohup $JAVA ${JAVA_OPTS} ${JAVA_MEM_OPTS} -classpath ${CLASS_PATH} ${AGENT_PARAM} ${MAIN_CLASS} >> ${STDOUT_FILE} 2>&1 &
+if [ $? -eq 0 ]; then
+  case "$OSTYPE" in
+  *solaris*)
+    pid=$(/bin/echo "${!}\\c")
+    ;;
+  *)
+    pid=$(/bin/echo -n $!)
+    ;;
+  esac
+  if [ $? -eq 0 ]; then
+      sleep 1;
+      if ps -p "${pid}" > /dev/null 2>&1; then
+        echo " PID: $pid"
+        echo "Please check the STDOUT file: $STDOUT_FILE"
+        exit 0
+      fi
+  else
+    echo " FAILED TO GET PID"
+  fi
+else
+  echo " SERVER DID NOT START"
+fi
+echo "Please check the STDOUT file: $STDOUT_FILE"
+exit 1

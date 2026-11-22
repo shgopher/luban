@@ -1,0 +1,32 @@
++ docker rm -f superset superset-pg
++ docker network rm superset-net
++ echo '--- ps after cleanup ---'
++ docker ps -a --format '{{.Names}}\t{{.Image}}\t{{.Status}}'
++ echo '--- images kept ---'
++ docker images --format '{{.Repository}}:{{.Tag}}\t{{.Size}}'
++ echo '--- free after cleanup ---'
++ free -m
++ df -h /
++ echo '--- devlake unchanged ---'
++ docker ps -a --format '{{.Names}}'
++ grep -i devlake
++ echo 'no devlake containers'
+superset
+superset-pg
+superset-net
+--- ps after cleanup ---
+--- images kept ---
+postgres:16-alpine	420MB
+mysql:8	1.12GB
+devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19	2.12GB
+devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19	3.2GB
+devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19	259MB
+apache/superset:latest	1.27GB
+--- free after cleanup ---
+               total        used        free      shared  buff/cache   available
+Mem:            1968         516         561           1        1084        1452
+Swap:           4095         122        3973
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        39G   19G   21G  48% /
+--- devlake unchanged ---
+no devlake containers

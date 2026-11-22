@@ -1,0 +1,19 @@
+== 前端
+http=200 size=9587
+<title>Scaffolded Backstage App</title>
+7
+== 后端健康
+health=404
+== catalog entities
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; d=json.load(sys.stdin); print('count=',len(d)); [print(' -', e['kind'], e['metadata']['name']) for e in d[:5]]
+                                                                                                                             ~^^^^
+KeyError: slice(None, 5, None)
+count= 3
+== 版本
+{
+  "version": "1.57.0"
+}
+
+v26.10.0

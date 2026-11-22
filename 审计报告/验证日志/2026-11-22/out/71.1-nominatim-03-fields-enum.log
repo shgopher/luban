@@ -1,0 +1,9 @@
+=== F v1 format=json (class field?) ===
+http=200 total=0.337778s
+[{"place_id":222044519,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"node","osm_id":7861046851,"lat":"39.9826574","lon":"116.3103787","class":"railway","type":"station","place_rank":30,"importance":0.3411720307708333,"addresstype":"railway","name":"中关村","display_name":"中关村, 中关村大街, 中关村核心区, 海淀路社区, 海淀街道, 海淀区, 北京市, 100086, 中国","address":{"railway":"中关村","road":"中关村大街","commercial":"中关村核心区","quarter":"海淀路社区","suburb":"海淀街道","city":"海淀区","ISO3166-2-lvl4":"CN-BJ","postcode":"100086","country":"中国","country_code":"cn"},"boundingbox":["39.9776574","39.9876574","116.3053787","116.3153787"]}]
+=== G forward q=北京市 limit=1 ===
+http=200 total=0.324564s
+[{"place_id":216697945,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"relation","osm_id":912940,"lat":"39.9057136","lon":"116.3912972","category":"boundary","type":"administrative","place_rank":7,"importance":0.7956482814591405,"addresstype":"city","name":"北京市","display_name":"北京市, 中国","address":{"city":"北京市","ISO3166-2-lvl4":"CN-BJ","country":"中国","country_code":"cn"},"boundingbox":["39.1707096","41.0592360","115.4168490","117.7371243"]}]
+=== H reverse zoom=10 ===
+http=200 total=0.245753s
+{"place_id":221075776,"licence":"Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright","osm_type":"relation","osm_id":18250355,"lat":"39.9766994","lon":"116.3122990","category":"boundary","type":"administrative","place_rank":16,"importance":0.2885983973306146,"addresstype":"suburb","name":"中关村街道","display_name":"中关村街道, 海淀区, 北京市, 中国","address":{"suburb":"中关村街道","city":"海淀区","ISO3166-2-lvl4":"CN-BJ","country":"中国","country_code":"cn"},"boundingbox":["39.9656357","39.9916518","116.3100645","116.3389815"]}

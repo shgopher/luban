@@ -1,0 +1,6 @@
+=== env ===
+PROMPTFOO_CONFIG_DIR=/tmp/luban-verify/promptfoo-home
+ls: /Users/shgopher/.promptfoo: No such file or directory
+=== npx promptfoo --version ===
+0.126.0
+EXIT=0

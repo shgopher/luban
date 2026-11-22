@@ -1,0 +1,17 @@
+--- GET chart/1 ---
+http_code=200
+id = 1
+slice_name = DORA 每日部署次数与交付周期
+viz_type = table
+datasource_id = 1
+datasource_type = table
+params = {"datasource":"1__table","viz_type":"table","query_mode":"raw","all_columns":["day","deploys","lead_time_hours"],"order_by_cols":["[\"day\", true]"]}
+--- counts after create ---
+dashboard code=200 count=0
+chart code=200 count=1
+dataset code=200 count=1
+database code=200 count=1
+--- chart data endpoint probe ---
+/api/v1/chart/data ['post']
+/api/v1/chart/data/{cache_key} ['get']
+/api/v1/chart/{pk}/data/ ['get']

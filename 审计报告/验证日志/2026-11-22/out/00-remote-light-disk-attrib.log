@@ -1,0 +1,7 @@
+47M	/usr/share/fonts/truetype
+---
+Commandline: apt-get install --reinstall -y initramfs-tools initramfs-tools-core
+Commandline: apt-get install -y -qq libharfbuzz-bin fonts-noto-core libfribidi-bin
+Commandline: apt-get install -y -q openjdk-17-jre-headless
+---
+851M	/opt

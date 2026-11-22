@@ -1,0 +1,7 @@
+bash: line 1: hb-shape: command not found
+bash: line 1: fribidi: command not found
+update_rc=0
+install_rc=100
+elapsed_s=18
+E: Unable to locate package fribidi
+=== versions ===

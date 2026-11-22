@@ -1,0 +1,18 @@
+== 版本
+
+== 1) 书里的 .../toggle 端点
+toggle_http=404
+== 2) 实际可用的 /on
+on_http=200
+{"name":"development","enabled":false}
+{"name":"production","enabled":true}
+== 3) 建 client token
+default:production.44a818fcbb7c68f92d21eaff16cdd8c007f2645a97ecdb992346638d
+== 4) /off
+off_http=200
+{"name":"development","enabled":false}
+{"name":"production","enabled":false}
+== 5) 打开后，客户端 API 求值（client token）
+{"name":"checkout.v2","enabled":true}
+== 6) 关闭后
+{"name":"checkout.v2","enabled":false}

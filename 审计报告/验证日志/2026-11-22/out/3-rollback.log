@@ -1,0 +1,63 @@
+
+real	0m20.262s
+user	0m0.085s
+sys	0m0.037s
+Warning: resource deployments/rollback-demo was previously managed with 'kubectl apply'. Rolling back will not update the kubectl.kubernetes.io/last-applied-configuration annotation, which may cause unexpected behavior on future 'kubectl apply' operations. Consider using 'kubectl apply' with your previous configuration file instead.
+deployment.apps/rollback-demo created
+Waiting for deployment "rollback-demo" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "rollback-demo" rollout to finish: 1 of 2 updated replicas are available...
+deployment "rollback-demo" successfully rolled out
+=== rollout history (before) ===
+deployment.apps/rollback-demo 
+REVISION  CHANGE-CAUSE
+1         <none>
+
+SET_IMAGE_T0=2026-11-22T08:39:30+00:00 epoch=1795336770.763587273
+deployment.apps/rollback-demo image updated
+set-image returned at +.718227497s
+=== after bad image, t+21s ===
+NAME                       DESIRED   CURRENT   READY   AGE     CONTAINERS   IMAGES                      SELECTOR
+cpu-burn-5558cf94df        3         3         3       5m35s   burner       busybox:1.36                app=cpu-burn,pod-template-hash=5558cf94df
+rollback-demo-5cbb6fbc46   1         1         0       20s     nginx        nginx:1.27.0-doesnotexist   app=rollback-demo,pod-template-hash=5cbb6fbc46
+rollback-demo-64dd44bc89   2         2         2       29s     nginx        nginx:alpine                app=rollback-demo,pod-template-hash=64dd44bc89
+NAME                             READY   STATUS             RESTARTS   AGE     IP           NODE            NOMINATED NODE   READINESS GATES
+cm-demo                          1/1     Running            0          3m41s   10.42.0.12   decn2jol49vce   <none>           <none>
+cpu-burn-5558cf94df-55mh4        1/1     Running            0          4m48s   10.42.0.6    decn2jol49vce   <none>           <none>
+cpu-burn-5558cf94df-zbtvm        1/1     Running            0          5m35s   10.42.0.5    decn2jol49vce   <none>           <none>
+cpu-burn-5558cf94df-zgbk6        1/1     Running            0          4m48s   10.42.0.7    decn2jol49vce   <none>           <none>
+rollback-demo-5cbb6fbc46-djhzm   0/1     ImagePullBackOff   0          20s     10.42.0.15   decn2jol49vce   <none>           <none>
+rollback-demo-64dd44bc89-bcf5p   1/1     Running            0          29s     10.42.0.14   decn2jol49vce   <none>           <none>
+rollback-demo-64dd44bc89-wphhw   1/1     Running            0          29s     10.42.0.13   decn2jol49vce   <none>           <none>
+NAME            READY   UP-TO-DATE   AVAILABLE   AGE
+rollback-demo   2/2     1            2           30s
+=== rollout status with 20s timeout (expect hang/timeout) ===
+Waiting for deployment "rollback-demo" rollout to finish: 1 out of 2 new replicas have been updated...
+error: timed out waiting for the condition
+=== old pods still serving? (direct pod IP via wget from busybox pod) ===
+rollback-demo-5cbb6fbc46-djhzm Pending 10.42.0.15
+rollback-demo-64dd44bc89-bcf5p Running 10.42.0.14
+rollback-demo-64dd44bc89-wphhw Running 10.42.0.13
+UNDO_T0=2026-11-22T08:40:13+00:00 epoch=1795336813.183773550
+deployment.apps/rollback-demo rolled back
+undo returned at +.799827929s
+ROLLOUT_COMPLETE after 1.905976214s
+deployment "rollback-demo" successfully rolled out
+=== after undo ===
+deployment.apps/rollback-demo 
+REVISION  CHANGE-CAUSE
+2         <none>
+3         <none>
+
+NAME                       DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES                      SELECTOR
+cpu-burn-5558cf94df        3         3         3       6m    burner       busybox:1.36                app=cpu-burn,pod-template-hash=5558cf94df
+rollback-demo-5cbb6fbc46   0         0         0       45s   nginx        nginx:1.27.0-doesnotexist   app=rollback-demo,pod-template-hash=5cbb6fbc46
+rollback-demo-64dd44bc89   2         2         2       54s   nginx        nginx:alpine                app=rollback-demo,pod-template-hash=64dd44bc89
+NAME                             READY   STATUS    RESTARTS   AGE     IP           NODE            NOMINATED NODE   READINESS GATES
+cm-demo                          1/1     Running   0          4m7s    10.42.0.12   decn2jol49vce   <none>           <none>
+cpu-burn-5558cf94df-55mh4        1/1     Running   0          5m14s   10.42.0.6    decn2jol49vce   <none>           <none>
+cpu-burn-5558cf94df-zbtvm        1/1     Running   0          6m1s    10.42.0.5    decn2jol49vce   <none>           <none>
+cpu-burn-5558cf94df-zgbk6        1/1     Running   0          5m14s   10.42.0.7    decn2jol49vce   <none>           <none>
+rollback-demo-64dd44bc89-bcf5p   1/1     Running   0          55s     10.42.0.14   decn2jol49vce   <none>           <none>
+rollback-demo-64dd44bc89-wphhw   1/1     Running   0          55s     10.42.0.13   decn2jol49vce   <none>           <none>
+NAME            READY   UP-TO-DATE   AVAILABLE   AGE
+rollback-demo   2/2     2            2           55s

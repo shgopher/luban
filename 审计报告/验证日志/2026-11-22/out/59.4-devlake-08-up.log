@@ -1,0 +1,38 @@
+time="2026-11-22T16:55:11Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+=== FREE BEFORE UP ===
+               total        used        free      shared  buff/cache   available
+Mem:            1968         487         154           1        1520        1480
+Swap:           4095         123        3972
+=== UP START 2026-11-22T16:55:06Z ===
+time="2026-11-22T16:55:06Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Network devlake_default  Creating
+ Network devlake_default  Created
+ Volume devlake_devlake-log  Creating
+ Volume devlake_devlake-log  Created
+ Volume devlake_mysql-storage  Creating
+ Volume devlake_mysql-storage  Created
+ Volume devlake_grafana-storage  Creating
+ Volume devlake_grafana-storage  Created
+ Container devlake-mysql-1  Creating
+ Container devlake-mysql-1  Created
+ Container devlake-grafana-1  Creating
+ Container devlake-devlake-1  Creating
+ Container devlake-devlake-1  Created
+ Container devlake-config-ui-1  Creating
+ Container devlake-grafana-1  Created
+ Container devlake-config-ui-1  Created
+ Container devlake-mysql-1  Starting
+ Container devlake-mysql-1  Started
+ Container devlake-grafana-1  Starting
+ Container devlake-devlake-1  Starting
+ Container devlake-devlake-1  Started
+ Container devlake-config-ui-1  Starting
+ Container devlake-grafana-1  Started
+ Container devlake-config-ui-1  Started
+=== COMPOSE UP RETURNED after 5s at 2026-11-22T16:55:11Z ===
+=== PS immediately ===
+NAME                  IMAGE                                                            COMMAND                  SERVICE     CREATED         STATUS         PORTS
+devlake-config-ui-1   devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19   "/docker-entrypoint.…"   config-ui   4 seconds ago   Up 1 second    4443/tcp, 0.0.0.0:4000->4000/tcp, [::]:4000->4000/tcp, 8080/tcp
+devlake-devlake-1     devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19             "/usr/bin/tini -- la…"   devlake     4 seconds ago   Up 2 seconds   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+devlake-grafana-1     devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19   "/entrypoint.sh"         grafana     4 seconds ago   Up 2 seconds   0.0.0.0:3002->3000/tcp, [::]:3002->3000/tcp
+devlake-mysql-1       mysql:8                                                          "docker-entrypoint.s…"   mysql       6 seconds ago   Up 3 seconds   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp, 33060/tcp

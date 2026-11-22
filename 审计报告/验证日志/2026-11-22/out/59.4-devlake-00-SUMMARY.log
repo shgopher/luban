@@ -1,0 +1,92 @@
+============================================================
+Apache DevLake 真实部署验证 - 汇总
+主机: root@189.24.91.75  Ubuntu 24.04.1 LTS  1 vCPU / 1968MB RAM / 4GB swap / 39GB disk
+验证时间(UTC): 2026-11-22 16:50 ~ 16:59
+============================================================
+
+[环境]
+Docker:        29.1.3 (Ubuntu docker.io 包)
+Docker Compose: 2.40.3+ds1-ubuntu1~24.04.1
+内核:          6.8.0-48-generic
+基线 free -m:  total 1968, used 404, free 1356, available 1563, swap used 124
+df -h /:       39G total, 9.4G used, 30G avail (25%)
+
+[部署方式]
+官方仓库已从 apache/incubator-devlake 迁移到 apache/devlake (GitHub API 301 -> apache/devlake, default branch main)。
+快速开始不再从仓库根目录取 docker-compose.yml，而是取最新 Release 资产：
+  https://github.com/apache/devlake/releases/download/v1.0.3-beta19/docker-compose.yml
+  https://github.com/apache/devlake/releases/download/v1.0.3-beta19/env.example
+部署目录: /opt/devlake  (docker-compose.yml 官方原样 + docker-compose.override.yml 低内存限制 + .env)
+
+[镜像] 共 4 个, 总计 6.728GB
+mysql:8                                                          1.12GB  (MySQL 8.4.13)
+devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19             2.12GB
+devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19   3.2GB   (Grafana 13.2.4)
+devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19   259MB
+
+[低内存限制 docker-compose.override.yml]
+mysql     mem_limit 448m / memswap 896m  + --innodb-buffer-pool-size=128M
+grafana   mem_limit 256m / memswap 512m
+devlake   mem_limit 512m / memswap 1024m
+config-ui mem_limit 128m / memswap 256m
+
+[启动耗时]
+docker compose up -d 返回: 5 秒 (容器全部 Created/Started)
+但 DevLake 需等 MySQL 初始化 + 全量 DB migration:
+  - devlake 容器在 MySQL 就绪前 panic "dial tcp 172.18.0.2:3306: connect: connection refused",
+    restart:always 自动重启 8 次 (RestartCount=8), 非 OOM。
+  - 16:58:21 migration 完成 "no db migration needed", 开始监听
+  - 16:58:25 根路径首次返回 404 (路由生效)
+  => 从 up 到 API 可用约 199 秒 (约 3 分 19 秒)
+
+[端点验证 - 全部真实输出]
+docker compose ps: 4 个容器全部 Up
+GET /ping                 -> 200
+GET /ready                -> 200 {"code":0,"success":true,"message":"ready"}
+GET /health               -> 200 {"code":0,"success":true,"message":"good"}
+GET /version              -> 200 {"version":"v1.0.3-beta19@210dcd4"}
+GET /blueprints           -> 200 {"blueprints":[],"count":0}
+GET /pipelines            -> 200 {"count":0,"pipelines":[]}
+GET /plugins              -> 200, 50 plugins
+GET /swagger/index.html   -> 200
+Config UI  http://localhost:4000/     -> 200 (size 1506)
+Grafana    http://localhost:3000/     -> 000 (未映射)
+Grafana    http://localhost:3002/     -> 301 -> 200 (最终跳到 :4000/grafana/login)
+Grafana /api/health       -> {"database":"ok","version":"13.2.4"}
+Grafana 数据源            -> mysql | mysql | mysql:3306
+注意: 该版本 Grafana 宿主机端口是 3002 (compose 里 3002:3000)，不是书稿写的 3000。
+注意: 该版本 REST API 挂在根路径 (/blueprints)，不是 /api/blueprints；/api/* 全部 404。
+
+[DORA 看板 - /api/search?query=DORA 返回 11 个]
+1. DORA                                        (uid qNo8_0M4z, 10 panels, tags DORA/Highlights/Engineering Leads Dashboard)
+2. DORA (by Team)
+3. DORA Details - Change Failure Rate
+4. DORA Details - Deployment Frequency
+5. DORA Details - Failed Deployment Recovery Time
+6. DORA Details - Lead Time for Changes
+7. DORA Details - Time to Restore Service
+8. DORA Validation
+9. GitHub Copilot + DORA Correlation
+10. Kiro + DORA Correlation
+11. Kiro Credits + DORA Correlation
+
+[内存]
+docker stats --no-stream (运行稳态):
+  mysql       379.3MiB / 448MiB   (84.66%)
+  grafana     181.0MiB / 256MiB   (70.70%)
+  devlake      98.98MiB / 512MiB  (19.33%)
+  config-ui    16.21MiB / 128MiB  (12.66%)
+  容器合计约 675MiB
+cgroup memory.peak:
+  mysql 448MiB (=limit), grafana 256MiB (=limit), devlake 194MiB, config-ui 16MiB
+  合计峰值约 914MiB
+cgroup memory.events: grafana max=20565, mysql max=1504 => 两者持续顶到 limit 触发回收(无 oom_kill)
+峰值时 free -m: total 1968, used 1066, free 125, buff/cache 970, available 902; swap used 463 (较基线 +339MB)
+结论: 在 1.9GB 主机上能跑起来, 但 grafana/mysql 的 256m/448m 是贴着下限跑, 依赖 swap 才稳定。
+
+[收尾]
+docker compose down 成功, 4 容器 + 网络已删除。
+镜像全部保留: 4 个, 6.728GB。
+数据卷保留(未加 -v): devlake_mysql-storage / grafana-storage / devlake-log, 共约 805MB。
+down 后 df -h /: 39G, 17G used, 22G avail (44%)
+down 后 free -m: used 500, available 1467, swap used 123

@@ -1,0 +1,53 @@
+=== vulnerable npm lockfile ===
+rc=1 elapsed_ms=1388
+--- stdout ---
+Starting filesystem walk for root: /
+Scanned /tmp/osvvuln/package-lock.json file and found 6 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 1.165091ms elapsed, 1.165201ms wall time
+
+Total 6 packages affected by 38 known vulnerabilities (2 Critical, 17 High, 17 Medium, 2 Low, 0 Unknown) from 1 ecosystem.
+38 vulnerabilities can be fixed.
+
++-------------------------------------+------+-----------+--------------+---------+---------------+-------------------------------+
+| OSV URL                             | CVSS | ECOSYSTEM | PACKAGE      | VERSION | FIXED VERSION | SOURCE                        |
++-------------------------------------+------+-----------+--------------+---------+---------------+-------------------------------+
+| https://osv.dev/GHSA-3g43-6gmg-66jw | 7.0  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-3p68-rc4w-qgx5 | 6.3  | npm       | axios        | 0.21.1  | 0.31.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-43fc-jf86-j433 | 7.5  | npm       | axios        | 0.21.1  | 0.30.3        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-5c9x-8gcm-mpgx | 5.3  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-62hf-57xw-28j9 | 7.5  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-6chq-wfr3-2hj9 | 7.4  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-7q8q-rj6j-mhjq | 6.3  | npm       | axios        | 0.21.1  | 0.33.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-898c-q2cr-xwhg | 4.8  | npm       | axios        | 0.21.1  | 0.32.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-cph5-m8f7-6c5x | 7.5  | npm       | axios        | 0.21.1  | 0.21.2        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-fvcv-3m26-pcqx | 4.8  | npm       | axios        | 0.21.1  | 0.31.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-hfxv-24rg-xrqf | 7.5  | npm       | axios        | 0.21.1  | 0.32.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-j5f8-grm9-p9fc | 7.5  | npm       | axios        | 0.21.1  | 0.32.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-jr5f-v2jv-69x6 | 7.7  | npm       | axios        | 0.21.1  | 0.30.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-m7pr-hjqh-92cm | 6.8  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-mmx7-hfxf-jppx | 6.3  | npm       | axios        | 0.21.1  | 0.33.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-p92q-9vqr-4j8v | 8.2  | npm       | axios        | 0.21.1  | 0.32.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-pf86-5x62-jrwf | 7.4  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-pjwm-pj3p-43mv | 8.6  | npm       | axios        | 0.21.1  | 0.32.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-pmwg-cvhr-8vh7 | 7.2  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-vf2m-468p-8v99 | 5.3  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-w9j2-pvgh-6h63 | 4.8  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-wf5p-g6vw-rhxx | 6.5  | npm       | axios        | 0.21.1  | 0.28.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-xhjh-pmcv-23jw | 3.7  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-xx6v-rp6x-q39c | 5.4  | npm       | axios        | 0.21.1  | 0.31.1        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-ghr5-ch3p-vcr6 | 6.9  | npm       | ejs          | 3.1.6   | 3.1.10        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-phwq-j96m-2c2q | 9.8  | npm       | ejs          | 3.1.6   | 3.1.7         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-8cf7-32gw-wr33 | 8.1  | npm       | jsonwebtoken | 8.5.1   | 9.0.0         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-hjrf-2m68-5959 | 5.0  | npm       | jsonwebtoken | 8.5.1   | 9.0.0         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-qwph-4952-7xr6 | 6.4  | npm       | jsonwebtoken | 8.5.1   | 9.0.0         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-29mw-wpgm-hmr9 | 5.3  | npm       | lodash       | 4.17.15 | 4.17.21       | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-35jh-r3h4-6jhm | 7.2  | npm       | lodash       | 4.17.15 | 4.17.21       | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-p6mc-m468-83gw | 7.4  | npm       | lodash       | 4.17.15 | 4.17.19       | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-r5fr-rjxr-66jc | 8.1  | npm       | lodash       | 4.17.15 | 4.18.0        | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-xxjr-mmjv-4gpg | 6.9  | npm       | lodash       | 4.17.15 | 4.17.23       | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-vh95-rmgr-6w4m | 5.6  | npm       | minimist     | 1.2.0   | 1.2.3         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-xvch-5gv4-984h | 9.8  | npm       | minimist     | 1.2.0   | 1.2.6         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-r683-j2x4-v87g | 8.8  | npm       | node-fetch   | 2.6.0   | 2.6.7         | tmp/osvvuln/package-lock.json |
+| https://osv.dev/GHSA-w7rc-rwvf-8q5r | 2.6  | npm       | node-fetch   | 2.6.0   | 2.6.1         | tmp/osvvuln/package-lock.json |
++-------------------------------------+------+-----------+--------------+---------+---------------+-------------------------------+
+--- stderr ---

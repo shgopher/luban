@@ -1,0 +1,17 @@
+=== 工作区当前是否干净 ===
+(空=干净)
+
+=== 静态图选择器：pnpm --filter "...pkg-a" test（pkg-a + 依赖它的包，与 git 改动无关）===
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-b
+Scope: 2 of 4 workspace projects
+packages/pkg-a test$ node test.js
+packages/pkg-a test: pkg-a: 4 assertions passed
+packages/pkg-a test: Done
+packages/pkg-b test$ node test.js
+packages/pkg-b test: pkg-b: 3 assertions passed
+packages/pkg-b test: Done
+EXIT=0
+
+=== 对照 pnpm 官方文档语义（https://pnpm.io/filtering，2026-11-22 抓取）===
+foo...   = foo 及其依赖(deps)；...foo = foo 及其依赖者(dependents)；foo^... = 仅依赖；...^foo = 仅依赖者

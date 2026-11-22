@@ -1,0 +1,29 @@
+=== INSTALL ===
+     Active: activating (auto-restart) (Result: exit-code) since Sun 2026-11-22 16:50:28 UTC; 38ms ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+    Process: 233319 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock (code=exited, status=1/FAILURE)
+   Main PID: 233319 (code=exited, status=1/FAILURE)
+        CPU: 31ms
+
+Nov 22 16:50:28 decn2JoL49VcE systemd[1]: Failed to start docker.service - Docker Application Container Engine.
+Processing triggers for man-db (2.12.0-4build2) ...
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart cloud-final.service
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+=== VERSIONS ===
+Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2
+Docker Compose version 2.40.3+ds1-0ubuntu1~24.04.1

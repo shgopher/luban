@@ -1,0 +1,35 @@
+=== 负向对照：把 pkg-a 的 sum 改成 a-b，验证测试真的会红 ===
+2:  return a - b;
+
+--- pnpm --filter "...[HEAD]" test ---
+Scope: 2 of 4 workspace projects
+packages/pkg-a test$ node test.js
+packages/pkg-a test: node:internal/modules/run_main:111
+packages/pkg-a test:     triggerUncaughtException(
+packages/pkg-a test:     ^
+packages/pkg-a test: AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+packages/pkg-a test: -1 !== 5
+packages/pkg-a test:     at file:///private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a/test.js:5:8
+packages/pkg-a test:     at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+packages/pkg-a test:     at async node:internal/modules/esm/loader:650:26
+packages/pkg-a test:     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:105:5) {
+packages/pkg-a test:   generatedMessage: true,
+packages/pkg-a test:   code: 'ERR_ASSERTION',
+packages/pkg-a test:   actual: -1,
+packages/pkg-a test:   expected: 5,
+packages/pkg-a test:   operator: 'strictEqual',
+packages/pkg-a test:   diff: 'simple'
+packages/pkg-a test: }
+packages/pkg-a test: Node.js v26.10.0
+packages/pkg-a test: Failed
+undefined
+/private/tmp/luban-verify/work-npm/monorepo/packages/pkg-a:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  pkg-a@1.0.0 test: `node test.js`
+Exit status 1
+ WARN   Local package.json exists, but node_modules missing, did you mean to install?
+MUSTFAIL_EXIT=1
+
+=== 还原 ===
+--- 还原后 ---
+No projects matched the filters in "/private/tmp/luban-verify/work-npm/monorepo"
+RESTORED_EXIT=0

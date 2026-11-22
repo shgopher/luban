@@ -1,0 +1,27 @@
+Processing triggers for dracut (060+5-1ubuntu3.4) ...
+dracut: Generating /boot/initrd.img-6.8.0-149-generic
+dracut: Generating /boot/initrd.img-6.8.0-151-generic
+dracut: Generating /boot/initrd.img-6.8.0-48-generic
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart cloud-final.service
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart serial-getty@ttyS0.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+APT_RC=0
+=== dracut version ===
+dracut 060+5-1ubuntu3.4
+rc=0
+/usr/bin/dracut
+=== grubby ===
+policy_rc=0

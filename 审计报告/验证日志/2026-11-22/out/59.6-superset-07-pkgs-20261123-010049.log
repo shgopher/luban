@@ -1,0 +1,14 @@
+---
+Metadata-Version: 2.4
+Name: apache_superset
+Version: 6.1.0
+Summary: A modern, enterprise-ready business intelligence web application
+Download-URL: https://www.apache.org/dist/superset/6.1.0
+Author-email: Apache Software Foundation <dev@superset.apache.org>
+Project-URL: homepage, https://superset.apache.org/
+Project-URL: documentation, https://superset.apache.org/docs/intro
+__editable__.apache_superset-6.1.0.pth
+__editable__.apache_superset_core-0.1.0rc3.pth
+__editable___apache_superset_6_1_0_finder.py
+apache_superset-6.1.0.dist-info
+apache_superset_core-0.1.0rc3.dist-info

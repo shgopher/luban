@@ -1,0 +1,7 @@
+=== exact requested cmd: osv-scanner scan --lockfile ===
+rc=127 elapsed_ms=227
+--- stdout(head 60) ---
+Starting filesystem walk for root: /
+End status: 0 dirs visited, 1 inodes visited, 0 Extract calls, 63.809µs elapsed, 63.929µs wall time
+--- stderr(head 30) ---
+could not determine extractor suitable to this file: "/tmp/orval-demo-package-lock.json"

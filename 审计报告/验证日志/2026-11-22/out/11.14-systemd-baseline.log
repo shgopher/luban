@@ -1,0 +1,45 @@
+=== systemd-analyze ===
+Startup finished in 3.547s (kernel) + 2min 35.639s (userspace) = 2min 39.187s 
+graphical.target reached after 16.790s in userspace.
+rc=0
+
+=== blame head ===
+2min 18.841s cloud-final.service
+     20.974s apt-daily.service
+     13.176s k3s.service
+      7.373s apt-daily-upgrade.service
+      4.697s cloud-config.service
+rc=0
+
+=== proc1 ===
+systemd
+=== is-system-running ===
+running
+rc=0
+
+=== ls /boot ===
+total 214513
+drwxr-xr-x  4 root root     4096 Nov 22 08:27 .
+drwxr-xr-x 22 root root     4096 Nov 21 09:03 ..
+-rw-------  1 root root  9153587 Oct 23 12:10 System.map-6.8.0-149-generic
+-rw-------  1 root root  9161619 Nov 11 00:40 System.map-6.8.0-151-generic
+-rw-------  1 root root  9063891 Sep 27  2024 System.map-6.8.0-48-generic
+-rw-r--r--  1 root root   287772 Oct 23 12:10 config-6.8.0-149-generic
+-rw-r--r--  1 root root   287674 Nov 11 00:40 config-6.8.0-151-generic
+-rw-r--r--  1 root root   287459 Sep 27  2024 config-6.8.0-48-generic
+drwx------  3 root root      512 Jan  1  1970 efi
+drwxr-xr-x  6 root root     4096 Nov 21 09:24 grub
+lrwxrwxrwx  1 root root       28 Nov 22 08:27 initrd.img -> initrd.img-6.8.0-151-generic
+-rw-r--r--  1 root root 76605659 Nov 21 09:37 initrd.img-6.8.0-149-generic
+-rw-r--r--  1 root root 69588998 Nov 21 09:22 initrd.img-6.8.0-48-generic
+lrwxrwxrwx  1 root root       28 Nov 22 08:27 initrd.img.old -> initrd.img-6.8.0-149-generic
+lrwxrwxrwx  1 root root       25 Nov 22 08:27 vmlinuz -> vmlinuz-6.8.0-151-generic
+-rw-------  1 root root 15108488 Oct 23 12:13 vmlinuz-6.8.0-149-generic
+-rw-------  1 root root 15128968 Nov 11 00:43 vmlinuz-6.8.0-151-generic
+-rw-------  1 root root 14952840 Sep 27  2024 vmlinuz-6.8.0-48-generic
+lrwxrwxrwx  1 root root       25 Nov 22 08:27 vmlinuz.old -> vmlinuz-6.8.0-149-generic
+
+=== grubby policy ===
+=== BLS ===
+ls: cannot access '/boot/loader/entries': No such file or directory
+rc=2

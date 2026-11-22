@@ -1,0 +1,8 @@
+--- PUT query_context_generation=true ---
+http_code=200
+{"id":1,"result":{"query_context_generation":true}}
+
+--- GET chart/1/data/ again ---
+http_code=400
+{"message":"Request is incorrect: {'result_type': ['Must be one of: columns, full, query, results, samples, timegrains, post_processed, drill_detail.']}"}
+

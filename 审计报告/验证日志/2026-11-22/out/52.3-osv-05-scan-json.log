@@ -1,0 +1,12 @@
+=== scan source --lockfile -f json ===
+rc=0 elapsed_ms=588
+--- stderr ---
+Starting filesystem walk for root: /
+Scanned /tmp/osvtest/package-lock.json file and found 111 packages
+End status: 0 dirs visited, 1 inodes visited, 1 Extract calls, 9.314817ms elapsed, 9.314917ms wall time
+--- json summary ---
+top keys: ['results', 'experimental_config']
+result entries: 1
+packages: 111
+vulns: 0
+source: {'path': '/tmp/osvtest/package-lock.json', 'type': 'lockfile'}

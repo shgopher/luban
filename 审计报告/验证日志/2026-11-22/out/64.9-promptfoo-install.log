@@ -1,0 +1,7 @@
+=== date ===
+Sun Nov 22 16:27:55 CST 2026
+=== npm i promptfoo --ignore-scripts（避免 Playwright 等 postinstall）===
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+added 577 packages in 3m
+INSTALL_EXIT=0

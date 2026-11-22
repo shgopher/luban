@@ -1,0 +1,93 @@
++ mkdir -p /root/superset
++ cat
++ cat /root/superset/superset_config.py
++ docker rm -f superset
++ docker run -d --name superset --memory 700m --memory-swap 2100m --network superset-net -p 8088:8088 -v /root/superset/superset_config.py:/app/pythonpath/superset_config.py:ro -e SUPERSET_SECRET_KEY=luban-verify-59-6-secret-key-2026 apache/superset:latest sleep infinity
++ echo SUPERSET_RUN_RC=0
++ sleep 3
++ docker ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'
++ docker exec superset sh -c 'id; python -c "import psycopg2; print(psycopg2.__version__)"; superset version; echo VERSION_RC=$?'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'psycopg2'
+2026-11-22 17:02:51,786:ERROR:superset.app:Failed to create app
+Traceback (most recent call last):
+  File "/app/superset/app.py", line 94, in create_app
+    app_initializer.init_app()
+  File "/app/superset/initialization/__init__.py", line 742, in init_app
+    self.setup_db()
+  File "/app/superset/initialization/__init__.py", line 939, in setup_db
+    pessimistic_connection_handling(db.engine)
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 594, in get_engine
+    self._engine = rv = self._sa.create_engine(sa_url, options)
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 1027, in create_engine
+    return sqlalchemy.create_engine(sa_url, **engine_opts)
+  File "<string>", line 2, in create_engine
+  File "/app/.venv/lib/python3.10/site-packages/sqlalchemy/util/deprecations.py", line 375, in warned
+    return fn(*args, **kwargs)
+  File "/app/.venv/lib/python3.10/site-packages/sqlalchemy/engine/create.py", line 544, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/app/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 811, in dbapi
+    import psycopg2
+ModuleNotFoundError: No module named 'psycopg2'
+Traceback (most recent call last):
+  File "/app/.venv/bin/superset", line 10, in <module>
+    sys.exit(superset())
+  File "/app/.venv/lib/python3.10/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+  File "/app/.venv/lib/python3.10/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+  File "/app/.venv/lib/python3.10/site-packages/click/core.py", line 1827, in invoke
+    super().invoke(ctx)
+  File "/app/.venv/lib/python3.10/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/app/.venv/lib/python3.10/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+  File "/app/.venv/lib/python3.10/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/app/.venv/lib/python3.10/site-packages/flask/cli.py", line 355, in decorator
+    app = __ctx.ensure_object(ScriptInfo).load_app()
+  File "/app/.venv/lib/python3.10/site-packages/flask/cli.py", line 302, in load_app
+    app = self.create_app()
+  File "/app/superset/cli/main.py", line 52, in create_app
+    return create_superset_app()
+  File "/app/superset/app.py", line 94, in create_app
+    app_initializer.init_app()
+  File "/app/superset/initialization/__init__.py", line 742, in init_app
+    self.setup_db()
+  File "/app/superset/initialization/__init__.py", line 939, in setup_db
+    pessimistic_connection_handling(db.engine)
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 594, in get_engine
+    self._engine = rv = self._sa.create_engine(sa_url, options)
+  File "/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py", line 1027, in create_engine
+    return sqlalchemy.create_engine(sa_url, **engine_opts)
+  File "<string>", line 2, in create_engine
+  File "/app/.venv/lib/python3.10/site-packages/sqlalchemy/util/deprecations.py", line 375, in warned
+    return fn(*args, **kwargs)
+  File "/app/.venv/lib/python3.10/site-packages/sqlalchemy/engine/create.py", line 544, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/app/.venv/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 811, in dbapi
+    import psycopg2
+ModuleNotFoundError: No module named 'psycopg2'
+import os
+
+SECRET_KEY = "luban-verify-59-6-secret-key-2026"
+SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://superset:SupersetPg2024@superset-pg:5432/superset"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+WTF_CSRF_ENABLED = True
+TALISMAN_ENABLED = False
+1c2eef4684b81856016586b20d41b5494dd6eb9c9f25cf6f402cc2fb02755389
+SUPERSET_RUN_RC=0
+superset	Up 3 seconds (health: starting)	0.0.0.0:8088->8088/tcp, [::]:8088->8088/tcp
+superset-pg	Up 40 seconds	5432/tcp
+uid=1000(superset) gid=1000(superset) groups=1000(superset)
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+VERSION_RC=1

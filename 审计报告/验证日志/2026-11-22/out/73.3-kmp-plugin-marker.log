@@ -1,0 +1,27 @@
+=== date ===
+Sun Nov 22 16:31:59 CST 2026
+### KMP Gradle plugin marker: org.jetbrains.kotlin.multiplatform.gradle.plugin ###
+URL: https://repo1.maven.org/maven2/org/jetbrains/kotlin/multiplatform/org.jetbrains.kotlin.multiplatform.gradle.plugin/maven-metadata.xml
+
+HTTP=200
+  <versioning>
+    <latest>2.5.0-RC</latest>
+    <release>2.5.0-RC</release>
+    <versions>
+      <version>1.7.0-Beta</version>
+      <version>1.7.0-RC</version>
+      <version>1.7.0-RC2</version>
+--- 最后 8 个版本 ---
+<version>2.4.20-RC2</version>
+<version>2.4.20-RC3</version>
+<version>2.4.20</version>
+<version>2.4.21-RC</version>
+<version>2.4.21</version>
+<version>2.5.0-Beta1</version>
+<version>2.5.0-Beta2</version>
+<version>2.5.0-RC</version>
+
+### 该 marker 的 2.4.21 pom ###
+HTTP/2 200 
+content-length: 1416
+last-modified: Thu, 08 Oct 2026 07:57:54 GMT

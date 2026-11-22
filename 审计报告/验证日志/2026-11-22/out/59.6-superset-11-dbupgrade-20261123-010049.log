@@ -1,0 +1,61 @@
++ date -Is
+++ date +%s
++ S=1795367028
++ docker exec superset superset db upgrade
++ RC=0
+++ date +%s
++ E=1795367045
++ echo 'DB_UPGRADE_RC=0 DURATION_S=17'
++ echo '--- last 40 lines ---'
++ tail -40 /tmp/dbupgrade.out
++ date -Is
++ docker exec superset sh -c 'superset version 2>/dev/null'
+2026-11-22T17:03:48+00:00
+DB_UPGRADE_RC=0 DURATION_S=17
+--- last 40 lines ---
+INFO  [alembic.runtime.migration] Running upgrade f5b5f88d8526 -> 9787190b3d89, add currency column support
+INFO  [alembic.env] Adding column [32mcurrency_code_column[0m to table [32mtables[0m...
+INFO  [alembic.runtime.migration] Running upgrade 9787190b3d89 -> 4b2a8c9d3e1f, Create tasks and task_subscriber tables for Global Task Framework (GTF)
+INFO  [alembic.env] Creating table [32mtasks[0m...
+INFO  [alembic.env] Table [32mtasks[0m created.
+INFO  [alembic.env] Creating index [32midx_tasks_dedup_key[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_status[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_scope[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_ended_at[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_created_by[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_created_on[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_task_key[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_task_type[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating index [32midx_tasks_uuid[0m on table [32mtasks[0m
+INFO  [alembic.env] Creating foreign key [32mfk_tasks_created_by_fk_ab_user[0m on table [32mtasks[0m...
+INFO  [alembic.env] Creating foreign key [32mfk_tasks_changed_by_fk_ab_user[0m on table [32mtasks[0m...
+INFO  [alembic.env] Creating foreign key [32mfk_tasks_user_id_ab_user[0m on table [32mtasks[0m...
+INFO  [alembic.env] Creating table [32mtask_subscribers[0m...
+INFO  [alembic.env] Table [32mtask_subscribers[0m created.
+INFO  [alembic.env] Creating index [32midx_task_subscribers_user_id[0m on table [32mtask_subscribers[0m
+INFO  [alembic.env] Creating foreign key [32mfk_task_subscribers_task_id_tasks[0m on table [32mtask_subscribers[0m...
+INFO  [alembic.env] Creating foreign key [32mfk_task_subscribers_user_id_ab_user[0m on table [32mtask_subscribers[0m...
+INFO  [alembic.env] Creating foreign key [32mfk_task_subscribers_created_by_fk_ab_user[0m on table [32mtask_subscribers[0m...
+INFO  [alembic.env] Creating foreign key [32mfk_task_subscribers_changed_by_fk_ab_user[0m on table [32mtask_subscribers[0m...
+INFO  [alembic.env] Migration scripts completed. Duration: 00:00:05
+
+Cleaning up slice uuid from dashboard position json..Cleaning up slice uuid from dashboard position json.. Done.      
+
+Updated 0 pie chart labels.
+0 slices altered
+
+Cleaning up slice uuid from dashboard position json..Cleaning up slice uuid from dashboard position json.. Done.      
+
+Updated 0 native filter configurations.
+Updated 0 filter sets with 0 filters.
+Upgraded 0 filters and 0 filter sets.
+Upgraded 0 slices.
+slices updated with no time_range_endpoints: 0
+>> Assign new UUIDs to tables...
+>> Drop intermediate columns...
+2026-11-22T17:04:05+00:00
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+[34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[33mSuperset [36m6.1.0
+[34m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[0m

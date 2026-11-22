@@ -1,0 +1,58 @@
+########## 07 Go 扩散 worker（go run） ##########
+$ go version
+go version go1.27.1 darwin/arm64
+$ go mod tidy
+go: diffusion-worker: open /Users/shgopher/Library/Caches/go-build/b8/b86c860a38e136bd96e8084d79371d75b1332ac94e8c051739e8c85a63f50240-d: operation not permitted
+tidy_exit=1
+
+$ MYSQL_DSN=... REDIS_ADDR=127.0.0.1:16379 PAGE_SIZE=100 RATE=500 INBOX_MAX=100 go run .
+open /Users/shgopher/Library/Caches/go-build/b8/b86c860a38e136bd96e8084d79371d75b1332ac94e8c051739e8c85a63f50240-d: operation not permitted
+run_exit=1
+
+########## 07b 修正：沙箱禁止写 ~/Library/Caches/go-build，改用 /tmp 下的 GOCACHE ##########
+$ export GOCACHE=/tmp/luban-verify/work-data/gocache GOTMPDIR=/tmp/luban-verify/work-data/gotmp
+$ go mod tidy
+go: downloading github.com/bsm/gomega v1.27.10
+go: downloading github.com/bsm/ginkgo/v2 v2.12.0
+go: diffusion-worker imports
+	github.com/redis/go-redis/v9 tested by
+	github.com/redis/go-redis/v9.test imports
+	github.com/bsm/ginkgo/v2: open /Users/shgopher/go/pkg/mod/cache/download/github.com/bsm/ginkgo/v2/@v/v2.12.0.lock: operation not permitted
+go: diffusion-worker imports
+	github.com/redis/go-redis/v9 tested by
+	github.com/redis/go-redis/v9.test imports
+	github.com/bsm/gomega: open /Users/shgopher/go/pkg/mod/cache/download/github.com/bsm/gomega/@v/v1.27.10.lock: operation not permitted
+tidy_exit=1
+
+$ MYSQL_DSN=... REDIS_ADDR=127.0.0.1:16379 PAGE_SIZE=100 RATE=500 INBOX_MAX=100 go run .
+main.go:15:2: missing go.sum entry for module providing package github.com/go-sql-driver/mysql (imported by diffusion-worker); to add:
+	go get diffusion-worker
+main.go:16:2: missing go.sum entry for module providing package github.com/redis/go-redis/v9 (imported by diffusion-worker); to add:
+	go get diffusion-worker
+run_exit=1
+
+########## 07c 修正：模块缓存也改到 /tmp（沙箱对 ~/go/pkg/mod 只读） ##########
+$ export GOMODCACHE=/tmp/luban-verify/work-data/gomodcache
+$ go mod tidy
+go: downloading github.com/go-sql-driver/mysql v1.8.1
+go: downloading github.com/redis/go-redis/v9 v9.7.0
+go: downloading github.com/cespare/xxhash/v2 v2.2.0
+go: downloading github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
+go: downloading github.com/bsm/ginkgo/v2 v2.12.0
+go: downloading github.com/bsm/gomega v1.27.10
+go: downloading filippo.io/edwards25519 v1.1.0
+tidy_exit=0
+
+$ MYSQL_DSN=... REDIS_ADDR=127.0.0.1:16379 PAGE_SIZE=100 RATE=500 INBOX_MAX=100 go run .
+go_version=go1.27.1 (darwin/arm64)
+mysql_dsn=root:luban123@tcp(127.0.0.1:13306)/luban?parseTime=true&charset=utf8mb4
+redis_addr=127.0.0.1:16379 redis_client=go-redis/v9 v9.7.0
+config page_size=100 rate_rows_per_sec=500 inbox_max=100 max_retries=3
+seq_snapshot=200500 followees=3
+followers_scanned=2501 diffused_rows=2501 pages=26 retries=0
+rate_limit_wait_ms=4494 elapsed_ms=4611 avg_rows_per_sec=542.4
+inbox=inbox:2002 zcard_before_trim=1 zcard_after_trim=1
+inbox=inbox:9001 zcard_before_trim=2000 zcard_after_trim=100
+inbox=inbox:9002 zcard_before_trim=500 zcard_after_trim=100
+inbox_keys=3 zcard_after_trim_total=201
+run_exit=0

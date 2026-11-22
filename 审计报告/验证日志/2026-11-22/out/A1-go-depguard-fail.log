@@ -1,0 +1,5 @@
+domain/leak.go:3:8: import 'example.com/layered/infra' is not allowed from list 'domain-purity': domain layer must not import infra layer (depguard)
+import "example.com/layered/infra"
+       ^
+1 issues:
+* depguard: 1

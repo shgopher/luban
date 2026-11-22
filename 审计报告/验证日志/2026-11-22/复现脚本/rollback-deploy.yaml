@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rollback-demo
+  namespace: lab
+  labels: {app: rollback-demo}
+spec:
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels: {app: rollback-demo}
+  template:
+    metadata:
+      labels: {app: rollback-demo}
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports: [{containerPort: 80}]
+        resources:
+          requests: {cpu: 20m, memory: 32Mi}
+          limits: {cpu: 100m, memory: 64Mi}

@@ -1,0 +1,42 @@
+=== E. blueprints (real route) ===
+GET /blueprints -> HTTP 200
+{"blueprints":[],"count":0}
+=== pipelines ===
+{"count":0,"pipelines":[]}
+=== plugins count ===
+50 plugins
+
+=== swagger ===
+HTTP 200
+=== C. config-ui follow ===
+HTTP 200 final=http://localhost:4000/
+=== D. grafana follow ===
+HTTP 200 final=http://localhost:4000/grafana/login
+=== DORA dashboards count ===
+11
+ - DORA
+ - DORA (by Team)
+ - DORA Details - Change Failure Rate
+ - DORA Details - Deployment Frequency
+ - DORA Details - Failed Deployment Recovery Time
+ - DORA Details - Lead Time for Changes
+ - DORA Details - Time to Restore Service
+ - DORA Validation
+ - GitHub Copilot + DORA Correlation
+ - Kiro + DORA Correlation
+ - Kiro Credits + DORA Correlation
+=== MEMORY PEAK (cgroup) ===
+/devlake-config-ui-1 peak=16MB current=16MB
+/devlake-grafana-1 peak=256MB current=255MB
+/devlake-devlake-1 peak=194MB current=164MB
+/devlake-mysql-1 peak=448MB current=447MB
+=== docker stats --no-stream ===
+CONTAINER ID   NAME                  CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O         PIDS
+ca71ec723204   devlake-config-ui-1   0.00%     16.21MiB / 128MiB   12.66%    69.4kB / 70.7kB   13.9MB / 8.19kB   3
+91c98dbe3867   devlake-grafana-1     0.69%     181MiB / 256MiB     70.70%    175MB / 1.18MB    2.9GB / 1.79GB    80
+589ce34e63e1   devlake-devlake-1     0.10%     98.98MiB / 512MiB   19.33%    10.8MB / 2.98MB   81.7MB / 35.8MB   5
+221b2fbd8e02   devlake-mysql-1       0.60%     379.3MiB / 448MiB   84.66%    2.96MB / 10.8MB   214MB / 2.1GB     36
+=== free -m now ===
+               total        used        free      shared  buff/cache   available
+Mem:            1968        1066         125           2         970         902
+Swap:           4095         463        3632

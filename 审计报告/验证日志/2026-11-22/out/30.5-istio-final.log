@@ -1,0 +1,38 @@
+===== A) 注入与 sidecar 形态 =====
+-- namespace label:
+enabled
+-- 常规容器:
+whoami
+-- init 容器（native sidecar）:
+istio-init restartPolicy=
+istio-proxy restartPolicy=Always
+-- READY:
+web-v1-67b9cbc799-tmdg6 2/2
+web-v1-67b9cbc799-vlpp4 2/2
+web-v2-964d54c94-s7xzl 2/2
+-- istioctl analyze:
+
+✔ No validation issues found when analyzing namespace: shop.
+===== B) 重试策略 =====
+retries=2 时，一次客户端调用产生的上游请求数 = 1
+retries=0 时，一次客户端调用产生的上游请求数 = 1
+-- 三条请求的时间戳（retries=2 那一次）
+time=2026-11-22T16:24:39.548Z
+time=2026-11-22T16:24:45.503Z
+time=2026-11-22T16:25:16.405Z
+time=2026-11-22T16:25:22.794Z
+===== C) 可退：去掉注入标签并重启 =====
+-- 重启后容器列表:
+web-v1-8596795969-72pmz 1/1
+web-v1-8596795969-mzsrv 1/1
+web-v2-55c988df7b-v8xg7 1/1
+web-v1-8596795969-72pmz init= containers=whoami
+web-v1-8596795969-mzsrv init= containers=whoami
+web-v2-55c988df7b-v8xg7 init= containers=whoami
+===== D) 恢复注入标签 =====
+web-v1-79fc75f89c-l8kj6 2/2
+web-v1-79fc75f89c-s74xv 2/2
+web-v2-77cdb58976-4mmp7 2/2
+web-v1-79fc75f89c-l8kj6 init=istio-init istio-proxy
+web-v1-79fc75f89c-s74xv init=istio-init istio-proxy
+web-v2-77cdb58976-4mmp7 init=istio-init istio-proxy

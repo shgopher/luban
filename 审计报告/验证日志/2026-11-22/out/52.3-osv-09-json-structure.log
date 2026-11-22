@@ -1,0 +1,19 @@
+top keys: ['results', 'experimental_config']
+== source {'path': '/tmp/osvvuln/package-lock.json', 'type': 'lockfile'} keys ['source', 'packages']
+  pkg keys: ['package', 'groups', 'vulnerabilities']
+  pkg: {"name": "axios", "version": "0.21.1", "ecosystem": "npm", "purl": "pkg:npm/axios@0.21.1?source=PUBLIC_REGISTRY"}
+  vulns in pkg: 24
+    GHSA-3g43-6gmg-66jw axios Vulnerable to Credential Theft and Response Hijacking via Prototype Pollut
+    GHSA-3p68-rc4w-qgx5 Axios has a NO_PROXY Hostname Normalization Bypass that Leads to SSRF
+== source {'path': '/tmp/osvvuln/requirements.txt', 'type': 'lockfile'} keys ['source', 'packages']
+  pkg keys: ['package', 'groups', 'vulnerabilities']
+  pkg: {"name": "django", "version": "3.2.0", "ecosystem": "PyPI", "purl": "pkg:pypi/django@3.2.0"}
+  vulns in pkg: 66
+    PYSEC-2021-109 
+    PYSEC-2021-439 
+== source {'path': '/tmp/osvvuln/requirements.txt', 'type': 'unknown'} keys ['source', 'packages']
+  pkg keys: ['package', 'groups', 'vulnerabilities']
+  pkg: {"name": "certifi", "version": "2026.7.22", "ecosystem": "PyPI", "purl": "pkg:pypi/certifi@2026.7.22"}
+  vulns in pkg: 2
+    PYSEC-2026-4320 certifi bundles emSign root CAs with compromised intermediate CA keys
+    GHSA-6q48-6c7w-9gw2 certifi bundles emSign root CAs with compromised intermediate CA keys

@@ -1,0 +1,57 @@
++ docker exec superset sh -c 'cat /sys/fs/cgroup/memory.peak 2>/dev/null || cat /sys/fs/cgroup/memory/memory.max_usage_in_bytes'
++ docker exec superset-pg sh -c 'cat /sys/fs/cgroup/memory.peak 2>/dev/null || cat /sys/fs/cgroup/memory/memory.max_usage_in_bytes'
++ echo '--- container inspect ---'
++ docker inspect superset --format '{{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}} mem={{.HostConfig.Memory}}'
++ docker inspect superset-pg --format '{{.State.Status}} started={{.State.StartedAt}} restarts={{.RestartCount}} mem={{.HostConfig.Memory}}'
++ echo '--- free after ---'
++ free -m
++ echo '--- df ---'
++ df -h /
++ echo '--- docker stats final ---'
++ docker stats --no-stream --format '{{.Name}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.CPUPerc}}\t{{.NetIO}}\t{{.BlockIO}}'
++ echo '--- run log error scan ---'
++ docker exec superset sh -c 'grep -i -E "error|traceback|exception" /tmp/superset-run.log | grep -v "ERROR:superset.app" | tail -20; echo GREP_RC=$?'
++ docker exec superset sh -c 'grep -c "GET /api/v1" /tmp/superset-run.log; tail -5 /tmp/superset-run.log'
+457027584
+270561280
+--- container inspect ---
+running started=2026-11-22T17:02:40.791123568Z restarts=0 mem=734003200
+running started=2026-11-22T17:02:03.512011564Z restarts=0 mem=314572800
+--- free after ---
+               total        used        free      shared  buff/cache   available
+Mem:            1968         803         137          35        1254        1164
+Swap:           4095         122        3973
+--- df ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        39G   19G   21G  48% /
+--- docker stats final ---
+superset	266.9MiB / 700MiB	38.14%	0.02%	9.23MB / 4.41MB	65.5MB / 12.4MB
+superset-pg	181.1MiB / 300MiB	60.35%	0.14%	3.81MB / 4.65MB	122MB / 102MB
+--- run log error scan ---
+    raise request.routing_exception  # type: ignore
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2026-11-22 17:06:37,991:WARNING:superset.views.error_handling:HTTPException
+Traceback (most recent call last):
+    self.raise_routing_exception(req)
+  File "/app/.venv/lib/python3.10/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2026-11-22 17:06:38,020:WARNING:superset.views.error_handling:HTTPException
+Traceback (most recent call last):
+    self.raise_routing_exception(req)
+  File "/app/.venv/lib/python3.10/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2026-11-22 17:06:38,032:WARNING:superset.views.error_handling:HTTPException
+Traceback (most recent call last):
+    self.raise_routing_exception(req)
+  File "/app/.venv/lib/python3.10/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+GREP_RC=0
+22
+2026-11-22 17:08:29,687:INFO:werkzeug:172.18.0.1 - - [22/Nov/2026 17:08:29] "POST /api/v1/chart/data HTTP/1.1" 200 -
+2026-11-22 17:08:32,900:INFO:werkzeug:172.18.0.1 - - [22/Nov/2026 17:08:32] "POST /api/v1/chart/data HTTP/1.1" 200 -
+2026-11-22 17:08:36,110:INFO:werkzeug:172.18.0.1 - - [22/Nov/2026 17:08:36] "POST /api/v1/chart/data HTTP/1.1" 200 -
+2026-11-22 17:08:39,319:INFO:werkzeug:172.18.0.1 - - [22/Nov/2026 17:08:39] "POST /api/v1/chart/data HTTP/1.1" 200 -
+2026-11-22 17:08:42,777:INFO:werkzeug:127.0.0.1 - - [22/Nov/2026 17:08:42] "GET /health HTTP/1.1" 200 -

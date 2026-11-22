@@ -1,0 +1,34 @@
+########## 06 Redis ZSET 收件箱：写 120 条 + 裁剪 ##########
+Redis 实际版本：7.4.12（书稿写 Redis 8，本机镜像为 redis:7-alpine，照实记录）
+
+$ docker exec -i luban-redis1 redis-cli DEL inbox
+0
+
+$ for i in 1..120: ZADD inbox $((1760000000000+i)) u:$i   # 经 stdin 批量送入 redis-cli
+ZADD 返回行统计（1=新增成功）：
+ 120 1
+
+$ ZCARD inbox   # 裁剪前
+120
+
+$ ZREMRANGEBYRANK inbox 0 -101   # 只保留 score 最大的 100 条
+20
+
+$ ZCARD inbox   # 裁剪后
+100
+
+$ ZRANGE inbox 0 2 WITHSCORES   # 裁剪后最旧 3 条
+u:21
+1760000000021
+u:22
+1760000000022
+u:23
+1760000000023
+
+$ ZRANGE inbox -3 -1 WITHSCORES   # 裁剪后最新 3 条
+u:118
+1760000000118
+u:119
+1760000000119
+u:120
+1760000000120

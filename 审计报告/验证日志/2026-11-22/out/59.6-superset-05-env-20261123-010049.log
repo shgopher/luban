@@ -1,0 +1,24 @@
+FLASK_APP=superset.app:create_app()
+GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D
+HOME=/app/superset_home
+HOSTNAME=026816c5f645
+LANG=C.UTF-8
+PATH=/app/.venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright-browsers
+PYTHONPATH=/app/pythonpath
+PYTHON_SHA256=a0da1e72132e950154eca0f6f47d5db828454700de20e5113667940d81e0db04
+PYTHON_VERSION=3.10.21
+SUPERSET_ENV=production
+SUPERSET_HOME=/app/superset_home
+SUPERSET_PORT=8088
+---
+total 8
+drwxr-xr-x 2 root root 4096 Sep  7 06:07 .
+drwxr-xr-x 1 root root 4096 Sep  7 06:10 ..
+---
+docker-ci.sh
+run-server.sh
+---
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AttributeError: module 'superset' has no attribute '__version__'

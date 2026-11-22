@@ -1,0 +1,15 @@
+########## 12 启动 ShardingSphere-Proxy 5.5.0（分片配置） ##########
+$ docker run -d --name luban-ss-proxy -p 13307:3307 -v ss-proxy/conf:/opt/shardingsphere-proxy/conf -v mysql-connector-j-8.4.0.jar:/opt/shardingsphere-proxy/lib/mysql-connector-j-8.4.0.jar apache/shardingsphere-proxy:5.5.0
+3eb29eb3ab55df929b5a72f1d5295e4e4715889acde749f51a999db2f03f0c60
+
+--- docker ps ---
+luban-ss-proxy Up About a minute 0.0.0.0:13307->3307/tcp, [::]:13307->3307/tcp
+--- docker logs tail ---
+we find java version: java21, full_version=21.0.3, full_path=/opt/java/openjdk/bin/java
+unadapted java version, please notice...
+The classpath is /opt/shardingsphere-proxy/conf:/opt/shardingsphere-proxy/conf:.:/opt/shardingsphere-proxy/lib/*:/opt/shardingsphere-proxy/ext-lib/*
+main class org.apache.shardingsphere.proxy.Bootstrap -1 /opt/shardingsphere-proxy/conf 0.0.0.0 false
+[INFO ] 2026-11-22 08:29:08.808 [main] o.a.s.d.p.c.l.PipelineContextManagerLifecycleListener - mode type is not Cluster, mode type='Standalone', ignore
+[INFO ] 2026-11-22 08:29:08.837 [main] o.a.s.p.v.ShardingSphereProxyVersion - Database type is `MySQL`, version is `8.0.46`, database name is `sharding_db`
+[INFO ] 2026-11-22 08:29:08.838 [main] o.a.s.p.frontend.ssl.ProxySSLContext - Proxy frontend SSL/TLS is not enabled.
+[INFO ] 2026-11-22 08:29:08.943 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy Standalone mode started successfully

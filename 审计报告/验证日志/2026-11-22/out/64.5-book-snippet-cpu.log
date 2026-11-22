@@ -1,0 +1,6 @@
+W1122 08:58:45.967000 197 site-packages/torch/distributed/run.py:982] 
+W1122 08:58:45.967000 197 site-packages/torch/distributed/run.py:982] *****************************************
+W1122 08:58:45.967000 197 site-packages/torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1122 08:58:45.967000 197 site-packages/torch/distributed/run.py:982] *****************************************
+[rank0] FAILED: ValueError: DistributedDataParallel device_ids and output_device arguments only work with single-device/multiple-device GPU modules or CPU modules, but got device_ids [0], output_device None, and module parameters {device(type='cpu')}.
+[rank1] FAILED: ValueError: DistributedDataParallel device_ids and output_device arguments only work with single-device/multiple-device GPU modules or CPU modules, but got device_ids [1], output_device None, and module parameters {device(type='cpu')}.

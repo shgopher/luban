@@ -1,0 +1,39 @@
+=== virt ===
+kvm
+=== cpu ===
+CPU(s):                               1
+Model name:                           AMD EPYC 7K62 48-Core Processor
+BIOS Model name:                      pc-i440fx-10.0  CPU @ 2.0GHz
+Virtualization:                       AMD-V
+Hypervisor vendor:                    KVM
+Virtualization type:                  full
+=== perf paranoid now ===
+1
+=== grub script 来源 ===
+#! /bin/sh
+set -e
+
+# Generate grub.cfg by inspecting /boot contents.
+# Copyright (C) 2006,2007,2008,2009,2010 Free Software Foundation, Inc.
+#
+# GRUB is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# GRUB is distributed in the hope that it will be useful,
+...
+40:grub_mkconfig_dir="${sysconfdir}"/grub.d
+60:    print_option_help "-o, --output=$(gettext FILE)" "$(gettext "output generated config to FILE [default=stdout]")"
+93:    --output=*)
+94:	grub_cfg=`echo "$option" | sed 's/--output=//'`
+164:for x in ${sysconfdir}/default/grub.d/*.cfg ; do
+316:Ensure that there are no errors in /etc/default/grub
+=== RHEL 同名包搜索 ===
+=== perf.data 大小与样本 ===
+-rw------- 1 root root 824725 Nov 22 08:30 /root/perf-verify/perf.data
+# os release : 6.8.0-48-generic
+# nrcpus online : 1
+# nrcpus avail : 1
+# cpudesc : AMD EPYC 7K62 48-Core Processor
+# total memory : 2015368 kB

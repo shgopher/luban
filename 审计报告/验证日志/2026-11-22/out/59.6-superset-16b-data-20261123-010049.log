@@ -1,0 +1,39 @@
++ cat
++ cat /tmp/seed.sql
++ docker exec -i superset-pg psql -U superset -d analytics -v ON_ERROR_STOP=1
++ echo SEED_RC=0
++ docker exec superset-pg psql -U superset -d analytics -c 'SELECT count(*) AS rows, round(avg(lead_time_hours)::numeric,2) AS avg_lead_h, sum(deploys) AS total_deploys FROM dora_metrics;' -c 'SELECT * FROM dora_metrics ORDER BY day;'
+CREATE TABLE IF NOT EXISTS dora_metrics (
+  day date PRIMARY KEY,
+  deploys int NOT NULL,
+  lead_time_hours float8 NOT NULL
+);
+DELETE FROM dora_metrics;
+INSERT INTO dora_metrics(day, deploys, lead_time_hours) VALUES
+ ('2026-11-09', 3, 18.5),
+ ('2026-11-10', 5, 12.0),
+ ('2026-11-11', 2, 30.2),
+ ('2026-11-12', 6,  9.8),
+ ('2026-11-13', 4, 22.1),
+ ('2026-11-14', 1, 41.0),
+ ('2026-11-15', 5, 14.6);
+CREATE TABLE
+DELETE 0
+INSERT 0 7
+SEED_RC=0
+ rows | avg_lead_h | total_deploys 
+------+------------+---------------
+    7 |      21.17 |            26
+(1 row)
+
+    day     | deploys | lead_time_hours 
+------------+---------+-----------------
+ 2026-11-09 |       3 |            18.5
+ 2026-11-10 |       5 |              12
+ 2026-11-11 |       2 |            30.2
+ 2026-11-12 |       6 |             9.8
+ 2026-11-13 |       4 |            22.1
+ 2026-11-14 |       1 |              41
+ 2026-11-15 |       5 |            14.6
+(7 rows)
+

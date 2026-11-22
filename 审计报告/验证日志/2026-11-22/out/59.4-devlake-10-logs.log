@@ -1,0 +1,79 @@
+=== DEVLAKE LOG TAIL ===
+time="2026-11-22T16:58:30Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+devlake-1  | time="2026-11-22 16:58:09" level=info msg=" [migrator] applying migration script add cq_project_metrics_history domain table:20260707153201"
+devlake-1  | time="2026-11-22 16:58:09" level=info msg=" [migrator] applying migration script add AI credit usage billing tables:20260708000000"
+devlake-1  | time="2026-11-22 16:58:09" level=info msg=" [migrator] applying migration script cursor init tables:20260709000000"
+devlake-1  | time="2026-11-22 16:58:10" level=info msg=" [migrator] applying migration script cursor change requests_costs column to double:20260710120000"
+devlake-1  | time="2026-11-22 16:58:10" level=info msg=" [migrator] applying migration script cursor add daily usage tables:20260714000000"
+devlake-1  | time="2026-11-22 16:58:10" level=info msg=" [migrator] applying migration script cursor add daily usage line and apply fields:20260716120000"
+devlake-1  | time="2026-11-22 16:58:11" level=info msg=" [migrator] applying migration script clickup init schemas:20260720000001"
+devlake-1  | time="2026-11-22 16:58:11" level=info msg=" [migrator] applying migration script add is_bot to accounts so bot/automation activity can be excluded from metrics, according to #8974:20260720120000"
+devlake-1  | time="2026-11-22 16:58:11" level=info msg=" [migrator] applying migration script add _tool_jira_sprint_reports table to persist Jira's frozen Sprint Report snapshot:20260722000000"
+devlake-1  | time="2026-11-22 16:58:11" level=info msg=" [migrator] applying migration script clickup: add folder scope + sprint/story-point columns:20260722000001"
+devlake-1  | time="2026-11-22 16:58:12" level=info msg=" [migrator] applying migration script add endpoint field to _tool_azuredevops_go_connections:20260722000002"
+devlake-1  | time="2026-11-22 16:58:12" level=info msg=" [migrator] applying migration script add committed_story_point/completed_story_point to sprints:20260722100000"
+devlake-1  | time="2026-11-22 16:58:12" level=info msg=" [migrator] applying migration script clickup: add bug/incident list-name type patterns to scope config:20260723000001"
+devlake-1  | time="2026-11-22 16:58:13" level=info msg=" [migrator] applying migration script initialize schemas for Zephyr:20260724000001"
+devlake-1  | time="2026-11-22 16:58:13" level=info msg=" [migrator] applying migration script add username field to _tool_azuredevops_go_connections:20260726000001"
+devlake-1  | time="2026-11-22 16:58:13" level=info msg=" [migrator] applying migration script add missing _raw_data_* columns to _tool_jira_sprint_reports:20260727000000"
+devlake-1  | time="2026-11-22 16:58:14" level=info msg=" [migrator] applying migration script add missing id/created_at/updated_at columns to _tool_teambition_scope_configs:20260727000001"
+devlake-1  | time="2026-11-22 16:58:14" level=info msg=" [migrator] applying migration script add missing type_mappings column to _tool_taiga_scope_configs:20260727000001"
+devlake-1  | time="2026-11-22 16:58:14" level=info msg=" [migrator] applying migration script add missing connection_id/name columns to _tool_testmo_scope_configs:20260727000001"
+devlake-1  | time="2026-11-22 16:58:14" level=info msg=" [migrator] applying migration script incident.io init schemas:20260729000001"
+devlake-1  | time="2026-11-22 16:58:14" level=info msg=" [migrator] applying migration script Initialize schema for the kiro plugin:20260729000001"
+devlake-1  | time="2026-11-22 16:58:15" level=info msg=" [migrator] applying migration script add missing AI credit usage breakdown columns:20260731000000"
+devlake-1  | time="2026-11-22 16:58:16" level=info msg=" [migrator] applying migration script add github issue field values table and scope config issue field mappings:20260809000001"
+devlake-1  | time="2026-11-22 16:58:17" level=info msg=" [migrator] applying migration script create init tables for the monorepo plugin:20260809100000"
+devlake-1  | time="2026-11-22 16:58:17" level=info msg=" [migrator] applying migration script add sub_project to pull_requests, pull_request_commits and project_pr_metrics for monorepo support:20260810100000"
+devlake-1  | time="2026-11-22 16:58:18" level=info msg=" [migrator] applying migration script create cicd_deployment_subprojects mapping table for monorepo support:20260810100100"
+devlake-1  | time="2026-11-22 16:58:18" level=info msg=" [migrator] applying migration script backfill sub_project into core tables from existing monorepo plugin data:20260810100200"
+devlake-1  | time="2026-11-22 16:58:18" level=info msg=" [migrator] applying migration script gitlab: add commit_updated_at to merge requests:20260812000001"
+devlake-1  | time="2026-11-22 16:58:18" level=info msg=" [migrator] applying migration script add blueprint_id index for _devlake_pipelines:20260818000001"
+devlake-1  | time="2026-11-22 16:58:18" level=info msg=" [migrator] applying migration script expand GitHub text columns:20260819000000"
+devlake-1  | time="2026-11-22 16:58:19" level=info msg=" [migrator] applying migration script expand domain text columns:20260819000001"
+devlake-1  | time="2026-11-22 16:58:20" level=info msg=" [migrator] applying migration script add oauth2 client credentials to _tool_jira_connections:20260907120000"
+devlake-1  | time="2026-11-22 16:58:20" level=info msg=" [migrator] applying migration script add run name field to _tool_azuredevops_go_builds:20260916000001"
+devlake-1  | time="2026-11-22 16:58:20" level=info msg=" [migrator] applying migration script grafana_irm init schemas:20260918000001"
+devlake-1  | time="2026-11-22 16:58:21" level=info msg=" [migrator] applying migration script youtrack init schemas:20260921000001"
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: monorepo doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: azuredevops doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: redmine doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: github_graphql doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: starrocks doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: zephyr doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: org doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: linker doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: refdiff doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: dora doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="plugin: gitextractor doesn't implement 'PluginInit', it will be skipped."
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="total 0 blueprints were scheduled"
+devlake-1  | time="2026-11-22 16:58:21" level=info msg="no db migration needed"
+devlake-1  | [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+devlake-1  | 
+devlake-1  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+devlake-1  |  - using env:	export GIN_MODE=release
+devlake-1  |  - using code:	gin.SetMode(gin.ReleaseMode)
+devlake-1  | 
+devlake-1  | [GIN-debug] GET    /ping                     --> github.com/apache/devlake/server/api/ping.Get (3 handlers)
+devlake-1  | [GIN-debug] GET    /ready                    --> github.com/apache/devlake/server/api/ping.Ready (3 handlers)
+devlake-1  | [GIN-debug] GET    /health                   --> github.com/apache/devlake/server/api/ping.Health (3 handlers)
+devlake-1  | [GIN-debug] GET    /version                  --> github.com/apache/devlake/server/api/version.Get (3 handlers)
+devlake-1  | time="2026-11-22 16:58:21" level=info msg=" [pipeline service] get lock and wait next pipeline"
+devlake-1  | [GIN] 2026/11/22 - 16:58:25 | 404 | 13.636µs |      172.18.0.1 | GET      "/"
+=== MYSQL LOG TAIL ===
+time="2026-11-22T16:58:30Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+mysql-1  | 2026-11-22T16:55:33.465217Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+mysql-1  | 2026-11-22 16:55:33+00:00 [Note] [Entrypoint]: Temporary server stopped
+mysql-1  | 
+mysql-1  | 2026-11-22 16:55:33+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
+mysql-1  | 
+mysql-1  | 2026-11-22T16:55:33.981536Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+mysql-1  | 2026-11-22T16:55:34.473863Z 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.13) starting as process 1
+mysql-1  | 2026-11-22T16:55:34.473868Z 0 [System] [MY-015150] [Server] Server version with update: '8.4.13.0'
+mysql-1  | 2026-11-22T16:55:34.487018Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+mysql-1  | 2026-11-22T16:55:36.075928Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysql-1  | 2026-11-22T16:55:36.884989Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+mysql-1  | 2026-11-22T16:55:36.885204Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+mysql-1  | 2026-11-22T16:55:36.891404Z 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+mysql-1  | 2026-11-22T16:55:36.987109Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+mysql-1  | 2026-11-22T16:55:36.987819Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.13'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.

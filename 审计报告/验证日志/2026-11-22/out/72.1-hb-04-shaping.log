@@ -1,0 +1,18 @@
+=== 1) single beh (isol) ===
+[uni0628=0+772]
+=== 2) word بيت (init/medi/fina) ===
+[uniFE96=2+817|uniFEF4=1+360|uniFE91=0+275]
+=== 3) بببب (init/medi/medi/fina) ===
+[uniFE90=3+817|uniFE92=2+292|uniFE92=1+292|uniFE91=0+275]
+=== 4) json: ببب ===
+[{"g":"uniFE90","cl":2,"dx":0,"dy":0,"ax":817,"ay":0},{"g":"uniFE92","cl":1,"dx":0,"dy":0,"ax":292,"ay":0},{"g":"uniFE91","cl":0,"dx":0,"dy":0,"ax":275,"ay":0}]
+=== 5) hebrew שלום ===
+[uni05DD=3+684|uni05D5=2@-10,0+291|uni05DC=1+522|uni05E9=0+730]
+=== 6) hebrew mem vs final mem מם ===
+[uni05DD=1+684|uni05DE=0@-12,0+648]
+=== 7) latin ltr a(b)c ===
+[a=0+561|parenleft=1+300|b=2+615|parenright=3+300|c=4+480]
+=== 8) latin rtl a(b)c (mirror test) ===
+[c=4+480|parenleft=3+300|b=2+615|parenright=1+300|a=0+561]
+=== 9) arabic rtl (مرحبا) parens ===
+[.notdef=6+646|uniFE8E=5+253|uniFE92=4+292|uniFEA3=3+636|uniFEAE=2+404|uniFEE3=1+456|.notdef=0+646]

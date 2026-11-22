@@ -1,0 +1,16 @@
+=== k3s 状态（未改动，确认仍健康）===
+active
+NAME            STATUS   ROLES           AGE   VERSION
+decn2jol49vce   Ready    control-plane   21m   v1.37.2+k3s1
+=== 内存/磁盘 ===
+               total        used        free      shared  buff/cache   available
+Mem:            1968        1132         102           4         924         835
+/dev/vda1        39G  6.6G   33G  17% /
+=== 远端留存脚本 ===
+80118b8553e806deb064a52267da15c2  /root/perf-verify/run-perf-flamegraph.sh
+89c018028fc2ad9226de770b14806cfb  /root/perf-verify/cpu-burn.c
+69da14b64077e3a49cfc39b8055e527c  /root/sec-verify/run-kernel-chain-check.sh
+e9efa5aff74544083f7ce4babf497d69  /root/sec-verify/sec-forensics.sh
+-rw-r--r-- 1 root root 23018 Nov 22 08:30 /root/perf-verify/flamegraph.svg
+=== initrd 生成器 ===
+11

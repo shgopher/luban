@@ -1,0 +1,19 @@
++ cd /tmp
+++ date +%s
++ T0=1795362272
++ curl -sSL -m 300 -o /tmp/osv-scanner https://github.com/google/osv-scanner/releases/download/v2.7.1/osv-scanner_linux_amd64
++ echo curl_rc=0
++ ls -l /tmp/osv-scanner
++ chmod +x /tmp/osv-scanner
++ /tmp/osv-scanner --version
++ echo ver_rc=0
+++ date +%s
++ echo download_secs=3
+curl_rc=0
+-rw-r--r-- 1 root root 58187936 Nov 22 15:44 /tmp/osv-scanner
+osv-scanner version: 2.7.1
+osv-scalibr version: 0.5.3
+commit: 02f96a40691c2d155fdda799af436e111231e365
+built at: 2026-11-09T03:39:40Z
+ver_rc=0
+download_secs=3

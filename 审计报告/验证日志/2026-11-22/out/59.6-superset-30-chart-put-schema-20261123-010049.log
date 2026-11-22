@@ -1,0 +1,4 @@
+methods: ['delete', 'put']
+put body: {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ChartRestApi.put"}}}, "description": "Chart schema", "required": true}
+required: None
+props: ['cache_timeout', 'certification_details', 'certified_by', 'dashboards', 'datasource_id', 'datasource_type', 'description', 'external_url', 'is_managed_externally', 'owners', 'params', 'query_context', 'query_context_generation', 'slice_name', 'tags', 'uuid', 'viz_type']

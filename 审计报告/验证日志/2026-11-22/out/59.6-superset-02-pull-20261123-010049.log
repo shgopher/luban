@@ -1,0 +1,35 @@
+b9f6a8f632b2: Pull complete
+98e9a0326760: Pull complete
+Digest: sha256:f2f98726820d0342055351c6e9d36e705f5bfffb3dd53ff556325114b08afb6d
+Status: Downloaded newer image for postgres:16-alpine
+docker.io/library/postgres:16-alpine
+PG_PULL_RC=0
+2026-11-22T17:01:14+00:00
+4f4fb700ef54: Pull complete
+eaa845f4574d: Pull complete
+02c1a8af9ec2: Pull complete
+3dbadab813ac: Pull complete
+c48d303eb3c9: Pull complete
+3f04ddf83277: Pull complete
+80c416a2b09a: Pull complete
+2f407cefd55e: Pull complete
+68976762b61d: Pull complete
+fead8d5c7149: Pull complete
+e298cd6bf003: Pull complete
+64032cf3b265: Pull complete
+3dfd5e8e3839: Pull complete
+fdf45b695956: Pull complete
+d209a9389a76: Pull complete
+3f4cb9315269: Pull complete
+78fe33cfb277: Pull complete
+Digest: sha256:16b50bbef6648912a79e3293d418fefa743ce555d36c5af6b85d859119ed7f88
+Status: Downloaded newer image for apache/superset:latest
+docker.io/apache/superset:latest
+SUPERSET_PULL_RC=0
+2026-11-22T17:01:55+00:00
+postgres:16-alpine	f2f98726820d	420MB
+mysql:8	a81d043930e5	1.12GB
+devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19	4a5f8427d96e	2.12GB
+devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19	e9b0e1f98263	3.2GB
+devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19	3712f2e7f286	259MB
+apache/superset:latest	16b50bbef664	1.27GB

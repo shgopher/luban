@@ -1,0 +1,29 @@
+=== ls -la ===
+total 32
+drwxr-xr-x@ 8 shgopher  wheel  256 Nov 22 16:27 .
+drwxr-xr-x@ 6 shgopher  wheel  192 Nov 22 16:27 ..
+-rw-r--r--@ 1 shgopher  wheel   13 Nov 22 16:27 .gitignore
+drwxr-xr-x@ 3 shgopher  wheel   96 Nov 22 16:27 node_modules
+-rw-r--r--@ 1 shgopher  wheel   71 Nov 22 16:27 package.json
+drwxr-xr-x@ 5 shgopher  wheel  160 Nov 22 16:27 packages
+-rw-r--r--@ 1 shgopher  wheel  200 Nov 22 16:27 pnpm-lock.yaml
+-rw-r--r--@ 1 shgopher  wheel   27 Nov 22 16:27 pnpm-workspace.yaml
+=== 各包 node_modules 是否建立链接 ===
+total 0
+drwxr-xr-x@ 3 shgopher  wheel   96 Nov 22 16:27 .
+drwxr-xr-x@ 6 shgopher  wheel  192 Nov 22 16:27 ..
+lrwxr-xr-x@ 1 shgopher  wheel   11 Nov 22 16:27 pkg-a -> ../../pkg-a
+
+=== 全量：pnpm -r test ===
+Sun Nov 22 16:27:11 CST 2026
+Scope: 3 of 4 workspace projects
+packages/pkg-a test$ node test.js
+packages/pkg-c test$ node test.js
+packages/pkg-a test: pkg-a: 4 assertions passed
+packages/pkg-c test: pkg-c: 2 assertions passed
+packages/pkg-c test: Done
+packages/pkg-a test: Done
+packages/pkg-b test$ node test.js
+packages/pkg-b test: pkg-b: 3 assertions passed
+packages/pkg-b test: Done
+RECURSIVE_EXIT=0

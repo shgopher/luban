@@ -1,0 +1,94 @@
+=== 系统 ===
+Ubuntu 24.04.1 LTS
+6.8.0-48-generic
+
+=== 1) systemd-analyze 总耗时一行 ===
+Startup finished in 3.547s (kernel) + 2min 35.639s (userspace) = 2min 39.187s 
+graphical.target reached after 16.790s in userspace.
+RC=0
+
+--- systemd-analyze time ---
+Startup finished in 3.547s (kernel) + 2min 35.639s (userspace) = 2min 39.187s 
+graphical.target reached after 16.790s in userspace.
+RC=0
+
+--- 为什么没有 firmware/loader/initrd 分段？ ---
+boot_mode: BIOS
+cmdline: BOOT_IMAGE=/boot/vmlinuz-6.8.0-48-generic root=UUID=2a6b8daa-1d70-43b6-84e1-8d987d9f1411 ro console=tty1 console=ttyS0
+initrd_has_systemd: 0
+efi_loader_vars: 0
+
+--- systemd-analyze blame | head -5 ---
+2min 18.841s cloud-final.service
+     20.974s apt-daily.service
+     13.176s k3s.service
+      7.373s apt-daily-upgrade.service
+      4.697s cloud-config.service
+RC=0
+
+--- systemd-analyze critical-chain（前 8 行） ---
+The time when unit became active or started is printed after the "@" character.
+The time the unit took to start is printed after the "+" character.
+
+graphical.target @16.790s
+└─multi-user.target @16.787s
+  └─unattended-upgrades.service @13.597s
+    └─systemd-logind.service @12.310s +1.078s
+      └─basic.target @11.906s
+
+=== 2) grub2-mkconfig / grub-mkconfig ===
+which grub-mkconfig: /usr/sbin/grub-mkconfig
+which grub2-mkconfig: 不存在（RHEL 专名）
+grub-mkconfig (GRUB) 2.12-1ubuntu7
+RC=0
+GRUB_MKCONFIG_RC=0
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+285 /tmp/grub.cfg
+-rw------- 1 root root 9348 Nov 22 08:38 /tmp/grub.cfg
+97140da1d31716bd6fc7b291d4ac8809  /tmp/grub.cfg
+
+=== 3) dracut ===
+dracut 060+5-1ubuntu3.4
+dracut 060+5-1ubuntu3.4
+RC=0
+--- dracut --no-hostonly --force /tmp/initramfs-test2.img（计时） ---
+DRACUT_RC=0
+dracut[I]: Using auto-determined compression method 'pigz'
+dracut[I]: *** Creating initramfs image file '/tmp/initramfs-test2.img' done ***
+WALL=54.88 s MAXRSS=55648 KB
+-rw------- 1 root root 69529502 Nov 22 08:39 /tmp/initramfs-test2.img
+67M
+
+=== 4) grubby / BLS ===
+APT_POLICY_RC=0
+--- ls /boot/loader/entries ---
+ls: cannot access '/boot/loader/entries': No such file or directory
+RC=2
+--- apt-file 式搜索 grubby 包名 ---
+SEARCH_RC=0
+
+=== 5) 1 号进程与启动状态 ===
+/proc/1/comm: systemd
+running
+RC=0
+--- ls /boot（节选） ---
+total 295225
+-rw------- 1 root root  9153587 Oct 23 12:10 System.map-6.8.0-149-generic
+-rw------- 1 root root  9161619 Nov 11 00:40 System.map-6.8.0-151-generic
+-rw------- 1 root root  9063891 Sep 27  2024 System.map-6.8.0-48-generic
+-rw-r--r-- 1 root root   287772 Oct 23 12:10 config-6.8.0-149-generic
+-rw-r--r-- 1 root root   287674 Nov 11 00:40 config-6.8.0-151-generic
+-rw-r--r-- 1 root root   287459 Sep 27  2024 config-6.8.0-48-generic
+drwx------ 3 root root      512 Jan  1  1970 efi
+drwxr-xr-x 6 root root     4096 Nov 22 08:27 grub
+lrwxrwxrwx 1 root root       28 Nov 22 08:27 initrd.img -> initrd.img-6.8.0-151-generic
+
+=== 6) 对照：RHEL 侧工具在 Ubuntu 的可获得性 ===
+grub2-mkconfig   不存在
+grubby           不存在
+dracut           存在: /usr/bin/dracut
+dnf              不存在
+=== END ===

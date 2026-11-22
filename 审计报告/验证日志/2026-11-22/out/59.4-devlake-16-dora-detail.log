@@ -1,0 +1,11 @@
+=== DORA dashboard detail ===
+title: DORA
+uid: qNo8_0M4z
+panels: 10
+tags: ['Engineering Leads Dashboard', 'Highlights', 'DORA']
+version: 1
+meta.url: /grafana/d/qNo8_0M4z/dora
+=== datasources ===
+mysql | mysql | mysql:3306
+=== grafana org/user ===
+{"id":1,"uid":"fg5356b6hyjggd","email":"admin@localhost","name":"","login":"admin","theme":"","orgId":1,"isGrafanaAdmin":true,"isDisabled":false,"isExternal":false,"isExternallySynced":false,"isGrafanaAdminExternallySynced":false,"authLabels":[],"updatedAt":"2026-11-22T16:55:31Z","createdAt":"2026-1

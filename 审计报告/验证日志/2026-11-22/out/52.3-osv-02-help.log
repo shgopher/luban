@@ -1,0 +1,45 @@
+NAME:
+   osv-scanner scan source - scans a source project's dependencies for known vulnerabilities using the OSV database.
+
+USAGE:
+   osv-scanner scan source [options] [directory1 directory2...]
+
+DESCRIPTION:
+   scans a source project's dependencies for known vulnerabilities using the OSV database.
+
+OPTIONS:
+   --lockfile string, -L string [ --lockfile string, -L string ]                    scan package lockfile on this path
+   --sbom string, -S string [ --sbom string, -S string ]                            [DEPRECATED] scan sbom file on this path, the sbom file name must follow the relevant spec
+   --recursive, -r                                                                  check subdirectories
+   --no-ignore                                                                      also scan files that would be ignored by .gitignore
+   --include-git-root                                                               include scanning git root (non-submoduled) repositories
+   --experimental-exclude string [ --experimental-exclude string ]                  [DEPRECATED] (use "--x-exclude" instead) exclude directory paths during scanning; use g:pattern for glob, r:pattern for regex, or just dirname for exact match (can be repeated)
+   --x-exclude string [ --x-exclude string ]                                        exclude directory paths during scanning; use g:pattern for glob, r:pattern for regex, or just dirname for exact match (can be repeated)
+   --data-source string                                                             source to fetch package information from; value can be: deps.dev, native (default: "deps.dev")
+   --maven-registry string                                                          URL of the default registry to fetch Maven metadata
+   --config string                                                                  set/override config file
+   --format string, -f string                                                       sets the output format; value can be: table, html, vertical, json, markdown, sarif, gh-annotations, cyclonedx-1-4, cyclonedx-1-5, cyclonedx-1-6, cyclonedx-1-7, spdx-2-3 (default: "table")
+   --serve                                                                          output as HTML result and serve it locally
+   --port string                                                                    port number to use when serving HTML report (default: 8000)
+   --output string                                                                  [DEPRECATED] (Use "--output-file" instead) saves the result to the given file path
+   --output-file string                                                             saves the result to the given file path
+   --verbosity string                                                               specify the level of information that should be provided during runtime; value can be: error, warn, info (default: "info")
+   --offline                                                                        run in offline mode, disabling any features requiring network access
+   --offline-vulnerabilities                                                        checks for vulnerabilities using local databases that are already cached
+   --download-offline-databases                                                     downloads vulnerability databases for offline comparison
+   --call-analysis string [ --call-analysis string ]                                Enable call analysis for specific languages (e.g. --call-analysis=go). Supported: go, rust (*). (*) Will run build scripts.
+   --no-call-analysis string [ --no-call-analysis string ]                          disables call graph analysis
+   --no-resolve                                                                     disable transitive dependency resolution of manifest files
+   --allow-no-lockfiles                                                             has the scanner consider no lockfiles being found as ok
+   --all-packages                                                                   prints all packages in JSON and SBOM output
+   --all-vulns                                                                      show all vulnerabilities including unimportant and uncalled ones
+   --licenses value                                                                 report on licenses based on an allowlist
+   --x-flag-deprecated-packages                                                     report if package versions are deprecated
+   --experimental-flag-deprecated-packages                                          [DEPRECATED] (use "--x-flag-deprecated-packages" instead) report if package versions are deprecated
+   --experimental-plugins string [ --experimental-plugins string ]                  [DEPRECATED] (use "--x-plugins" instead) list of specific plugins and presets of plugins to use (default: "lockfile", "sbom", "directory")
+   --x-plugins string [ --x-plugins string ]                                        list of specific plugins and presets of plugins to use (default: "lockfile", "sbom", "directory")
+   --experimental-disable-plugins string [ --experimental-disable-plugins string ]  [DEPRECATED] (use "--x-disable-plugins" instead) list of specific plugins and presets of plugins to not use
+   --x-disable-plugins string [ --x-disable-plugins string ]                        list of specific plugins and presets of plugins to not use
+   --experimental-no-default-plugins                                                [DEPRECATED] (use "--x-no-default-plugins" instead) disable default plugins, instead using only those enabled by --x-plugins
+   --x-no-default-plugins                                                           disable default plugins, instead using only those enabled by --x-plugins
+   --help, -h                                                                       show help

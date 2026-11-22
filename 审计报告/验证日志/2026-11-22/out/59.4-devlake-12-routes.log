@@ -1,0 +1,15 @@
+/blueprints              200  {"blueprints":[],"count":0}
+/pipelines               200  {"count":0,"pipelines":[]}
+/plugins                 200  [{"plugin":"bitbucket","metric":{"requiredDataEntities":null,"runAfter":null,"isProjectMetric":false}},{"plugin":"bitbuc
+/connections             404  404 page not found
+/api/blueprints          404  404 page not found
+/api/pipelines           404  404 page not found
+/api/plugins             404  404 page not found
+/api/connections         404  404 page not found
+/api/integrations        404  404 page not found
+/api/tasks               404  404 page not found
+/api/lake                404  404 page not found
+/api/swagger/index.html  404  404 page not found
+/swagger/index.html      200  <!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <title>Swagger UI</title>  <link rel="stylesheet" t
+/api/blueprints/1        404  404 page not found
+/api/blueprints/all      404  404 page not found

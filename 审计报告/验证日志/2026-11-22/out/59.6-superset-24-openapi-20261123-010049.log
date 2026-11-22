@@ -1,0 +1,9 @@
+openapi_code=200 size=452389
+{"components":{"responses":{"400":{"content":{"application/json":{"schema":{"properties":{"message":{"type":"string"}},"type":"object"}}},"description":"Bad request"},"401":{"content":{"application/js
+openapi: 3.0.2
+/api/v1/chart/ ['delete', 'get', 'post']
+  requestBody: {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ChartRestApi.post"}}}, "description": "Chart schema", "required": true}
+/api/v1/dataset/ ['delete', 'get', 'post']
+  requestBody: {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DatasetRestApi.post"}}}, "description": "Dataset schema", "required": true}
+/api/v1/database/ ['get', 'post']
+  requestBody: {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/DatabaseRestApi.post"}}}, "description": "Database schema", "required": true}

@@ -1,0 +1,1 @@
+[rank1] mode=noddp world=2 grad_l2=12.857023 max_abs_grad_diff_vs_rank0=1.43200278 vs_rank1=0 max_over_all=1.43200278[rank0] mode=noddp world=2 grad_l2=7.512957 max_abs_grad_diff_vs_rank0=0 vs_rank1=1.43200278 max_over_all=1.43200278

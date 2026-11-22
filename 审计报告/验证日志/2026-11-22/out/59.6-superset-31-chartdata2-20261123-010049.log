@@ -1,0 +1,9 @@
+query_context_len: 309
+--- PUT chart/1 with query_context ---
+http_code=200
+{"id":1,"result":{"query_context":"{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [\"day\", \"deploys\", \"lead_time_hours\"], \"metrics\": [], \"orderby\": [[\"day\", true]], \"row_limit\": 100, \"is_timeseries\": false, \"filters\": [], \"extras\": {\"having\": \"\", \"where\": \"\"}}], \"result_format\": \"json\", \"result_type\": \"raw\"}"}}
+
+--- GET chart/1/data/ ---
+http_code=400 size=155
+{"message":"Request is incorrect: {'result_type': ['Must be one of: columns, full, query, results, samples, timegrains, post_processed, drill_detail.']}"}
+

@@ -1,0 +1,26 @@
+=== DejaVuSans ltr (مرحبا) ===
+[parenleft=0+799|uni0645=1+1268|uniFEAE=2+1130|uniFEA4=3+1322|uniFE91=4+570|uni0627=5+569|parenright=6+799]
+=== DejaVuSans rtl (مرحبا) [mirror expected] ===
+[parenleft=6+799|uniFE8E=5+624|uniFE92=4+618|uniFEA3=3+1266|uniFEAE=2+1130|uniFEE3=1+1097|parenright=0+799]
+=== DejaVuSans rtl [مرحبا] ===
+[bracketleft=6+799|uniFE8E=5+624|uniFE92=4+618|uniFEA3=3+1266|uniFEAE=2+1130|uniFEE3=1+1097|bracketright=0+799]
+=== DejaVuSans rtl <مرحبا> ===
+[less=6+1716|uniFE8E=5+624|uniFE92=4+618|uniFEA3=3+1266|uniFEAE=2+1130|uniFEE3=1+1097|greater=0+1716]
+
+=== fribidi mirror default: (a) ===
+  20  20  20  20  20  20  20  20  20  20  20  20  20  20  20  20
+                                                                
+*
+  20  20  20  20  20  20  20  20  20  20  20  20  20  28  61  29
+                                                       (   a   )
+=== fribidi --nomirror: (a) ===
+  20  20  20  20  20  20  20  20  20  20  20  20  20  20  20  20
+                                                                
+*
+  20  20  20  20  20  20  20  20  20  20  20  20  20  28  61  29
+                                                       (   a   )
+=== fribidi mixed levels: abc (مرحبا) 123 ===
+                                                                 123 (ﺎﺒﺣﺮﻣ) abc
+12 13 14 11 10 9 8 7 6 5 4 3 0 1 2 
+12 13 14 11 10 9 8 7 6 5 4 3 0 1 2 
+2 2 2 1 1 1 1 1 1 1 1 1 2 2 2 

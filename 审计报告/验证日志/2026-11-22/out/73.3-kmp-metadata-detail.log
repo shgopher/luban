@@ -1,0 +1,40 @@
+=== date ===
+Sun Nov 22 16:31:55 CST 2026
+--- meta-kotlin-gradle-plugin.xml <versioning> 头部 ---
+  <versioning>
+    <latest>2.5.0-RC</latest>
+    <release>2.5.0-RC</release>
+    <versions>
+      <version>0.0.1-test-deploy</version>
+      <version>0.0.2-test-deploy</version>
+      <version>0.5.998</version>
+--- meta-kotlin-stdlib.xml <versioning> 头部 ---
+  <versioning>
+    <latest>2.5.0-RC</latest>
+    <release>2.5.0-RC</release>
+    <versions>
+      <version>0.0.1-test-deploy</version>
+      <version>0.0.2-test-deploy</version>
+      <version>0.5.998</version>
+--- meta-compose-gradle-plugin.xml <versioning> 头部 ---
+  <versioning>
+    <latest>1.13.0-rc01</latest>
+    <release>1.13.0-rc01</release>
+    <versions>
+      <version>1.0.0-beta5</version>
+      <version>1.0.0-rc2</version>
+      <version>1.0.0-rc5</version>
+
+=== 具体版本的 .pom 是否存在 + Last-Modified（真实发布时间）===
+URL: https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-gradle-plugin/2.4.21/kotlin-gradle-plugin-2.4.21.pom
+HTTP/2 200 
+content-length: 10837
+last-modified: Thu, 08 Oct 2026 07:57:52 GMT
+URL: https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/2.4.21/kotlin-stdlib-2.4.21.pom
+HTTP/2 200 
+content-length: 2301
+last-modified: Thu, 08 Oct 2026 07:57:54 GMT
+URL: https://repo1.maven.org/maven2/org/jetbrains/compose/compose-gradle-plugin/1.12.2/compose-gradle-plugin-1.12.2.pom
+HTTP/2 200 
+content-length: 2167
+last-modified: Thu, 15 Oct 2026 10:16:24 GMT

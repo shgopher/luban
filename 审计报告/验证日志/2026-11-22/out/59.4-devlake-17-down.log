@@ -1,0 +1,55 @@
+=== df before down ===
+/dev/vda1        39G   17G   22G  44% /
+=== docker system df ===
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          4         4         6.728GB   6.728GB (100%)
+Containers      4         4         33.06MB   0B (0%)
+Local Volumes   3         3         805.1MB   0B (0%)
+Build Cache     0         0         0B        0B
+=== image sizes ===
+mysql:8 a81d043930e5 1.12GB
+devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19 4a5f8427d96e 2.12GB
+devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19 e9b0e1f98263 3.2GB
+devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19 3712f2e7f286 259MB
+=== containers running ===
+devlake-config-ui-1 Up 4 minutes
+devlake-grafana-1 Up 4 minutes
+devlake-devlake-1 Up 3 minutes
+devlake-mysql-1 Up 4 minutes
+=== DOWN 2026-11-22T16:59:26Z ===
+time="2026-11-22T16:59:26Z" level=warning msg="/opt/devlake/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container devlake-grafana-1  Stopping
+ Container devlake-config-ui-1  Stopping
+ Container devlake-config-ui-1  Stopped
+ Container devlake-config-ui-1  Removing
+ Container devlake-config-ui-1  Removed
+ Container devlake-devlake-1  Stopping
+ Container devlake-grafana-1  Stopped
+ Container devlake-grafana-1  Removing
+ Container devlake-grafana-1  Removed
+ Container devlake-devlake-1  Stopped
+ Container devlake-devlake-1  Removing
+ Container devlake-devlake-1  Removed
+ Container devlake-mysql-1  Stopping
+ Container devlake-mysql-1  Stopped
+ Container devlake-mysql-1  Removing
+ Container devlake-mysql-1  Removed
+ Network devlake_default  Removing
+ Network devlake_default  Removed
+=== AFTER DOWN: ps ===
+(none if empty)
+=== AFTER DOWN: images retained ===
+mysql:8 1.12GB
+devlake.docker.scarf.sh/apache/devlake:v1.0.3-beta19 2.12GB
+devlake.docker.scarf.sh/apache/devlake-dashboard:v1.0.3-beta19 3.2GB
+devlake.docker.scarf.sh/apache/devlake-config-ui:v1.0.3-beta19 259MB
+=== AFTER DOWN: volumes ===
+devlake_devlake-log local
+devlake_grafana-storage local
+devlake_mysql-storage local
+=== AFTER DOWN: df ===
+/dev/vda1        39G   17G   22G  44% /
+=== AFTER DOWN: free -m ===
+               total        used        free      shared  buff/cache   available
+Mem:            1968         500         715           1         946        1467
+Swap:           4095         123        3972

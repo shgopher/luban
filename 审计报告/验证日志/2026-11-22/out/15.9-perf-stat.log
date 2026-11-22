@@ -1,0 +1,23 @@
+=== perf stat -p <pid> sleep 5（书中第 1 条） ===
+
+ Performance counter stats for process id '189736':
+
+           4238.16 msec task-clock                       #    0.847 CPUs utilized             
+              3395      context-switches                 #  801.056 /sec                      
+                 0      cpu-migrations                   #    0.000 /sec                      
+                 0      page-faults                      #    0.000 /sec                      
+        7736034636      cycles                           #    1.825 GHz                       
+        1252549292      stalled-cycles-frontend          #   16.19% frontend cycles idle      
+       21144301949      instructions                     #    2.73  insn per cycle            
+                                                  #    0.06  stalled cycles per insn   
+        4925866259      branches                         #    1.162 G/sec                     
+          13259280      branch-misses                    #    0.27% of all branches           
+
+       5.005508050 seconds time elapsed
+
+RC=0
+done acc=16313683884581201502
+
+=== paranoid 默认值来源 ===
+--- kernel default ---
+kernel.perf_event_paranoid = 1

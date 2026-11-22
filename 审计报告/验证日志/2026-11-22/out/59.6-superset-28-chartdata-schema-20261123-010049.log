@@ -1,0 +1,6 @@
+pk path True {'type': 'integer'}
+format query None {'type': 'string'}
+type query None {'type': 'string'}
+force query None {'type': 'boolean'}
+---
+requestBody: {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/ChartDataQueryContextSchema"}}}, "description": "A query context consists of a datasource from which to fetch data and one or many query objects.", "required": true}

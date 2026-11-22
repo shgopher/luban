@@ -1,0 +1,30 @@
+== 切到另一个 revision 触发第二次 sync
+Duration:           7s
+Message:            successfully synced (all tasks run)
+
+GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
+       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
+apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
+== 当前 revision
+8088f4c0d970
+== history
+SOURCE  https://github.com/argoproj/argocd-example-apps.git
+ID      DATE                           REVISION
+0       2026-11-22 16:03:59 +0000 UTC   (8088f4c)
+1       2026-11-22 16:04:51 +0000 UTC   (e5f4ed8)
+== 回滚到上一个部署（id 0）
+
+GROUP  KIND        NAMESPACE  NAME          STATUS  HEALTH   HOOK  MESSAGE
+       Service     default    guestbook-ui  Synced  Healthy        service/guestbook-ui unchanged
+apps   Deployment  default    guestbook-ui  Synced  Healthy        deployment.apps/guestbook-ui unchanged
+== 回滚后 revision
+8088f4c0d970 Synced Healthy
+== pod
+NAME                            READY   STATUS    RESTARTS   AGE
+guestbook-ui-6d476cf4df-jjd55   1/1     Running   0          63s
+== 资源事件
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  63s   default-scheduler  Successfully assigned default/guestbook-ui-6d476cf4df-jjd55 to decn2jol49vce
+  Normal  Pulling    62s   kubelet            spec.containers{guestbook-ui}: Pulling image "gcr.io/google-samples/gb-frontend:v5"

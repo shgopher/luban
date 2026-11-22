@@ -1,0 +1,20 @@
+/usr/bin/gcc
+/usr/bin/git
+/usr/bin/perl
+---
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+=== clone FlameGraph ===
+Cloning into '/root/FlameGraph'...
+rc=0
+README.md
+aix-perf.pl
+demos
+dev
+difffolded.pl
+docs
+example-dtrace-stacks.txt
+example-dtrace.svg
+example-perf-stacks.txt.gz
+example-perf.svg
+=== commit ===
+41fee1f99f9276008b7cd112fca19dc3ea84ac32 Mon Oct 21 08:48:45 2024 +1100
