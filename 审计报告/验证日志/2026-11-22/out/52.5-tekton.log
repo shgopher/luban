@@ -1,0 +1,22 @@
+task.tekton.dev/build-gate created
+pipeline.tekton.dev/ci-pipeline created
+== Task/Pipeline 已建
+task.tekton.dev/build-gate   0s
+
+NAME                              AGE
+pipeline.tekton.dev/ci-pipeline   0s
+== 直接跑 TaskRun（应 Succeeded）
+taskrun.tekton.dev/gate-ok condition met
+Succeeded True
+== 跑一个会失败的 TaskRun（应 Failed，验证门禁真能拦）
+Failed False
+== 跑 PipelineRun
+pipelinerun.tekton.dev/ci-run condition met
+Succeeded True
+== gate 日志
+coverage=0.61
+GATE FAILED
+coverage=0.86
+GATE PASSED
+== 版本
+ghcr.io/tektoncd/pipeline/controller-10a3e32792f33651396d02b6855a6e36:v1.6.0@sha256:84efabe03a5e5441379171d5c071bc28612aa7656ec4f508b01d89ee431e4141

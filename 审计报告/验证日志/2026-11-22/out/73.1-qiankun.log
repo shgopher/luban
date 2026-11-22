@@ -1,0 +1,12 @@
+环境：macOS arm64 / Chrome 158.0.8127.36 / qiankun 2.10.16（npm，esbuild 打 IIFE）/ python3 http.server 18080
+
+== strictStyleIsolation: true
+<title>RESULT={"log":["registered","started"],"probes":{"containerShadow":false,"childShadow":true,"anywhereShadow":true,"subMarker":true,"html":"&lt;div id=\"__qiankun_microapp_wrapper_for_sub_app__\" data-name=\"sub-app\" data-version=\"2.10.16\" data-sandbox-cfg=\"{&amp;quot;s","hostColor":"rgb(0, 0, 0)","shadowTree":["QIANKUN-HEAD#","META#","STYLE#","DIV#root","H1#marker"],"shadowMarker":true,"lightMarker":false,"shadowMarkerColor":"rgb(255, 0, 0)","hostBg":"rgba(0, 0, 0, 0)"}}</title>
+
+== strictStyleIsolation: false（对照）
+<title>NOISO={"log":["registered","started"],"probes":{"containerShadow":false,"childShadow":false,"anywhereShadow":false,"subMarker":false,"html":"","hostColor":"rgb(0, 0, 0)"}}</title>
+
+== 说明（非 strict 对照组）
+重新生成同一页面并把 strictStyleIsolation 改为 false 后，子应用没有挂载成功（容器 innerHTML 为空，
+log 只有 registered/started），因此本环境拿不到"不隔离会泄漏"的对照数据；
+隔离结论只基于 strict=true 的那一组（shadowRoot + 子应用计算色 rgb(255,0,0) + 宿主 rgb(0,0,0)）。

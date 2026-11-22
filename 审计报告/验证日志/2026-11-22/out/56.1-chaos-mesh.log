@@ -1,0 +1,12 @@
+{"run":"web"}
+== 基线（无注入）
+requests=10 avg=0.001s
+networkchaos.chaos-mesh.org/web-delay created
+== CR 状态
+Selected AllInjected AllRecovered Paused=True True False False
+NAME        ACTION   DURATION
+web-delay   delay    180s
+== 注入后
+requests=10 avg=0.366s
+== 删除 CR 后
+requests=10 avg=0.004s

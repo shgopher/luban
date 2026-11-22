@@ -13,7 +13,7 @@
 
 远程主机上装了 k3s（`--disable traefik,servicelb,local-storage`，自带 metrics-server）；实测期间 k3s 一直 Running，未影响系统的 systemd 工具测试。
 
-## 二、实测通过并已写回正文（33 项）
+## 二、实测通过并已写回正文（41 项）
 
 | 节 | 实测结论（正文已替换） | 关键数字 | 日志 |
 |---|---|---|---|
@@ -47,6 +47,15 @@
 | 52.3 OSV/存量工具 | osv-scanner 2.7.1 + Renovate 44.257.9 | 0.57 s/0 漏洞；1.39 s/38 条；144 条多生态；validator 正反例 | `out/52.3-osv-*.log` |
 | 72.1 RTL shaping | HarfBuzz 8.3.0 | 四种形态 gid 35/38/37/36；RTL 括号镜像；字体缺字形=.notdef | `out/72.1-hb-*.log` |
 | 71.1 地理编码 | Nominatim jsonv2 | 15 字段、place_rank {7,16,26,30}、0.07–0.34 s | `out/71.1-nominatim-*.log` |
+| 59.4 / 59.6 / 81.5 DevLake | v1.0.3-beta19 部署 | API 199 s 就绪、11 个 DORA 看板、内存 914 MiB；API 根路径、Grafana 3002 | `out/59.4-devlake-*.log` |
+| 59.6 Superset | 6.1.0 部署 + 建 chart | db upgrade 17 s；chart 取数 7 行；内存 436+258 MiB；需 CSRF | `out/59.6-superset-*.log` |
+| 78.5 Backstage | 1.57.0 部署 | install 2m30s/1.7 GB；首页 200；catalog 9 实体 | `out/78.5-backstage-*.log` |
+| 52.3 Semgrep/CodeQL | 同一份漏洞样例 | Semgrep 1.186.0：1+3 条；CodeQL 2.27.5：JS 4 条/Python 0 条（无污点路径） | `out/52.3-semgrep*.log`、`out/52.3-codeql*` |
+| 62.5 Kafka Streams | 3.7.0 + exactly_once_v2 | 12 单按 1 分钟窗口：58/62/66；`to()` 有中间更新；缺 jackson 会崩 | `out/62.5-kafka-streams*.log` |
+| 56.1 Chaos Mesh | 2.8.8 NetworkChaos | 200ms 延迟：1 ms → 366 ms → 4 ms；Selected/AllInjected=True | `out/56.1-chaos-mesh.log` |
+| 52.5 Tekton | v1.6.0 门禁 | 0.86→Succeeded；0.61→Failed（GATE FAILED）；PipelineRun Succeeded | `out/52.5-tekton.log` |
+| 72.3 TARGET | EUR-Lex 规则 | 周末+6 日；2026 关闭日 4/3、4/6、1/1、5/1、12/25、12/26 | 正文引用 |
+| 73.1 qiankun | 2.10.16 + Chrome 158 | shadowRoot 内红/宿主黑，无外泄 | `out/73.1-qiankun.log` |
 | 73.3 / 73.4 跨端与契约 | uni-app/KMP 版本查证；orval 8.48.0 幂等生成 | KMP 2.4.21（2.5.0-RC 为预发布）；orval 两次生成 diff 为空、改 spec 后 diff 非空 | `out/73.3-*`、`out/73.4-*` |
 
 另有 72.3（MGA/MRU 的 1/5 辅币取到英文维基原文）和 72.3 的 bid/ask、TARGET 节假日两项仍保持「未核对」。

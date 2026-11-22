@@ -1,0 +1,17 @@
+=== Kafka Streams 应用 ===
+	processing.guarantee = exactly_once_v2
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] State transition from REBALANCING to RUNNING
+
+=== 输入（12 条订单 + 1 条 tick）
+north|10.00
+south|11.00
+west|12.00
+...
+=== 输出（region -> 窗口聚合和）
+north -> 10.00
+north -> 58.00
+south -> 62.00
+west -> 66.00
+tick -> 0.00
+
+手算：north 10+13+16+19=58；south 11+14+17+20=62；west 12+15+18+21=66

@@ -1,0 +1,705 @@
+[main] INFO org.apache.kafka.streams.StreamsConfig - StreamsConfig values: 
+	acceptable.recovery.lag = 10000
+	application.id = gmv-streams-app
+	application.server = localhost:0
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:19092]
+	buffered.records.per.partition = 1000
+	built.in.metrics.version = latest
+	cache.max.bytes.buffering = 10485760
+	client.id = 
+	commit.interval.ms = 100
+	connections.max.idle.ms = 540000
+	default.client.supplier = class org.apache.kafka.streams.processor.internals.DefaultKafkaClientSupplier
+	default.deserialization.exception.handler = class org.apache.kafka.streams.errors.LogAndFailExceptionHandler
+	default.dsl.store = rocksDB
+	default.key.serde = class org.apache.kafka.common.serialization.Serdes$StringSerde
+	default.list.key.serde.inner = null
+	default.list.key.serde.type = null
+	default.list.value.serde.inner = null
+	default.list.value.serde.type = null
+	default.production.exception.handler = class org.apache.kafka.streams.errors.DefaultProductionExceptionHandler
+	default.timestamp.extractor = class org.apache.kafka.streams.processor.FailOnInvalidTimestamp
+	default.value.serde = class org.apache.kafka.common.serialization.Serdes$StringSerde
+	dsl.store.suppliers.class = class org.apache.kafka.streams.state.BuiltInDslStoreSuppliers$RocksDBDslStoreSuppliers
+	enable.metrics.push = true
+	max.task.idle.ms = 0
+	max.warmup.replicas = 2
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	num.standby.replicas = 0
+	num.stream.threads = 1
+	poll.ms = 100
+	probing.rebalance.interval.ms = 600000
+	processing.guarantee = exactly_once_v2
+	rack.aware.assignment.non_overlap_cost = null
+	rack.aware.assignment.strategy = none
+	rack.aware.assignment.tags = []
+	rack.aware.assignment.traffic_cost = null
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	repartition.purge.interval.ms = 30000
+	replication.factor = -1
+	request.timeout.ms = 40000
+	retries = 0
+	retry.backoff.ms = 100
+	rocksdb.config.setter = null
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	state.cleanup.delay.ms = 600000
+	state.dir = /tmp/ks-state
+	statestore.cache.max.bytes = 10485760
+	task.timeout.ms = 300000
+	topology.optimization = none
+	upgrade.from = null
+	window.size.ms = null
+	windowed.inner.class.serde = null
+	windowstore.changelog.additional.retention.ms = 86400000
+
+[main] INFO org.apache.kafka.streams.processor.internals.StateDirectory - No process id found on disk, got fresh process id 8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0
+[main] INFO org.apache.kafka.clients.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:19092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1795368833240
+[main] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] Kafka Streams version: 3.7.0
+[main] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] Kafka Streams commit ID: 2ae524ed625438c5
+[main] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Creating restore consumer client
+[main] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = none
+	bootstrap.servers = [localhost:19092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = null
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = false
+	internal.throw.on.fetch.stable.offset.unsupported = true
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 1000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+[main] INFO org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1795368833312
+[main] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Creating thread producer client
+[main] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [localhost:19092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 2147483647
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+	linger.ms = 100
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 10000
+	transactional.id = gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1
+	value.serializer = class org.apache.kafka.common.serialization.ByteArraySerializer
+
+[main] INFO org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+[main] INFO org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Instantiated a transactional producer.
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1795368833348
+[main] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Creating consumer client
+[main] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = false
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:19092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = gmv-streams-app
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = false
+	internal.throw.on.fetch.stable.offset.unsupported = true
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 1000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+[main] INFO org.apache.kafka.common.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+[main] INFO org.apache.kafka.streams.processor.internals.assignment.AssignorConfiguration - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Cooperative rebalancing protocol is enabled now
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.0
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 2ae524ed625438c5
+[main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1795368833379
+[main] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] State transition from CREATED to REBALANCING
+[main] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] Started 1 stream threads
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Starting
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] State transition from CREATED to STARTING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Subscribed to topic(s): gmv-streams-app-gmv-store-repartition, orders
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.Metadata - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] WARN org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Error while fetching metadata with correlation id 2 : {gmv-streams-app-gmv-store-repartition=UNKNOWN_TOPIC_OR_PARTITION}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] WARN org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Error while fetching metadata with correlation id 6 : {gmv-streams-app-gmv-store-repartition=UNKNOWN_TOPIC_OR_PARTITION}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Client requested disconnect from node 2147483646
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] WARN org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Error while fetching metadata with correlation id 11 : {gmv-streams-app-gmv-store-repartition=UNKNOWN_TOPIC_OR_PARTITION}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Client requested disconnect from node 2147483646
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Client requested disconnect from node 2147483646
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] WARN org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Error while fetching metadata with correlation id 20 : {gmv-streams-app-gmv-store-repartition=UNKNOWN_TOPIC_OR_PARTITION}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Client requested disconnect from node 2147483646
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting disconnect from last known coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Discovered group coordinator localhost:19092 (id: 2147483646 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Request joining group due to: need to re-join with the given member-id: gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Successfully joined group with generation Generation{generationId=1, memberId='gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26', protocol='stream'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] WARN org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Error while fetching metadata with correlation id 29 : {gmv-streams-app-gmv-store-repartition=UNKNOWN_TOPIC_OR_PARTITION}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] 1 client nodes and Optional[1] consumers participating in this rebalance: 
+8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0: [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26].
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Assigning stateful tasks: [1_0, 1_1]
+and stateless tasks: [0_1, 0_0]
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.assignment.HighAvailabilityTaskAssignor - Decided on assignment: {8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0=[activeTasks: ([0_0, 0_1, 1_0, 1_1]) standbyTasks: ([]) prevActiveTasks: ([]) prevStandbyTasks: ([]) changelogOffsetTotalsByTask: ([]) taskLagTotals: ([1_0=0, 1_1=0]) clientTags: ([]) capacity: 1 assigned: 4]} with no followup probing rebalance.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Assigned 4 total tasks including 2 stateful tasks to 1 client nodes.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Assignment of tasks to nodes: 8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0=[activeTasks: ([0_0, 0_1, 1_0, 1_1]) standbyTasks: ([])]
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Client 8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0 per-consumer assignment:
+	prev owned active {}
+	prev owned standby {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=[]}
+	assigned active {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=[1_0, 0_1, 1_1, 0_0]}
+	revoking active {}
+	assigned standby {}
+
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Finished stable assignment of tasks, no followup rebalances required.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Finished assignment for group at generation 1: {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=Assignment(partitions=[gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1], userDataSize=213)}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Successfully synced group in generation Generation{generationId=1, memberId='gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26', protocol='stream'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Updating assignment with
+	Assigned partitions:                       [gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1]
+	Current owned partitions:                  []
+	Added partitions (assigned - owned):       [gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1]
+	Revoked partitions (owned - assigned):     []
+
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Notifying assignor about the new Assignment(partitions=[gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1], userDataSize=213)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] No followup rebalance was requested, resetting the rebalance schedule.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.TaskManager - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Handle new assignment with:
+	New active tasks: [1_0, 0_1, 0_0, 1_1]
+	New standby tasks: []
+	Existing active tasks: []
+	Existing standby tasks: []
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Adding newly assigned partitions: gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] State transition from STARTING to PARTITIONS_ASSIGNED
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition orders-0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition orders-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition gmv-streams-app-gmv-store-repartition-0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition gmv-streams-app-gmv-store-repartition-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Request joining group due to: cached metadata has changed from (version6: {orders=[NO_RACKS, NO_RACKS], gmv-streams-app-gmv-store-repartition=[]}) at the beginning of the rebalance to (version7: {orders=[NO_RACKS, NO_RACKS], gmv-streams-app-gmv-store-repartition=[NO_RACKS, NO_RACKS]})
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] (Re-)joining group
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Successfully joined group with generation Generation{generationId=2, memberId='gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26', protocol='stream'}
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] 1 client nodes and Optional[1] consumers participating in this rebalance: 
+8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0: [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26].
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Assigning stateful tasks: [1_0, 1_1]
+and stateless tasks: [0_1, 0_0]
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.assignment.HighAvailabilityTaskAssignor - Decided on assignment: {8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0=[activeTasks: ([0_0, 0_1, 1_0, 1_1]) standbyTasks: ([]) prevActiveTasks: ([0_0, 0_1, 1_0, 1_1]) prevStandbyTasks: ([]) changelogOffsetTotalsByTask: ([]) taskLagTotals: ([1_0=0, 1_1=0]) clientTags: ([]) capacity: 1 assigned: 4]} with no followup probing rebalance.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Assigned 4 total tasks including 2 stateful tasks to 1 client nodes.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Assignment of tasks to nodes: 8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0=[activeTasks: ([0_0, 0_1, 1_0, 1_1]) standbyTasks: ([])]
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Client 8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0 per-consumer assignment:
+	prev owned active {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=[1_0, 0_1, 1_1, 0_0]}
+	prev owned standby {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=[]}
+	assigned active {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=[1_0, 0_1, 1_1, 0_0]}
+	revoking active {}
+	assigned standby {}
+
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] Finished stable assignment of tasks, no followup rebalances required.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Finished assignment for group at generation 2: {gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26=Assignment(partitions=[gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1], userDataSize=213)}
+[kafka-coordinator-heartbeat-thread | gmv-streams-app] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Resetting offset for partition orders-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:19092 (id: 1 rack: null)], epoch=0}}.
+[kafka-coordinator-heartbeat-thread | gmv-streams-app] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Resetting offset for partition orders-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:19092 (id: 1 rack: null)], epoch=0}}.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Invoking InitProducerId for the first time in order to acquire a producer ID
+[kafka-coordinator-heartbeat-thread | gmv-streams-app] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Successfully synced group in generation Generation{generationId=2, memberId='gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer-537a0398-ca14-4379-a2e3-7d2816e42f26', protocol='stream'}
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Discovered transaction coordinator localhost:19092 (id: 1 rack: null)
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Discovered transaction coordinator localhost:19092 (id: 1 rack: null)
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] ProducerId set to 0 with epoch 0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_1] Initialized
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_0] Initialized
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.ProcessorStateManager - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] stream-task [1_0] State store gmv-store did not find checkpoint offset, hence would default to the starting offset at changelog gmv-streams-app-gmv-store-changelog-0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_0] Initialized
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.ProcessorStateManager - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] stream-task [1_1] State store gmv-store did not find checkpoint offset, hence would default to the starting offset at changelog gmv-streams-app-gmv-store-changelog-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_1] Initialized
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition orders-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_1] Restored and ready to run
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition orders-0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_0] Restored and ready to run
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StoreChangelogReader - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] End offset for changelog gmv-streams-app-gmv-store-changelog-0 initialized as 0.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StoreChangelogReader - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] End offset for changelog gmv-streams-app-gmv-store-changelog-1 initialized as 0.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Assigned to partition(s): gmv-streams-app-gmv-store-changelog-0, gmv-streams-app-gmv-store-changelog-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Seeking to earliest offset of partition gmv-streams-app-gmv-store-changelog-0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Seeking to earliest offset of partition gmv-streams-app-gmv-store-changelog-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.Metadata - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Resetting offset for partition gmv-streams-app-gmv-store-changelog-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:19092 (id: 1 rack: null)], epoch=0}}.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Resetting offset for partition gmv-streams-app-gmv-store-changelog-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:19092 (id: 1 rack: null)], epoch=0}}.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StoreChangelogReader - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Finished restoring changelog gmv-streams-app-gmv-store-changelog-0 to store gmv-store with a total number of 0 records
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StoreChangelogReader - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Finished restoring changelog gmv-streams-app-gmv-store-changelog-1 to store gmv-store with a total number of 0 records
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Updating assignment with
+	Assigned partitions:                       [gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1]
+	Current owned partitions:                  [gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1]
+	Added partitions (assigned - owned):       []
+	Revoked partitions (owned - assigned):     []
+
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Notifying assignor about the new Assignment(partitions=[gmv-streams-app-gmv-store-repartition-0, gmv-streams-app-gmv-store-repartition-1, orders-0, orders-1], userDataSize=213)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamsPartitionAssignor - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer] No followup rebalance was requested, resetting the rebalance schedule.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.TaskManager - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Handle new assignment with:
+	New active tasks: [1_0, 0_1, 0_0, 1_1]
+	New standby tasks: []
+	Existing active tasks: [1_0, 0_1, 0_0, 1_1]
+	Existing standby tasks: []
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerRebalanceListenerInvoker - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Adding newly assigned partitions: 
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] State transition from PARTITIONS_ASSIGNED to PARTITIONS_ASSIGNED
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition gmv-streams-app-gmv-store-repartition-0
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Resetting offset for partition gmv-streams-app-gmv-store-repartition-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:19092 (id: 1 rack: null)], epoch=0}}.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.SubscriptionState - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Resetting offset for partition gmv-streams-app-gmv-store-repartition-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:19092 (id: 1 rack: null)], epoch=0}}.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_0] Restored and ready to run
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Found no committed offset for partition gmv-streams-app-gmv-store-repartition-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_1] Restored and ready to run
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Restoration took 8 ms for all active tasks [1_0, 0_1, 0_0, 1_1]
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] State transition from PARTITIONS_ASSIGNED to RUNNING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] State transition from REBALANCING to RUNNING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting the log end offset for orders-0 in order to compute lag
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting the log end offset for orders-1 in order to compute lag
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting the log end offset for gmv-streams-app-gmv-store-repartition-0 in order to compute lag
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Requesting the log end offset for gmv-streams-app-gmv-store-repartition-1 in order to compute lag
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.producer.internals.TransactionManager - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Discovered group coordinator localhost:19092 (id: 1 rack: null)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.state.internals.RocksDBTimestampedStore - Opening store gmv-store.1795368840000 in regular mode
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.state.internals.RocksDBTimestampedStore - Opening store gmv-store.1795368840000 in regular mode
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.state.internals.RocksDBTimestampedStore - Opening store gmv-store.1795368900000 in regular mode
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 26 total records, ran 0 punctuators, and committed 10 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.clients.NetworkClient - [AdminClient clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] Node -1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.NetworkClient - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Node -1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Node -1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[kafka-producer-network-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer] INFO org.apache.kafka.clients.NetworkClient - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Node -1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Node -1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CleanupThread] INFO org.apache.kafka.streams.processor.internals.StateDirectory - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CleanupThread] Deleting obsolete state directory 0_0 for task 0_0 as 1198626ms has elapsed (cleanup delay is 600000ms).
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CleanupThread] INFO org.apache.kafka.streams.processor.internals.StateDirectory - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CleanupThread] Deleting obsolete state directory 0_1 for task 0_1 as 1198718ms has elapsed (cleanup delay is 600000ms).
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Processed 0 total records, ran 0 punctuators, and committed 0 total tasks since the last update
+[Thread-0] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] State transition from RUNNING to PENDING_SHUTDOWN
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Informed to shut down
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] State transition from RUNNING to PENDING_SHUTDOWN
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] Shutting down 1 stream threads
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Shutting down clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_0] Suspended from RUNNING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.RecordCollectorImpl - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] stream-task [0_0] Closing record collector clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_0] Closed clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_1] Suspended from RUNNING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.RecordCollectorImpl - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] stream-task [0_1] Closing record collector clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [0_1] Closed clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_0] Suspended from RUNNING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Assigned to partition(s): gmv-streams-app-gmv-store-changelog-1
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.RecordCollectorImpl - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] stream-task [1_0] Closing record collector clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_0] Closed clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_1] Suspended from RUNNING
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Unsubscribed all topics or patterns and assigned partitions
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.RecordCollectorImpl - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] stream-task [1_1] Closing record collector clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamTask - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] task [1_1] Closed clean
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer, transactionalId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-1] Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.producer for gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-producer unregistered
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.TaskManager - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Shutdown complete
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Unsubscribed all topics or patterns and assigned partitions
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Node 1 disconnected.
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.clients.NetworkClient - [AdminClient clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] Node 1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Cancelled in-flight FETCH request with correlation id 3180 due to node 1 being disconnected (elapsed time since creation: 742ms, elapsed time since send: 742ms, request timeout: 30000ms)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Node 2147483646 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Cancelled in-flight HEARTBEAT request with correlation id 3181 due to node 2147483646 being disconnected (elapsed time since creation: 225ms, elapsed time since send: 212ms, request timeout: 30000ms)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.FetchSessionHandler - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Error sending fetch request (sessionId=709121520, epoch=2671) to node 1:
+org.apache.kafka.common.errors.DisconnectException
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer, groupId=gmv-streams-app] Group coordinator localhost:19092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: null. isDisconnected: true. Rediscovery will be attempted.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-consumer unregistered
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Node -1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.FetchSessionHandler - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Node 1 sent an invalid full fetch response with extraIds=(OCBPPnKoSWyz3IQvXsogQA), response=()
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Node 1 disconnected.
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Cancelled in-flight METADATA request with correlation id 7 due to node 1 being disconnected (elapsed time since creation: 20ms, elapsed time since send: 20ms, request timeout: 30000ms)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.clients.NetworkClient - [Consumer clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer, groupId=null] Cancelled in-flight FETCH request with correlation id 6 due to node 1 being disconnected (elapsed time since creation: 20ms, elapsed time since send: 3ms, request timeout: 30000ms)
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1-restore-consumer unregistered
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] State transition from PENDING_SHUTDOWN to DEAD
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] INFO org.apache.kafka.streams.processor.internals.StreamThread - stream-thread [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-StreamThread-1] Shutdown complete
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] Shutdown 1 stream threads complete
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.common.utils.AppInfoParser - App info kafka.admin.client for gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin unregistered
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.clients.admin.internals.AdminMetadataManager - [AdminClient clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] Metadata update failed
+org.apache.kafka.common.errors.TimeoutException: Timed out waiting to send the call. Call: fetchMetadata
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.clients.admin.KafkaAdminClient - [AdminClient clientId=gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] Timed out 1 remaining operation(s) during close.
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[kafka-admin-client-thread | gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-admin] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+[gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0-CloseThread] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] State transition from PENDING_SHUTDOWN to NOT_RUNNING
+[Thread-0] INFO org.apache.kafka.streams.KafkaStreams - stream-client [gmv-streams-app-8e1d4ca1-3e54-468a-a2e1-cc07d5a91cc0] Streams client stopped completely

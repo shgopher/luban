@@ -1,0 +1,5 @@
+north -> 10.00
+north -> 58.00
+south -> 62.00
+west -> 66.00
+tick -> 0.00

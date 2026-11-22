@@ -1,0 +1,7 @@
+local.json findings= 1 rules= 1
+   - no-md5 app/vuln.py:19
+registry.json findings= 3 rules= 3
+   - subprocess-shell-true app/vuln.py:5
+   - avoid-pyyaml-load app/vuln.py:15
+   - insecure-hash-algorithm-md5 app/vuln.py:19
+p/sql-injection findings= 0

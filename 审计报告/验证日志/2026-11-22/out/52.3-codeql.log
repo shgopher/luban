@@ -1,0 +1,56 @@
+== 版本
+CodeQL command-line toolchain release 2.27.5.
+Copyright (C) 2019-2026 GitHub, Inc.
+== Python DB
+Merging relations
+Finished writing database (relations: 42.67 KiB; string pool: 2.06 MiB).
+TRAP import complete (4.1s).
+Finished zipping source archive (545.00 B).
+Successfully created database at /tmp/qdb-py.
+
+real	0m11.691s
+user	0m10.676s
+sys	0m0.612s
+== JavaScript DB
+Merging relations
+Finished writing database (relations: 3.07 MiB; string pool: 4.78 MiB).
+TRAP import complete (10.8s).
+Finished zipping source archive (240.44 KiB).
+Successfully created database at /tmp/qdb-js.
+
+real	0m25.103s
+user	0m23.466s
+sys	0m0.958s
+== Python 分析
+[43/45 eval 221ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-943/NoSqlInjection.bqrs.
+Starting evaluation of codeql/python-queries/Summary/LinesOfUserCode.ql.
+[44/45 eval 7ms] Evaluation done; writing results to codeql/python-queries/Summary/LinesOfCode.bqrs.
+[45/45 eval 380ms] Evaluation done; writing results to codeql/python-queries/Summary/LinesOfUserCode.bqrs.
+Shutting down query evaluator.
+Interpreting results.
+WARNING: The --sarif-add-query-help flag is deprecated. Use --sarif-include-query-help option instead.
+CodeQL scanned 1 out of 1 Python files in this invocation. Typically CodeQL is configured to analyze a single CodeQL language per invocation, so check other invocations to determine overall coverage information.
+
+real	0m44.790s
+user	0m42.070s
+sys	0m1.732s
+== JS 分析
+Starting evaluation of codeql/javascript-queries/Summary/LinesOfCode.ql.
+Starting evaluation of codeql/javascript-queries/Summary/LinesOfUserCode.ql.
+[87/89 eval 50ms] Evaluation done; writing results to codeql/javascript-queries/Security/CWE-942/CorsPermissiveConfiguration.bqrs.
+[88/89 eval 14ms] Evaluation done; writing results to codeql/javascript-queries/Summary/LinesOfCode.bqrs.
+[89/89 eval 3.7s] Evaluation done; writing results to codeql/javascript-queries/Summary/LinesOfUserCode.bqrs.
+Shutting down query evaluator.
+Interpreting results.
+CodeQL scanned 1 out of 1 JavaScript/TypeScript files in this invocation. Typically CodeQL is configured to analyze a single CodeQL language per invocation, so check other invocations to determine overall coverage information.
+
+real	1m34.423s
+user	1m29.158s
+sys	0m2.890s
+== SARIF 统计
+/tmp/py.sarif results= 0
+/tmp/js.sarif results= 4
+   - js/code-injection 1
+   - js/command-line-injection 1
+   - js/missing-rate-limiting 1
+   - js/reflected-xss 1
