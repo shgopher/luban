@@ -1,0 +1,28 @@
+# 评论游标/索引/软删真跑（MySQL 26.7.0 :13390 db=ch70_4，2026-11-21）
+# 21500 行：object 5001 有 1000 条顶级 + 500 条回复；另 100 个对象各 200 条顶级评论作噪声
+
+$ mysql -e "EXPLAIN ANALYZE <offset 900 的顶级评论分页>"
+EXPLAIN
+-> Limit/Offset: 20/900 row(s)  (cost=101 rows=20) (actual time=0.276..0.283 rows=20 loops=1)\n    -> Covering index lookup on comment using idx_object_cursor (object_id = 5001, root_id = 0, state = 2) (reverse)  (cost=101 rows=1000) (actual time=0.0318..0.264 rows=920 loops=1)\n
+
+$ mysql -e "EXPLAIN ANALYZE <(created_at,seq) 游标分页>"
+EXPLAIN
+-> Limit: 20 row(s)  (cost=20.6 rows=20) (actual time=0.0249..0.0346 rows=20 loops=1)\n    -> Filter: ((`comment`.state = 2) and (`comment`.root_id = 0) and (`comment`.object_id = 5001) and ((`comment`.created_at < (select #2)) or ((`comment`.created_at = (select #4)) and (`comment`.seq < 101))))  (cost=20.6 rows=101) (actual time=0.0247..0.0331 rows=20 loops=1)\n        -> Covering index range scan on comment using idx_object_cursor over (object_id = 5001 AND root_id = 0 AND state = 2 AND created_at < '2026-11-21 17:40:33.979') OR (object_id = 5001 AND root_id = 0 AND state = 2 AND created_at = '2026-11-21 17:40:33.979' AND seq < 101) (reverse)  (cost=20.6 rows=101) (actual time=0.0229..0.0279 rows=20 loops=1)\n        -> Select #2 (subquery in condition; run only once)\n            -> Rows fetched before execution  (cost=0..0 rows=1) (actual time=166e-6..207e-6 rows=1 loops=1)\n        -> Select #4 (subquery in condition; run only once)\n            -> Rows fetched before execution  (cost=0..0 rows=1) (actual time=42e-6..42e-6 rows=1 loops=1)\n
+
+--- 游标首页（object 5001 的顶级评论，state=2）---
+id	seq	state
+1000	1000	2
+999	999	2
+998	998	2
+997	997	2
+996	996	2
+
+--- 软删一条顶级评论（state=4）后：它消失，子回复仍在 ---
+id	state
+1	4
+replies_still_there
+500
+
+--- 软删后可见顶级数 ---
+visible_tops
+999

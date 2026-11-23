@@ -1,0 +1,35 @@
+== MySQL 26.7.0 / db=ch70_4 / InnoDB / 连接池 64 / 1000 并发 goroutine ==
+
+[正确版] 唯一键 uk(user_id, object_id, action) + ON DUPLICATE KEY UPDATE，aff1=新插入/aff2=重新激活才 UPDATE 计数
+
+[1a] 同一用户(user=7) 重复点赞 100 次，object=1001
+  requests=100  success=100  errors=0  elapsed=22ms
+  INSERT 行数=1   COUNT(*) 行数=1   去重用户对数=1   like_counter.cnt=1
+  判定: 状态行=1 (期望 1) PASS; 计数=1 (期望 1) PASS
+
+[1b] 1000 个不同用户各点赞 1 次，object=1002
+  requests=1000  success=1000  errors=0  elapsed=274ms
+  INSERT 行数=1000   COUNT(*) 行数=1000   去重用户对数=1000   like_counter.cnt=1000
+  判定: 状态行=1000 (期望 1000) PASS; 计数=1000 (期望 1000) PASS
+
+[错误版] 先 SELECT COUNT(*) 再 INSERT（无唯一键兜底），计数无条件 +1
+
+[2a] 同一用户(user=7) 重复点赞 100 次，object=2001，跑 3 轮
+  round1: requests=100 success=100 errors=0 elapsed=24ms INSERT行=69 COUNT(*)行=69 去重用户对=1 重复行=68 计数=100 (期望 1)
+  round2: requests=100 success=100 errors=0 elapsed=30ms INSERT行=81 COUNT(*)行=81 去重用户对=1 重复行=80 计数=100 (期望 1)
+  round3: requests=100 success=100 errors=0 elapsed=37ms INSERT行=74 COUNT(*)行=74 去重用户对=1 重复行=73 计数=100 (期望 1)
+
+[2b] 1000 个用户各发 5 次并发请求，object=2002
+  requests=5000 success=5000 errors=0 elapsed=1.59s
+  INSERT行=2540  COUNT(*)行=2540  去重用户对=1000 (期望 1000)  重复行=1540  计数=5000 (期望 1000，超计数 4000)
+[正确版] 取消赞后再点赞（ON DUPLICATE KEY UPDATE 按 affected rows 判定）
+
+[3a] like → unlike → like，object=3001，user=7
+  like     状态行=1  state=1  计数=1
+  unlike   状态行=1  state=0  计数=0
+  re-like  状态行=1  state=1  计数=1
+
+[3b] 100 并发 like/unlike 交替，object=3002，user=7
+  requests=100 success=100 errors=0 elapsed=46ms
+  状态行=1  state=0  计数=0
+  判定: 状态行=1 PASS; 计数非负 PASS; 计数与 state 一致 PASS

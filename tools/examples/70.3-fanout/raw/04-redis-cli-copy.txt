@@ -1,0 +1,18 @@
+# 可抄命令：真跑输出（Redis 8.10.2 / 127.0.0.1:16393 / 2026-11-21）
+$ redis-cli -p 16393 FLUSHALL
+OK
+$ redis-cli -p 16393 ZADD inbox:1001 1760000000000 feed:000000009001
+1
+$ redis-cli -p 16393 ZADD inbox:1001 1760000000000 feed:000000009001   # 重复同一 member
+0
+$ redis-cli -p 16393 ZADD inbox:1001 1760000001000 feed:000000009002
+1
+$ redis-cli -p 16393 ZCARD inbox:1001
+2
+$ redis-cli -p 16393 ZREVRANGE inbox:1001 0 19 WITHSCORES
+feed:000000009002
+1760000001000
+feed:000000009001
+1760000000000
+$ redis-cli -p 16393 ZREMRANGEBYRANK inbox:1001 0 -1001   # 只留最近 1000 条，本例 2 条返回 0
+0

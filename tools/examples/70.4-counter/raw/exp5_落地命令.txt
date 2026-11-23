@@ -1,0 +1,19 @@
+# 落地命令真跑（2026-11-21，Redis 8.10.2 :16394 / MySQL 26.7.0 :13390 db=ch70_4）
+
+$ redis-cli -p 16394 SETBIT like:obj:1001 42 1
+0
+$ redis-cli -p 16394 SETBIT like:obj:1001 43 1
+0
+$ redis-cli -p 16394 GETBIT like:obj:1001 42
+1
+$ redis-cli -p 16394 BITCOUNT like:obj:1001
+2
+$ redis-cli -p 16394 MEMORY USAGE like:obj:1001
+40
+$ redis-cli -p 16394 DEL like:obj:1001
+1
+
+$ mysql --protocol=tcp -h127.0.0.1 -P13390 -uroot ch70_4 -e "<唯一键 DDL，见正文>"
+--- SHOW CREATE TABLE like_state ---
+Table	Create Table
+like_state	CREATE TABLE `like_state` (\n  `id` bigint unsigned NOT NULL AUTO_INCREMENT,\n  `user_id` bigint unsigned NOT NULL,\n  `object_id` bigint unsigned NOT NULL,\n  `object_type` tinyint NOT NULL DEFAULT '1',\n  `action` tinyint NOT NULL DEFAULT '1',\n  `state` tinyint NOT NULL DEFAULT '1',\n  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `uk_user_object_action` (`user_id`,`object_id`,`object_type`,`action`),\n  KEY `idx_object_state` (`object_id`,`object_type`,`state`)\n) ENGINE=InnoDB AUTO_INCREMENT=4453 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

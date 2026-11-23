@@ -1,0 +1,29 @@
+环境: go1.27.1 darwin/arm64 | 内容 800 条，回调 5000 次（每条 6~7 次，含重复+乱序+伪造签名）
+分组: A 违规 200 条 | B 正常-初审误杀后申诉通过 200 条 | C 正常-顺利 400 条
+
+[正确版：去重表 + 条件更新]
+  签名伪造被拒         800
+  重复回调去重跳过     1600
+  旧状态回调被拦截     800
+  真正生效的回调       1800
+  违规内容驳回后上线   0
+  正常内容被错误下线   0
+  终态与真值不一致     0
+  耗时 3.948ms，吞吐 1266464 次回调/秒，单次 P50=584ns P99=2.333µs
+
+[错误版：无条件 UPDATE（last-write-wins）]
+  签名伪造被拒         800
+  重复回调去重跳过     0
+  旧状态回调被拦截     0
+  真正生效的回调       3200
+  违规内容驳回后上线   200
+  正常内容被错误下线   600
+  终态与真值不一致     400
+  耗时 4.855625ms，吞吐 1029734 次回调/秒，单次 P50=625ns P99=4.75µs
+
+抽样轨迹（内容 #0，真值=违规，期望终态 rejected/private）：
+  正确版: machine_reviewing/private → published/public → rejected/private
+  错误版: machine_reviewing/private → published/public → rejected/private → published/public
+抽样轨迹（内容 #700，真值=正常，期望终态 published/public）：
+  正确版: machine_reviewing/private → human_reviewing/private → published/public
+  错误版: machine_reviewing/private → human_reviewing/private → published/public → human_reviewing/private → published/public

@@ -1,0 +1,4 @@
+# 首次构建失败（cbs 未定义），修复后 BUILD_OK，留档。
+# ch70s701
+./main.go:340:26: undefined: cbs
+[exit code: 1]

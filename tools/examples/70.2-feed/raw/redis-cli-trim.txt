@@ -1,0 +1,13 @@
+== 6. 可抄之三：裁剪（收件箱只留最近 1000 条，控制内存）==
++ redis-cli -p 16392 ZCARD inbox:u1001
+3000
++ redis-cli -p 16392 ZREMRANGEBYRANK inbox:u1001 0 -1001
+2000
++ redis-cli -p 16392 ZCARD inbox:u1001
+1000
++ set +x
+-- 裁剪后最老的一条（第 1000 条）：
+feed:000000002001
+1700000667000
+
+DONE

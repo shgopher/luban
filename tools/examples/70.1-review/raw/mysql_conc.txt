@@ -1,0 +1,14 @@
+===== 实验 B-1：20 并发条件更新同一条内容（published → rejected） =====
+  单请求 affected rows: 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+  affected rows 之和 = 1
+1	rejected	private	1
+
+===== 实验 B-2（对照）：20 并发无条件 UPDATE（last-write-wins） =====
+  单请求 affected rows: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+  affected rows 之和 = 20
+1	rejected	private	20
+
+===== 实验 B-3：20 并发唯一键插入同一条回调（同一 audit_id） =====
+  单请求 affected rows: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+  affected rows 之和 = 1
+1

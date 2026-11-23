@@ -1,0 +1,9 @@
+# 1) 回调短窗口去重：同一 audit_id 第二次 SET NX 不再落键
+SET NX (第1次): OK
+SET NX (第2次): 
+EXISTS:        1
+# 2) mock 机审调用限流：分钟窗口 INCR + TTL
+INCR (第1次):  1
+INCR (第2次):  2
+EXPIRE 60:     1
+TTL:           60

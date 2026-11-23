@@ -1,0 +1,27 @@
+== 环境 ==
+mysql_version
+26.7.0
+== 表结构 ==
+*************************** 1. row ***************************
+       Table: feed_content
+Create Table: CREATE TABLE `feed_content` (
+  `id` bigint NOT NULL,
+  `author_id` bigint NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '0',
+  `created_at` bigint NOT NULL,
+  `body` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `k_author_time` (`author_id`,`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+== EXPLAIN（TRADITIONAL）单条主键回查 ==
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	feed_content	NULL	const	PRIMARY	PRIMARY	8	const	1	100.00	NULL
+== EXPLAIN（TRADITIONAL）批量 IN 回查 ==
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	feed_content	NULL	range	PRIMARY	PRIMARY	8	NULL	5	100.00	Using where
+== 按作者+时间取一页（关注流回源路径）==
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	feed_content	NULL	ref	k_author_time	k_author_time	8	const	2	100.00	Backward index scan; Using index
+== 表行数 ==
+rows_total
+20000

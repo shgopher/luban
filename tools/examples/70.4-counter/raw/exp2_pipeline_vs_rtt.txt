@@ -1,0 +1,12 @@
+== 批量已赞判定：1000 个内容 ID，同一用户 ==
+rounds                    : 5（每轮清空结果重跑，取平均/最小）
+A 逐个 GETBIT (1000 RTT)  : avg 86.696ms     best 84.448ms
+B pipeline GETBIT (1 RTT) : avg 1.125ms      best 870µs
+A/B 加速倍数              : 77.0 x
+单次 RTT 折算（A/1000）   : 86.7 µs
+
+== 计数快照：1000 个对象点赞数 ==
+C1 逐个 GET (1000 RTT)    : avg 85.358ms     best 84.669ms
+C2 MGET (1 RTT)           : avg 498µs        best 459µs
+C1/C2 加速倍数            : 171.3 x
+结果一致 (1000/1000)      : true

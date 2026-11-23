@@ -1,0 +1,25 @@
+== 方案 A: bitmap (SETBIT x1,000,000, bit offset = dense uid 0..999999) ==
+elapsed                     : 1.064s
+SETBIT commands             : 1000000
+STRLEN (bytes)              : 125000
+BITCOUNT                    : 1000000
+MEMORY USAGE key            : 131108 bytes
+INFO used_memory delta      : 116400 bytes
+INFO used_memory_before/after: 1399520 / 1515920
+DEBUG OBJECT                : ERR ERR DEBUG command not allowed. If the enable-debug-command option is set to "local", you can run it from a local connection, otherwise you need to set this option in the configuration file, and then restart the server.
+
+== 方案 B: SET (SADD x1,000,000, member = dense uid 0..999999) ==
+elapsed                     : 1.231s
+SADD commands               : 1000000
+SCARD                       : 1000000
+MEMORY USAGE key            : 32277587 bytes
+INFO used_memory delta      : 30081680 bytes
+INFO used_memory_before/after: 1384672 / 31466352
+DEBUG OBJECT                : ERR ERR DEBUG command not allowed. If the enable-debug-command option is set to "local", you can run it from a local connection, otherwise you need to set this option in the configuration file, and then restart the server.
+
+== 读数（本机实测） ==
+bitmap 每用户            : 0.1250 B  (12.50 MB/key for 100M users = 11.92 MiB)
+SET    每用户            : 32.28 B  (MEMORY USAGE / 1,000,000)
+SET/bitmap 内存倍数       : 258.22 x（对有效位 STRLEN）/ 246.19 x（对 MEMORY USAGE）
+推算 1 亿用户 bitmap      : 12.50 MB（12,500,000 B，11.92 MiB）
+推算 1 亿用户 SET         : 3.23 GB（3227758700 B，3.01 GiB）

@@ -1,0 +1,43 @@
+# env: macOS arm64, Go go1.27.1, NumCPU=8, MySQL 26.7.0, date=2026-11-21 17:51:36
+# data: edges=200000
+# load model a: 200000 rows, 1.693s
+# load model b: 200000 rows, 1.972s
+# graph: distinct_followers=92560 distinct_followees=19986 max_out_degree=1003(user=77777) max_in_degree=50003(user=9999) rows_per_shard=25105 25831 24830 24917 24844 24877 24926 24670 
+
+# phase 1: 无本地二级索引（只有主键）
+--- A-routed   关注列表 heavy(77777 关注 1000 人) 第 1 页
+EXPLAIN: type=ref key=PRIMARY rows=1003
+结果行数=200  中位耗时=240.375µs  min=202.208µs max=662.333µs
+--- A-scatter  粉丝列表 medium(8888 被 5000 人关注) 第 1 页
+EXPLAIN: s0[index key=PRIMARY rows=200] s1[index key=PRIMARY rows=200] s2[index key=PRIMARY rows=200] s3[index key=PRIMARY rows=200] s4[index key=PRIMARY rows=200] s5[index key=PRIMARY rows=200] s6[index key=PRIMARY rows=200] s7[index key=PRIMARY rows=200] rows合计=1600
+结果行数=1600  中位耗时=22.237583ms  min=16.871375ms max=99.258666ms
+--- B-routed   粉丝列表 medium(8888 被 5000 人关注) 第 1 页
+EXPLAIN: type=ref key=PRIMARY rows=9410
+结果行数=200  中位耗时=322.708µs  min=214.041µs max=20.882ms
+--- B-scatter  关注列表 heavy(77777 关注 1000 人) 第 1 页
+EXPLAIN: s0[index key=PRIMARY rows=200] s1[index key=PRIMARY rows=200] s2[index key=PRIMARY rows=200] s3[index key=PRIMARY rows=200] s4[index key=PRIMARY rows=200] s5[index key=PRIMARY rows=200] s6[index key=PRIMARY rows=200] s7[index key=PRIMARY rows=200] rows合计=1600
+结果行数=983  中位耗时=45.644083ms  min=29.347834ms max=121.053667ms
+PROBE A-routed   关注列表 heavy(77777 关注 1000 人) 第 1 页 | 实际扫描行数: index_next=203 rnd_next=0 key=1
+PROBE A-scatter  粉丝列表 medium(8888 被 5000 人关注) 第 1 页 | 实际扫描行数: index_next=108058 rnd_next=0 key=8
+PROBE B-routed   粉丝列表 medium(8888 被 5000 人关注) 第 1 页 | 实际扫描行数: index_next=203 rnd_next=0 key=1
+PROBE B-scatter  关注列表 heavy(77777 关注 1000 人) 第 1 页 | 实际扫描行数: index_next=200000 rnd_next=0 key=8
+
+# phase 2: 给反向查询加本地二级索引（分片键不变，仍然要访问全部 8 个分片）
+--- A-scatter  粉丝列表 medium(8888 被 5000 人关注) 第 1 页 [有 idx_followee]
+EXPLAIN: s0[ref key=idx_followee rows=625] s1[ref key=idx_followee rows=625] s2[ref key=idx_followee rows=627] s3[ref key=idx_followee rows=626] s4[ref key=idx_followee rows=627] s5[ref key=idx_followee rows=626] s6[ref key=idx_followee rows=626] s7[ref key=idx_followee rows=625] rows合计=5007
+结果行数=1600  中位耗时=3.215916ms  min=2.055833ms max=6.317708ms
+--- B-scatter  关注列表 heavy(77777 关注 1000 人) 第 1 页 [有 idx_follower]
+EXPLAIN: s0[ref key=idx_follower rows=125] s1[ref key=idx_follower rows=125] s2[ref key=idx_follower rows=126] s3[ref key=idx_follower rows=125] s4[ref key=idx_follower rows=126] s5[ref key=idx_follower rows=125] s6[ref key=idx_follower rows=126] s7[ref key=idx_follower rows=125] rows合计=1003
+结果行数=983  中位耗时=2.124875ms  min=1.353334ms max=4.095833ms
+PROBE A-scatter  粉丝列表 medium(8888 被 5000 人关注) 第 1 页 [有 idx_followee] | 实际扫描行数: index_next=1626 rnd_next=0 key=8
+PROBE B-scatter  关注列表 heavy(77777 关注 1000 人) 第 1 页 [有 idx_follower] | 实际扫描行数: index_next=1003 rnd_next=0 key=8
+
+# phase 3: 大 V 粉丝列表（5 万粉丝）第一页
+--- B-routed   粉丝列表 bigV(9999 被 5 万人关注) 第 1 页
+EXPLAIN: type=ref key=PRIMARY rows=34887
+结果行数=200  中位耗时=424.875µs  min=407.125µs max=837.25µs
+--- A-scatter  粉丝列表 bigV(9999 被 5 万人关注) 第 1 页 [有 idx_followee]
+EXPLAIN: s0[ref key=idx_followee rows=6250] s1[ref key=idx_followee rows=6252] s2[ref key=idx_followee rows=6250] s3[ref key=idx_followee rows=6251] s4[ref key=idx_followee rows=6250] s5[ref key=idx_followee rows=6250] s6[ref key=idx_followee rows=6250] s7[ref key=idx_followee rows=6250] rows合计=50003
+结果行数=1600  中位耗时=4.082333ms  min=3.668625ms max=6.383667ms
+PROBE B-routed   粉丝列表 bigV(9999 被 5 万人关注) 第 1 页 | 实际扫描行数: index_next=204 rnd_next=0 key=1
+PROBE A-scatter  粉丝列表 bigV(9999 被 5 万人关注) 第 1 页 [有 idx_followee] | 实际扫描行数: index_next=1626 rnd_next=0 key=8
