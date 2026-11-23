@@ -1,0 +1,34 @@
+# 实测 A：Redis GEO 规模实验
+# 环境：macOS arm64 / Apple M1 / Go 1.27.1 / Redis 8.10.2 @127.0.0.1:16393 / 2026-11-21
+# 数据：20 个城市中心各生成半径 20 km 圆盘均匀点；查询点=城市中心 3 km 内随机
+# 查询：GEOSEARCH key FROMLONLAT <lng> <lat> BYRADIUS 5 km ASC COUNT 50；每个规模 500 次（前 20 次预热不计）
+
+## 规模 10000：单 key 全国
+写入耗时 40ms（250,958 条/秒）；INFO used_memory 1000992 -> 1872944（增量 0.83 MiB，87.2 B/member）；MEMORY USAGE=0.85 MiB；返回条数 min/avg/max=21/31.1/44
+## 规模 10000：20 城市拆 key
+写入耗时 30ms；INFO used_memory 增量 0.65 MiB（68.3 B/member）；MEMORY USAGE 合计 0.75 MiB；返回条数 min/avg/max=21/31.1/44
+
+## 规模 100000：单 key 全国
+写入耗时 285ms（350,371 条/秒）；INFO used_memory 1107952 -> 8525392（增量 7.07 MiB，74.2 B/member）；MEMORY USAGE=8.12 MiB；返回条数 min/avg/max=50/50.0/50
+## 规模 100000：20 城市拆 key
+写入耗时 248ms；INFO used_memory 增量 7.48 MiB（78.4 B/member）；MEMORY USAGE 合计 8.50 MiB；返回条数 min/avg/max=50/50.0/50
+
+## 规模 1000000：单 key 全国
+写入耗时 4.037s（247,705 条/秒）；INFO used_memory 1108176 -> 68543136（增量 64.31 MiB，67.4 B/member）；MEMORY USAGE=74.14 MiB；返回条数 min/avg/max=50/50.0/50
+## 规模 1000000：20 城市拆 key
+写入耗时 2.743s；INFO used_memory 增量 70.65 MiB（74.1 B/member）；MEMORY USAGE 合计 81.11 MiB；返回条数 min/avg/max=50/50.0/50
+
+## 汇总表
+| 模式 | member | key 数 | INFO 内存 | B/member | MEMORY USAGE 合计 | 返回条数均值 | P50(µs) | P99(µs) |
+|---|---|---|---|---|---|---|---|---|
+| 单 key 全国 | 10000 | 1 | 0.83 MiB | 87.2 | 0.85 MiB | 31.1 | 117.0 | 332.0 |
+| 20 城市拆 key | 10000 | 20 | 0.65 MiB | 68.3 | 0.75 MiB | 31.1 | 94.0 | 219.0 |
+| 单 key 全国 | 100000 | 1 | 7.07 MiB | 74.2 | 8.12 MiB | 50.0 | 233.0 | 697.0 |
+| 20 城市拆 key | 100000 | 20 | 7.48 MiB | 78.4 | 8.50 MiB | 50.0 | 211.0 | 557.0 |
+| 单 key 全国 | 1000000 | 1 | 64.31 MiB | 67.4 | 74.14 MiB | 50.0 | 2764.0 | 5007.0 |
+| 20 城市拆 key | 1000000 | 20 | 70.65 MiB | 74.1 | 81.11 MiB | 50.0 | 1727.0 | 3140.0 |
+
+## 单 key 体积与「1 MB 红线」
+- 10000 member 单 key：MEMORY USAGE 0.85 MiB = 红线的 1 倍
+- 100000 member 单 key：MEMORY USAGE 8.12 MiB = 红线的 8 倍
+- 1000000 member 单 key：MEMORY USAGE 74.14 MiB = 红线的 74 倍

@@ -1,0 +1,18 @@
+C env: MySQL 26.7.0 @127.0.0.1:16306, innodb_buffer_pool_size=128 MiB
+dataset: users=100 points/user=10000 total=1000000 geohash_level=6
+X loaded 1000000 rows in 10.2 s (batch=500)
+Y loaded 2000 segments (40.3 s) + seg_cells 252404 rows
+Y blob: avg=2479.1 B/段 min=2414 max=2514 -> 4.96 B/点
+size track_x   rows=1000000 data=47.6 MiB index=27.6 MiB
+size track_seg rows=2000    data=6.5 MiB index=0.1 MiB
+size seg_cells rows=252404  data=14.5 MiB index=11.5 MiB
+q1 X rows=1202 p50=1.09ms p99=2.00ms returned=1202 payload=19225B
+q1 Y segs=3.4 p50=0.26ms p99=1.82ms returned=1202 decoded=1695 payload=19225B
+q2 X returned=288 p50=0.55ms p99=2.06ms index_entries=288 (covering index 范围扫描=返回行数)
+q2 Y cand_segs=64.8 p50=3.80ms p99=8.23ms decoded=32425 returned=288 false_hit=99.1% amplification=112.8 recall=100.0%
+q2 Y-start-cell-only recall=6622/28755=23.0%
+q3 X rows=10000 p50=5.07ms p99=7.48ms returned=10000 payload=160000B
+q3 Y segs=20 p50=0.34ms p99=0.97ms returned=10000 payload=49581B (20 段 × 2479 B/段)
+real 54.38
+user 7.25
+sys 14.01

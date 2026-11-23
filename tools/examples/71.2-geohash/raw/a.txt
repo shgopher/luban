@@ -1,0 +1,55 @@
+# 实测 A：10 万合成点 × 1000 次随机半径查询（4 种索引对比）
+环境: macOS arm64 / Go go1.27.1 / 数据 n=100000（20 城市 Gaussian σ=0.02° + 5000 均匀噪声）
+距离: haversine R=6371 km；查询中心 = 随机取数据集中的点；每档半径 250 次
+
+--- r = 100 m：真值平均 3.7 个结果，空结果 0/250；参数 geohash p=7，grid cell=100 m，S2 level=17 (avg edge 71 m)
+
+### r=100 m
+index                         A    recall     P50ns     P99ns   cells/q   empty
+GeoHash p=7 + ring         4.13   100.00%       250       438       9.1       0
+    → 索引内存 3.20 MB (33.6 B/点)
+UniformGrid 100m           2.28   100.00%       250       438       8.9       0
+    → 索引内存 5.65 MB (59.2 B/点)
+S2 L17 maxCells=8          1.90   100.00%      8500     19000       7.4       0
+    → 索引内存 1.15 MB (12.0 B/点)
+STR-RTree M=32            19.27   100.00%      3812     12750       2.2       0
+    → 索引内存 0.70 MB (7.4 B/点)
+
+--- r = 500 m：真值平均 73.1 个结果，空结果 0/250；参数 geohash p=6，grid cell=500 m，S2 level=14 (avg edge 567 m)
+
+### r=500 m
+index                         A    recall     P50ns     P99ns   cells/q   empty
+GeoHash p=6 + ring         6.54   100.00%       875      8188       9.0       0
+    → 索引内存 1.80 MB (18.9 B/点)
+UniformGrid 500m           2.83   100.00%       562      4000       9.0       0
+    → 索引内存 1.81 MB (19.0 B/点)
+S2 L14 maxCells=8          2.83   100.00%      6562     20812       5.1       0
+    → 索引内存 1.15 MB (12.0 B/点)
+STR-RTree M=32             4.21   100.00%      4875     18500       9.6       0
+    → 索引内存 0.70 MB (7.4 B/点)
+
+--- r = 1000 m：真值平均 272.0 个结果，空结果 0/250；参数 geohash p=6，grid cell=1000 m，S2 level=13 (avg edge 1135 m)
+
+### r=1000 m
+index                         A    recall     P50ns     P99ns   cells/q   empty
+GeoHash p=6 + ring         4.21   100.00%      1250      7688      25.0       0
+    → 索引内存 1.80 MB (18.9 B/点)
+UniformGrid 1000m          2.67   100.00%       688      5438       8.9       0
+    → 索引内存 1.81 MB (19.0 B/点)
+S2 L13 maxCells=8          2.67   100.00%      6375     17062       5.2       0
+    → 索引内存 1.15 MB (12.0 B/点)
+STR-RTree M=32             2.60   100.00%      4562     13312      22.1       0
+    → 索引内存 0.70 MB (7.4 B/点)
+
+--- r = 5000 m：真值平均 3531.9 个结果，空结果 0/250；参数 geohash p=5，grid cell=5000 m，S2 level=11 (avg edge 4539 m)
+
+### r=5000 m
+index                         A    recall     P50ns     P99ns   cells/q   empty
+GeoHash p=5 + ring         1.28   100.00%      4500     18188      25.0       0
+    → 索引内存 1.76 MB (18.4 B/点)
+UniformGrid 5000m          1.23   100.00%      3375     19000       8.9       0
+    → 索引内存 1.76 MB (18.4 B/点)
+S2 L11 maxCells=8          1.21   100.00%     15875     39625       6.3       0
+    → 索引内存 1.15 MB (12.0 B/点)
+STR-RTree M=32             1.15   100.00%      9188     32188     126.8       0
+    → 索引内存 0.70 MB (7.4 B/点)

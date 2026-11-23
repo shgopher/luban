@@ -1,0 +1,11 @@
+A points=1000000 seed=42 box=6km noise_sigma=3m sample=1-5s
+编码                                                        总字节       字节/点        最大误差m        平均误差m         编码ms         解码ms
+① CSV 文本 ts,lng,lat(7 位)                             34000000      34.00         0.01         0.00        83.88       131.53
+② 二进制 int64 ts + float64 lng/lat                     24000000      24.00         0.00         0.00         3.38         4.92
+③ delta-ts varint + zigzag-delta 坐标 1e-6              4383431       4.38         0.14         0.08         9.03        10.37
+④ 同 ③ 但量化 1e-5                                        3011849       3.01         1.40         0.76         6.16         7.75
+⑤ Google Polyline 1e-5（坐标，不含 ts）                      3766461       3.77            —            —        12.38        16.28  (坐标 2766457 + ts 1000004 = 3.77 B/点)
+polyline 仅坐标: 2766457 B, 2.77 B/点
+real 0.90
+user 0.56
+sys 0.04
