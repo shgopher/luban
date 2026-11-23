@@ -23,12 +23,12 @@ import (
 // 注意：签名覆盖的是 Manifest 的规范序列化，不覆盖固件本体；固件本体由 SHA256 钉住。
 type Manifest struct {
 	Product  string `json:"product"`
-	HwRev    string `json:"hw_rev"`    // 硬件版本：A 型号固件不能推给 B 型号
+	HwRev    string `json:"hw_rev"` // 硬件版本：A 型号固件不能推给 B 型号
 	Version  string `json:"version"`
 	Size     int64  `json:"size"`
 	SHA256   string `json:"sha256"`
 	URL      string `json:"url"`
-	NotAfter int64  `json:"not_after"` // 清单过期时间，防多年后重放旧签名
+	NotAfter int64  `json:"not_after"`             // 清单过期时间，防多年后重放旧签名
 	Rollback string `json:"rollback_to,omitempty"` // 失败时回到哪个版本
 }
 

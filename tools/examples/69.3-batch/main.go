@@ -47,4 +47,9 @@ func main() {
 	fmt.Println("样例（前 160 字节）：", string(b[:min(160, len(b))]))
 }
 
-func min(a, b int) int { if a < b { return a }; return b }
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
