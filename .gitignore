@@ -19,3 +19,17 @@ __pycache__/
 
 # linkify-refs.py 的备份（不是书稿正文）
 .linkify-bak/
+
+# 示例区的编译产物（go build ./... 会输出到 code/ 根目录）
+tools/examples/**/code/*
+!tools/examples/**/code/*.go
+!tools/examples/**/code/*.mod
+!tools/examples/**/code/*.sum
+!tools/examples/**/code/*.sh
+!tools/examples/**/code/*.py
+!tools/examples/**/code/*.sql
+!tools/examples/**/code/*.lua
+!tools/examples/**/code/*.md
+!tools/examples/**/code/*.txt
+!tools/examples/**/code/*.json
+!tools/examples/**/code/*/
