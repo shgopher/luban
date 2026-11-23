@@ -1,0 +1,26 @@
+# 本节实测原始数据元信息（本机 macOS arm64 / Go 1.27.1 / 2026-11-21）
+
+抓取时间（本机时区 Asia/Shanghai）：
+  2026-11-21T18:36:48+0800  ECB eurofxref-daily.xml（as_of 2026-11-20）
+  2026-11-21T18:36:49+0800  ECB eurofxref-hist-90d.xml（65 个交易日，2026-08-xx ~ 2026-11-20）
+  2026-11-21T18:36:49+0800  https://open.er-api.com/v6/latest/USD（time_last_update_utc=Fri, 20 Nov 2026 00:02:32 +0000）
+  2026-11-21T18:36:48+0800  https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml（Pblshd=2026-09-17）
+  2026-11-21T18:47+0800    https://raw.githubusercontent.com/unicode-org/cldr/main/common/supplemental/supplementalData.xml
+
+文件：
+  a-money.txt                      4080 bytes
+  b-fx.txt                         2335 bytes
+  c-postgres.txt                   3994 bytes
+  cldr-supplementalData.xml      394860 bytes
+  d-iso4217.txt                    5198 bytes
+  ecb-daily.xml                    1547 bytes
+  ecb-hist-90d.xml                70578 bytes
+  erapi-usd.json                   2977 bytes
+  fetch-meta.txt                   1674 bytes
+  iso4217-list-one.xml            47491 bytes
+sha256：
+  745150ec1408d50e1a272b65654a5dd645f3e60f5cc2898b576f725b28538d1a  raw/cldr-supplementalData.xml
+  a234540a78d0bccccc3642bfe604b138310a03741361434907aa4cf3e7622e8a  raw/ecb-daily.xml
+  9fdd74ca9b9a59d3851e86046befa6a4ebc18684909361713fb8bdc5bcce873d  raw/ecb-hist-90d.xml
+  33139b438657d1cee116ba737807ea71d19d6de4b90f799a09c56f0cc6a1b0ff  raw/iso4217-list-one.xml
+  6075411aa4c1630fa05934ae6fde36e3e48ee6c0b61fd67b75f2dbd2b8e13222  raw/erapi-usd.json

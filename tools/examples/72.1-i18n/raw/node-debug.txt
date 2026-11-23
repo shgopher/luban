@@ -1,0 +1,9 @@
+apk=0
+node v20.15.1 icu 74.2 cldr 44.1
+supp []
+de= 1,234,567.891
+de3= 1,234,567.891
+svcmp= 1
+svsort= [ 'Åsa', 'Zebra' ]
+ru2= few
+small= false icu_major= 74

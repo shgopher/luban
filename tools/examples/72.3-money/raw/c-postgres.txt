@@ -1,0 +1,122 @@
+Pager usage is off.
+SET
+=== 环境
+                                                      version                                                       
+--------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.14 on aarch64-alpine-linux-musl, compiled by gcc (Alpine 13.2.1_git20240309) 13.2.1 20240309, 64-bit
+
+ max_parallel_workers_per_gather 
+---------------------------------
+ 0
+
+
+### C1 float8 vs numeric：100 万行 0.01 累加与累加后乘税率
+DROP TABLE
+SELECT 1000000
+SELECT 1000000
+                    metric                     |       total        
+-----------------------------------------------+--------------------
+ float8   sum(v)                               | 10000.000000171856
+ numeric  sum(v)                               | 10000.00
+ float8   sum(v*1.07)                          | 10700.00000006968
+ numeric  sum(v*1.07)                          | 10700.0000
+ float8   round(sum(v*1.07),2) 需先转 numeric  | 10700.00
+ numeric  round(sum(v*1.07),2)                 | 10700.00
+ float8   round(sum(v*1.07)) 单参（half-even） | 10700
+
+
+### C2 ROUND 的两种语义：numeric 是 half-up，float8 是 half-even
+-- 单参 round：一边一半（2.5）时的分歧
+ f2_5 | n2_5 | f3_5 | n3_5 | fneg2_5 | nneg2_5 
+------+------+------+------+---------+---------
+    2 |    3 |    4 |    4 |      -2 |      -3
+
+-- PostgreSQL 没有 round(double precision, int)：保留 2 位必须先转 numeric
+ f2675_cast | n2675 | f1005_cast | n1005 | f0125_cast | n0125 
+------------+-------+------------+-------+------------+-------
+       2.68 |  2.68 |       1.01 |  1.01 |       0.13 |  0.13
+
+-- 2.675 在两个类型里的真实值
+ f2675_value | n2675_value | same 
+-------------+-------------+------
+       2.675 |       2.675 | t
+
+
+### C3 numeric 乘汇率后的 ROUND：位数不丢，但最终要落到币种 exponent
+    product    | product_type |  to_2   | to_0 |   to_3   
+---------------+--------------+---------+------+----------
+ 9060.24617064 | numeric      | 9060.25 | 9060 | 9060.246
+
+
+### C4 numeric(19,4) 的精度、舍入与溢出
+DROP TABLE
+CREATE TABLE
+INSERT 0 3
+ id |          a           
+----+----------------------
+  1 |               0.0001
+  2 | 999999999999999.9999
+  3 |               0.0000
+
+-- 插入 10^15（超出 numeric(19,4) 整数位 15 位上限）:
+psql:/w/code/c-postgres.sql:57: ERROR:  numeric field overflow
+DETAIL:  A field with precision 19, scale 4 must round to an absolute value less than 10^15.
+-- 插入 10^-5 级别的值（第 5 位小数）:
+INSERT 0 1
+ id |          a           
+----+----------------------
+  1 |               0.0001
+  2 | 999999999999999.9999
+  3 |               0.0000
+  5 |               0.0001
+
+-- 每值占用字节：numeric(19,4) 变长，bigint 定长 8
+ numeric_bytes 
+---------------
+             5
+            13
+             3
+             5
+
+ bigint_bytes 
+--------------
+            8
+
+
+### C5 100 万行求和后按币种 exponent 收口：JPY（0 位）vs CNY（2 位）
+   what   |  total   
+----------+----------
+ JPY 收口 | 10000
+ CNY 收口 | 10000.00
+
+
+### C6 累加误差的分布：float8 单行舍入前的原始和 vs 精确和
+    float8_abs_error    
+------------------------
+ 1.7185629985760897e-07
+
+ numeric_abs_error 
+-------------------
+              0.00
+
+
+### C6b 订单金额 numeric(19,4) × 汇率，写回列时隐式按 half-up 落 4 位
+DROP TABLE
+psql:/w/code/c-postgres.sql:78: NOTICE:  table "fx_order" does not exist, skipping
+CREATE TABLE
+INSERT 0 1
+UPDATE 1
+ id |  amount   |    rate    |   exact_product   | amount_quote | diff_vs_exact 
+----+-----------+------------+-------------------+--------------+---------------
+  1 | 1234.5678 | 7.33880000 | 9060.246170640000 |    9060.2462 |        0.0000
+
+
+### C7 最大余数法分摊（SQL 版）：10000 分给 3 人
+ uid | paid | total 
+-----+------+-------
+   1 | 3334 | 10000
+   2 | 3333 | 10000
+   3 | 3333 | 10000
+
+
+=== 收尾

@@ -1,0 +1,80 @@
+# env: go version go1.27.1 darwin/arm64 / Darwin arm64 / 2026-11-21 18:41:14 CST
+# cmd: cd .cache/ch72/s7201/code && go run ./cmd/negotiate
+## 支持 locale 集（13 个）: [en zh-Hans zh-Hant sr-Latn es-419 de fr ja ko ru ar pl pt-BR]
+
+01	header="zh-CN,zh;q=0.9,en;q=0.8"
+    parsed=[zh-CN zh en] q=[1 0.9 0.8] 
+    matched=zh-Hans-u-rg-cnzzzz idx=1 supported[idx]=zh-Hans
+    chain=zh-Hans-u-rg-cnzzzz -> zh-Hans -> zh -> en
+02	header="zh-Hans-CN,zh;q=0.9"
+    parsed=[zh-Hans-CN zh] q=[1 0.9] 
+    matched=zh-Hans-u-rg-cnzzzz idx=1 supported[idx]=zh-Hans
+    chain=zh-Hans-u-rg-cnzzzz -> zh-Hans -> zh -> en
+03	header="zh-Hant-HK"
+    parsed=[zh-Hant-HK] q=[1] 
+    matched=zh-Hant-u-rg-hkzzzz idx=2 supported[idx]=zh-Hant
+    chain=zh-Hant-u-rg-hkzzzz -> zh-Hant -> zh -> en
+04	header="sr-Latn-RS"
+    parsed=[sr-Latn-RS] q=[1] 
+    matched=sr-Latn-u-rg-rszzzz idx=3 supported[idx]=sr-Latn
+    chain=sr-Latn-u-rg-rszzzz -> sr-Latn -> sr -> en
+05	header="sr-Cyrl-RS"
+    parsed=[sr-Cyrl-RS] q=[1] 
+    matched=sr-Latn-u-rg-rszzzz idx=3 supported[idx]=sr-Latn
+    chain=sr-Latn-u-rg-rszzzz -> sr-Latn -> sr -> en
+06	header="es-419"
+    parsed=[es-419] q=[1] 
+    matched=es-419 idx=4 supported[idx]=es-419
+    chain=es-419 -> es -> en
+07	header="es-ES,es;q=0.9"
+    parsed=[es-ES es] q=[1 0.9] 
+    matched=es-419-u-rg-eszzzz idx=4 supported[idx]=es-419
+    chain=es-419-u-rg-eszzzz -> es -> en
+08	header="en-US;q=0,fr;q=0.9"
+    parsed=[fr] q=[0.9] 
+    matched=fr idx=6 supported[idx]=fr
+    chain=fr -> en
+09	header="*"
+    parsed=[mul] q=[1] 
+    matched=en idx=0 supported[idx]=en
+    chain=en
+10	header="de-DE, *;q=0.5"
+    parsed=[de-DE mul] q=[1 0.5] 
+    matched=de-u-rg-dezzzz idx=5 supported[idx]=de
+    chain=de-u-rg-dezzzz -> de -> en
+11	header="zh-Hant-TW,zh;q=0.8"
+    parsed=[zh-Hant-TW zh] q=[1 0.8] 
+    matched=zh-Hant-u-rg-twzzzz idx=2 supported[idx]=zh-Hant
+    chain=zh-Hant-u-rg-twzzzz -> zh-Hant -> zh -> en
+12	header="en-GB;q=0.8,en-US;q=0.7"
+    parsed=[en-GB en-US] q=[0.8 0.7] 
+    matched=en-u-rg-uszzzz idx=0 supported[idx]=en
+    chain=en-u-rg-uszzzz -> en
+13	header="pt-BR,pt;q=0.9,en;q=0.5"
+    parsed=[pt-BR pt en] q=[1 0.9 0.5] 
+    matched=pt-BR idx=12 supported[idx]=pt-BR
+    chain=pt-BR -> pt -> en
+14	header="ja-JP, ja;q=0.9, en;q=0.8"
+    parsed=[ja-JP ja en] q=[1 0.9 0.8] 
+    matched=ja-u-rg-jpzzzz idx=7 supported[idx]=ja
+    chain=ja-u-rg-jpzzzz -> ja -> en
+15	header="xx-YY,zh-Hans;q=0.5"
+    parsed=[] q=[] err=language: subtag "xx" is well-formed but unknown
+    matched=en idx=0 supported[idx]=en
+    chain=en
+16	header=";;;,q=0.9"
+    parsed=[] q=[] err=language: tag is not well-formed
+    matched=en idx=0 supported[idx]=en
+    chain=en
+17	header="zh-CN;q=abc,en;q=0.4"
+    parsed=[] q=[] err=ParseAcceptLanguage: invalid weight
+    matched=en idx=0 supported[idx]=en
+    chain=en
+18	header="en-US;q=0.9,zh-Hant;q=0.8,zh-Hans;q=0.7"
+    parsed=[en-US zh-Hant zh-Hans] q=[0.9 0.8 0.7] 
+    matched=en-u-rg-uszzzz idx=0 supported[idx]=en
+    chain=en-u-rg-uszzzz -> en
+
+## 归一化：18 个请求头 -> matched tag 字符串 12 种；按 supported 索引只有 9 种
+## matched 字符串集合=[de-u-rg-dezzzz en en-u-rg-uszzzz es-419 es-419-u-rg-eszzzz fr ja-u-rg-jpzzzz pt-BR sr-Latn-u-rg-rszzzz zh-Hans-u-rg-cnzzzz zh-Hant-u-rg-hkzzzz zh-Hant-u-rg-twzzzz]
+## 真正的内容 locale（缓存键应取这个）=[de en es-419 fr ja pt-BR sr-Latn zh-Hans zh-Hant]

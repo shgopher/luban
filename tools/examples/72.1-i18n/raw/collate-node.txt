@@ -1,0 +1,11 @@
+node=v20.15.1 icu=74.2 cldr=44.1
+## ICU 排序
+en	[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]
+de	[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]
+sv	[a apple Arger Asa B éclair z Zebra Åsa Ärger Ödla Öl]
+
+## Go vs ICU 顺序对比
+en	Go=[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]	ICU=[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]	SAME
+de	Go=[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]	ICU=[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]	SAME
+sv	Go=[a apple Arger Asa B éclair z Zebra Åsa Ärger Ödla Öl]	ICU=[a apple Arger Asa B éclair z Zebra Åsa Ärger Ödla Öl]	SAME
+一致 3/3

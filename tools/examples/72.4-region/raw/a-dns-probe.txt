@@ -1,0 +1,38 @@
+# env: 2026-11-21T10:36:43Z
+# public ip/loc
+{
+  "ip": "42.228.231.174",
+  "city": "Luoyang",
+  "region": "Henan",
+  "country": "CN",
+  "loc": "34.6735,112.4368",
+  "org": "AS4837 CHINA UNICOM China169 Backbone",
+  "postal": "471000",
+  "timezone": "Asia/Shanghai",
+  "readme": "https://ipinfo.io/missingauth"
+}
+## resolvers
+== @223.5.5.5
+www.taobao.com.danuoyi.tbcache.com.
+123.6.66.107
+123.6.66.106
+== @119.29.29.29
+www.taobao.com.danuoyi.tbcache.com.
+123.6.66.106
+123.6.66.107
+== @114.114.114.114
+www.taobao.com.danuoyi.tbcache.com.
+123.6.66.106
+123.6.66.107
+== @1.1.1.1
+www.taobao.com.danuoyi.tbcache.com.
+8.45.176.177
+8.45.176.178
+== @8.8.8.8
+www.taobao.com.danuoyi.tbcache.com.
+123.6.66.106
+123.6.66.107
+## ECS test
+www.taobao.com.danuoyi.tbcache.com.
+42.101.76.224
+42.101.76.225

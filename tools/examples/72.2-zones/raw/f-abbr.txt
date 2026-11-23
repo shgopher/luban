@@ -1,0 +1,27 @@
+## F1 同一时刻下各时区的缩写与偏移
+| 时区 | 2026-01-15T12:00Z 缩写/偏移 | 2026-07-15T12:00Z 缩写/偏移 |
+|---|---|---|
+| Asia/Shanghai | CST / +8.0 | CST / +8.0 |
+| America/Chicago | CST / -6.0 | CDT / -5.0 |
+| America/Havana | CST / -5.0 | CDT / -4.0 |
+| Asia/Kolkata | IST / +5.5 | IST / +5.5 |
+| Europe/Dublin | GMT / +0.0 | IST / +1.0 |
+| Asia/Jerusalem | IST / +2.0 | IDT / +3.0 |
+| Europe/London | GMT / +0.0 | BST / +1.0 |
+| Asia/Dhaka | +06 / +6.0 | +06 / +6.0 |
+| America/Halifax | AST / -4.0 | ADT / -3.0 |
+| Asia/Riyadh | +03 / +3.0 | +03 / +3.0 |
+| America/Sao_Paulo | -03 / -3.0 | -03 / -3.0 |
+| Europe/Lisbon | WET / +0.0 | WEST / +1.0 |
+| America/New_York | EST / -5.0 | EDT / -4.0 |
+| Australia/Sydney | AEDT / +11.0 | AEST / +10.0 |
+
+## F2 按缩写反查：同一缩写对应几个时区、几个偏移
+| 缩写 | 时区数 | 偏移种类（小时） | 时区清单 |
+|---|---|---|---|
+| CST | 3 | [+8.0 -6.0 -5.0] | [Asia/Shanghai America/Chicago America/Havana] |
+| IST | 3 | [+5.5 +1.0 +2.0] | [Asia/Kolkata Europe/Dublin Asia/Jerusalem] |
+| BST | 1 | [+1.0] | [Europe/London] |
+| AST | 1 | [-4.0] | [America/Halifax] |
+| EST | 1 | [-5.0] | [America/New_York] |
+| GMT | 2 | [+0.0] | [Europe/Dublin Europe/London] |

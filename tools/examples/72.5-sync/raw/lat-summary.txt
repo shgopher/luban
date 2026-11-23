@@ -1,0 +1,4 @@
+# commit latency percentiles (n=300 each; 单位 ms)
+lat-async          p50=   0.32 p95=   1.02 p99=   3.97 max=  10.10
+lat-sync           p50=  84.93 p95=  88.46 p99=  93.64 max= 100.54
+lat-remote-apply   p50=  84.77 p95=  88.30 p99=  98.72 max= 104.99

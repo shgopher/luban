@@ -1,0 +1,27 @@
+# env: go version go1.27.1 darwin/arm64 / Darwin arm64
+# cmd: go run ./cmd/length
+## E1 pseudo-localization 膨胀
+base   runes=62 bytes=62  "Saved 3 files to your library. Open the folder to review them."
+pseudo runes=70 bytes=92  "[!! Sávéd 3 fíléš tó ýóúr líbrárý. Opéñ thé fóldér tó révíéw thém. !!]"
+rune 膨胀=+12.90%  byte 膨胀=+48.39%
+
+## E2 同一文案 en/zh/ja：字节/rune/字素/显示格
+lang	bytes	runes	graphemes	cells(EastAsianWidth)	cells(uniseg)
+en	28	28	28	28	28	Save changes to your library
+zh	33	11	11	22	22	将更改保存到你的资料库
+ja	33	11	11	22	22	変更をライブラリに保存
+de	41	40	40	40	40	Änderungen in Ihrer Bibliothek speichern
+
+## E3 emoji / 组合字符的三列计数
+case	bytes	runes	graphemes	cells(uniseg)
+ASCII 'a'	1	1	1	1
+e + 组合重音 U+0301	3	2	1	1
+旗帜 CN (2 个 regional indicator)	8	2	1	2
+ZWJ 家庭 👨‍👩‍👧‍👦	25	7	1	2
+肤色修饰 👍🏽	8	2	1	2
+ZWJ 职业 👩‍💻	11	3	1	2
+键帽 1️⃣	7	3	1	1
+心 + VS16 ❤️	6	2	1	2
+
+## E4 泰语无空格：按空白切 vs 按字素
+thai="ภาษาไทยไม่มีช่องว่างระหว่างคำ" bytes=87 runes=29 graphemes=23 whitespace_chunks=1

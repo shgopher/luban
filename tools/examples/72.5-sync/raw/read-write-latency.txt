@@ -1,0 +1,37 @@
+# 读路径延迟（5 轮，warm）：点查 vs 200k 行 count
+## B 本地副本点查
+Time: 1.197 ms
+Time: 0.702 ms
+Time: 0.968 ms
+Time: 0.591 ms
+Time: 0.580 ms
+## B -> A 跨区点查
+Time: 86.236 ms
+Time: 82.706 ms
+Time: 85.185 ms
+Time: 89.992 ms
+Time: 87.429 ms
+## B 本地 200k count
+ Execution Time: 28.973 ms
+ Execution Time: 20.257 ms
+ Execution Time: 20.075 ms
+ Execution Time: 22.118 ms
+ Execution Time: 20.007 ms
+## B -> A 跨区 200k count
+ Execution Time: 43.619 ms
+ Execution Time: 44.407 ms
+ Execution Time: 21.237 ms
+ Execution Time: 27.675 ms
+ Execution Time: 15.739 ms
+## 写：A 本地 insert x5
+Time: 1.847 ms
+Time: 0.699 ms
+Time: 0.659 ms
+Time: 0.863 ms
+Time: 0.676 ms
+## 写：B -> A 跨区 insert x5
+Time: 92.741 ms
+Time: 94.419 ms
+Time: 96.279 ms
+Time: 87.172 ms
+Time: 87.364 ms

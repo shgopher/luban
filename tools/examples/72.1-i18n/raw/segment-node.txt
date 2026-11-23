@@ -1,0 +1,14 @@
+node=v20.15.1 icu=74.2
+case	bytes	runes	go_graphemes	icu_graphemes	match
+ascii-a	1	1	1	1	SAME
+e-combining	3	2	1	1	SAME
+flag-cn	8	2	1	1	SAME
+zwj-family	25	7	1	1	SAME
+skin-tone	8	2	1	1	SAME
+zwj-profession	11	3	1	1	SAME
+keycap-1	7	3	1	1	SAME
+heart-vs16	6	2	1	1	SAME
+## grapheme 一致 8/8
+
+## 泰语分词 thai=ภาษาไทยไม่มีช่องว่างระหว่างคำ
+whitespace_chunks=1 icu_wordlike=7 segments=[ภาษา|ไทย|ไม่มี|ช่อง|ว่าง|ระหว่าง|คำ]

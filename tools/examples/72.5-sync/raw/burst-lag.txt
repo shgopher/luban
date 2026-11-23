@@ -1,0 +1,10 @@
+# 异步复制突发追平
+INSERT 0 200000
+Time: 220.541 ms
+caught_up_rows=200000 elapsed_ms=955.1
+## 空闲时 pg_stat_replication
+   state   |    write_lag    |    flush_lag    |   replay_lag    
+-----------+-----------------+-----------------+-----------------
+ streaming | 00:00:00.810797 | 00:00:00.810911 | 00:00:00.812816
+(1 row)
+

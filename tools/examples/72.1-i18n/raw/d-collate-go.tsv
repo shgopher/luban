@@ -1,0 +1,22 @@
+# env: go version go1.27.1 darwin/arm64 / Darwin arm64
+# cmd: go run ./cmd/collation
+en	[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]
+de	[a apple Arger Ärger Asa Åsa B éclair Ödla Öl z Zebra]
+sv	[a apple Arger Asa B éclair z Zebra Åsa Ärger Ödla Öl]
+
+## 两两比较（负=前者在前，0=主级相同）
+en	apple vs Åsa	-1
+en	Åsa vs Zebra	-1
+en	Ärger vs Zebra	-1
+en	Öl vs Zebra	-1
+en	apple vs Ärger	-1
+de	apple vs Åsa	-1
+de	Åsa vs Zebra	-1
+de	Ärger vs Zebra	-1
+de	Öl vs Zebra	-1
+de	apple vs Ärger	-1
+sv	apple vs Åsa	-1
+sv	Åsa vs Zebra	1
+sv	Ärger vs Zebra	1
+sv	Öl vs Zebra	1
+sv	apple vs Ärger	-1

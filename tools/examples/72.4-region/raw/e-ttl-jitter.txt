@@ -1,0 +1,27 @@
+# 2026-11-21T10:42:41Z TTL of CDN answers (different domains)
+== www.taobao.com
+www.taobao.com.		498	IN	CNAME	www.taobao.com.danuoyi.tbcache.com.
+www.taobao.com.danuoyi.tbcache.com. 14 IN A	123.6.66.106
+www.taobao.com.danuoyi.tbcache.com. 14 IN A	123.6.66.107
+== www.jd.com
+www.jd.com.gslb.qianxun.com. 42	IN	CNAME	www.jd.com.s.galileo.jcloud-cdn.com.
+www.jd.com.s.galileo.jcloud-cdn.com. 22	IN CNAME wwwv6.jcloudimg.com.
+wwwv6.jcloudimg.com.	32	IN	A	123.6.77.65
+== www.bilibili.com
+a.w.bilicdn1.com.	68	IN	A	116.163.15.199
+a.w.bilicdn1.com.	68	IN	A	116.163.15.198
+a.w.bilicdn1.com.	68	IN	A	116.163.15.197
+== www.apple.com
+www.apple.com.w.cdngslb.com. 25	IN	A	123.6.141.135
+www.apple.com.w.cdngslb.com. 25	IN	A	123.6.66.83
+www.apple.com.w.cdngslb.com. 25	IN	A	123.6.141.110
+
+## ping jitter: domestic vs overseas
+== www.baidu.com
+--- www.a.shifen.com ping statistics ---
+15 packets transmitted, 15 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 20.514/21.711/23.841/0.804 ms
+== www.microsoft.com
+--- e13678.dscb.akamaiedge.net ping statistics ---
+15 packets transmitted, 15 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 225.267/226.155/227.258/0.553 ms

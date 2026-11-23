@@ -1,0 +1,21 @@
+v20.15.1
+node=v20.15.1 icu=74.2 cldr=44.1
+lang	n	category
+en	0	other
+en	1	one
+en	2	other
+en	3	other
+en	5	other
+en	11	other
+en	21	other
+en	100	other
+en	1.5	other
+ru	0	many
+ru	1	one
+ru	2	few
+ru	3	few
+ru	5	many
+ru	11	many
+ru	21	one
+ru	100	many
+ru	1.5	other

@@ -1,0 +1,7 @@
+# 2026-11-21T10:47:15Z netem 40ms/侧（两容器 eth0 egress）
+PING pgB (172.18.0.3): 56 data bytes
+
+--- pgB ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 81.517/86.280/88.476 ms
+psql: error: connection to server at "pgB" (172.18.0.3), port 5432 failed: FATAL:  role "root" does not exist

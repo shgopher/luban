@@ -1,0 +1,10 @@
+# 2026-11-21T10:36:57Z TCP connect latency (curl, 10 rounds each)
+123.6.66.107 connect=0.012209 total=0.019806
+8.45.176.177 connect=0.190562 total=0.392169
+42.101.76.224 connect=0.000000 total=5.003650
+42.101.76.225 connect=0.000000 total=5.004553
+
+## 10x time_connect to 123.6.66.107 (local CDN)
+min=0.006962 p50=0.008298 max=0.011271
+## 10x time_connect to 8.45.176.177 (Cloudflare-resolver answer)
+min=0.171105 p50=0.198302 max=0.454859

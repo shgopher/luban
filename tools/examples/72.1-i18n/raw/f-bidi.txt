@@ -1,0 +1,37 @@
+# env: go version go1.27.1 darwin/arm64 / Darwin arm64
+# cmd: go run ./cmd/bidi
+## 阿拉伯文 + 欧洲数字 + 希伯来文
+logical: "مرحبا 123 שלום" (处理 23/23 字节)
+classes: 'م'=AL 'ر'=AL 'ح'=AL 'ب'=AL 'ا'=AL ' '=WS '1'=EN '2'=EN '3'=EN ' '=WS 'ש'=R 'ל'=R 'ו'=R 'ם'=R
+paragraph_direction=1 runs=3
+run 摆放顺序(屏幕左->右)=[2 1 0]
+run[0] dir=1 pos=0..5 text="مرحبا "
+run[1] dir=0 pos=6..8 text="123"
+run[2] dir=1 pos=9..13 text=" שלום"
+
+## 希伯来文 + 括号 + 拉丁字母
+logical: "שלום (abc) עולם" (处理 23/23 字节)
+classes: 'ש'=R 'ל'=R 'ו'=R 'ם'=R ' '=WS '('=ON 'a'=L 'b'=L 'c'=L ')'=ON ' '=WS 'ע'=R 'ו'=R 'ל'=R 'ם'=R
+paragraph_direction=1 runs=3
+run 摆放顺序(屏幕左->右)=[2 1 0]
+run[0] dir=1 pos=0..5 text="שלום ("
+run[1] dir=0 pos=6..8 text="abc"
+run[2] dir=1 pos=9..14 text=") עולם"
+
+## RTL 段落里的负数与百分号
+logical: "الرصيد -1,234.50 USD" (处理 26/26 字节)
+classes: 'ا'=AL 'ل'=AL 'ر'=AL 'ص'=AL 'ي'=AL 'د'=AL ' '=WS '-'=ES '1'=EN ','=CS '2'=EN '3'=EN '4'=EN '.'=CS '5'=EN '0'=EN ' '=WS 'U'=L 'S'=L 'D'=L
+paragraph_direction=1 runs=4
+run 摆放顺序(屏幕左->右)=[3 2 1 0]
+run[0] dir=1 pos=0..7 text="الرصيد -"
+run[1] dir=0 pos=8..15 text="1,234.50"
+run[2] dir=1 pos=16..16 text=" "
+run[3] dir=0 pos=17..19 text="USD"
+
+## 纯 LTR 对照
+logical: "hello 123 world" (处理 15/15 字节)
+classes: 'h'=L 'e'=L 'l'=L 'l'=L 'o'=L ' '=WS '1'=EN '2'=EN '3'=EN ' '=WS 'w'=L 'o'=L 'r'=L 'l'=L 'd'=L
+paragraph_direction=0 runs=1
+run 摆放顺序(屏幕左->右)=[0]
+run[0] dir=0 pos=0..14 text="hello 123 world"
+

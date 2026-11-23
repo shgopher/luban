@@ -1,0 +1,107 @@
+node=v20.15.1 icu=74.2 cldr=44.1
+lang	n	category
+en	0	other
+en	1	one
+en	2	other
+en	3	other
+en	5	other
+en	11	other
+en	21	other
+en	100	other
+en	1.5	other
+ru	0	many
+ru	1	one
+ru	2	few
+ru	3	few
+ru	5	many
+ru	11	many
+ru	21	one
+ru	100	many
+ru	1.5	other
+ar	0	zero
+ar	1	one
+ar	2	two
+ar	3	few
+ar	5	few
+ar	11	many
+ar	21	many
+ar	100	other
+ar	1.5	other
+pl	0	many
+pl	1	one
+pl	2	few
+pl	3	few
+pl	5	many
+pl	11	many
+pl	21	many
+pl	100	many
+pl	1.5	other
+zh	0	other
+zh	1	other
+zh	2	other
+zh	3	other
+zh	5	other
+zh	11	other
+zh	21	other
+zh	100	other
+zh	1.5	other
+fr	0	one
+fr	1	one
+fr	2	other
+fr	3	other
+fr	5	other
+fr	11	other
+fr	21	other
+fr	100	other
+fr	1.5	one
+de	0	other
+de	1	one
+de	2	other
+de	3	other
+de	5	other
+de	11	other
+de	21	other
+de	100	other
+de	1.5	other
+ja	0	other
+ja	1	other
+ja	2	other
+ja	3	other
+ja	5	other
+ja	11	other
+ja	21	other
+ja	100	other
+ja	1.5	other
+uk	0	many
+uk	1	one
+uk	2	few
+uk	3	few
+uk	5	many
+uk	11	many
+uk	21	one
+uk	100	many
+uk	1.5	other
+cs	0	other
+cs	1	one
+cs	2	few
+cs	3	few
+cs	5	other
+cs	11	other
+cs	21	other
+cs	100	other
+cs	1.5	many
+
+## 对比：90 格，一致 90，差异 0
+
+## 类别 -> 命中数字（Go 与 ICU 按 category 归并；两者一致时只列一列）
+lang	zero	one	two	few	many	other
+en	-	1	-	-	-	0,2,3,5,11,21,100,1.5
+ru	-	1,21	-	2,3	0,5,11,100	1.5
+ar	0	1	2	3,5	11,21	100,1.5
+pl	-	1	-	2,3	0,5,11,21,100	1.5
+zh	-	-	-	-	-	0,1,2,3,5,11,21,100,1.5
+fr	-	0,1,1.5	-	-	-	2,3,5,11,21,100
+de	-	1	-	-	-	0,2,3,5,11,21,100,1.5
+ja	-	-	-	-	-	0,1,2,3,5,11,21,100,1.5
+uk	-	1,21	-	2,3	0,5,11,100	1.5
+cs	-	1	-	2,3	1.5	0,5,11,21,100

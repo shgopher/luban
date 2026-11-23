@@ -1,0 +1,8 @@
+123.6.66.107     Zhengzhou Henan CN AS4837 CHINA UNICOM China169 Backbone
+42.101.76.225    Harbin Heilongjiang CN AS137698 Haerbing , Heilongjiang Provinc
+61.170.76.149    Shanghai Shanghai CN AS4812 China Telecom (Group)
+183.61.4.163     Guangzhou Guangdong CN AS4134 CHINANET BACKBONE
+47.246.58.209    Singapore Singapore SG AS24429 Zhejiang Taobao Network Co.,Ltd
+123.129.195.20   Jinan Shandong CN AS4837 CHINA UNICOM China169 Backbone
+220.181.175.108  Beijing Beijing CN AS23724 IDC, China Telecommunications Co
+8.45.176.177     Seattle Washington US AS24429 Zhejiang Taobao Network Co.,Ltd

@@ -1,0 +1,17 @@
+# 2026-11-21T10:36:57Z ECS subnet matrix: www.taobao.com via AliDNS 223.5.5.5
+114.114.114.0/24      42.101.76.225 42.101.76.224 
+116.228.0.0/16        61.170.76.149 61.170.76.150 
+113.108.0.0/16        183.61.4.163 183.61.4.164 
+218.30.0.0/16         183.61.4.164 183.61.4.163 
+165.21.0.0/16         47.246.58.209 47.246.58.208 
+203.208.0.0/16        123.129.195.20 123.129.195.19 
+36.110.0.0/16         220.181.175.108 220.181.175.109 
+
+## TTL / CNAME chain
+
+; <<>> DiG 9.10.6 <<>> +time=3 +tries=1 @223.5.5.5 www.taobao.com A +noall +answer
+; (1 server found)
+;; global options: +cmd
+www.taobao.com.		544	IN	CNAME	www.taobao.com.danuoyi.tbcache.com.
+www.taobao.com.danuoyi.tbcache.com. 28 IN A	123.6.66.106
+www.taobao.com.danuoyi.tbcache.com. 28 IN A	123.6.66.107

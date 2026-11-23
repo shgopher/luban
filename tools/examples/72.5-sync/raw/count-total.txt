@@ -1,0 +1,22 @@
+# 200k count 客户端总耗时（含网络，5 轮）
+## B 本地副本
+Time: 24.328 ms
+Time: 6.878 ms
+Time: 7.902 ms
+Time: 7.575 ms
+Time: 7.138 ms
+## B -> A 跨区回源
+Time: 101.871 ms
+Time: 114.939 ms
+Time: 108.286 ms
+Time: 111.111 ms
+Time: 98.424 ms
+## 服务端 Execution Time（不含网络，对照）
+-- 本地
+ Execution Time: 16.933 ms
+ Execution Time: 16.204 ms
+ Execution Time: 15.818 ms
+-- 跨区
+ Execution Time: 44.931 ms
+ Execution Time: 36.673 ms
+ Execution Time: 40.119 ms

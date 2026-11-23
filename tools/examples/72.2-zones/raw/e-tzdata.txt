@@ -1,0 +1,35 @@
+=== E1 裸 alpine:3.20（无 tzdata 包，/usr/share/zoneinfo 不存在）===
+--- ls /usr/share/zoneinfo ---
+ls: /usr/share/zoneinfo: No such file or directory
+--- 普通 go build 的二进制 ---
+go=go1.27.1 GOOS=linux TZDIR=""
+LoadLocation(America/New_York    ) FAIL: unknown time zone America/New_York
+LoadLocation(Australia/Lord_Howe ) FAIL: unknown time zone Australia/Lord_Howe
+LoadLocation(Asia/Almaty         ) FAIL: unknown time zone Asia/Almaty
+exit=1
+--- -tags timetzdata 内嵌 tzdata 的二进制 ---
+go=go1.27.1 GOOS=linux TZDIR=""
+LoadLocation(America/New_York    ) OK  local=2026-01-15 07:00 EST(-5.0) now=2026-11-21 05:43
+LoadLocation(Australia/Lord_Howe ) OK  local=2026-01-15 23:00 +11(+11.0) now=2026-11-21 21:43
+LoadLocation(Asia/Almaty         ) OK  local=2026-01-15 17:00 +05(+5.0) now=2026-11-21 15:43
+exit=0
+--- 普通二进制 + TZDIR=/nonexistent ---
+go=go1.27.1 GOOS=linux TZDIR="/nonexistent"
+LoadLocation(America/New_York    ) FAIL: unknown time zone America/New_York
+LoadLocation(Australia/Lord_Howe ) FAIL: unknown time zone Australia/Lord_Howe
+LoadLocation(Asia/Almaty         ) FAIL: unknown time zone Asia/Almaty
+exit=1
+
+=== E2 同一镜像 apk add tzdata 之后 ===
+WARNING: opening from cache https://dl-cdn.alpinelinux.org/alpine/v3.20/main: No such file or directory
+WARNING: opening from cache https://dl-cdn.alpinelinux.org/alpine/v3.20/community: No such file or directory
+tzdata-2026b-r0 description:
+go=go1.27.1 GOOS=linux TZDIR=""
+LoadLocation(America/New_York    ) OK  local=2026-01-15 07:00 EST(-5.0) now=2026-11-21 05:43
+LoadLocation(Australia/Lord_Howe ) OK  local=2026-01-15 23:00 +11(+11.0) now=2026-11-21 21:43
+LoadLocation(Asia/Almaty         ) OK  local=2026-01-15 17:00 +05(+5.0) now=2026-11-21 15:43
+exit=0
+
+=== E3 二进制体积：内嵌 tzdata 的代价 ===
+-rwxr-xr-x@ 1 shgopher  staff  2778974 Nov 21 18:40 code/bins/loadtz-embed
+-rwxr-xr-x@ 1 shgopher  staff  2381774 Nov 21 18:40 code/bins/loadtz-plain

@@ -1,0 +1,146 @@
+SIX 官方文件 ISO_4217 Pblshd = 2026-09-17
+抓取时间 = 2026-11-21T18:36:48+0800（本机）
+CcyNtry 行数 = 277 ；去重币种数 = 178
+minor units 分布 = {'2': 224, '3': 7, '0': 31, '4': 2, 'N.A.': 13}
+
+## 非 2 位小数的币种（按 minor unit 分组，同一币种只列一次）
+
+### minor units = 0  （17 个币种）
+| 币种 | 名称 | 数字代码 |
+|---|---|---|
+| BIF | Burundi Franc | 108 |
+| CLP | Chilean Peso | 152 |
+| DJF | Djibouti Franc | 262 |
+| GNF | Guinean Franc | 324 |
+| ISK | Iceland Krona | 352 |
+| JPY | Yen | 392 |
+| KMF | Comorian Franc | 174 |
+| KRW | Won | 410 |
+| PYG | Guarani | 600 |
+| RWF | Rwanda Franc | 646 |
+| UGX | Uganda Shilling | 800 |
+| UYI | Uruguay Peso en Unidades Indexadas (UI) | 940 |
+| VND | Dong | 704 |
+| VUV | Vatu | 548 |
+| XAF | CFA Franc BEAC | 950 |
+| XOF | CFA Franc BCEAO | 952 |
+| XPF | CFP Franc | 953 |
+
+### minor units = 3  （7 个币种）
+| 币种 | 名称 | 数字代码 |
+|---|---|---|
+| BHD | Bahraini Dinar | 048 |
+| IQD | Iraqi Dinar | 368 |
+| JOD | Jordanian Dinar | 400 |
+| KWD | Kuwaiti Dinar | 414 |
+| LYD | Libyan Dinar | 434 |
+| OMR | Rial Omani | 512 |
+| TND | Tunisian Dinar | 788 |
+
+### minor units = 4  （2 个币种）
+| 币种 | 名称 | 数字代码 |
+|---|---|---|
+| CLF | Unidad de Fomento | 990 |
+| UYW | Unidad Previsional | 927 |
+
+### minor units = N.A.  （13 个币种）
+| 币种 | 名称 | 数字代码 |
+|---|---|---|
+| XAG | Silver | 961 |
+| XAU | Gold | 959 |
+| XBA | Bond Markets Unit European Composite Unit (EURCO) | 955 |
+| XBB | Bond Markets Unit European Monetary Unit (E.M.U.-6) | 956 |
+| XBC | Bond Markets Unit European Unit of Account 9 (E.U.A.-9) | 957 |
+| XBD | Bond Markets Unit European Unit of Account 17 (E.U.A.-17) | 958 |
+| XDR | SDR (Special Drawing Right) | 960 |
+| XPD | Palladium | 964 |
+| XPT | Platinum | 962 |
+| XSU | Sucre | 994 |
+| XTS | Codes specifically reserved for testing purposes | 963 |
+| XUA | ADB Unit of Account | 965 |
+| XXX | The codes assigned for transactions where no currency is involved | 999 |
+
+## 抽样核对：任务里点名的币种在 SIX 官方表里的 minor units
+| JPY | 0 |
+| KRW | 0 |
+| KWD | 3 |
+| BHD | 3 |
+| JOD | 3 |
+| OMR | 3 |
+| TND | 3 |
+| CLF | 4 |
+| UYW | 4 |
+| MGA | 2 |
+| MRU | 2 |
+| USD | 2 |
+| CNY | 2 |
+| EUR | 2 |
+| ISK | 0 |
+| UGX | 0 |
+| VND | 0 |
+| XOF | 0 |
+| XAF | 0 |
+| XPF | 0 |
+| GNF | 0 |
+| RWF | 0 |
+| BIF | 0 |
+| DJF | 0 |
+| KMF | 0 |
+| PYG | 0 |
+| VUV | 0 |
+| CLP | 0 |
+
+## 交叉源：CLDR supplementalData.xml 的 currencyData/fractions（抓取于 2026-11-21T18:4x+0800）
+CLDR fractions info 条数 = 76
+| DEFAULT | digits=2 rounding=0 cashDigits=None cashRounding=None |
+| JPY | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| KRW | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| KWD | digits=3 rounding=0 cashDigits=None cashRounding=None |
+| BHD | digits=3 rounding=0 cashDigits=None cashRounding=None |
+| JOD | digits=3 rounding=0 cashDigits=None cashRounding=None |
+| OMR | digits=3 rounding=0 cashDigits=None cashRounding=None |
+| TND | digits=3 rounding=0 cashDigits=None cashRounding=None |
+| CLF | digits=4 rounding=0 cashDigits=None cashRounding=None |
+| UYW | digits=4 rounding=0 cashDigits=None cashRounding=None |
+| MGA | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| MRU | digits=2 rounding=0 cashDigits=2 cashRounding=20 |
+| CHF | digits=2 rounding=0 cashDigits=None cashRounding=5 |
+| ISK | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| VND | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| XAF | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| XOF | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| XPF | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| IQD | digits=0 rounding=0 cashDigits=None cashRounding=None |
+| LYD | digits=3 rounding=0 cashDigits=None cashRounding=None |
+
+## ISO 4217（SIX，Pblshd 2026-09-17）vs CLDR digits（main，2026-11-21 抓取）冲突项
+| 币种 | ISO minor units | CLDR digits | CLDR cashRounding | 说明 |
+|---|---|---|---|---|
+| AFN | 2 | 0 | None | 两表不一致 |
+| ALL | 2 | 0 | None | 两表不一致 |
+| COP | 2 | 0 | None | 两表不一致 |
+| HUF | 2 | 0 | 5 | 两表不一致 |
+| IDR | 2 | 0 | None | 两表不一致 |
+| IQD | 3 | 0 | None | 两表不一致 |
+| IRR | 2 | 0 | None | 两表不一致 |
+| KPW | 2 | 0 | None | 两表不一致 |
+| LAK | 2 | 0 | None | 两表不一致 |
+| LBP | 2 | 0 | None | 两表不一致 |
+| MGA | 2 | 0 | None | 两表不一致 |
+| MMK | 2 | 0 | None | 两表不一致 |
+| SOS | 2 | 0 | None | 两表不一致 |
+| SYP | 2 | 0 | None | 两表不一致 |
+| YER | 2 | 0 | None | 两表不一致 |
+
+只有 CLDR 有 cashRounding 的币种（现金进位）样例：
+- CAD: digits=2 cashDigits=None cashRounding=5
+- CHF: digits=2 cashDigits=None cashRounding=5
+- DKK: digits=2 cashDigits=None cashRounding=50
+- HUF: digits=0 cashDigits=None cashRounding=5
+- MRU: digits=2 cashDigits=2 cashRounding=20
+
+ISO 表里 MINOR UNIT 为 2 但 CLDR 给了 cashRounding/现金档的：
+- CHF: ISO=2 CLDR=('2', None, '5')
+- MRU: ISO=2 CLDR=('2', '2', '20')
+- MGA: ISO=2 CLDR=('0', None, None)
+- IQD: ISO=3 CLDR=('0', None, None)
