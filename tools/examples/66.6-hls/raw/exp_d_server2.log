@@ -1,0 +1,22 @@
+Input #0, flv, from 'rtmp://127.0.0.1:19350/live/test':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Duration: 00:00:00.00, start: 0.046000, bitrate: N/A
+  Stream #0:0: Video: h264 (High), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 8733 kb/s, 30 fps, 30 tbr, 1k tbn, start 0.067000
+  Stream #0:1: Audio: aac (LC), 48000 Hz, stereo, fltp, 128 kb/s, start 0.046000
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Output #0, flv, to '/dev/null':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (High) ([7][0][0][0] / 0x0007), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 8733 kb/s, 30 fps, 30 tbr, 1k tbn
+  Stream #0:1: Audio: aac (LC) ([10][0][0][0] / 0x000A), 48000 Hz, stereo, fltp, 128 kb/s
+Press [q] to stop, [?] for help
+frame=   56 fps=0.0 q=-1.0 size=    1792KiB time=00:00:01.82 bitrate=8061.5kbits/s speed=3.57x elapsed=0:00:00.51    frame=   71 fps= 70 q=-1.0 size=    2560KiB time=00:00:02.32 bitrate=9035.6kbits/s speed=2.29x elapsed=0:00:01.01    frame=   86 fps= 57 q=-1.0 size=    3072KiB time=00:00:02.82 bitrate=8920.9kbits/s speed=1.86x elapsed=0:00:01.51    frame=  101 fps= 50 q=-1.0 size=    3584KiB time=00:00:03.32 bitrate=8824.8kbits/s speed=1.64x elapsed=0:00:02.02    

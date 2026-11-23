@@ -1,0 +1,32 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/source_1080p30.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Duration: 00:01:00.00, start: 0.000000, bitrate: 8870 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 8733 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.102 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Output #0, flv, to 'rtmp://127.0.0.1:19350/live/test':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Stream #0:0(und): Video: h264 (High) ([7][0][0][0] / 0x0007), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 8733 kb/s, 30 fps, 30 tbr, 1k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.102 libx264
+  Stream #0:1(und): Audio: aac (LC) ([10][0][0][0] / 0x000A), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Press [q] to stop, [?] for help
+frame=   33 fps=0.0 q=-1.0 size=    1166KiB time=00:00:01.04 bitrate=9139.2kbits/s speed=2.07x elapsed=0:00:00.50    frame=   48 fps= 47 q=-1.0 size=    1712KiB time=00:00:01.53 bitrate=9130.4kbits/s speed=1.51x elapsed=0:00:01.01    frame=   63 fps= 41 q=-1.0 size=    2306KiB time=00:00:02.04 bitrate=9222.7kbits/s speed=1.34x elapsed=0:00:01.52    frame=   79 fps= 39 q=-1.0 size=    2849KiB time=00:00:02.56 bitrate=9092.0kbits/s speed=1.26x elapsed=0:00:02.03    frame=   94 fps= 37 q=-1.0 size=    3373KiB time=00:00:03.07 bitrate=8993.9kbits/s speed=1.21x elapsed=0:00:02.54    frame=  109 fps= 36 q=-1.0 size=    3952KiB time=00:00:03.58 bitrate=9032.3kbits/s speed=1.18x elapsed=0:00:03.04    

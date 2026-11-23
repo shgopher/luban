@@ -1,0 +1,229 @@
+=== 0) 健康检查 ===
+$ curl -s http://127.0.0.1:18103/health
+{"ok":true,"seq":120}
+
+
+=== 1) 新设备首登：拉快照（snapshot_seq + 会话列表 + 每会话最近 3 条）===
+$ curl -s 'http://127.0.0.1:18103/sync?device_id=t_phone&snapshot=1'
+{
+    "change_cursor": 120,
+    "conversations": [
+        {
+            "conv_id": "c1",
+            "last_seq": 40,
+            "unread": 40,
+            "pinned": false
+        },
+        {
+            "conv_id": "c2",
+            "last_seq": 40,
+            "unread": 40,
+            "pinned": false
+        },
+        {
+            "conv_id": "c3",
+            "last_seq": 40,
+            "unread": 40,
+            "pinned": false
+        }
+    ],
+    "has_more": true,
+    "messages": {
+        "c1": [
+            {
+                "msg_id": "m_c1_0038",
+                "conv_id": "c1",
+                "seq": 38,
+                "sender": "u0004",
+                "body": "history-38",
+                "ts_ms": 1750000038000
+            },
+            {
+                "msg_id": "m_c1_0039",
+                "conv_id": "c1",
+                "seq": 39,
+                "sender": "u0002",
+                "body": "history-39",
+                "ts_ms": 1750000039000
+            },
+            {
+                "msg_id": "m_c1_0040",
+                "conv_id": "c1",
+                "seq": 40,
+                "sender": "u0003",
+                "body": "history-40",
+                "ts_ms": 1750000040000
+            }
+        ],
+        "c2": [
+            {
+                "msg_id": "m_c2_0038",
+                "conv_id": "c2",
+                "seq": 38,
+                "sender": "u0004",
+                "body": "history-38",
+                "ts_ms": 1750000038000
+            },
+            {
+                "msg_id": "m_c2_0039",
+                "conv_id": "c2",
+                "seq": 39,
+                "sender": "u0002",
+                "body": "history-39",
+                "ts_ms": 1750000039000
+            },
+            {
+                "msg_id": "m_c2_0040",
+                "conv_id": "c2",
+                "seq": 40,
+                "sender": "u0003",
+                "body": "history-40",
+                "ts_ms": 1750000040000
+            }
+        ],
+        "c3": [
+            {
+                "msg_id": "m_c3_0038",
+                "conv_id": "c3",
+                "seq": 38,
+                "sender": "u0004",
+                "body": "history-38",
+                "ts_ms": 1750000038000
+            },
+            {
+                "msg_id": "m_c3_0039",
+                "conv_id": "c3",
+                "seq": 39,
+                "sender": "u0002",
+                "body": "history-39",
+                "ts_ms": 1750000039000
+            },
+            {
+                "msg_id": "m_c3_0040",
+                "conv_id": "c3",
+                "seq": 40,
+                "sender": "u0003",
+                "body": "history-40",
+                "ts_ms": 1750000040000
+            }
+        ]
+    },
+    "next_conv_cursors": {
+        "c1": 40,
+        "c2": 40,
+        "c3": 40
+    },
+    "snapshot_seq": 120
+}
+
+=== 2) 服务端产生一条新消息（模拟对方发来）===
+$ curl -s 'http://127.0.0.1:18103/send?conv=c1&sender=u1002&text=hello-sync'
+{
+    "change_seq": 121,
+    "msg": {
+        "msg_id": "m_c1_0041",
+        "conv_id": "c1",
+        "seq": 41,
+        "sender": "u1002",
+        "body": "hello-sync",
+        "ts_ms": 1795242072798
+    }
+}
+
+=== 3) 增量拉取：从上次游标 (change_cursor=120, c1:40,c2:40,c3:40) 开始 ===
+$ curl -s 'http://127.0.0.1:18103/sync?device_id=t_phone&change_cursor=120&conv_cursors=c1:40,c2:40,c3:40'
+{
+    "change_cursor": 121,
+    "changes": [
+        {
+            "change_seq": 121,
+            "kind": "msg",
+            "conv_id": "c1",
+            "seq": 41,
+            "msg_id": "m_c1_0041"
+        }
+    ],
+    "has_more": false,
+    "messages": {
+        "c1": [
+            {
+                "msg_id": "m_c1_0041",
+                "conv_id": "c1",
+                "seq": 41,
+                "sender": "u1002",
+                "body": "hello-sync",
+                "ts_ms": 1795242072798
+            }
+        ]
+    },
+    "snapshot_seq": 121
+}
+
+=== 4) 已读位置 max 合并：先报 41（生效），再报 20（更旧，直接丢弃）===
+$ curl -s 'http://127.0.0.1:18103/read?conv=c1&read_seq=41'
+{
+    "applied": true,
+    "change_seq": 122,
+    "read_seq": 41
+}
+$ curl -s 'http://127.0.0.1:18103/read?conv=c1&read_seq=20'
+{
+    "applied": false,
+    "read_seq": 41,
+    "reason": "stale_read_report_dropped"
+}
+
+=== 5) 游标过期（超出 change 流水保留窗口）：返回 reset_required，客户端回退全量快照 ===
+$ curl -s 'http://127.0.0.1:18103/sync?device_id=t_pc&change_cursor=3&conv_cursors=c1:0'
+{
+    "oldest_change_seq": 63,
+    "reason": "change_cursor_expired",
+    "reset_required": true,
+    "snapshot_seq": 122
+}
+
+=== 6) 设备管理：列出设备 → 踢下线 → 被踢设备再同步返回 401 ===
+$ curl -s http://127.0.0.1:18103/devices
+{
+    "devices": [
+        {
+            "device_id": "t_phone",
+            "kicked": false,
+            "model": "iPhone"
+        },
+        {
+            "device_id": "t_pad",
+            "kicked": false,
+            "model": "iPad"
+        },
+        {
+            "device_id": "t_pc",
+            "kicked": false,
+            "model": "MacBook"
+        },
+        {
+            "device_id": "t_burst",
+            "kicked": false,
+            "model": "Pixel"
+        }
+    ]
+}
+$ curl -s 'http://127.0.0.1:18103/kick?device_id=t_pad'
+{
+    "actions": [
+        "revoke_token",
+        "close_gateway_conn",
+        "keep_cursor_for_7d"
+    ],
+    "kicked": "t_pad"
+}
+$ curl -s -w ' [HTTP %{http_code}]' 'http://127.0.0.1:18103/sync?device_id=t_pad&change_cursor=0'
+{"device_id":"t_pad","error":"device_kicked","hint":"令牌已失效，需重新登录（服务端同时断开 66.1 的连接）"}
+ [HTTP 401]
+
+=== 7) 同步接口限流：同一设备 1 秒内 5 次请求，只放行 3 次 ===
+请求 1 => HTTP 200 {"change_cursor":122,"changes":[{"change_seq":121,"kind":"msg","conv_id":"c1","seq":41,"msg_id":"m_c1_0041"},{"change_se
+请求 2 => HTTP 200 {"change_cursor":122,"changes":[{"change_seq":121,"kind":"msg","conv_id":"c1","seq":41,"msg_id":"m_c1_0041"},{"change_se
+请求 3 => HTTP 200 {"change_cursor":122,"changes":[{"change_seq":121,"kind":"msg","conv_id":"c1","seq":41,"msg_id":"m_c1_0041"},{"change_se
+请求 4 => HTTP 429 {"error":"rate_limited","retry_after_ms":1000}
+请求 5 => HTTP 429 {"error":"rate_limited","retry_after_ms":1000}

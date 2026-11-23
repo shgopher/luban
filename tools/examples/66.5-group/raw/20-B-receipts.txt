@@ -1,0 +1,10 @@
+### 06:23:04 B receipts n=5000 readers=1000 (fixed accounting)
+receipts n=5000 readers=1000
+  P1  per-person->sender   cmds=2000 wall=242ms p50_per_receipt=242µs mem_delta=18912
+  P2  per-person->group    cmds=5001000 wall=25.187s per_receipt=25.187ms (O(N^2): 1 state write + N pushes)
+  AGG aggregate->sender    cmds=1003 wall=266ms p50_per_receipt=266µs mem_delta=35840 push_to_sender=3 counter=1000
+  ratio P1/AGG commands=1.99x  P2/AGG commands=4986x
+  mem[bitmap SETBIT/人] bytes_per_message_for_n=5000 = 2208 (0.4 B/member)
+  mem[hash HSETNX/人] bytes_per_message_for_n=5000 = 185120 (37.0 B/member)
+  mem[counter HINCRBY/次] bytes_per_message_for_n=5000 = -1856 (-0.4 B/member)
+# wall=30.92s

@@ -1,0 +1,16 @@
+TURN listening udp/tcp 127.0.0.1:13478 realm=luban.local user=luban relay-ports=13510-13520
+[auth] user="luban" realm="luban.local" src=127.0.0.1:52414 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:52414 relay=127.0.0.1:13510 requestedPort=0 active=1
+[auth] user="luban" realm="luban.local" src=127.0.0.1:56207 ok=true
+[allocation created] proto=UDP user=luban client=127.0.0.1:56207 relay=127.0.0.1:13511 requestedPort=0 active=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:52414 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:56207 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:52414 ok=true
+[auth] user="luban" realm="luban.local" src=127.0.0.1:56207 ok=true
+[status] active allocations=2
+[auth] user="luban" realm="luban.local" src=127.0.0.1:56207 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:56207 active=1
+[auth] user="luban" realm="luban.local" src=127.0.0.1:52414 ok=true
+[allocation deleted] proto=UDP user=luban client=127.0.0.1:52414 active=0
+[status] active allocations=0
+shutting down

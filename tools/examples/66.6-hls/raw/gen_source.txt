@@ -1,0 +1,20 @@
+[out#0/mp4 @ 0x13eb04250] video:63966KiB audio:938KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.098994%
+frame= 1800 fps= 62 q=-1.0 Lsize=   64968KiB time=00:01:00.00 bitrate=8870.3kbits/s speed=2.06x elapsed=0:00:29.10    
+bench: utime=84.497s stime=2.804s rtime=29.106s
+bench: maxrss=437731328KiB
+--- ffprobe source ---
+codec_name=h264
+width=1920
+height=1080
+r_frame_rate=30/1
+avg_frame_rate=30/1
+nb_frames=1800
+codec_name=aac
+r_frame_rate=0/0
+avg_frame_rate=0/0
+nb_frames=2814
+duration=60.000000
+size=66527414
+bit_rate=8870321
+--- keyframe 间隔（应恒为 60 帧 = 2s）---
+0

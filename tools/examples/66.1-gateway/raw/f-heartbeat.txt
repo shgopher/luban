@@ -1,0 +1,4 @@
+=== 心跳/假在线检测 2026-11-21 14:24:24 ===
+ENV	macOS 15.6 / arm64 / go1.27.1 / gw1 -heartbeat 1s -hb-ack 2s
+HEARTBEAT_DETECT	ping_timeout_total 0 -> 1, 检测耗时=2.1s
+DERIVE	假在线检测延迟上限 ≈ hb-ack（本实验 2s；生产 60s = 用户最多 60s 还在被投递）

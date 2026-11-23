@@ -1,0 +1,5 @@
+# 环境 macOS 15.6 arm64 cores=8 mem=8589934592
+# go: go version go1.27.1 darwin/arm64
+# redis: redis_version:8.10.2  os:Darwin 24.6.0 arm64  
+# loadavg: { 33.35 37.09 23.49 }
+# date: 2026-11-21T06:16:09Z

@@ -1,0 +1,18 @@
+### 06:20:39 A6 devices=1 n=10000 p=0.5 m=100 strategy=h
+strategy=h n=10000 p=0.50 m=100 devices=1 online=5000
+  redis_cmds=1100 (per_msg=11.0) wall=41ms throughput_msgs_per_s=2444.8
+  latency_p50=317.709µs latency_p99=1.551292ms latency_max=1.572ms
+  mem_base=1176800 mem_after=1228800 mem_delta=52000 entries=100 bytes_per_entry=520.0
+# wall=349ms
+### 06:20:40 A6 devices=2 n=10000 p=0.5 m=100 strategy=h
+strategy=h n=10000 p=0.50 m=100 devices=2 online=5000
+  redis_cmds=2100 (per_msg=21.0) wall=275ms throughput_msgs_per_s=363.5
+  latency_p50=757.459µs latency_p99=18.186792ms latency_max=19.414875ms
+  mem_base=1176800 mem_after=1214640 mem_delta=37840 entries=100 bytes_per_entry=378.4
+# wall=597ms
+### 06:20:40 A6 devices=3 n=10000 p=0.5 m=100 strategy=h
+strategy=h n=10000 p=0.50 m=100 devices=3 online=5000
+  redis_cmds=3100 (per_msg=31.0) wall=97ms throughput_msgs_per_s=1031.1
+  latency_p50=472.666µs latency_p99=8.797792ms latency_max=9.419833ms
+  mem_base=1176800 mem_after=1230000 mem_delta=53200 entries=100 bytes_per_entry=532.0
+# wall=408ms

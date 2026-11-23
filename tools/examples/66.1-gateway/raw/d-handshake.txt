@@ -1,0 +1,30 @@
+ENV	macOS 15.6 / arm64 / go1.27.1
+REDIS_GETDEL	p50=95µs p99=254µs max=2.626ms
+JWT_HS256_VERIFY	p50=1.5µs p99=14.42µs (512B payload)
+TLS13_HANDSHAKE_LOOPBACK	p50=6.946ms p99=111.123ms max=167.325ms
+WS_UPGRADE_WITH_AUTH	p50=765µs p99=34.421ms max=124.729ms (含 Redis GETDEL+SET 路由)
+DERIVE	单核建连上限 ≈ 1 / 单次建连耗时；实测值见上，限速阈值取 50% 左右
+=== run 1 14:24:57 load={ 9.09 21.52 22.87 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+REDIS_GETDEL	p50=32µs p99=86µs max=137µs
+JWT_HS256_VERIFY	p50=790ns p99=1.33µs (512B payload)
+TLS13_HANDSHAKE_RSA2048	p50=2.356ms p99=3.541ms max=4.277ms
+TLS13_HANDSHAKE_ECDSA-P256	p50=938µs p99=1.198ms max=1.239ms
+WS_UPGRADE_WITH_AUTH	p50=186µs p99=608µs max=3ms (含 Redis GETDEL+SET 路由)
+DERIVE	单核建连上限 ≈ 1 / 单次建连耗时；实测值见上，限速阈值取 50% 左右
+=== run 2 14:25:01 load={ 9.65 21.43 22.83 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+REDIS_GETDEL	p50=42µs p99=279µs max=1.876ms
+JWT_HS256_VERIFY	p50=1.08µs p99=2.04µs (512B payload)
+TLS13_HANDSHAKE_RSA2048	p50=3.619ms p99=16.66ms max=20.824ms
+TLS13_HANDSHAKE_ECDSA-P256	p50=1.015ms p99=3.053ms max=5.885ms
+WS_UPGRADE_WITH_AUTH	p50=180µs p99=409µs max=1.253ms (含 Redis GETDEL+SET 路由)
+DERIVE	单核建连上限 ≈ 1 / 单次建连耗时；实测值见上，限速阈值取 50% 左右
+=== run 3 14:25:06 load={ 8.95 21.09 22.71 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+REDIS_GETDEL	p50=32µs p99=78µs max=122µs
+JWT_HS256_VERIFY	p50=790ns p99=1.21µs (512B payload)
+TLS13_HANDSHAKE_RSA2048	p50=2.384ms p99=2.662ms max=2.701ms
+TLS13_HANDSHAKE_ECDSA-P256	p50=930µs p99=1.246ms max=3.187ms
+WS_UPGRADE_WITH_AUTH	p50=211µs p99=778µs max=3.01ms (含 Redis GETDEL+SET 路由)
+DERIVE	单核建连上限 ≈ 1 / 单次建连耗时；实测值见上，限速阈值取 50% 左右

@@ -1,0 +1,14 @@
+=== gw2 route-cache=off 2026-11-21 14:25:23 load={ 8.49 20.40 22.43 } ===
+ROUTE_UID	route-1795242323816062000
+ENV	macOS 15.6 / arm64 / go1.27.1 / 网关与 Redis 同机
+DELIVER	want=1000 got=1000 lost=0
+E2E_LATENCY	p50=249µs p99=471µs p99.9=1.921ms max=1.921ms
+CONFIG	gw2 route-cache=off（每条消息一次 Redis GET）
+REDIS_GET_DELTA	1000 (messages=1000)
+REDIS_PUBLISH_DELTA	1000
+GW2_ROUTE_LOOKUP	1000 cache_hit=0 delivered=0 route_miss=0 offline=0
+OFFLINE_PATH	resp=map[code:offline route:miss]
+NO_ROUTING_LAYER	send-local-on-gw2=map[code:miss]
+STALE_ROUTE	resp=map[code:stale gw:gw-dead receivers:0 route:redis]
+ROUTE_CHECK	GET im:route:route-1795242323816062000 -> gw1 ; keys(im:route:*)=2
+FAIL_MODE	路由指向已死网关时，PUBLISH 返回 0 个订阅者 = 这 60s 内的推送全部静默丢失

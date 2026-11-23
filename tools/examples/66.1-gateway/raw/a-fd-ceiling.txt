@@ -1,0 +1,8 @@
+=== fd 上限对照 2026-11-21 14:14:33 ===
+shell ulimit -n : 1048575
+shell ulimit -Hn: unlimited
+sysctl kern.maxfiles: 30720
+sysctl kern.maxfilesperproc: 10240
+FD_CEILING	10236
+FD_CEILING	10236
+FD_CEILING	10236

@@ -1,0 +1,6 @@
+### 06:21:19 A7 push online=10000 m=100 batch=500
+push online=10000 m=100 batch=500
+  per-member : cmds=1000000 per_msg=10000 wall=7.368s p50=72.050083ms p99=115.809042ms
+  batched    : cmds=2000 per_msg=20.0 wall=75ms p50=618.375µs p99=1.912792ms
+  cmd_ratio=500x
+# wall=7.447s

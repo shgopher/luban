@@ -1,0 +1,7 @@
+connected in 7.4ms (loss=0% delay=0s nack=true)
+dc rtt p50=0.18ms p99=0.90ms fail=0
+samples=400 unique=400 missing=0 dup=0 ooo=0
+one-way delay p50=0.38ms p99=1638.57ms max=1732.66ms
+inbound stats: map[bytesReceived:320000 jitter_ms:3.349590976997111 nackCount:0 packetsLost:0 packetsReceived:400]
+net layer: sent=787 dropped=0 delayed=0
+json written: raw/expC-base.json

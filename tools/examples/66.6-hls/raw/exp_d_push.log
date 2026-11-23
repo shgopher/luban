@@ -1,0 +1,36 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/source_1080p30.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Duration: 00:01:00.00, start: 0.000000, bitrate: 8870 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 8733 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.102 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Output #0, flv, to 'rtmp://127.0.0.1:19350/live/test':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Stream #0:0(und): Video: h264 (High) ([7][0][0][0] / 0x0007), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 8733 kb/s, 30 fps, 30 tbr, 1k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.102 libx264
+  Stream #0:1(und): Audio: aac (LC) ([10][0][0][0] / 0x000A), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Press [q] to stop, [?] for help
+frame=   33 fps=0.0 q=-1.0 size=    1166KiB time=00:00:01.04 bitrate=9139.2kbits/s speed=2.05x elapsed=0:00:00.51    frame=   48 fps= 47 q=-1.0 size=    1712KiB time=00:00:01.53 bitrate=9130.4kbits/s speed=1.52x elapsed=0:00:01.01    frame=   63 fps= 41 q=-1.0 size=    2306KiB time=00:00:02.04 bitrate=9222.7kbits/s speed=1.35x elapsed=0:00:01.52    frame=   79 fps= 39 q=-1.0 size=    2849KiB time=00:00:02.56 bitrate=9092.0kbits/s speed=1.26x elapsed=0:00:02.03    frame=   94 fps= 37 q=-1.0 size=    3373KiB time=00:00:03.07 bitrate=8993.9kbits/s speed=1.21x elapsed=0:00:02.53    frame=  109 fps= 36 q=-1.0 size=    3952KiB time=00:00:03.58 bitrate=9032.3kbits/s speed=1.18x elapsed=0:00:03.04    frame=  125 fps= 35 q=-1.0 size=    4517KiB time=00:00:04.10 bitrate=9024.4kbits/s speed=1.15x elapsed=0:00:03.55    frame=  139 fps= 34 q=-1.0 size=    5058KiB time=00:00:04.58 bitrate=9033.4kbits/s speed=1.13x elapsed=0:00:04.06    frame=  155 fps= 34 q=-1.0 size=    5633KiB time=00:00:05.12 bitrate=9012.2kbits/s speed=1.12x elapsed=0:00:04.57    frame=  170 fps= 33 q=-1.0 size=    6173KiB time=00:00:05.61 bitrate=9013.6kbits/s speed=1.11x elapsed=0:00:05.07    frame=  186 fps= 33 q=-1.0 size=    6720KiB time=00:00:06.13 bitrate=8975.7kbits/s speed= 1.1x elapsed=0:00:05.58    frame=  200 fps= 33 q=-1.0 size=    7254KiB time=00:00:06.61 bitrate=8986.2kbits/s speed=1.09x elapsed=0:00:06.08    frame=  215 fps= 33 q=-1.0 size=    7748KiB time=00:00:07.10 bitrate=8934.6kbits/s speed=1.08x elapsed=0:00:06.58    frame=  230 fps= 32 q=-1.0 size=    8302KiB time=00:00:07.61 bitrate=8930.1kbits/s speed=1.07x elapsed=0:00:07.09    frame=  246 fps= 32 q=-1.0 size=    8873KiB time=00:00:08.13 bitrate=8937.5kbits/s speed=1.07x elapsed=0:00:07.60    frame=  261 fps= 32 q=-1.0 size=    9401KiB time=00:00:08.64 bitrate=8913.1kbits/s speed=1.07x elapsed=0:00:08.10    frame=  276 fps= 32 q=-1.0 size=    9978KiB time=00:00:09.15 bitrate=8931.2kbits/s speed=1.06x elapsed=0:00:08.60    frame=  291 fps= 32 q=-1.0 size=   10503KiB time=00:00:09.64 bitrate=8923.2kbits/s speed=1.06x elapsed=0:00:09.11    frame=  307 fps= 32 q=-1.0 size=   11062KiB time=00:00:10.16 bitrate=8913.3kbits/s speed=1.06x elapsed=0:00:09.62    frame=  321 fps= 32 q=-1.0 size=   11582KiB time=00:00:10.64 bitrate=8912.9kbits/s speed=1.05x elapsed=0:00:10.12    frame=  337 fps= 32 q=-1.0 size=   12116KiB time=00:00:11.17 bitrate=8878.7kbits/s speed=1.05x elapsed=0:00:10.63    frame=  352 fps= 32 q=-1.0 size=   12642KiB time=00:00:11.66 bitrate=8874.5kbits/s speed=1.05x elapsed=0:00:11.14    frame=  367 fps= 32 q=-1.0 size=   13245KiB time=00:00:12.18 bitrate=8907.3kbits/s speed=1.05x elapsed=0:00:11.64    [vist#0:0/h264 @ 0x133615350] Resumed reading at pts 12.500 with rate 1.050 after a lag of 329.871s
+frame=  380 fps=1.1 q=-1.0 size=   13687KiB time=00:00:12.60 bitrate=8893.3kbits/s speed=0.0369x elapsed=0:05:41.95    frame=  396 fps=1.2 q=-1.0 size=   14263KiB time=00:00:13.14 bitrate=8891.1kbits/s speed=0.0384x elapsed=0:05:42.46    frame=  412 fps=1.2 q=-1.0 size=   14825KiB time=00:00:13.67 bitrate=8880.8kbits/s speed=0.0399x elapsed=0:05:42.96    frame=  428 fps=1.2 q=-1.0 size=   15427KiB time=00:00:14.20 bitrate=8894.6kbits/s speed=0.0414x elapsed=0:05:43.46    frame=  444 fps=1.3 q=-1.0 size=   15995KiB time=00:00:14.74 bitrate=8888.5kbits/s speed=0.0429x elapsed=0:05:43.97    frame=  460 fps=1.3 q=-1.0 size=   16564KiB time=00:00:15.26 bitrate=8888.4kbits/s speed=0.0443x elapsed=0:05:44.48    frame=  476 fps=1.4 q=-1.0 size=   17148KiB time=00:00:15.78 bitrate=8898.4kbits/s speed=0.0458x elapsed=0:05:44.99    frame=  492 fps=1.4 q=-1.0 size=   17748KiB time=00:00:16.34 bitrate=8897.2kbits/s speed=0.0473x elapsed=0:05:45.50    frame=  507 fps=1.5 q=-1.0 size=   18319KiB time=00:00:16.85 bitrate=8904.7kbits/s speed=0.0487x elapsed=0:05:46.00    frame=  523 fps=1.5 q=-1.0 size=   18894KiB time=00:00:17.38 bitrate=8902.0kbits/s speed=0.0502x elapsed=0:05:46.51    frame=  539 fps=1.6 q=-1.0 size=   19454KiB time=00:00:17.92 bitrate=8893.4kbits/s speed=0.0516x elapsed=0:05:47.02    frame=  555 fps=1.6 q=-1.0 size=   20053KiB time=00:00:18.45 bitrate=8901.9kbits/s speed=0.0531x elapsed=0:05:47.52    frame=  572 fps=1.6 q=-1.0 size=   20619KiB time=00:00:19.00 bitrate=8886.1kbits/s speed=0.0546x elapsed=0:05:48.03    frame=  587 fps=1.7 q=-1.0 size=   21196KiB time=00:00:19.52 bitrate=8895.2kbits/s speed=0.056x elapsed=0:05:48.54    [flv @ 0x1336222d0] Failed to update header with correct duration.
+[flv @ 0x1336222d0] Failed to update header with correct filesize.
+[out#0/flv @ 0x133622210] video:21416KiB audio:313KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.128139%
+frame=  602 fps=1.7 q=-1.0 Lsize=   21756KiB time=00:00:20.01 bitrate=8906.7kbits/s speed=0.0573x elapsed=0:05:49.03    

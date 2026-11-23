@@ -1,0 +1,65 @@
+# 环境: 2026-11-21 14:24:46 macOS 15.6 arm64 / go1.27.1 / redis 8.10.2 / gorilla websocket v1.5.3
+
+### 1) 登录服务发一张一次性票据（真实系统由 49.5 的登录态服务写入）
+$ redis-cli -p 16381 SET im:ticket:demo-1 u100 PX 60000
+OK
+
+### 2) 客户端带票建连（票据被 GETDEL 原子核销，无法重放）
+$ wsclient -url ws://127.0.0.1:18081/ws?ticket=demo-1 -hold 6s &
+CONNECTED ws://127.0.0.1:18081/ws?ticket=demo-1
+
+### 3) 网关把这条连接登记进路由表
+$ redis-cli -p 16381 KEYS 'im:route:*'
+im:route:u100
+$ redis-cli -p 16381 GET im:route:u100
+gw1
+
+### 4) 业务侧把下行 push 打到另一台网关 gw2（gw2 上没有这条连接）
+$ curl -s -XPOST http://127.0.0.1:18082/api/send -d '{"uid":"u100","seq":7,"body":"hello"}'
+{"code":"ok","gw":"gw1","receivers":1,"route":"redis"}
+
+---- 客户端侧收到的帧 ----
+CONNECTED ws://127.0.0.1:18081/ws?ticket=demo-1
+FRAME {"body":"hello","seq":7,"type":"msg"}
+
+### 5) 网关指标（在线数、投递数、路由查询数）
+$ curl -s http://127.0.0.1:18081/metrics | grep -E "online_conns|accepted_total|delivered|route_lookup|route_cache_hit"
+im_gw_online_conns 1
+im_gw_conn_accepted_total 1
+im_gw_route_lookup_total 0
+im_gw_route_cache_hit_total 0
+im_gw_push_delivered_total 1
+
+### 6) 失败路径：同一张一次性票再连一次
+$ wsclient -url ws://127.0.0.1:18081/ws?ticket=demo-1
+DIAL_FAIL status=401 err=websocket: bad handshake
+
+### 7) 失败路径：用户不在线
+$ curl -s -XPOST http://127.0.0.1:18082/api/send -d '{"uid":"offline-user","seq":1,"body":"x"}'
+{"code":"offline","route":"miss"}
+
+### 8) 失败路径：建连限速（rate=1/s burst=1），并发 3 个新连接
+$ curl -s "http://127.0.0.1:18081/admin/limit?rate=1&burst=1"
+{"burst":1,"rate":1}
+  conn1: CONNECTED ws://127.0.0.1:18081/ws?ticket=rl-1
+  conn2: DIAL_FAIL status=429 err=websocket: bad handshake
+  conn3: DIAL_FAIL status=429 err=websocket: bad handshake
+$ curl -s http://127.0.0.1:18081/metrics | grep rejected
+im_gw_conn_rejected_total 2
+  （限速开关关掉，恢复）
+
+### 9) 优雅下线：摘流量 -> 删路由 -> redirect -> 排空
+$ curl -s -XPOST http://127.0.0.1:18081/admin/drain
+{"drained":0,"redirected":1}
+
+---- 客户端侧（应看到 redirect 帧） ----
+CONNECTED ws://127.0.0.1:18081/ws?ticket=demo-1
+FRAME {"body":"hello","seq":7,"type":"msg"}
+FRAME {"peers":["127.0.0.1:18082"],"type":"redirect"}
+CLOSED read tcp 127.0.0.1:52020->127.0.0.1:18081: i/o timeout
+
+$ curl -s http://127.0.0.1:18081/metrics | grep -E "online_conns|draining"
+im_gw_online_conns 0
+im_gw_draining 1
+$ redis-cli -p 16381 KEYS "im:route:*"
+

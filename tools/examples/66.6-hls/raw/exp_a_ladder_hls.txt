@@ -1,0 +1,94 @@
+=== A1. 码率阶梯 + HLS(TS) 打包（2s 切片）===
+frame= 1753 fps= 26 q=28.0 q=24.0 size=N/A time=00:00:58.46 bitrate=N/A speed=0.879x elapsed=0:01:06.54    frame= 1769 fps= 26 q=28.0 q=24.0 size=N/A time=00:00:59.00 bitrate=N/A speed=0.88x elapsed=0:01:07.05    [hls @ 0x12db04960] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/hls_ts/1080p/seg_029.ts' for writing
+frame= 1800 fps= 27 q=-1.0 Lq=-1.0 size=N/A time=00:01:00.00 bitrate=N/A speed=0.89x elapsed=0:01:07.42    
+bench: utime=141.903s stime=7.739s rtime=67.427s
+
+=== A2. master playlist ===
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:BANDWIDTH=6011488,AVERAGE-BANDWIDTH=5304457,RESOLUTION=1920x1080,CODECS="avc1.4d4028,mp4a.40.2"
+1080p/index.m3u8
+
+#EXT-X-STREAM-INF:BANDWIDTH=3125312,AVERAGE-BANDWIDTH=2750414,RESOLUTION=1280x720,CODECS="avc1.4d401f,mp4a.40.2"
+720p/index.m3u8
+
+
+=== A3. 1080p 媒体播放列表（前 14 行）===
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:2
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXTINF:2.000000,
+seg_000.ts
+#EXTINF:2.000000,
+seg_001.ts
+#EXTINF:2.000000,
+seg_002.ts
+#EXTINF:2.000000,
+seg_003.ts
+#EXTINF:2.000000,
+
+=== A4. 切片清单（两档各数一数）===
+1080p: 31 个文件,  38M
+  index.m3u8 seg_000.ts seg_001.ts ...seg_028.ts seg_029.ts 
+720p:  31 个文件,  20M
+
+=== A5. #EXTINF 时长统计 ===
+index.m3u8             切片数= 30 min=2.000s max=2.000s 均值=2.000s 标准差=0.000 总时长=60.0s TARGETDURATION=2
+index.m3u8             切片数= 30 min=2.000s max=2.000s 均值=2.000s 标准差=0.000 总时长=60.0s TARGETDURATION=2
+
+=== A6. ffprobe 校验：整条播放列表 / 单个切片 ===
+-- 1080p 播放列表 --
+format_name=hls
+duration=60.000000
+-- 1080p 第一个切片 --
+codec_name=h264
+width=1920
+height=1080
+avg_frame_rate=30/1
+codec_name=aac
+avg_frame_rate=0/0
+codec_name=h264
+width=1920
+height=1080
+avg_frame_rate=30/1
+codec_name=aac
+avg_frame_rate=0/0
+duration=2.021334
+size=1502872
+bit_rate=5948040
+-- 720p 播放列表 --
+format_name=hls
+duration=60.000000
+-- 720p 第一个切片 --
+codec_name=h264
+width=1280
+height=720
+avg_frame_rate=30/1
+codec_name=aac
+avg_frame_rate=0/0
+codec_name=h264
+width=1280
+height=720
+avg_frame_rate=30/1
+codec_name=aac
+avg_frame_rate=0/0
+duration=2.021334
+size=754068
+bit_rate=2984437
+
+=== A7. CMAF/fMP4 变体（同一源，720p 2500k，2s 切片，单个 init 段）===
+frame= 1800 fps= 58 q=-1.0 Lsize=N/A time=00:00:59.93 bitrate=N/A speed=1.92x elapsed=0:00:31.23    
+#EXTM3U
+#EXT-X-VERSION:7
+#EXT-X-TARGETDURATION:2
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-MAP:URI="init.mp4"
+fMP4 目录: 32 个文件,  18M
+init.mp4: N/A,840
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x11f905250] trun track id unknown, no tfhd was found
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x11f905250] error reading header
+/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/hls_fmp4/seg_000.m4s: Invalid data found when processing input
+第一个 m4s: 

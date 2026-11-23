@@ -1,0 +1,62 @@
+{
+  "mode": "relay-udp",
+  "marks_ms": {
+    "a_set_remote_answer": 3.195,
+    "b_set_local_answer": 3.086,
+    "b_set_remote_offer": 2.5,
+    "connected_a": 10.473,
+    "create_answer": 2.955,
+    "create_offer": 2.197,
+    "datachannel_open": 12.988,
+    "ice_connected_a": 5.983,
+    "set_local_offer": 2.314
+  },
+  "candidates_a": {
+    "relay": 1
+  },
+  "candidates_b": {
+    "relay": 1
+  },
+  "selected_local": "relay/udp 127.0.0.1:13510",
+  "selected_remote": "relay/udp 127.0.0.1:13518",
+  "pair_protocol": "",
+  "rtt_sequential": {
+    "count": 1000,
+    "fail": 0,
+    "min_ms": 0.231,
+    "p50_ms": 0.435,
+    "p90_ms": 1.645,
+    "p99_ms": 10.431,
+    "max_ms": 14.187,
+    "avg_ms": 0.963
+  },
+  "rtt_burst": {
+    "count": 1000,
+    "fail": 0,
+    "min_ms": 23.304,
+    "p50_ms": 31.508,
+    "p90_ms": 57.214,
+    "p99_ms": 65.249,
+    "max_ms": 65.987,
+    "avg_ms": 39.939
+  },
+  "timeline": [
+    "[+    2.25ms] A ice-gathering -\u003e gathering",
+    "[+    3.03ms] B peer-conn -\u003e connecting",
+    "[+    3.08ms] B ice-gathering -\u003e gathering",
+    "[+    3.24ms] A ice-conn -\u003e checking",
+    "[+    3.27ms] A peer-conn -\u003e connecting",
+    "[+    3.77ms] A candidate relay 127.0.0.1:13510",
+    "[+    3.84ms] A ice-gathering -\u003e complete",
+    "[+    3.85ms] A ICE gathering complete",
+    "[+    4.11ms] B candidate relay 127.0.0.1:13518",
+    "[+    4.13ms] B ice-gathering -\u003e complete",
+    "[+    4.13ms] B ICE gathering complete",
+    "[+    5.96ms] A ice-conn -\u003e connected",
+    "[+   10.43ms] A peer-conn -\u003e connected",
+    "[+   10.92ms] B peer-conn -\u003e connected",
+    "[+   12.78ms] B got datachannel \"ping\"",
+    "[+   12.97ms] A datachannel open",
+    "[+  114.39ms] selected pair: relay/udp 127.0.0.1:13510 -\u003e relay/udp 127.0.0.1:13518"
+  ]
+}

@@ -1,0 +1,26 @@
+=== readbuf=4KB n=2000 2026-11-21 14:14:36 ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+FD_CEILING	10236
+CONNS	want=2000 ok=2000 dialerr=0
+CONNECT_RATE	1831 conns/s (total 1.092s)
+SERVER_GOROUTINES	before=6 after=4006 delta_per_conn=2.00
+SERVER_HEAP	before=889432 after=59790784 bytes/conn=29450
+SERVER_SYS	before=9275656 after=138766632 bytes/conn=64745
+ONLINE_METRIC	2000
+AUTH_AVG_US	108710.2
+KERNEL_SOCKBUF	SO_RCVBUF=408192 SO_SNDBUF=146988 (both ends, ×2 processes)
+EXTRAPOLATE_1M	heap=27.4 GiB sys=60.3 GiB fds_needed=1000000
+BASELINE_ONLINE	0
+=== A 4KB rerun under low load 14:49:35 load={ 5.78 14.25 19.54 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+FD_CEILING	10236
+CONNS	want=2000 ok=2000 dialerr=0
+CONNECT_RATE	8364 conns/s (total 239ms)
+SERVER_GOROUTINES	before=6 after=4006 delta_per_conn=2.00
+SERVER_HEAP	before=902800 after=59714656 bytes/conn=29405
+SERVER_SYS	before=12929288 after=143026472 bytes/conn=65048
+ONLINE_METRIC	2000
+AUTH_AVG_US	12494.5
+KERNEL_SOCKBUF	SO_RCVBUF=408192 SO_SNDBUF=146988 (both ends, ×2 processes)
+EXTRAPOLATE_1M	heap=27.4 GiB sys=60.6 GiB fds_needed=1000000
+BASELINE_ONLINE	0

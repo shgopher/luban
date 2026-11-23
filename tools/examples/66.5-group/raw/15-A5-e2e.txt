@@ -1,0 +1,4 @@
+### 06:21:18 A5 e2e subscribers
+e2e n=1000 m=100 subscribers=1000 conns=4
+  send_to_last_member p50=9.757833ms p99=26.908792ms max=90.469125ms
+# wall=1.415s

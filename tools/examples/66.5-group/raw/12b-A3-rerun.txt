@@ -1,0 +1,19 @@
+### 06:23:35 A3-rerun W n=100000 m=25（复跑验证首轮冷启动影响）
+### 06:23:35 A3rerun strategy=w n=100000 p=0.1 m=25
+strategy=w n=100000 p=0.10 m=25 devices=1 online=10000
+  redis_cmds=2500525 (per_msg=100021.0) wall=16.017s throughput_msgs_per_s=1.6
+  latency_p50=542.321959ms latency_p99=1.240476166s latency_max=1.347547125s
+  mem_base=1449376 mem_after=49406784 mem_delta=47957408 entries=2500025 bytes_per_entry=19.2
+# wall=16.353s
+### 06:23:51 A3rerun strategy=w n=100000 p=0.5 m=25
+strategy=w n=100000 p=0.50 m=25 devices=1 online=50000
+  redis_cmds=2502525 (per_msg=100101.0) wall=12.924s throughput_msgs_per_s=1.9
+  latency_p50=506.885291ms latency_p99=754.02725ms latency_max=863.959916ms
+  mem_base=1449264 mem_after=49406592 mem_delta=47957328 entries=2500025 bytes_per_entry=19.2
+# wall=13.319s
+### 06:24:04 A3rerun strategy=w n=100000 p=1.0 m=25
+strategy=w n=100000 p=1.00 m=25 devices=1 online=100000
+  redis_cmds=2505025 (per_msg=100201.0) wall=16.488s throughput_msgs_per_s=1.5
+  latency_p50=574.478375ms latency_p99=999.60325ms latency_max=1.603374417s
+  mem_base=1449136 mem_after=49406608 mem_delta=47957472 entries=2500025 bytes_per_entry=19.2
+# wall=16.914s

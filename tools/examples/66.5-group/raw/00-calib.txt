@@ -1,0 +1,8 @@
+ZADD(diff-keys) total=200000 elapsed=7.861387208s ops/s=25441
+ZADD(diff-keys) total=1000000 elapsed=25.691688084s ops/s=38923
+PUBLISH(nosub) total=200000 elapsed=5.05119625s ops/s=39595
+PUBLISH(nosub) total=1000000 elapsed=10.716442292s ops/s=93315
+ZADD(single-key) total=200000 elapsed=3.101536209s ops/s=64484
+used_memory:1165408
+used_memory_human:1.11M
+# wall=53.904s

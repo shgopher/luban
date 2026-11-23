@@ -1,0 +1,31 @@
+=== expA mode=relay-tcp pings=100 ===
+create_offer               5.76 ms
+set_local_offer            6.06 ms
+b_set_remote_offer         6.91 ms
+b_set_local_answer         7.83 ms
+a_set_remote_answer        7.92 ms
+ice_connected_a           11.36 ms
+connected_a               15.28 ms
+datachannel_open          18.18 ms
+candidates A=map[relay:1] B=map[relay:1]
+selected  local=relay/udp 127.0.0.1:13513 remote=relay/udp 127.0.0.1:13512
+RTT seq   count=100 fail=0 p50=0.504ms p99=2.474ms max=2.756ms avg=0.642ms
+RTT burst count=100 fail=0 p50=3.594ms p99=3.759ms max=3.761ms avg=3.447ms
+--- timeline ---
+[+    5.88ms] A ice-gathering -> gathering
+[+    7.51ms] B peer-conn -> connecting
+[+    7.82ms] B ice-gathering -> gathering
+[+    8.09ms] A ice-conn -> checking
+[+    8.30ms] A peer-conn -> connecting
+[+    8.64ms] A candidate relay 127.0.0.1:13513
+[+    8.68ms] A ice-gathering -> complete
+[+    8.69ms] A ICE gathering complete
+[+    9.10ms] B candidate relay 127.0.0.1:13512
+[+    9.13ms] B ice-gathering -> complete
+[+    9.13ms] B ICE gathering complete
+[+   11.29ms] A ice-conn -> connected
+[+   15.26ms] A peer-conn -> connected
+[+   15.99ms] B peer-conn -> connected
+[+   17.77ms] B got datachannel "ping"
+[+   18.16ms] A datachannel open
+[+  119.53ms] selected pair: relay/udp 127.0.0.1:13513 -> relay/udp 127.0.0.1:13512

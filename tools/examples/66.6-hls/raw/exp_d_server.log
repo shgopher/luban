@@ -1,0 +1,46 @@
+Input #0, flv, from 'rtmp://127.0.0.1:19350/live/test':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Duration: 00:00:00.00, start: 0.046000, bitrate: N/A
+  Stream #0:0: Video: h264 (High), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 8733 kb/s, 30 fps, 30 tbr, 1k tbn, start 0.067000
+  Stream #0:1: Audio: aac (LC), 48000 Hz, stereo, fltp, 128 kb/s, start 0.046000
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Output #0, hls, to '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (High), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 8733 kb/s, 30 fps, 30 tbr, 90k tbn
+  Stream #0:1: Audio: aac (LC), 48000 Hz, stereo, fltp, 128 kb/s
+Press [q] to stop, [?] for help
+frame=   55 fps=0.0 q=-1.0 size=N/A time=00:00:01.79 bitrate=N/A speed=3.58x elapsed=0:00:00.50    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_000.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=   71 fps= 71 q=-1.0 size=N/A time=00:00:02.32 bitrate=N/A speed=2.31x elapsed=0:00:01.00    frame=   86 fps= 57 q=-1.0 size=N/A time=00:00:02.82 bitrate=N/A speed=1.87x elapsed=0:00:01.50    frame=  101 fps= 50 q=-1.0 size=N/A time=00:00:03.32 bitrate=N/A speed=1.65x elapsed=0:00:02.01    frame=  116 fps= 46 q=-1.0 size=N/A time=00:00:03.82 bitrate=N/A speed=1.52x elapsed=0:00:02.51    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_001.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  131 fps= 43 q=-1.0 size=N/A time=00:00:04.32 bitrate=N/A speed=1.43x elapsed=0:00:03.02    frame=  146 fps= 41 q=-1.0 size=N/A time=00:00:04.82 bitrate=N/A speed=1.37x elapsed=0:00:03.52    frame=  162 fps= 40 q=-1.0 size=N/A time=00:00:05.35 bitrate=N/A speed=1.33x elapsed=0:00:04.03    frame=  177 fps= 39 q=-1.0 size=N/A time=00:00:05.85 bitrate=N/A speed=1.29x elapsed=0:00:04.54    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_002.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  192 fps= 38 q=-1.0 size=N/A time=00:00:06.35 bitrate=N/A speed=1.26x elapsed=0:00:05.05    frame=  207 fps= 37 q=-1.0 size=N/A time=00:00:06.85 bitrate=N/A speed=1.23x elapsed=0:00:05.55    frame=  222 fps= 37 q=-1.0 size=N/A time=00:00:07.35 bitrate=N/A speed=1.21x elapsed=0:00:06.06    frame=  238 fps= 36 q=-1.0 size=N/A time=00:00:07.88 bitrate=N/A speed= 1.2x elapsed=0:00:06.57    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_003.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  253 fps= 36 q=-1.0 size=N/A time=00:00:08.38 bitrate=N/A speed=1.18x elapsed=0:00:07.07    frame=  268 fps= 35 q=-1.0 size=N/A time=00:00:08.88 bitrate=N/A speed=1.17x elapsed=0:00:07.58    frame=  283 fps= 35 q=-1.0 size=N/A time=00:00:09.38 bitrate=N/A speed=1.16x elapsed=0:00:08.09    frame=  299 fps= 35 q=-1.0 size=N/A time=00:00:09.92 bitrate=N/A speed=1.15x elapsed=0:00:08.60    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_004.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  314 fps= 34 q=-1.0 size=N/A time=00:00:10.42 bitrate=N/A speed=1.14x elapsed=0:00:09.11    frame=  329 fps= 34 q=-1.0 size=N/A time=00:00:10.92 bitrate=N/A speed=1.13x elapsed=0:00:09.62    frame=  344 fps= 34 q=-1.0 size=N/A time=00:00:11.43 bitrate=N/A speed=1.13x elapsed=0:00:10.13    frame=  360 fps= 34 q=-1.0 size=N/A time=00:00:11.95 bitrate=N/A speed=1.12x elapsed=0:00:10.63    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_005.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  375 fps= 34 q=-1.0 size=N/A time=00:00:12.45 bitrate=N/A speed=1.12x elapsed=0:00:11.14    frame=  388 fps=1.1 q=-1.0 size=N/A time=00:00:12.88 bitrate=N/A speed=0.0377x elapsed=0:05:41.45    frame=  404 fps=1.2 q=-1.0 size=N/A time=00:00:13.42 bitrate=N/A speed=0.0392x elapsed=0:05:41.96    frame=  420 fps=1.2 q=-1.0 size=N/A time=00:00:13.95 bitrate=N/A speed=0.0407x elapsed=0:05:42.47    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_006.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  436 fps=1.3 q=-1.0 size=N/A time=00:00:14.50 bitrate=N/A speed=0.0423x elapsed=0:05:42.97    frame=  453 fps=1.3 q=-1.0 size=N/A time=00:00:15.05 bitrate=N/A speed=0.0438x elapsed=0:05:43.48    frame=  468 fps=1.4 q=-1.0 size=N/A time=00:00:15.55 bitrate=N/A speed=0.0452x elapsed=0:05:43.99    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_007.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  484 fps=1.4 q=-1.0 size=N/A time=00:00:16.08 bitrate=N/A speed=0.0467x elapsed=0:05:44.50    frame=  500 fps=1.4 q=-1.0 size=N/A time=00:00:16.63 bitrate=N/A speed=0.0482x elapsed=0:05:45.01    frame=  516 fps=1.5 q=-1.0 size=N/A time=00:00:17.15 bitrate=N/A speed=0.0496x elapsed=0:05:45.51    frame=  532 fps=1.5 q=-1.0 size=N/A time=00:00:17.68 bitrate=N/A speed=0.0511x elapsed=0:05:46.02    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_008.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+frame=  548 fps=1.6 q=-1.0 size=N/A time=00:00:18.23 bitrate=N/A speed=0.0526x elapsed=0:05:46.53    frame=  564 fps=1.6 q=-1.0 size=N/A time=00:00:18.75 bitrate=N/A speed=0.054x elapsed=0:05:47.04    frame=  580 fps=1.7 q=-1.0 size=N/A time=00:00:19.28 bitrate=N/A speed=0.0555x elapsed=0:05:47.54    frame=  596 fps=1.7 q=-1.0 size=N/A time=00:00:19.82 bitrate=N/A speed=0.0569x elapsed=0:05:48.05    [hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_009.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+[in#0/flv @ 0x124e13be0] Error during demuxing: Input/output error
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/seg_010.ts' for writing
+[hls @ 0x103e05f80] Opening '/Users/shgopher/Desktop/family/luban/.cache/ch66/s666/out/rtmp_hls/index.m3u8.tmp' for writing
+[out#0/hls @ 0x103e05bc0] video:21416KiB audio:313KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=  602 fps=1.7 q=-1.0 Lsize=N/A time=00:00:20.03 bitrate=N/A speed=0.0575x elapsed=0:05:48.26    

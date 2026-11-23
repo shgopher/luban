@@ -1,0 +1,17 @@
+### 06:23:00 memmap MEMORY USAGE
+# 收件箱 ZSET（member = 13B msg id 指针）
+  n=100    bytes=1739      per_entry=  17.4 encoding=listpack
+  n=1000   bytes=78809     per_entry=  78.8 encoding=skiplist
+  n=5000   bytes=444473    per_entry=  88.9 encoding=skiplist
+  n=20000  bytes=1778378   per_entry=  88.9 encoding=skiplist
+# 群时间线 ZSET（member = 256B 正文）
+  n=100    bytes=34677     per_entry= 346.8 encoding=skiplist
+  n=1000   bytes=334006    per_entry= 334.0 encoding=skiplist
+  n=20000  bytes=6900439   per_entry= 345.0 encoding=skiplist
+# 已读集合三种编码（N = 5000 成员，一条消息）
+  bitmap:  bytes=1051   per_member=0.21 encoding=raw
+  hash:    bytes=253386 per_member=50.68 encoding=hashtable
+  counter: bytes=43     per_member=0.01 encoding=listpack
+# 结论读数（一条消息的已读存储）
+  N=5000: bitmap=1051B, hash=253386B, counter=43B
+# wall=2.897s

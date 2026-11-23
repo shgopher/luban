@@ -1,0 +1,13 @@
+=== readbuf=4KB-repeat n=2000 2026-11-21 14:15:03 ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+FD_CEILING	10236
+CONNS	want=2000 ok=2000 dialerr=0
+CONNECT_RATE	2376 conns/s (total 842ms)
+SERVER_GOROUTINES	before=6 after=4006 delta_per_conn=2.00
+SERVER_HEAP	before=899960 after=59775696 bytes/conn=29437
+SERVER_SYS	before=13453576 after=138701096 bytes/conn=62623
+ONLINE_METRIC	2000
+AUTH_AVG_US	74760.1
+KERNEL_SOCKBUF	SO_RCVBUF=408192 SO_SNDBUF=146988 (both ends, ×2 processes)
+EXTRAPOLATE_1M	heap=27.4 GiB sys=58.3 GiB fds_needed=1000000
+BASELINE_ONLINE	0

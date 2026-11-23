@@ -1,0 +1,12 @@
+=== backoff-limited storm_mode=backoff set-limit=500 2026-11-21 14:40:45 load={ 5.30 15.71 20.34 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1 / 同机并行实验
+PRECONDITION	online=1000 connect_err=0 storm_mode=backoff interval_base=1s wait=12s
+AFTER_DISCONNECT	online=0 accepted=1000
+RATE_LIMIT	set map[burst:500 rate:500]
+RECONNECT	total=1000 ok=1000 fail_attempts=3 all_recovered_in=2.6s
+ACCEPT_PER_SEC	s=0s count=510
+ACCEPT_PER_SEC	s=1s count=254
+ACCEPT_PER_SEC	s=2s count=2
+RETRY_FAIL	3 x websocket: bad handshake status=429
+SUMMARY	online=1000 accepted_delta=1000 rejected_delta=3
+PEAK_ACCEPT_PER_SEC	510

@@ -1,0 +1,32 @@
+=== expA mode=host pings=1000 ===
+create_offer               1.97 ms
+set_local_offer            2.09 ms
+b_set_remote_offer         2.66 ms
+b_set_local_answer         3.30 ms
+a_set_remote_answer        3.35 ms
+ice_connected_a            4.54 ms
+connected_a                6.75 ms
+datachannel_open           7.77 ms
+candidates A=map[host:1] B=map[host:1]
+selected  local=host/udp 127.0.0.1:13503 remote=host/udp 127.0.0.1:13506
+RTT seq   count=1000 fail=0 p50=0.194ms p99=3.113ms max=15.391ms avg=0.336ms
+RTT burst count=1000 fail=0 p50=31.849ms p99=33.745ms max=33.746ms avg=28.350ms
+--- timeline ---
+[+    2.04ms] A ice-gathering -> gathering
+[+    3.25ms] A candidate host 127.0.0.1:13503
+[+    3.28ms] B ice-gathering -> gathering
+[+    3.30ms] A ice-gathering -> complete
+[+    3.30ms] A ICE gathering complete
+[+    3.34ms] B peer-conn -> connecting
+[+    3.44ms] A ice-conn -> checking
+[+    3.46ms] A peer-conn -> connecting
+[+    3.54ms] B candidate host 127.0.0.1:13506
+[+    3.56ms] B ice-gathering -> complete
+[+    3.57ms] B ICE gathering complete
+[+    4.52ms] A ice-conn -> connected
+[+    6.73ms] A peer-conn -> connected
+[+    6.87ms] B peer-conn -> connected
+[+    7.61ms] B got datachannel "ping"
+[+    7.75ms] A datachannel open
+[+  108.64ms] selected pair: host/udp 127.0.0.1:13503 -> host/udp 127.0.0.1:13506
+json written: raw/expA-host-lo-run3.json

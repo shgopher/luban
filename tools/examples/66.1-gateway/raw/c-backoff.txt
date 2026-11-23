@@ -1,0 +1,9 @@
+=== backoff storm_mode=backoff set-limit=0 2026-11-21 14:31:30 load={ 6.31 17.43 21.16 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1 / 同机并行实验
+PRECONDITION	online=1000 connect_err=0 storm_mode=backoff interval_base=1s wait=12s
+AFTER_DISCONNECT	online=0 accepted=1000
+RECONNECT	total=1000 ok=1000 fail_attempts=0 all_recovered_in=1s
+ACCEPT_PER_SEC	s=0s count=526
+ACCEPT_PER_SEC	s=1s count=242
+SUMMARY	online=1000 accepted_delta=1000 rejected_delta=0
+PEAK_ACCEPT_PER_SEC	526

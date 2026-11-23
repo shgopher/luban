@@ -1,0 +1,41 @@
+{
+  "injected_loss": 0.05,
+  "injected_delay_ms": 0,
+  "nack_enabled": false,
+  "samples_sent": 400,
+  "rtp_unique_received": 380,
+  "rtp_missing": 20,
+  "rtp_duplicates": 0,
+  "rtp_out_of_order": 0,
+  "rtp_one_way_delay": {
+    "count": 380,
+    "min_ms": 0.083,
+    "p50_ms": 0.246,
+    "p90_ms": 1.152,
+    "p99_ms": 7.197,
+    "max_ms": 13.007
+  },
+  "datachannel_rtt": {
+    "count": 100,
+    "min_ms": 0.115,
+    "p50_ms": 0.196,
+    "p90_ms": 1.055,
+    "p99_ms": 202.76,
+    "max_ms": 226.145
+  },
+  "datachannel_fail": 0,
+  "connect_ms": 7.333,
+  "inbound_rtp_stats": {
+    "bytesReceived": 304000,
+    "jitter_ms": 1.7946695326170392,
+    "nackCount": 0,
+    "packetsLost": 20,
+    "packetsReceived": 380
+  },
+  "net_layer": {
+    "delayed": 0,
+    "deliver_ratio": 0.05,
+    "dropped": 34,
+    "sent": 795
+  }
+}

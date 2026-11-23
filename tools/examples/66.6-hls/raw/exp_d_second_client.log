@@ -1,0 +1,1 @@
+第二个客户端 rc=1 stdout='' stderr='[tcp @ 0x136804250] Connection to tcp://127.0.0.1:19350?tcp_nodelay=0 failed: Connection refused\n[rtmp @ 0x135e139f0] Cannot open connection tcp://127.0.0.1:193'

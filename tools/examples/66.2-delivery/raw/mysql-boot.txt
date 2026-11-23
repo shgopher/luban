@@ -1,0 +1,7 @@
+init_exit=0
+start_exit=0
+version()
+26.7.0
+2026-11-21T06:18:10.155065Z 0 [Warning] [MY-015696] [Server] Plugin mysqlx reported: 'TLS channel 'mysqlx' is not configured to require post-quantum key exchange algorithms; future TLS sessions may use a non-post-quantum key exchange algorithm because force_pqc is disabled'
+2026-11-21T06:18:10.155285Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '127.0.0.1' port: 33060, socket: /tmp/mysqlx.sock
+2026-11-21T06:18:10.155347Z 0 [System] [MY-010931] [Server] /opt/homebrew/bin/mysqld: ready for connections. Version: '26.7.0'  socket: '/tmp/mysql-ch66-2/mysql.sock'  port: 13306  Homebrew.

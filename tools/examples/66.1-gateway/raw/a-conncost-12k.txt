@@ -1,0 +1,12 @@
+=== readbuf=4KB n=12000 2026-11-21 14:10:17 ===
+ENV	macOS 15.6 / arm64 / go1.27.1
+FD_CEILING	10236
+panic: dial tcp 127.0.0.1:16381: connect: can't assign requested address
+
+goroutine 1 [running]:
+main.mustTicket({0x123a34360e60, 0x5})
+	/Users/shgopher/Desktop/family/luban/.cache/ch66/s661/code/cmd/exp/main.go:78 +0x22c
+main.expA()
+	/Users/shgopher/Desktop/family/luban/.cache/ch66/s661/code/cmd/exp/main.go:266 +0x184
+main.main()
+	/Users/shgopher/Desktop/family/luban/.cache/ch66/s661/code/cmd/exp/main.go:57 +0x9c

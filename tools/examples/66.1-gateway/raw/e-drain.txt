@@ -1,0 +1,8 @@
+=== 优雅下线 drain 2026-11-21 14:24:18 ===
+ENV	macOS 15.6 / arm64 / go1.27.1 / gw1+gw2 同机
+BEFORE	gw1_online=500 gw2_online=0 connect_err=0
+DRAIN_RESP	map[drained:0 redirected:500]
+DRAIN_DURATION	890ms
+REDIRECT	sent=500 redirected=500 reconnected=500
+AFTER	gw1_online=0 gw2_online=500 gw1_draining=1
+LOSS	掉线未重连=0

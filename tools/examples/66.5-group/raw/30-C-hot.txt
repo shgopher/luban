@@ -1,0 +1,9 @@
+### 06:21:52 C hot
+C1 read_hotspot concurrency=200
+  hot  key(1 x 200k entries): p50=17.379459ms p99=23.607083ms max=23.7705ms
+  cold keys(200 x 1k entries): p50=20.281542ms p99=22.910791ms max=23.333375ms
+C2 hot_mixed_baseline hotgroup(1w members,all online,100 msgs)
+  alone: p50=55.534541ms p99=140.830292ms max=144.799167ms
+  mixed with 100 small groups: p50=66.922041ms p99=1.095955542s max=2.111619833s
+  small groups under mix: p50=31.6735ms p99=48.823791ms max=119.615875ms (n=9924 samples)
+# wall=19.935s

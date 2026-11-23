@@ -1,0 +1,48 @@
+=== D1. RTMP 服务端（-listen 1，端口 19350）：收到流后直接切 2s HLS（-c copy，不重编码）===
+=== D2. 起轮询（每 50ms 读一次播放列表）===
+=== D3. 推流端：-re 实时推 20s、-c copy（推流不改编码）===
+  推流端正常退出
+  推流端最后进度: frame=  602 fps=1.7 q=-1.0 Lsize=   21756KiB time=00:00:20.01 bitrate=8906.7kbits/s speed=0.0573x elapsed=0:05:49.03    
+
+=== D4. 服务端收到的流参数（ffmpeg -listen 1 的 Input #0）===
+Input #0, flv, from 'rtmp://127.0.0.1:19350/live/test':
+  Stream #0:0: Video: h264 (High), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 8733 kb/s, 30 fps, 30 tbr, 1k tbn, start 0.067000
+  Stream #0:1: Audio: aac (LC), 48000 Hz, stereo, fltp, 128 kb/s, start 0.046000
+  Stream #0:0 -> #0:0 (copy)
+
+=== D5. 轮询记录：推流开始后切片何时进入播放列表 ===
+t=  0.00s  epoch=1795243420.69  切片数= 0  累计时长=  0.0s
+t=  1.87s  epoch=1795243422.55  切片数= 1  累计时长=  2.0s
+t=  3.84s  epoch=1795243424.53  切片数= 2  累计时长=  4.0s
+t=  5.88s  epoch=1795243426.57  切片数= 3  累计时长=  6.0s
+t=  7.89s  epoch=1795243428.58  切片数= 4  累计时长=  8.0s
+t=  9.90s  epoch=1795243430.59  切片数= 5  累计时长= 10.0s
+t= 11.85s  epoch=1795243432.54  切片数= 6  累计时长= 12.0s
+推流起点 → 播放列表出现第 1 个切片: 1.55s
+推流起点 → 播放列表出现第 2 个切片: 3.53s
+推流起点 → 播放列表出现第 3 个切片: 5.57s
+推流起点 → 播放列表出现第 4 个切片: 7.58s
+推流起点 → 播放列表出现第 5 个切片: 9.59s
+推流起点 → 播放列表出现第 6 个切片: 11.54s
+
+=== D6. 拉流侧校验：HLS 播放列表与切片 ===
+切片文件数: 11
+rtmp_hls/index.m3u8      切片数= 11 min=0.066s max=2.000s 均值=1.824s 标准差=0.556 总时长=20.1s TARGETDURATION=2
+    时长序列: 2 2 2 2 2 2 2 2 2 2 0.066
+--- 用 ffprobe 像播放器一样读这条 HLS（拉流校验）---
+codec_name=h264
+width=1920
+height=1080
+codec_name=aac
+codec_name=h264
+width=1920
+height=1080
+codec_name=aac
+--- 单个切片的实际码率 ---
+duration=2.058833
+size=2286832
+bit_rate=8885934
+
+=== D7. 边界：推流进行中尝试第二个客户端拉流（-listen 1 只能服务 1 个连接）===
+第二个客户端 rc=1 stdout='' stderr='[tcp @ 0x136804250] Connection to tcp://127.0.0.1:19350?tcp_nodelay=0 failed: Connection refused\n[rtmp @ 0x135e139f0] Cannot open connection tcp://127.0.0.1:193'
+（已清理本次实验的 ffmpeg 进程）

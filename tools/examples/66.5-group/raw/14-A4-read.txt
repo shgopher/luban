@@ -1,0 +1,18 @@
+### 06:20:41 A4 read_side groups=10
+read_side groups_per_user=10 users=200
+  R/H path: cmds=2000 cmds_per_user=10 wall=2.030014s p50=4.515083ms p99=65.574ms
+  W   path: cmds=200 cmds_per_user=1 wall=125.825ms p50=385.416µs p99=4.843041ms
+  read_amp_ratio=10.0x
+# wall=2.303s
+### 06:20:43 A4 read_side groups=50
+read_side groups_per_user=50 users=200
+  R/H path: cmds=10000 cmds_per_user=50 wall=5.290351s p50=17.656417ms p99=168.527792ms
+  W   path: cmds=200 cmds_per_user=1 wall=51.831ms p50=236.583µs p99=473.875µs
+  read_amp_ratio=50.0x
+# wall=6.044s
+### 06:20:49 A4 read_side groups=200
+read_side groups_per_user=200 users=200
+  R/H path: cmds=40000 cmds_per_user=200 wall=26.788977s p50=111.675667ms p99=392.267292ms
+  W   path: cmds=200 cmds_per_user=1 wall=52.82ms p50=233.709µs p99=616.666µs
+  read_amp_ratio=200.0x
+# wall=28.452s

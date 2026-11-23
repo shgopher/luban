@@ -1,0 +1,54 @@
+### 06:16:09 A1 strategy=w n=1000 p=0.1 m=1000
+strategy=w n=1000 p=0.10 m=1000 devices=1 online=100
+  redis_cmds=1002000 (per_msg=1002.0) wall=18.694s throughput_msgs_per_s=53.5
+  latency_p50=8.767625ms latency_p99=185.342333ms latency_max=410.305792ms
+  mem_base=1177232 mem_after=69894240 mem_delta=68717008 entries=1001000 bytes_per_entry=68.6
+# wall=19.056s
+### 06:16:28 A1 strategy=r n=1000 p=0.1 m=1000
+strategy=r n=1000 p=0.10 m=1000 devices=1 online=100
+  redis_cmds=1000 (per_msg=1.0) wall=563ms throughput_msgs_per_s=1775.2
+  latency_p50=296.625µs latency_p99=5.034625ms latency_max=15.27675ms
+  mem_base=1177008 mem_after=1505904 mem_delta=328896 entries=1000 bytes_per_entry=328.9
+# wall=1.784s
+### 06:16:30 A1 strategy=h n=1000 p=0.1 m=1000
+strategy=h n=1000 p=0.10 m=1000 devices=1 online=100
+  redis_cmds=2000 (per_msg=2.0) wall=765ms throughput_msgs_per_s=1306.6
+  latency_p50=290.542µs latency_p99=9.370375ms latency_max=89.080292ms
+  mem_base=1176976 mem_after=1505680 mem_delta=328704 entries=1000 bytes_per_entry=328.7
+# wall=1.081s
+### 06:16:31 A1 strategy=w n=1000 p=0.5 m=1000
+strategy=w n=1000 p=0.50 m=1000 devices=1 online=500
+  redis_cmds=1002000 (per_msg=1002.0) wall=12.316s throughput_msgs_per_s=81.2
+  latency_p50=8.273375ms latency_p99=108.734375ms latency_max=255.278542ms
+  mem_base=1176976 mem_after=69899088 mem_delta=68722112 entries=1001000 bytes_per_entry=68.7
+# wall=12.627s
+### 06:16:44 A1 strategy=r n=1000 p=0.5 m=1000
+strategy=r n=1000 p=0.50 m=1000 devices=1 online=500
+  redis_cmds=1000 (per_msg=1.0) wall=917ms throughput_msgs_per_s=1090.5
+  latency_p50=427.875µs latency_p99=8.726166ms latency_max=35.516125ms
+  mem_base=1177024 mem_after=1504864 mem_delta=327840 entries=1000 bytes_per_entry=327.8
+# wall=2.851s
+### 06:16:46 A1 strategy=h n=1000 p=0.5 m=1000
+strategy=h n=1000 p=0.50 m=1000 devices=1 online=500
+  redis_cmds=2000 (per_msg=2.0) wall=1.069s throughput_msgs_per_s=935.4
+  latency_p50=312.833µs latency_p99=11.642333ms latency_max=143.787167ms
+  mem_base=1176992 mem_after=1505488 mem_delta=328496 entries=1000 bytes_per_entry=328.5
+# wall=1.375s
+### 06:16:48 A1 strategy=w n=1000 p=1.0 m=1000
+strategy=w n=1000 p=1.00 m=1000 devices=1 online=1000
+  redis_cmds=1003000 (per_msg=1003.0) wall=25.912s throughput_msgs_per_s=38.6
+  latency_p50=8.265042ms latency_p99=279.735458ms latency_max=625.405666ms
+  mem_base=1176992 mem_after=69875136 mem_delta=68698144 entries=1001000 bytes_per_entry=68.6
+# wall=26.22s
+### 06:17:14 A1 strategy=r n=1000 p=1.0 m=1000
+strategy=r n=1000 p=1.00 m=1000 devices=1 online=1000
+  redis_cmds=1000 (per_msg=1.0) wall=790ms throughput_msgs_per_s=1265.6
+  latency_p50=257.541µs latency_p99=6.3685ms latency_max=126.228417ms
+  mem_base=1177120 mem_after=1505776 mem_delta=328656 entries=1000 bytes_per_entry=328.7
+# wall=2.514s
+### 06:17:17 A1 strategy=h n=1000 p=1.0 m=1000
+strategy=h n=1000 p=1.00 m=1000 devices=1 online=1000
+  redis_cmds=3000 (per_msg=3.0) wall=1.161s throughput_msgs_per_s=861.1
+  latency_p50=310.333µs latency_p99=16.102875ms latency_max=96.005833ms
+  mem_base=1177088 mem_after=1505184 mem_delta=328096 entries=1000 bytes_per_entry=328.1
+# wall=1.474s

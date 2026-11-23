@@ -1,0 +1,20 @@
+== 可验：Redis 重启后数据仍在（AOF 关闭，手工 SAVE 落 RDB） ==
+-- 重启前
+dbsize=10046
+hlen s662:off:grp:0=5000
+Could not connect to Redis at 127.0.0.1:16382: Can't assign requested address
+zcard s662:inbox:u1002=
+Could not connect to Redis at 127.0.0.1:16382: Can't assign requested address
+-- SAVE + shutdown nosave + 重启
+Could not connect to Redis at 127.0.0.1:16382: Can't assign requested address
+Could not connect to Redis at 127.0.0.1:16382: Can't assign requested address
+-- 重启后（LOADING 结束）
+PONG
+dbsize=10046
+hlen s662:off:grp:0=5000
+zcard s662:inbox:u1002=10000
+hget s662:off:grp:0 5000={"body":"群0第5000条","ts":1763005000}
+loading:0
+async_loading:0
+rdb_last_load_keys_loaded:10046
+used_memory:19824848

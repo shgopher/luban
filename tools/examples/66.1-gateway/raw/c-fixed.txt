@@ -1,0 +1,9 @@
+=== fixed storm_mode=fixed set-limit=0 2026-11-21 14:30:45 load={ 6.51 19.18 21.94 } ===
+ENV	macOS 15.6 / arm64 / go1.27.1 / 同机并行实验
+PRECONDITION	online=1000 connect_err=0 storm_mode=fixed interval_base=1s wait=12s
+AFTER_DISCONNECT	online=0 accepted=1000
+RECONNECT	total=1000 ok=1000 fail_attempts=0 all_recovered_in=1.3s
+ACCEPT_PER_SEC	s=0s count=0
+ACCEPT_PER_SEC	s=1s count=1000
+SUMMARY	online=1000 accepted_delta=1000 rejected_delta=0
+PEAK_ACCEPT_PER_SEC	1000

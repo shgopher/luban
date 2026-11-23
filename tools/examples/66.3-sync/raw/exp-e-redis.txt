@@ -1,0 +1,97 @@
+=== 0) 启动 Redis 8.10.2（端口 16383，纯内存）===
+$ redis-cli -h ::1 -p 16383 PING
+PONG
+
+=== 1) 写每设备游标：一个 Hash 存 change_cursor + 每会话 conv_cursor ===
+$ redis-cli -h ::1 -p 16383 HSET sync:cursor:u1001:t_phone change_cursor 8842 conv:c1 1200 conv:c2 980 conv:c3 1150
+4
+
+$ redis-cli -h ::1 -p 16383 HGETALL sync:cursor:u1001:t_phone
+change_cursor
+8842
+conv:c1
+1200
+conv:c2
+980
+conv:c3
+1150
+
+$ redis-cli -h ::1 -p 16383 HGET sync:cursor:u1001:t_phone conv:c1
+1200
+
+=== 2) 用户变更流水：Redis Stream 追加两条变更（消息瘦条目 + 已读）===
+$ redis-cli -h ::1 -p 16383 XADD sync:changes:u1001 * kind msg conv c1 seq 1201 msg_id m_c1_001201
+1795242096484-0
+
+$ redis-cli -h ::1 -p 16383 XADD sync:changes:u1001 * kind read conv c1 read_seq 1201
+1795242096504-0
+
+$ redis-cli -h ::1 -p 16383 XLEN sync:changes:u1001
+2
+
+$ redis-cli -h ::1 -p 16383 XRANGE sync:changes:u1001 - +
+1795242096484-0
+kind
+msg
+conv
+c1
+seq
+1201
+msg_id
+m_c1_001201
+1795242096504-0
+kind
+read
+conv
+c1
+read_seq
+1201
+
+=== 3) 客户端从 change_cursor=8842 拉增量：XREAD 按游标读、后进先出无意义（Stream 天然有序）===
+$ redis-cli -h ::1 -p 16383 XREAD COUNT 10 STREAMS sync:changes:u1001 0
+sync:changes:u1001
+1795242096484-0
+kind
+msg
+conv
+c1
+seq
+1201
+msg_id
+m_c1_001201
+1795242096504-0
+kind
+read
+conv
+c1
+read_seq
+1201
+
+=== 4) 变更流水限长 + 7 天 TTL：防内存无限增长，过期后客户端回退全量快照 ===
+$ redis-cli -h ::1 -p 16383 XADD sync:changes:u1001 MAXLEN ~ 10000 * kind msg conv c2 seq 777 msg_id m_c2_000777
+1795242096555-0
+
+$ redis-cli -h ::1 -p 16383 EXPIRE sync:changes:u1001 604800
+1
+
+$ redis-cli -h ::1 -p 16383 TTL sync:changes:u1001
+604800
+
+$ redis-cli -h ::1 -p 16383 EXPIRE sync:cursor:u1001:t_phone 604800
+1
+
+$ redis-cli -h ::1 -p 16383 TTL sync:cursor:u1001:t_phone
+604800
+
+=== 5) 原子更新：MULTI/EXEC 里同时写游标与变更流水（同实例内不出现半更新）===
+OK
+QUEUED
+QUEUED
+0
+1795242096615-0
+=== 6) 收尾清理：删除演示 key 并关停 Redis ===
+$ redis-cli -h ::1 -p 16383 DEL sync:cursor:u1001:t_phone sync:changes:u1001
+2
+
+$ redis-cli -h ::1 -p 16383 SHUTDOWN NOSAVE
+

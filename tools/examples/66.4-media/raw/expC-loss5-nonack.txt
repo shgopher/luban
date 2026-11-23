@@ -1,0 +1,7 @@
+connected in 7.3ms (loss=5% delay=0s nack=false)
+dc rtt p50=0.20ms p99=202.76ms fail=0
+samples=400 unique=380 missing=20 dup=0 ooo=0
+one-way delay p50=0.25ms p99=7.20ms max=13.01ms
+inbound stats: map[bytesReceived:304000 jitter_ms:1.7946695326170392 nackCount:0 packetsLost:20 packetsReceived:380]
+net layer: sent=795 dropped=34 delayed=0
+json written: raw/expC-loss5-nonack.json

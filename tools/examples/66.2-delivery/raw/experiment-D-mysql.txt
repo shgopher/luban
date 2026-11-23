@@ -1,0 +1,28 @@
+--- D1 正常落库（首次上行）
+new_id
+1
+--- D2 同一 client_msg_id 重发：唯一索引报 1062
+ERROR 1062 (23000) at line 1: Duplicate entry '66-1' for key 'message.uk_conv_seq'
+--- D2b 服务端已分配新 seq 才发现是重复：uk_sender_cmid 单独报 1062
+ERROR 1062 (23000) at line 1: Duplicate entry '1001-cmid-000001' for key 'message.uk_sender_cmid'
+--- D3 服务端「重发也返回同一条 msg_id」的写法
+same_id
+1
+--- D4 20 个并发客户端抢插同一个 client_msg_id：唯一索引下只落 1 行
+rows_for_cmid2
+1
+并发退出码统计（0=插入成功, 1=被挡住）:    1 0   19 1 
+--- D5 反例：没有唯一索引、用「先查再插」，20 个并发客户端会插出多少行？
+duplicate_rows
+20
+--- D6 离线分页：索引扫描而不是全表扫
+EXPLAIN
+-> Limit: 200 row(s)  (cost=0.7 rows=1)\n    -> Index range scan on message using uk_conv_seq over (conv_id = 66 AND 0 < conv_seq), with index condition: ((message.conv_id = 66) and (message.conv_seq > 0))  (cost=0.7 rows=1)\n
+--- D7 状态机 CAS：UPDATE ... WHERE id=? AND status<? 的 row_count 才是竞争裁决
+first_win
+1
+second_lose
+0
+--- D8 服务端版本与隔离级别
+version	isolation	buffer_pool
+26.7.0	REPEATABLE-READ	134217728
