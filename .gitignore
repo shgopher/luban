@@ -33,3 +33,7 @@ tools/examples/**/code/*
 !tools/examples/**/code/*.txt
 !tools/examples/**/code/*.json
 !tools/examples/**/code/*/
+
+# 临时验证目录（构建缓存，勿入库）
+.tmp-verify/
+.tmp-audit-rerun/
