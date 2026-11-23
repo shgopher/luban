@@ -1,0 +1,20 @@
+diff --git a/core/order.go b/core/order.go
+index 7f9cce8..25d32f3 100644
+--- a/core/order.go
++++ b/core/order.go
+@@ -34,0 +35,15 @@ func Total(o Order, coupon int64, taxRate int64) int64 {
++	// 物流费：按件数阶梯计价
++	var pieces int
++	for _, it := range o.Items {
++		pieces += it.Qty
++	}
++	switch {
++	case pieces <= 1:
++		sum += 800
++	case pieces <= 3:
++		sum += 1200
++	case pieces <= 10:
++		sum += 2000
++	default:
++		sum += 2000 + int64(pieces-10)*300
++	}

@@ -1,0 +1,10 @@
+diff --git a/core/order.go b/core/order.go
+index 3cb558f..2c71a6c 100644
+--- a/core/order.go
++++ b/core/order.go
+@@ -28 +28 @@ func Validate(o Order) error {
+-func Total(o Order) int64 {
++func Total(o Order, coupon int64) int64 {
+@@ -33 +33 @@ func Total(o Order) int64 {
+-	return sum
++	return sum - coupon

@@ -1,0 +1,21 @@
+diff --git a/core/order.go b/core/order.go
+index 25d32f3..4c4fcfd 100644
+--- a/core/order.go
++++ b/core/order.go
+@@ -3 +3,5 @@ package core
+-import "errors"
++import (
++	"errors"
++
++	"risk"
++)
+@@ -18,0 +23 @@ func Validate(o Order) error {
++	risk.Touch("validate")
+@@ -21,0 +27 @@ func Validate(o Order) error {
++	risk.Touch("items")
+@@ -28,0 +35 @@ func Total(o Order, coupon int64, taxRate int64) int64 {
++	risk.Touch("total")
+@@ -30,0 +38 @@ func Total(o Order, coupon int64, taxRate int64) int64 {
++		risk.Touch("item")
+@@ -49,0 +58 @@ func Total(o Order, coupon int64, taxRate int64) int64 {
++	risk.Touch("done")
