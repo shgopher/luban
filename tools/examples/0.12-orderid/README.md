@@ -1,4 +1,4 @@
-# orderid：0.12 的订单号重构演算
+# 0.12-orderid：订单号重构演算
 
 [0.12 过度设计与模式反模式](../../../v2/内功/0-内功/0.12-过度设计与模式反模式.md) 后半段的配套代码：9 行雪花号 → 加锁 → 注入时钟 → 逻辑毫秒 → 删掉多余接口。
 
@@ -12,7 +12,7 @@
 ## 跑起来
 
 ```bash
-cd tools/examples/orderid
+cd tools/examples/0.12-orderid
 
 go test -race ./...                                  # 默认用例全绿
 go test -tags v0broken -race -run TestV0             # 故意失败：复现 v0 的回绕与竞争

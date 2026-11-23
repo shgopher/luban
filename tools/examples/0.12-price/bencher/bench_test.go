@@ -3,9 +3,9 @@ package bencher
 import (
 	"testing"
 
-	"github.com/shgopher/luban/tools/examples/price-demo/factory"
-	"github.com/shgopher/luban/tools/examples/price-demo/plain"
-	"github.com/shgopher/luban/tools/examples/price-demo/strategy"
+	"github.com/shgopher/luban/tools/examples/0.12-price/factory"
+	"github.com/shgopher/luban/tools/examples/0.12-price/plain"
+	"github.com/shgopher/luban/tools/examples/0.12-price/strategy"
 )
 
 var kinds = []string{"none", "vip", "coupon", "season"}

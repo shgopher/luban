@@ -1,4 +1,4 @@
-# price-demo：0.12 的三版计价
+# 0.12-price：计价三版对照
 
 [0.12 过度设计与模式反模式](../../../v2/内功/0-内功/0.12-过度设计与模式反模式.md) 的配套代码：同一个计价需求，三种写法各占 18 / 18 / 29 行。
 
@@ -12,7 +12,7 @@
 ## 跑起来
 
 ```bash
-cd tools/examples/price-demo
+cd tools/examples/0.12-price
 
 go test ./bencher -bench . -benchmem -count=3
 ```

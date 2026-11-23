@@ -1,4 +1,4 @@
-# limitfw：84.11 的可运行示例
+# 84.11-limitfw：限流框架骨架
 
 [84.11 从零设计一个限流框架](../../../v2/附录/84-典型案例/84.11-从零设计限流框架.md) 的配套代码：单机、按 key、令牌桶，155 行框架 + 97 行分片版。
 
@@ -7,7 +7,7 @@
 ## 跑起来
 
 ```bash
-cd tools/examples/limitfw
+cd tools/examples/84.11-limitfw
 
 go test -race ./...                        # 8 个用例，含并发 burst、TTL 回收、fail-open/closed
 go test -run '^$' -bench . -benchmem -count=3
