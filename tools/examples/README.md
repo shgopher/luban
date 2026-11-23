@@ -105,12 +105,13 @@
 | [25.3 冲突检测与解决策略](../../v2/L1-分布式原理/25-并发、冲突与幂等/25.3-冲突检测与解决策略.md) | `25.3-conflict/` | `go run .` | 版本向量 vs LWW |
 | [78.4 跨团队协作与接口人](../../v2/组织/78-技术组织设计/78.4-跨团队协作与接口人.md) | `78.4-interface-cost/` | `go run .` | 接口人数量与响应时间 |
 | [82.4 原型验证](../../v2/附录/82-架构设计方法/82.4-原型验证.md) | `82.4-prototype-roi/` | `go run .` | 原型的回本点 |
+| [64.10 多 Agent 编排](../../v2/L4-组件与技术/64-机器学习系统/64.10-多Agent编排.md) | [`64.10-agent-orchestration/`](64.10-agent-orchestration/README.md) | `docker build -t luban-64.10-agent . && docker run --rm luban-64.10-agent` | worktree 隔离 + tmux 会话托管 + 状态盲区 |
 
 ## 约定
 
 - **`.cache` 只是草稿区**：探针、调参、临时输出放那里；**验证通过就提升到这里**，删掉 `.cache` 副本，补 README 与正文指针。验证成功还留在 `.cache` = 白测。
 - **提升时固定四件事**：改 module 路径为 `github.com/shgopher/luban/tools/examples/<dir>`；把真实输出写进 README；本机重跑确认数字没变；在正文代码块后加一行指针。
-- 每个示例是**独立 module**（自带 `go.mod`），互不依赖；`go run .` 或 `go test` 一条命令可跑。
+- 每个示例是**独立 module**（Go 示例自带 `go.mod`），互不依赖；`go run .` 或 `go test` 一条命令可跑。非 Go 的示例（shell / Node）不强制 `go.mod`，以目录自包含、README 写清依赖与跑法为准。
 - 每个目录一份 README：对应章节、跑法、期望输出、假设与浮动说明。
 - 不提交二进制、`raw.txt` 之类的中间产物；输出写进 README 或正文。
 - 正文只贴关键段，末尾一句「完整代码在 [tools/examples/<dir>/](<dir>/README.md)」，链接指到该目录的 README，不重复贴全文。
