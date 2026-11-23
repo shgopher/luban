@@ -15,7 +15,8 @@
 
 ## 约定
 
-- **只在正文有数字或输出时入库**：一次性的探针、调参脚本留在 `.cache/`（gitignored），不进仓库。
+- **`.cache` 只是草稿区**：探针、调参、临时输出放那里；**验证通过就提升到这里**，删掉 `.cache` 副本，补 README 与正文指针。验证成功还留在 `.cache` = 白测。
+- **提升时固定四件事**：改 module 路径为 `github.com/shgopher/luban/tools/examples/<dir>`；把真实输出写进 README；本机重跑确认数字没变；在正文代码块后加一行指针。
 - 每个示例是**独立 module**（自带 `go.mod`），互不依赖；`go run .` 或 `go test` 一条命令可跑。
 - 每个目录一份 README：对应章节、跑法、期望输出、假设与浮动说明。
 - 不提交二进制、`raw.txt` 之类的中间产物；输出写进 README 或正文。
