@@ -1,0 +1,27 @@
+{
+ "env": {
+  "node": "v26.10.0",
+  "sqlite": "node:sqlite DatabaseSync",
+  "cpu": "arm64",
+  "journal_mode": "WAL",
+  "synchronous": "NORMAL"
+ },
+ "rows": 10000,
+ "writeMs": 29.4,
+ "writePerRowUs": 2.9,
+ "dupCheck1000Ms": 9.5,
+ "dupRejected": 1000,
+ "dbBytes": 4096,
+ "walBytes": 3522632,
+ "avgRowBytes": 0.4,
+ "payloadBytes": 190,
+ "scanLimit500Ms": 0.27,
+ "fullScanPendingMs": 6.4,
+ "fullScanRows": 8000,
+ "getByEventIdMs": 0.054,
+ "hit": {
+  "seq": 7778,
+  "status": "pending"
+ },
+ "memArrayBuildMs": 0.7
+}

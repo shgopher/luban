@@ -1,0 +1,4 @@
+site	js_files	html_identity	html_compressed	js_identity	js_compressed
+nextjs.org	24	266173	34709	1465128	451148
+react.dev	10	272437	43362	855104	277258
+linear.app	3	1265756	186773	604063	162738

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>style global</title>
+<style>body{font:14px/1.5 -apple-system,sans-serif;margin:16px}</style></head><body>
+<div id="a"></div><div id="b"></div>
+<script>
+(function(){var s=document.createElement('style');s.textContent='.btn{background:red;color:#fff;border:0;padding:4px 8px}';
+       document.head.appendChild(s);document.getElementById('a').innerHTML='<button class="btn">a</button>';})();
+(function(){var s=document.createElement('style');s.textContent='.btn{background:blue;color:#fff;border:0;padding:4px 8px}';
+       document.head.appendChild(s);document.getElementById('b').innerHTML='<button class="btn">b</button>';})();
+// 自检：读 A 的按钮最终计算出来的背景色
+window.__check = function () {
+  var btn = document.querySelector('#a .btn');
+  var bg = getComputedStyle(btn).backgroundColor;
+  var out = document.createElement('pre'); out.id = 'result';
+  out.textContent = 'a-button-bg=' + bg;
+  document.body.appendChild(out);
+  performance.mark('content-ready');
+  return bg;
+};
+window.__check();
+</script></body></html>

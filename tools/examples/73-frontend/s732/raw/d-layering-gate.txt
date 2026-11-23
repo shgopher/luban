@@ -1,0 +1,3 @@
+OK: domain clean (0 forbidden imports)
+layering/src/domain/place_order.kt:12:import okhttp3.OkHttpClient
+FAIL: domain 依赖了上层/框架

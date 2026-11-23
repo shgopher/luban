@@ -1,0 +1,37 @@
+{
+ "phase": "restart-read",
+ "pid": 63233,
+ "dbBytes": 2924544,
+ "rowsAfterRestart": 10000,
+ "byStatus": [
+  {
+   "status": "pending",
+   "c": 8000
+  },
+  {
+   "status": "sent",
+   "c": 2000
+  }
+ ],
+ "maxSeq": 10000,
+ "firstPending": [
+  {
+   "seq": 2001,
+   "event_id": "evt-2000-1166b6d0",
+   "status": "pending"
+  },
+  {
+   "seq": 2002,
+   "event_id": "evt-2001-af9e3081",
+   "status": "pending"
+  },
+  {
+   "seq": 2003,
+   "event_id": "evt-2002-4dd5aa32",
+   "status": "pending"
+  }
+ ],
+ "memArrayBefore": null
+}
+mem array in fresh process = undefined
+mem-array.json 只是上一进程写下的快照，不是可查询的队列: file exists (snapshot only)

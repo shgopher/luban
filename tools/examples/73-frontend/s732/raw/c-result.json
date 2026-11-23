@@ -1,0 +1,46 @@
+{
+ "/c_serial6.html": {
+  "ttfb": 159,
+  "load": 215,
+  "ready": 1215,
+  "longtaskMs": 0,
+  "longtaskN": 0,
+  "res": 6,
+  "wireBytes": 15132,
+  "decodedBytes": 13032,
+  "runs": 5
+ },
+ "/c_par6.html": {
+  "ttfb": 154,
+  "load": 206,
+  "ready": 438,
+  "longtaskMs": 0,
+  "longtaskN": 0,
+  "res": 6,
+  "wireBytes": 15143,
+  "decodedBytes": 13043,
+  "runs": 5
+ },
+ "/c_serial12.html": {
+  "ttfb": 152,
+  "load": 180,
+  "ready": 2172,
+  "longtaskMs": 0,
+  "longtaskN": 0,
+  "res": 12,
+  "wireBytes": 29524,
+  "decodedBytes": 25624,
+  "runs": 5
+ },
+ "/c_par12.html": {
+  "ttfb": 152,
+  "load": 183,
+  "ready": 621,
+  "longtaskMs": 0,
+  "longtaskN": 0,
+  "res": 12,
+  "wireBytes": 29535,
+  "decodedBytes": 25635,
+  "runs": 5
+ }
+}

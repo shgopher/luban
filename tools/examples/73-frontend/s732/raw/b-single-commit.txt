@@ -1,0 +1,6 @@
+{
+ "rows": 1000,
+ "perRowCommitMs": 28.7,
+ "perRowUs": 28.7,
+ "note": "每条一次隐式事务，含一次 WAL 提交"
+}

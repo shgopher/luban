@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>MF shared</title>
+<style>body{font:14px/1.5 -apple-system,sans-serif;margin:16px}</style></head><body>
+<!-- 共享依赖只加载一次，子应用只带业务代码 -->
+<div id="a"></div><div id="b"></div>
+<script src="shared-lib.js"></script>
+<script src="a.js"></script>
+<script src="b.js"></script></body></html>
