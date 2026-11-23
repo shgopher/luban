@@ -1,0 +1,84 @@
+Pager usage is off.
+CREATE SCHEMA
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+===== 对照：只有一个租户 schema 的库（同样 3 张表）=====
+ info_schema_tables 
+--------------------
+                212
+(1 row)
+
+B1 information_schema.tables 全量扫描
+                                                                                                                                            QUERY PLAN                                                                                                                                            
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=69.45..69.46 rows=1 width=8) (actual time=0.395..0.396 rows=1 loops=1)
+   ->  Hash Left Join  (cost=34.28..69.18 rows=110 width=0) (actual time=0.285..0.379 rows=212 loops=1)
+         Hash Cond: (c.reloftype = t.oid)
+         ->  Hash Join  (cost=1.09..34.47 rows=110 width=4) (actual time=0.017..0.094 rows=212 loops=1)
+               Hash Cond: (c.relnamespace = nc.oid)
+               ->  Seq Scan on pg_class c  (cost=0.00..32.59 rows=147 width=8) (actual time=0.005..0.062 rows=212 loops=1)
+                     Filter: ((relkind = ANY ('{r,v,f,p}'::"char"[])) AND (pg_has_role(relowner, 'USAGE'::text) OR has_table_privilege(oid, 'SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER'::text) OR has_any_column_privilege(oid, 'SELECT, INSERT, UPDATE, REFERENCES'::text)))
+                     Rows Removed by Filter: 211
+               ->  Hash  (cost=1.05..1.05 rows=3 width=4) (actual time=0.007..0.007 rows=5 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                     ->  Seq Scan on pg_namespace nc  (cost=0.00..1.05 rows=3 width=4) (actual time=0.001..0.002 rows=5 loops=1)
+                           Filter: (NOT pg_is_other_temp_schema(oid))
+         ->  Hash  (cost=25.53..25.53 rows=613 width=4) (actual time=0.263..0.263 rows=619 loops=1)
+               Buckets: 1024  Batches: 1  Memory Usage: 30kB
+               ->  Hash Join  (cost=1.09..25.53 rows=613 width=4) (actual time=0.036..0.134 rows=619 loops=1)
+                     Hash Cond: (t.typnamespace = nt.oid)
+                     ->  Seq Scan on pg_type t  (cost=0.00..21.13 rows=613 width=8) (actual time=0.001..0.033 rows=619 loops=1)
+                     ->  Hash  (cost=1.04..1.04 rows=4 width=4) (actual time=0.020..0.020 rows=5 loops=1)
+                           Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                           ->  Seq Scan on pg_namespace nt  (cost=0.00..1.04 rows=4 width=4) (actual time=0.002..0.003 rows=5 loops=1)
+ Planning Time: 0.273 ms
+ Execution Time: 0.451 ms
+(22 rows)
+
+B2 information_schema.tables 精确到单个 schema
+                                                                                                                                         QUERY PLAN                                                                                                                                         
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Hash Left Join  (cost=34.27..68.16 rows=37 width=64) (actual time=0.209..0.273 rows=3 loops=1)
+   Hash Cond: (c.reloftype = t.oid)
+   ->  Hash Join  (cost=1.07..34.45 rows=37 width=68) (actual time=0.043..0.106 rows=3 loops=1)
+         Hash Cond: (c.relnamespace = nc.oid)
+         ->  Seq Scan on pg_class c  (cost=0.00..32.59 rows=147 width=72) (actual time=0.011..0.063 rows=212 loops=1)
+               Filter: ((relkind = ANY ('{r,v,f,p}'::"char"[])) AND (pg_has_role(relowner, 'USAGE'::text) OR has_table_privilege(oid, 'SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER'::text) OR has_any_column_privilege(oid, 'SELECT, INSERT, UPDATE, REFERENCES'::text)))
+               Rows Removed by Filter: 211
+         ->  Hash  (cost=1.06..1.06 rows=1 width=4) (actual time=0.013..0.014 rows=1 loops=1)
+               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+               ->  Seq Scan on pg_namespace nc  (cost=0.00..1.06 rows=1 width=4) (actual time=0.003..0.003 rows=1 loops=1)
+                     Filter: ((NOT pg_is_other_temp_schema(oid)) AND (nspname = 't_0042'::name))
+                     Rows Removed by Filter: 4
+   ->  Hash  (cost=25.53..25.53 rows=613 width=4) (actual time=0.163..0.163 rows=619 loops=1)
+         Buckets: 1024  Batches: 1  Memory Usage: 30kB
+         ->  Hash Join  (cost=1.09..25.53 rows=613 width=4) (actual time=0.010..0.110 rows=619 loops=1)
+               Hash Cond: (t.typnamespace = nt.oid)
+               ->  Seq Scan on pg_type t  (cost=0.00..21.13 rows=613 width=8) (actual time=0.001..0.033 rows=619 loops=1)
+               ->  Hash  (cost=1.04..1.04 rows=4 width=4) (actual time=0.005..0.005 rows=5 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                     ->  Seq Scan on pg_namespace nt  (cost=0.00..1.04 rows=4 width=4) (actual time=0.001..0.001 rows=5 loops=1)
+ Planning Time: 0.237 ms
+ Execution Time: 0.316 ms
+(22 rows)
+
+B3 pg_class 按 schema 点查
+                                             QUERY PLAN                                             
+----------------------------------------------------------------------------------------------------
+ Seq Scan on pg_class  (cost=0.00..20.20 rows=1 width=64) (actual time=0.003..0.092 rows=6 loops=1)
+   Filter: (relnamespace = (to_regnamespace('t_0042'::text))::oid)
+   Rows Removed by Filter: 417
+ Planning Time: 0.042 ms
+ Execution Time: 0.095 ms
+(5 rows)
+
+B4 单租户业务查询（空表 count）
+                                                QUERY PLAN                                                
+----------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=27.00..27.01 rows=1 width=8) (actual time=0.003..0.004 rows=1 loops=1)
+   ->  Seq Scan on orders  (cost=0.00..23.60 rows=1360 width=0) (actual time=0.001..0.001 rows=0 loops=1)
+ Planning Time: 0.156 ms
+ Execution Time: 0.011 ms
+(4 rows)
+

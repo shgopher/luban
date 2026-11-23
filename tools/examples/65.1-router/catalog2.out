@@ -1,0 +1,242 @@
+Pager usage is off.
+===== 阶段 B：3000 个租户 schema，分 30 批（每批 100 个）=====
+Timing is on.
+DO
+Time: 22.427 ms
+Timing is off.
+-- 批 01（100 个 schema）
+Timing is on.
+DO
+Time: 636.194 ms
+Timing is off.
+-- 批 02（100 个 schema）
+Timing is on.
+DO
+Time: 543.152 ms
+Timing is off.
+-- 批 03（100 个 schema）
+Timing is on.
+DO
+Time: 654.700 ms
+Timing is off.
+-- 批 04（100 个 schema）
+Timing is on.
+DO
+Time: 549.109 ms
+Timing is off.
+-- 批 05（100 个 schema）
+Timing is on.
+DO
+Time: 584.384 ms
+Timing is off.
+-- 批 06（100 个 schema）
+Timing is on.
+DO
+Time: 794.885 ms
+Timing is off.
+-- 批 07（100 个 schema）
+Timing is on.
+DO
+Time: 728.790 ms
+Timing is off.
+-- 批 08（100 个 schema）
+Timing is on.
+DO
+Time: 579.623 ms
+Timing is off.
+-- 批 09（100 个 schema）
+Timing is on.
+DO
+Time: 558.680 ms
+Timing is off.
+-- 批 10（100 个 schema）
+Timing is on.
+DO
+Time: 628.463 ms
+Timing is off.
+-- 批 11（100 个 schema）
+Timing is on.
+DO
+Time: 581.278 ms
+Timing is off.
+-- 批 12（100 个 schema）
+Timing is on.
+DO
+Time: 478.753 ms
+Timing is off.
+-- 批 13（100 个 schema）
+Timing is on.
+DO
+Time: 570.497 ms
+Timing is off.
+-- 批 14（100 个 schema）
+Timing is on.
+DO
+Time: 533.863 ms
+Timing is off.
+-- 批 15（100 个 schema）
+Timing is on.
+DO
+Time: 680.333 ms
+Timing is off.
+-- 批 16（100 个 schema）
+Timing is on.
+DO
+Time: 696.642 ms
+Timing is off.
+-- 批 17（100 个 schema）
+Timing is on.
+DO
+Time: 644.335 ms
+Timing is off.
+-- 批 18（100 个 schema）
+Timing is on.
+DO
+Time: 643.695 ms
+Timing is off.
+-- 批 19（100 个 schema）
+Timing is on.
+DO
+Time: 1348.119 ms (00:01.348)
+Timing is off.
+-- 批 20（100 个 schema）
+Timing is on.
+DO
+Time: 568.898 ms
+Timing is off.
+-- 批 21（100 个 schema）
+Timing is on.
+DO
+Time: 597.178 ms
+Timing is off.
+-- 批 22（100 个 schema）
+Timing is on.
+DO
+Time: 565.191 ms
+Timing is off.
+-- 批 23（100 个 schema）
+Timing is on.
+DO
+Time: 615.161 ms
+Timing is off.
+-- 批 24（100 个 schema）
+Timing is on.
+DO
+Time: 886.546 ms
+Timing is off.
+-- 批 25（100 个 schema）
+Timing is on.
+DO
+Time: 671.482 ms
+Timing is off.
+-- 批 26（100 个 schema）
+Timing is on.
+DO
+Time: 591.168 ms
+Timing is off.
+-- 批 27（100 个 schema）
+Timing is on.
+DO
+Time: 663.596 ms
+Timing is off.
+-- 批 28（100 个 schema）
+Timing is on.
+DO
+Time: 871.898 ms
+Timing is off.
+-- 批 29（100 个 schema）
+Timing is on.
+DO
+Time: 745.201 ms
+Timing is off.
+===== 阶段 C：建完之后同样的查询 =====
+ pg_class_rows | schemas | pg_attribute_rows 
+---------------+---------+-------------------
+         29423 |    2905 |            148158
+(1 row)
+
+ info_schema_tables 
+--------------------
+               8912
+(1 row)
+
+ info_schema_columns 
+---------------------
+               22362
+(1 row)
+
+-- C1 information_schema.tables 全量扫描
+                                                                                                                                            QUERY PLAN                                                                                                                                            
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Aggregate  (cost=3576.96..3576.97 rows=1 width=8) (actual time=12.231..12.234 rows=1 loops=1)
+   ->  Hash Left Join  (cost=1203.19..3567.22 rows=3899 width=0) (actual time=6.666..11.808 rows=8912 loops=1)
+         Hash Cond: (c.reloftype = t.oid)
+         ->  Hash Join  (cost=108.44..2418.85 rows=3899 width=4) (actual time=0.880..5.368 rows=8912 loops=1)
+               Hash Cond: (c.relnamespace = nc.oid)
+               ->  Seq Scan on pg_class c  (cost=0.00..2295.03 rows=5849 width=8) (actual time=0.005..3.561 rows=8912 loops=1)
+                     Filter: ((relkind = ANY ('{r,v,f,p}'::"char"[])) AND (pg_has_role(relowner, 'USAGE'::text) OR has_table_privilege(oid, 'SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER'::text) OR has_any_column_privilege(oid, 'SELECT, INSERT, UPDATE, REFERENCES'::text)))
+                     Rows Removed by Filter: 20511
+               ->  Hash  (cost=85.06..85.06 rows=1870 width=4) (actual time=0.872..0.873 rows=2905 loops=1)
+                     Buckets: 4096 (originally 2048)  Batches: 1 (originally 1)  Memory Usage: 135kB
+                     ->  Seq Scan on pg_namespace nc  (cost=0.00..85.06 rows=1870 width=4) (actual time=0.002..0.604 rows=2905 loops=1)
+                           Filter: (NOT pg_is_other_temp_schema(oid))
+         ->  Hash  (cost=884.52..884.52 rows=16819 width=4) (actual time=5.717..5.718 rows=18019 loops=1)
+               Buckets: 32768  Batches: 1  Memory Usage: 890kB
+               ->  Hash Join  (cost=113.11..884.52 rows=16819 width=4) (actual time=0.403..3.783 rows=18019 loops=1)
+                     Hash Cond: (t.typnamespace = nt.oid)
+                     ->  Seq Scan on pg_type t  (cost=0.00..727.19 rows=16819 width=8) (actual time=0.001..1.200 rows=18019 loops=1)
+                     ->  Hash  (cost=78.05..78.05 rows=2805 width=4) (actual time=0.392..0.393 rows=2905 loops=1)
+                           Buckets: 4096  Batches: 1  Memory Usage: 135kB
+                           ->  Seq Scan on pg_namespace nt  (cost=0.00..78.05 rows=2805 width=4) (actual time=0.001..0.155 rows=2905 loops=1)
+ Planning Time: 0.273 ms
+ Execution Time: 12.419 ms
+(22 rows)
+
+-- C2 精确到某个 schema 的元数据点查
+                                                                                                                                         QUERY PLAN                                                                                                                                         
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Nested Loop Left Join  (cost=1.26..1424.01 rows=2 width=64) (actual time=0.011..0.012 rows=0 loops=1)
+   ->  Nested Loop  (cost=0.69..1421.92 rows=2 width=68) (actual time=0.011..0.011 rows=0 loops=1)
+         ->  Index Scan using pg_namespace_nspname_index on pg_namespace nc  (cost=0.28..8.30 rows=1 width=4) (actual time=0.011..0.011 rows=0 loops=1)
+               Index Cond: (nspname = 't_0001'::name)
+               Filter: (NOT pg_is_other_temp_schema(oid))
+         ->  Index Scan using pg_class_relname_nsp_index on pg_class c  (cost=0.41..1413.60 rows=2 width=72) (never executed)
+               Index Cond: (relnamespace = nc.oid)
+               Filter: ((relkind = ANY ('{r,v,f,p}'::"char"[])) AND (pg_has_role(relowner, 'USAGE'::text) OR has_table_privilege(oid, 'SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER'::text) OR has_any_column_privilege(oid, 'SELECT, INSERT, UPDATE, REFERENCES'::text)))
+   ->  Nested Loop  (cost=0.57..1.04 rows=1 width=4) (never executed)
+         ->  Index Scan using pg_type_oid_index on pg_type t  (cost=0.29..0.74 rows=1 width=8) (never executed)
+               Index Cond: (oid = c.reloftype)
+         ->  Index Only Scan using pg_namespace_oid_index on pg_namespace nt  (cost=0.28..0.30 rows=1 width=4) (never executed)
+               Index Cond: (oid = t.typnamespace)
+               Heap Fetches: 0
+ Planning Time: 0.365 ms
+ Execution Time: 0.041 ms
+(16 rows)
+
+-- C3 单 schema 的 catalog 点查
+                                                                  QUERY PLAN                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------
+ Index Only Scan using pg_class_relname_nsp_index on pg_class  (cost=0.41..1377.99 rows=1 width=64) (actual time=0.005..0.005 rows=0 loops=1)
+   Index Cond: (relnamespace = (to_regnamespace('t_0001'::text))::oid)
+   Heap Fetches: 0
+ Planning Time: 0.050 ms
+ Execution Time: 0.011 ms
+(5 rows)
+
+-- C4 单个租户库内业务查询（表是空的）
+-- C5 库大小
+psql:/tmp/catalog2.sql:133: ERROR:  relation "t_0042.orders" does not exist
+LINE 1: ...plain (analyze, format text) select count(*) from t_0042.ord...
+                                                             ^
+ db_size 
+---------
+ 200 MB
+(1 row)
+
+-- C6 再建一个租户 schema 的 DDL 耗时
+Timing is on.
+CREATE SCHEMA
+Time: 0.678 ms
+CREATE TABLE
+Time: 2.085 ms
+Timing is off.

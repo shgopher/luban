@@ -1,0 +1,27 @@
+① 四级继承：平台默认 → 套餐 → 租户 → 用户
+配置项           生效值                     来源层
+region           eu                       租户(T1042)
+retention_days   90                       平台默认
+sso              true                     套餐(pro)
+sso_meta         https://idp.example.com  套餐(pro)
+timeout_s        120                      用户(u7)
+
+② 校验（fail-closed：失败就拒绝落库，不回落平台默认）
+   T1042 的生效配置：校验通过
+   拒绝: region="eu-west" 不在枚举 {cn,eu,us}
+   拒绝: timeout_s=600 越界 [1,300]
+   拒绝: sso=true 但缺 sso_meta（跨字段依赖）
+
+③ config_version 迁移链（v1 → v3）
+   T1042 原始 v1: region=cn-north timeout_s=45(string)
+   v1→v2: region 重命名映射 + timeout_s 字符串转数字 + 补 sso=false
+   v2→v3: 新增 retention_days=90（默认值，不覆盖已有值）
+   迁移结果 v3: region=cn timeout_s=45(float64) sso=false retention_days=90
+   校验: 通过
+
+   T2211 迁移停链: v1→v2 无法自动迁移：region="xx" 没有映射规则，停链
+   已执行步骤数: 0 → 原配置不动，进人工迁移队列
+
+④ 旧平台遇到新配置：拒绝加载，不猜默认值（fail-closed）
+   平台认识 config_version ≤ 2，租户是 v3 → 返回错误、租户留在旧平台
+   这解释了版本矩阵里为什么每个平台版本都有一个 C 上限

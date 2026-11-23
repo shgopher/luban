@@ -1,0 +1,6 @@
+目标连接数 30000，实际建立 5118 条，用时 380ms
+第 5119 条失败：dial tcp 127.0.0.1:57518: socket: too many open files
+进程 RSS：4064 KB -> 17328 KB，增量 13264 KB，平均每条连接 2.6 KB
+平均建连 74.2 µs/条
+RLIMIT_NOFILE 软限制=10240（每条连接在本进程内占 2 个 fd：客户端 + 服务端）
+再打开 1 条连接：失败 dial tcp 127.0.0.1:57518: socket: too many open files

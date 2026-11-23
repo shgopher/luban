@@ -1,0 +1,11 @@
+环境：纯标准库；租户 t-001 共 12347 行，每页 5000 行，快照上限 maxID=12347
+全量 part1 rows=5000  sha256[:8]=d579a9e6e9c76953 lastID=5000
+全量 part2 rows=5000  sha256[:8]=0ac9165f28ca5074 lastID=10000
+全量 part3 rows=2347  sha256[:8]=28da184021032be9 lastID=12347
+
+中断于 part2 后，从 lastID=10000 续传：rows=2347 sha256[:8]=28da184021032be9 与全量 part3 一致=true
+同一分页请求重投两次 sha256[:8]=28da184021032be9 / 28da184021032be9 一致=true（接收端按 (export_id,part) 覆盖写，不会翻倍）
+
+导出期间回填 3 行（12347 → 12350 行）
+offset 分页重取 part3：重复行=3、漏行=0（回填行把游标往后挤）
+keyset(带 snapshotMax) 重取 part3：重复行=0、漏行=0（回填行不在本次快照内）

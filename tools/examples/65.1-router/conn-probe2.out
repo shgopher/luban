@@ -1,0 +1,13 @@
+基线：postgres 进程总 RSS=69236 KB，当前连接数=6，max_connections=100
+打开 90 条应用连接后：VmRSS 合计=1381892 KB（含共享内存重复计入），RssAnon 合计=238652 KB，RssShmem 合计=461384 KB，app 连接数=90
+单连接私有内存 ≈ 2504 KB（RssAnon 增量 / 90）
+再申请 130 条连接：成功 7 条，失败 123 条
+失败报错原文：psql: error: connection to server at "127.0.0.1", port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+此刻连接数：6
+连接释放后：VmRSS=69236 KB，RssAnon=13292 KB
+===== 同一份 information_schema 查询，换成无授权的 app 角色 =====
+Timing is on.
+189
+Time: 333.785 ms
+--- 超级用户 postgres 口径 ---
+9210

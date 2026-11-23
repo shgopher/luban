@@ -1,0 +1,2 @@
+error getting credentials - err: exit status 1, out: `Keychain Error. (-67674)`
+EXIT=1

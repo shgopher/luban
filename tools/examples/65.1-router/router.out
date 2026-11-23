@@ -1,0 +1,12 @@
+| 请求租户 | 解析出的数据源 | 结果 |
+|---|---|---|
+| t-001 | pool-a | ✅ 路由 |
+| t-002 | pool-a | ✅ 路由 |
+| t-003 | dedicated-9 | ✅ 路由 |
+| t-004 | （无） | ⛔ no route for tenant: fail closed: t-004 state=migrating |
+| t-005 | （无） | ⛔ no route for tenant: fail closed: t-005 |
+
+收到变更通知后 t-003 -> pool-b（不依赖 TTL 过期）
+缓存命中 200000 次共耗时 23.2ms，单次 116ns
+缓存未命中（回源 2ms 模拟）单次 2.269037ms，是命中的 19561 倍
+命中率 0.9990（199999 命中 / 207 回源）
