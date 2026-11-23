@@ -4,6 +4,9 @@
 node_modules
 go.mod
 go.sum
+# 书稿配套的可运行示例是独立模块，要能提交
+!tools/examples/**/go.mod
+!tools/examples/**/go.sum
 .temp
 .cache
 dist
