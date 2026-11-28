@@ -42,6 +42,8 @@ func sumAny(xs []any) int64 {
 }
 
 func main() {
+	runParadigm()
+	fmt.Println()
 	fmt.Println("具体类型 []int64   ", testing.Benchmark(func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			sumConcrete(data)

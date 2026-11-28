@@ -1,0 +1,22 @@
+-- COUNT(*) 的索引选择（MySQL 8.0.46）
+DROP DATABASE IF EXISTS sql_count;
+CREATE DATABASE sql_count;
+USE sql_count;
+SET SESSION cte_max_recursion_depth = 10000;
+
+CREATE TABLE big (
+  id  INT PRIMARY KEY AUTO_INCREMENT,
+  k   INT,
+  pad CHAR(200)
+) ENGINE=InnoDB;
+
+INSERT INTO big (k, pad)
+WITH RECURSIVE seq(n) AS (
+  SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n < 3000
+)
+SELECT n % 100, REPEAT('x', 200) FROM seq;
+
+CREATE INDEX idx_k ON big(k);
+ANALYZE TABLE big;
+
+EXPLAIN SELECT COUNT(*) FROM big;

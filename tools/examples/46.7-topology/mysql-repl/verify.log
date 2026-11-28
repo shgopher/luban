@@ -1,0 +1,57 @@
+== 实例 ==
+primary server_id=1 gtid=ON binlog=ROW sync_binlog=1
+replica server_id=2 read_only=1 super_read_only=0
+== 复制链路 ==
+                  Source_Host: db-primary
+           Replica_IO_Running: Yes
+          Replica_SQL_Running: Yes
+        Seconds_Behind_Source: 0
+                Auto_Position: 1
+== A. 本机回环：写后立刻读从库 20 次（正常复制）==
+  #01 可见=1 读到的那一刻该行已存在 34.5 ms
+  #02 可见=1 读到的那一刻该行已存在 28.8 ms
+  #03 可见=1 读到的那一刻该行已存在 35.4 ms
+  #04 可见=1 读到的那一刻该行已存在 27.0 ms
+  #05 可见=1 读到的那一刻该行已存在 27.2 ms
+  #06 可见=1 读到的那一刻该行已存在 25.3 ms
+  #07 可见=1 读到的那一刻该行已存在 25.2 ms
+  #08 可见=1 读到的那一刻该行已存在 27.6 ms
+  #09 可见=1 读到的那一刻该行已存在 34.5 ms
+  #10 可见=1 读到的那一刻该行已存在 25.4 ms
+  #11 可见=1 读到的那一刻该行已存在 25.4 ms
+  #12 可见=1 读到的那一刻该行已存在 27.4 ms
+  #13 可见=1 读到的那一刻该行已存在 26.0 ms
+  #14 可见=1 读到的那一刻该行已存在 25.5 ms
+  #15 可见=1 读到的那一刻该行已存在 24.3 ms
+  #16 可见=1 读到的那一刻该行已存在 27.0 ms
+  #17 可见=1 读到的那一刻该行已存在 30.1 ms
+  #18 可见=1 读到的那一刻该行已存在 25.6 ms
+  #19 可见=1 读到的那一刻该行已存在 25.7 ms
+  #20 可见=1 读到的那一刻该行已存在 24.1 ms
+  → 20 次里写完立刻读不到的次数：0
+== B. 人为停掉回放线程：制造滞后，看「传输到了但看不见」==
+  主库最新 5 条：1001.00,1002.00,1003.00,1004.00,1005.00
+  从库读到：      (空)
+  从库 IO 线程：  Retrieved=1-6
+  --- 恢复回放 ---
+  回放 5 条积压事务耗时：55 ms，之后从库读到 5 条
+== C. 大事务：一次提交 20 万行，测后续提交的可见延迟 ==
+  主库行数=200025
+  大事务之后那条插入：commit → 从库可见 = 782 ms
+  Seconds_Behind_Source=1
+  Seconds_Behind_Source=0
+  Seconds_Behind_Source=0
+  Seconds_Behind_Source=0
+  Seconds_Behind_Source=0
+  Seconds_Behind_Source=0
+== D. read_only / super_read_only 挡不挡得住手写 ==
+  read_only=ON：root 写入成功（照写不误）
+  从库多出的本地 GTID 段：\ncf1a8d16-eae4-11f1-8be9-5ee4fda101e4:1-7
+  super_read_only=ON：ERROR 1290 (HY000) at line 1: The MySQL server is running with the --super-read-only option so it cannot execute this statement
+== E. 从库不是备份：主库 DROP TABLE，从库跟着没 ==
+  删表前从库行数=2
+  删表后从库：ERROR 1146 (42S02) at line 1: Table 'app.t_drop' doesn't exist
+== F. 切换演练：追平 + 提升 + 可写（数据侧 RTO）==
+  停止复制+清配置+解除只读+写入成功 = 43 ms
+  新主已可写，查到行数=1
+[cleanup] containers removed

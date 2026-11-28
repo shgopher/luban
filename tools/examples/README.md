@@ -7,6 +7,7 @@
 | [0.12 过度设计与模式反模式](../../v2/内功/0-内功/0.12-过度设计与模式反模式.md) | `0.12-price/` | `go test ./bencher -bench . -benchmem -count=3` | 计价三版 18/18/29 行的分派与分配 |
 | 同上（后半段） | `0.12-orderid/` | `go test -race ./...`；`go test -tags v0broken -race -run TestV0` | 订单号从无锁到可测的重构；缺陷复现 |
 | [0.14 文本处理范式](../../v2/内功/0-内功/0.14-文本处理范式.md) | `0.14-minitpl/` | `go run .` | 词法 → 语法两段流水线 |
+| [0.16 浮点数的位表示与近似算法](../../v2/内功/0-内功/0.16-浮点数的位表示与近似算法.md) | `0.16-rsqrt/` | `go test -v -run TestAccuracy ./...`；`go test -run '^$' -bench . -benchmem -count=5` | IEEE 754 拆位、魔数误差、位技巧 vs 硬件开方 |
 | [67.2 幂等与防重](../../v2/L4-组件与技术/67-交易与账务/67.2-幂等与防重.md) | `67.2-idem/` | `go run .` | 同一幂等键的二次请求返回首次结果 |
 | [67.5 资金安全与风控联动](../../v2/L4-组件与技术/67-交易与账务/67.5-资金安全与风控联动.md) | `67.5-riskrule/` | `go run .` | 规则短路与命中记录 |
 | [68.3 实时特征与决策](../../v2/L4-组件与技术/68-风控/68.3-实时特征与决策.md) | `68.3-featurewin/` | `go run .` | 滑动窗口特征 |
@@ -88,6 +89,10 @@
 | [25.5 分布式快照](../../v2/L1-分布式原理/25-并发、冲突与幂等/25.5-分布式快照.md) | `25.5-snapshot/` | `go run .` | FIFO / 非 FIFO 两组快照 |
 | [10.6 元数据管理与副本放置](../../v2/L0-运行时底座/10-存储基础设施/10.6-元数据管理与副本放置.md) | `10.6-replica-placement/` | `go run .` | 副本放置的组合概率 |
 | [9.6 边缘计算模型](../../v2/L0-运行时底座/9-CDN与边缘/9.6-边缘计算模型.md) | `9.6-edge-model/` | `go run .` | 边缘比例与回源带宽 |
+| [15.3 内存分配与逃逸分析](../../v2/L0-运行时底座/15-语言运行时/15.3-内存分配与逃逸分析.md) | `15.3-alloc/` | `go test -run '^$' -bench . -benchmem -count=3` | 栈/堆、预分配、拼接的分配账 |
+| [15.6 并发原语 (channel / context / sync)](../../v2/L0-运行时底座/15-语言运行时/15.6-并发原语.md) | `15.6-concurrency/` | `go run .`；`go test -run '^$' -bench . -benchmem -count=3` | channel 五用法、原语单价、分片缓存行 |
+| [15.10 给新时代的 Go 编程](../../v2/L0-运行时底座/15-语言运行时/15.10-给新时代的Go编程.md) | `15.10-modern-go/` | `go run .`；`go test ./...` | 版本门禁与 go fix 迁移 |
+| [15.12 Go 语义陷阱：编译器不报的 11 个错](../../v2/L0-运行时底座/15-语言运行时/15.12-Go语义陷阱.md) | `15.12-go-semantics/` | `go run .`；`go test -race ./...`；`go test -run '^$' -bench . -benchmem -count=3` | 11 个语义坑、slice/string 内存实测、oldloop 对照 |
 | [2.2 业务流程建模](../../v2/需求/2-业务与领域建模/2.2-业务流程建模.md) | `2.2-bpmn-path/` | `python3 path_cost.py` | BPMN 路径期望时长 |
 | [2.4 从业务模型到系统边界](../../v2/需求/2-业务与领域建模/2.4-从业务模型到系统边界.md) | `2.4-coupling/` | `python3 coupling.py` | 切边界后的耦合账 |
 | [18.6 脑裂与防护](../../v2/L1-分布式原理/18-数据复制/18.6-脑裂与防护.md) | `18.6-fencing/` | `python3 sim.py` | fencing 与重复入账 |
@@ -111,6 +116,25 @@
 | [78.4 跨团队协作与接口人](../../v2/组织/78-技术组织设计/78.4-跨团队协作与接口人.md) | `78.4-interface-cost/` | `go run .` | 接口人数量与响应时间 |
 | [82.4 原型验证](../../v2/附录/82-架构设计方法/82.4-原型验证.md) | `82.4-prototype-roi/` | `go run .` | 原型的回本点 |
 | [64.10 多 Agent 编排](../../v2/L4-组件与技术/64-机器学习系统/64.10-多Agent编排.md) | [`64.10-agent-orchestration/`](64.10-agent-orchestration/README.md) | `docker build -t luban-64.10-agent . && docker run --rm luban-64.10-agent` | worktree 隔离 + tmux 会话托管 + 状态盲区 |
+
+| [36.5 单元化 / Set 化架构](../../v2/L3-质量属性/36-灾备/36.5-单元化-Set化架构.md) | [`36.5-cellfit/`](36.5-cellfit/README.md) | `go run .`；`go test ./...` | 五道门：爆炸半径 / P99 税 / 回本 |
+| [46.7 数据库的架构定位与部署拓扑选型](../../v2/L4-组件与技术/46-数据架构/46.7-数据库架构定位与部署拓扑选型.md) | [`46.7-topology/`](46.7-topology/README.md) | `go run .`；`go test ./...`；`mysql-repl/verify.sh`（Docker） | 七种拓扑的容量、成本与 RTO 账 |
+| [44.7 SQL 与查询优化](../../v2/L4-组件与技术/44-数据库/44.7-SQL与查询优化.md) | [`44.7-sql-semantics/`](44.7-sql-semantics/README.md) | `mysql < verify.sql`（Docker 起 mysql:8.0，见 README） | `COUNT` 的 NULL、`GROUP BY` 的 NULL 组、`HAVING` 别名、`CAST` 与字符长度 |
+| [44.10 事务与隔离级别](../../v2/L4-组件与技术/44-数据库/44.10-事务与隔离级别.md) | [`44.10-mvcc-lab/`](44.10-mvcc-lab/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | RR/RC 可见性、一致性快照、幻读、长事务与 HLL；连续 BEGIN/SAVEPOINT |
+| [44.7 SQL 与查询优化](../../v2/L4-组件与技术/44-数据库/44.7-SQL与查询优化.md) | [`44.7-join-lab/`](44.7-join-lab/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | NLJ / hash join / Simple NLJ 的耗时差、`straight_join` 反转顺序、`ON` vs `WHERE`、MRR 与 BKA |
+| [44.8 索引原理](../../v2/L4-组件与技术/44-数据库/44.8-索引原理.md) | [`44.8-index-lab/`](44.8-index-lab/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 页分裂与页利用率、覆盖索引与 ICP、ORDER BY 走索引、change buffer merge |
+| [44.11 锁](../../v2/L4-组件与技术/44-数据库/44.11-锁.md) | [`44.11-lock-lab/`](44.11-lock-lab/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | `data_locks` 里的加锁范围、唯一键冲突死锁、`insert ... select` 源表锁、`limit` 缩锁 |
+| [44.13 主从复制与读写分离](../../v2/L4-组件与技术/44-数据库/44.13-主从复制与读写分离.md) | [`44.13-repl-lab/`](44.13-repl-lab/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | GTID 与位点、`select 1` 判活的盲区、大事务 binlog 体量 |
+| [44.25 MySQL 运维与故障处置](../../v2/L4-组件与技术/44-数据库/44.25-MySQL运维与故障处置.md) | [`44.25-mysql-ops-lab/`](44.25-mysql-ops-lab/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 自增跳号的三类原因、`int unsigned` 到顶报 1062、`grant`/`flush privileges` 与老连接 |
+| [44.26 一条 SQL 的一生](../../v2/L4-组件与技术/44-数据库/44.26-MySQL一条SQL的一生.md) | [`44.26-mysql-lifecycle/`](44.26-mysql-lifecycle/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 一个事务的 binlog 事件序列、四个 LSN、双 1 与 `rows_examined` |
+| [44.27 表空间与在线 DDL](../../v2/L4-组件与技术/44-数据库/44.27-InnoDB表空间与在线DDL.md) | [`44.27-mysql-space/`](44.27-mysql-space/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 页空洞与 `OPTIMIZE` 回收、`ALGORITHM=INSTANT/INPLACE` 边界、分区裁剪、复制一张表的四条路 |
+| [44.28 慢 SQL 案例集](../../v2/L4-组件与技术/44-数据库/44.28-MySQL慢SQL案例集.md) | [`44.28-mysql-slowsql/`](44.28-mysql-slowsql/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 隐式转换、函数包列、前缀索引区分度、`count` 四写法、`ORDER BY` 落盘、随机消息 |
+| [44.29 临时表与 Memory 引擎](../../v2/L4-组件与技术/44-数据库/44.29-临时表与Memory引擎.md) | [`44.29-mysql-temptable/`](44.29-mysql-temptable/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 临时表重名与 `table_def_key`、内部临时表落盘、Memory 定长浪费与重启丢数据 |
+| [44.30 应急手册](../../v2/L4-组件与技术/44-数据库/44.30-MySQL应急手册.md) | [`44.30-mysql-emergency/`](44.30-mysql-emergency/README.md) | `bash code/run.sh`（Docker 起 mysql:8.0，见 README） | 长事务 `ROLLING BACK`、`Sending to client`、并发槽位、`Com_kill`/`Threads_running` 判读 |
+
+| [7.3 Service 与 Ingress](../../v2/L0-运行时底座/7-容器编排/7.3-Service与Ingress.md) | `7.3-service-iptables/` | `kubectl apply -f web.yaml` 后 `iptables-save` 核对 | 3 Endpoint 对应 3 条 SEP 链 / 6 条规则 |
+| [7.18 有状态应用实战](../../v2/L0-运行时底座/7-容器编排/7.18-有状态应用实战-MySQL主从.md) | `7.18-mysql-sts/` | `kubectl apply -f mysql-sts.yaml` | MySQL 8 主从、PVC、扩容 |
+| [7.19 Informer 与控制器工程化](../../v2/L0-运行时底座/7-容器编排/7.19-Informer与控制器工程化.md) | `7.19-informer/` | `go test -v ./...`；`go run .` | WaitForCacheSync / AddRateLimited / Forget |
 
 ## 约定
 

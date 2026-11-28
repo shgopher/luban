@@ -1,0 +1,156 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql-verify
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql
+  namespace: mysql-verify
+data:
+  master.cnf: |
+    [mysqld]
+    log-bin=mysql-bin
+    binlog-format=ROW
+  slave.cnf: |
+    [mysqld]
+    log-bin=mysql-bin
+    binlog-format=ROW
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: mysql-verify
+spec:
+  clusterIP: None
+  selector: {app: mysql}
+  ports:
+    - name: mysql
+      port: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-read
+  namespace: mysql-verify
+spec:
+  selector: {app: mysql}
+  ports:
+    - name: mysql
+      port: 3306
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: mysql-verify
+spec:
+  serviceName: mysql
+  replicas: 3
+  selector:
+    matchLabels: {app: mysql}
+  template:
+    metadata:
+      labels: {app: mysql}
+    spec:
+      initContainers:
+        - name: init-mysql
+          image: mysql:8.0
+          command: ["bash", "-c"]
+          args:
+            - |
+              set -ex
+              [[ "$HOSTNAME" =~ -([0-9]+)$ ]] || exit 1
+              ordinal=${BASH_REMATCH[1]}
+              echo [mysqld] > /mnt/conf.d/server-id.cnf
+              echo server-id=$((100 + ordinal)) >> /mnt/conf.d/server-id.cnf
+              if [[ $ordinal -eq 0 ]]; then
+                cp /mnt/config-map/master.cnf /mnt/conf.d/
+              else
+                cp /mnt/config-map/slave.cnf /mnt/conf.d/
+              fi
+          volumeMounts:
+            - {name: conf, mountPath: /mnt/conf.d}
+            - {name: config-map, mountPath: /mnt/config-map}
+        - name: clone-mysql
+          image: mysql:8.0
+          command: ["bash", "-c"]
+          args:
+            - |
+              set -ex
+              [[ -d /var/lib/mysql/mysql ]] && exit 0
+              [[ "$HOSTNAME" =~ -([0-9]+)$ ]] || exit 1
+              ordinal=${BASH_REMATCH[1]}
+              [[ $ordinal -eq 0 ]] && exit 0
+              PREV=mysql-0.mysql
+              until mysql -h "$PREV" -uroot -e "SELECT 1 FROM test.messages LIMIT 1" >/dev/null 2>&1; do sleep 2; done
+              until mysql -h "$PREV" -uroot -e "SELECT 1 FROM mysql.user WHERE user='repl'" >/dev/null 2>&1; do sleep 2; done
+              mysqldump -h "$PREV" -uroot --single-transaction --source-data=2 --set-gtid-purged=OFF --databases test > /seed/dump.sql
+              grep -q 'CHANGE MASTER TO' /seed/dump.sql
+          volumeMounts:
+            - {name: data, mountPath: /var/lib/mysql}
+            - {name: seed, mountPath: /seed}
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          env:
+            - {name: MYSQL_ALLOW_EMPTY_PASSWORD, value: "1"}
+            - {name: MYSQL_ROOT_HOST, value: "%"}
+          ports:
+            - {name: mysql, containerPort: 3306}
+          volumeMounts:
+            - {name: data, mountPath: /var/lib/mysql}
+            - {name: conf, mountPath: /etc/mysql/conf.d}
+          resources:
+            requests: {cpu: 200m, memory: 512Mi}
+          livenessProbe:
+            exec: {command: ["mysqladmin", "ping", "-h", "127.0.0.1", "-uroot"]}
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          readinessProbe:
+            exec: {command: ["mysql", "-h", "127.0.0.1", "-uroot", "-e", "SELECT 1"]}
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 5
+        - name: repl-init
+          image: mysql:8.0
+          command: ["bash", "-c"]
+          args:
+            - |
+              set -e
+              ORDINAL=${HOSTNAME##*-}
+              until mysql -h127.0.0.1 -uroot -e 'SELECT 1' >/dev/null 2>&1; do sleep 1; done
+              if [ "$ORDINAL" = "0" ]; then
+                mysql -h127.0.0.1 -uroot -e "
+                  CREATE DATABASE IF NOT EXISTS test;
+                  CREATE TABLE IF NOT EXISTS test.messages (id INT AUTO_INCREMENT PRIMARY KEY, message VARCHAR(250));
+                  INSERT INTO test.messages (message) SELECT 'hello' WHERE NOT EXISTS (SELECT 1 FROM test.messages);
+                  CREATE USER IF NOT EXISTS 'repl'@'%' IDENTIFIED WITH mysql_native_password BY 'replpass';
+                  GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';"
+              else
+                if [ ! -f /var/lib/mysql/.replicated ] && [ -s /seed/dump.sql ]; then
+                  mysql -h127.0.0.1 -uroot < /seed/dump.sql
+                  LINE=$(grep -m1 '^-- CHANGE MASTER TO ' /seed/dump.sql | sed 's/^-- //')
+                  [ -n "$LINE" ] || { echo "no binlog position in dump"; exit 1; }
+                  STMT=$(printf '%s' "$LINE" | sed "s/CHANGE MASTER TO /CHANGE MASTER TO MASTER_HOST='mysql-0.mysql', MASTER_USER='repl', MASTER_PASSWORD='replpass', /")
+                  { echo "SET GLOBAL super_read_only=OFF;"; echo "$STMT"; echo "START REPLICA;"; echo "SET GLOBAL super_read_only=ON;"; } | mysql -h127.0.0.1 -uroot
+                  touch /var/lib/mysql/.replicated
+                fi
+              fi
+              while true; do sleep 3600; done
+          volumeMounts:
+            - {name: data, mountPath: /var/lib/mysql}
+            - {name: seed, mountPath: /seed}
+      volumes:
+        - {name: conf, emptyDir: {}}
+        - {name: config-map, configMap: {name: mysql}}
+        - {name: seed, emptyDir: {}}
+  volumeClaimTemplates:
+    - metadata: {name: data}
+      spec:
+        accessModes: [ReadWriteOnce]
+        resources: {requests: {storage: 1Gi}}
